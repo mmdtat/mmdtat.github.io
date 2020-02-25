@@ -304,3 +304,18 @@ input[type="checkbox"]:checked ~ .grid {
  max-height: 100%;
  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
+.table{
+	margin: 15px;
+	margin-top: 0px;
+	width: 30%; 
+	float: right; 
+	font-size: 20px; 
+	border: #202d37 2px solid;
+	border-radius: 5%;
+	vertical-align: top;
+	padding: 10px;
+	color: #202d37;
+	padding-top: 0px;
+	font-size: 23px
+	padding-bottom: 15px;
+}
