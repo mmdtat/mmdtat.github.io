@@ -1,0 +1,95 @@
+#al-c {
+ display: table;
+ width: 100%;
+ height: 100%;
+}
+ 
+.container {
+ padding-right:5px;
+ padding-left:5px;
+ margin-right:auto;
+ margin-left:auto;
+ display: table-cell;
+ vertical-align: middle;
+ text-align: center;
+}
+ 
+.effects {
+ list-style:none;
+ margin: 0 auto;
+ width: 100%;
+ text-align: center;
+ padding: 0;
+}
+ 
+.effects li {
+ position: relative;
+ display: inline-block;
+ box-shadow: 1px 3px 1px 0 rgba(0, 0, 0, 0.08);
+ border:1px solid #cfcfcf;
+ background-color: #fff;
+ font: normal 14px sans-serif;
+ margin: 0;
+ border: 5px solid #fff;
+ overflow: hidden;
+ font-family: 'Roboto', sans-serif;
+ font-size: 14px;
+ max-height: 100%;
+}
+ 
+@media (max-width:350px) {
+ .effects li {
+ font-size: 10px;
+ }
+}
+ 
+.effects li img {
+ display: block;
+ position: relative;
+ max-width:100%;
+ height:auto;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+}
+ 
+.effects li > div {
+ width: 100%;
+ height: 100%;
+ position: absolute;
+}
+ 
+.effects li:hover > div {
+ position: absolute;
+ overflow: hidden;
+ top: 0;
+ left: 0;
+}
+ 
+.effects li a {
+ display: inline-block;
+ text-decoration: none;
+ padding: 5px 10px;
+ color: #fff;
+ background: #000;
+ font-size: 90%;
+ transition: all 1s ease-in-out;
+}
+ 
+.effects li a:hover {
+ background: #ff0000;
+ color: #fff;
+}
+ 
+.effects li div {
+ opacity: 0;
+ background-color: rgba(0, 0, 0, 0.15);
+ transition: all 1s ease-in-out;
+ color: #fff;
+ transform: translate(250px, 0px) rotate(0deg);
+}
+ 
+.effects li:hover div {
+ opacity: 1;
+ transform: translate(0px, 0px) rotate(0deg);
+}
