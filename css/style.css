@@ -258,6 +258,11 @@ input[type="checkbox"]:checked + .lightbox {
 input[type="checkbox"]:checked ~ .grid {
  opacity: .125;
 }
+
+.fb-comments{
+	text-align: center;
+	
+}
  
 .grid {
  display: -webkit-box;
