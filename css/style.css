@@ -117,22 +117,30 @@ nav a:hover{
 	width: 20%;
 	height: 20%;
 }
-.projects img{
+.news img{
+	background: #ebf5f7;
 	padding-left: 20px;
 	padding-top: 20px;
 	filter:grayscale(1);
 	transition: 0.5s;
 	transform:scale(1);
 }
-.projects img:hover{
+.news img:hover{
+	background: #ebf5f7;
 	filter:grayscale(0);
 	transform:scale(1.1);
 	position: relative;
 	z-index: 1;
 }
+.news{
+	font-family: 'Comfortaa', cursive;
+	background: #ebf5f7;
+	float: left;
+	padding: 10px;
+}
 main {
 	font-family: 'Comfortaa', cursive;
-	background: #e6edef;
+	background: #ebf5f7;
 	width: 70%;
 	float: left;
 	height: 100%;
