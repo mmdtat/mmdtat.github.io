@@ -138,6 +138,18 @@ nav a:hover{
 	float: left;
 	padding: 10px;
 }
+.dancemenu img{
+	filter:grayscale(1);
+	transition: 0.5s;
+	transform:scale(1);
+}
+.dancemenu img:hover{
+	background: #e6eef0;
+	filter:grayscale(0);
+	transform:scale(1.1);
+	position: relative;
+	z-index: 1;
+}
 main {
 	font-family: 'Comfortaa', cursive;
 	background: #ebf5f7;
@@ -164,6 +176,9 @@ main a{
 	text-align: center;
 	font-size: 30px;
 	padding: 15px;
+}
+#title{
+	font-family: "Times New Roman";
 }
 .laloba{
 	font-family: 'Open Sans', sans-serif;
