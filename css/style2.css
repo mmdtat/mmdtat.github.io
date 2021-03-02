@@ -119,25 +119,38 @@ p {
     height: 900px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: right;
     background: #111 url("../img/header_bg.jpg") no-repeat center / cover;
     padding-top: 200px;
+
 }
 
 .intro__inner{
-    width: 100%;
-    max-width: 900px;
+    float: right;
+    width: 200px;
     margin: 0 auto;
+    display: inline-block; /* Строчно-блочный элемент */
+    background: #fff; /* Белый цвет текста */
+    padding: 30; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+    text-align: center;
+
 }
 
 .intro__title {
+
+
+    background: white;
     margin: 0;
     font-family: 'Century Gothic Regular', sans-serif;
-    font-size: 65pt;
-    color: white;
-    text-align: center;
+    font-size: 40px;
+    color: black;
     font-weight: 300;
+    text-decoration: none;
 }
+
+
 
 
 
