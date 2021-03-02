@@ -128,10 +128,10 @@ p {
 .intro__inner{
     float: right;
     width: 200px;
-    margin: 0 auto;
+    margin: 15px;
     display: inline-block; /* Строчно-блочный элемент */
     background: #fff; /* Белый цвет текста */
-    padding: 30; /* Поля вокруг текста */
+    padding: 10px; /* Поля вокруг текста */
     text-decoration: none; /* Убираем подчёркивание */
     border-radius: 3px; /* Скругляем уголки */
     text-align: center;
