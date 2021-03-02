@@ -9,7 +9,7 @@ $(function() {
     animateTime = 1000,                                 // Время смены слайдов
     course = 1,                                         // Направление движения слайдера (1 или -1)
     margin = - slideWidth;                              // Первоначальное смещение слайдов
- 
+
   $('.slider img:last').clone().prependTo('.slider');   // Копия последнего слайда помещается в начало.
   $('.slider img').eq(1).clone().appendTo('.slider');   // Копия первого слайда помещается в конец.  
   $('.slider').css('margin-left', -slideWidth);         // Контейнер .slider сдвигается влево на ширину одного слайда.
@@ -17,6 +17,8 @@ $(function() {
   function nextSlide(){                                 // Запускается функция animation(), выполняющая смену слайдов.
     interval = window.setInterval(animate, sliderInterval);
   }
+ 
+
  
   function animate(){
     if (margin==-slideCount*slideWidth-slideWidth){     // Если слайдер дошел до конца
