@@ -131,7 +131,7 @@ p {
     margin: 15px;
     display: inline-block; /* Строчно-блочный элемент */
     background: #fff; /* Белый цвет текста */
-    padding: 10px; /* Поля вокруг текста */
+    padding: 10    px; /* Поля вокруг текста */
     text-decoration: none; /* Убираем подчёркивание */
     border-radius: 3px; /* Скругляем уголки */
     text-align: center;
@@ -196,7 +196,7 @@ p {
 
 
 .bio{
-    background: #ebf5f7;
+    background: black;
     display: flex;
     position: relative;
 }
@@ -205,6 +205,7 @@ p {
     font-size: 30px;
     font-weight: 100;
     margin: 15px;
+    color: #fff;
 
 }
 
@@ -216,6 +217,7 @@ p {
 }
 
 .bio__text{
+    color: #fff;
     text-align: justify;
     font-size: 25px;
     line-height: 1.5;
@@ -223,15 +225,16 @@ p {
 }
 
 .bio__text a{
-    color: black;
+    color: #fff;
     font-weight: bold;
 
 }
 
 .footer{
-    background: #ebf5f7;
+    background: #000;
     text-align: center;
     font-size: 20px;
+    color: #fff;
 }
 
 
