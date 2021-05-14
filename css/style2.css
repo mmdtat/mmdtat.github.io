@@ -147,9 +147,36 @@ p {
     text-decoration: none;
 }
 
+.intro__notion{
+    font-family: 'Century Gothic Regular', sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: 300;
+    opacity: 50%;
+    text-decoration: none;
+    text-align: right;
+    margin-top: 576px;
+}
 
+.intro__notion a{
+    font-family: 'Century Gothic Regular', sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: 300;
+    text-decoration: none;
+    text-align: right;
+    vertical-align: bottom;
+}
 
-
+.intro__notion a:hover{
+    font-family: 'Century Gothic Regular', sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: 300;
+    text-decoration: underline;
+    text-align: right;
+    vertical-align: bottom;
+}
 
 .what_is_mmdt{
     background: black;
