@@ -116,7 +116,7 @@ p {
 }
 
 .intro {
-    height: 900px;
+    height: 950px;
     display: flex;
     flex-direction: column;
     justify-content: right;
@@ -125,11 +125,11 @@ p {
 
 }
 .intro_through {
-    height: 900px;
+    height: 950px;
     display: flex;
     flex-direction: column;
     justify-content: right;
-    background: #111 url("../img/projects/through.jpg") no-repeat center / cover;
+    background: #111 url("../img/header_through.jpg") no-repeat center / cover;
     padding-top: 200px;
 
 }
@@ -163,7 +163,7 @@ p {
     opacity: 50%;
     text-decoration: none;
     text-align: right;
-    margin-top: 576px;
+    margin-top: 276px;
 }
 
 .intro__notion a{
@@ -293,7 +293,20 @@ p {
 .projects_item img{
     width: 100%;
 }
+.projects_item a{
+    opacity: 0.8;
+}
+.projects_item a:hover{
+    opacity: 1;
+}
 
+.intro__projects{
+    text-align: center;
+    color: white;
+    font-size: 150px;
+    vertical-align: middle;
+    margin-top: 200px;
+}
 
 
 
