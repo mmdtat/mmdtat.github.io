@@ -124,7 +124,15 @@ p {
     padding-top: 200px;
 
 }
+.intro_through {
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    background: #111 url("../img/projects/through.jpg") no-repeat center / cover;
+    padding-top: 200px;
 
+}
 .intro__inner{
     float: right;
     width: 200px;
@@ -273,11 +281,32 @@ p {
 
 
 .projects{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     background: white;
-    overflow: hidden;
 }
 
 .projects_item{
-    width: 33%;
-    float: right;
+    padding: 30px;
+}
+
+.projects_item img{
+    width: 100%;
+}
+
+
+
+
+
+.through{
+    background: white;
+    display: flex;
+    position: relative;
+}
+.through__text{
+    color: black;
+    text-align: justify;
+    font-size: 25px;
+    line-height: 1.5;
+
 }
