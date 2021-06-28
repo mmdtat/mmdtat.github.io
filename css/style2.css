@@ -272,3 +272,12 @@ p {
 ================*/
 
 
+.projects{
+    background: white;
+    overflow: hidden;
+}
+
+.projects_item{
+    width: 33%;
+    float: right;
+}
