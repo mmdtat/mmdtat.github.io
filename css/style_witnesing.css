@@ -132,15 +132,7 @@ p {
     padding-top: 200px;
 
 }
-.intro_through {
-    height: 950px;
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    background: #111 url("../img/header_through.jpg") no-repeat center / cover;
-    padding-top: 200px;
 
-}
 .intro__inner{
     float: right;
     width: 200px;
@@ -308,12 +300,13 @@ p {
     opacity: 1;
 }
 
-.intro__projects{
+.intro__witnesing{
     text-align: center;
     color: white;
     font-size: 150px;
     vertical-align: middle;
     margin-top: 200px;
+    font-family: 'Coworking';
 }
 
 

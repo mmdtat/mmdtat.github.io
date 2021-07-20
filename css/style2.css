@@ -193,6 +193,31 @@ p {
     vertical-align: bottom;
 }
 
+.witnesing{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #111 url("../gallery/witnesing/innsbruk_index.jpg") no-repeat center / cover;
+}
+
+.intro__witnesing a{
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    font-size: 70px;
+}
+
+.intro__witnesing a:hover{
+    width: 100%;
+    display: flex;
+    text-decoration: underline;
+    color: white;
+    transition: 0.2s;
+    font-size: 80px;
+}
+
 .what_is_mmdt{
     background: black;
     height: 600px;
