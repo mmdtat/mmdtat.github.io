@@ -70,21 +70,22 @@ p {
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 150px;
+    height: 100vh;
 }
 
 .header__inner {
-    padding-top: 50px;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
+    vertical-align: ;
 }
 
 .nav {
     display: flex;
     padding: 80px;
     padding-right: 0;
-    padding-top: 0;
+    
 }
 
 .nav__link {
@@ -118,7 +119,7 @@ p {
 
 .header__logo {
     padding: 45px;
-    padding-top: 0;
+    
 }
 
 .header__logo img {
@@ -126,67 +127,9 @@ p {
     max-width: 140px;
 }
 
-.intro {
-    height: 950px;
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    background: #111 url("../gallery/witnesing/innsbruk.jpg") no-repeat center / cover;
-    padding-top: 200px;
-
-}
-
-.intro__inner{
-    float: right;
-    width: 200px;
-    margin: 15px;
-    display: inline-block; /* Строчно-блочный элемент */
-    background: #fff; /* Белый цвет текста */
-    padding: 10    px; /* Поля вокруг текста */
-    text-decoration: none; /* Убираем подчёркивание */
-    border-radius: 3px; /* Скругляем уголки */
-    text-align: center;
-}
-
-.intro__title {
-    background: white;
-    margin: 0;
-    font-family: 'Century Gothic Regular', sans-serif;
-    font-size: 40px;
-    color: black;
-    font-weight: 300;
-    text-decoration: none;
-}
-
-.intro__notion{
-    font-family: 'Century Gothic Regular', sans-serif;
-    font-size: 20px;
-    color: white;
-    font-weight: 300;
-    opacity: 50%;
-    text-decoration: none;
-    text-align: right;
-    margin-top: 576px;
-}
-
-.intro__notion a{
-    font-family: 'Century Gothic Regular', sans-serif;
-    font-size: 20px;
-    color: white;
-    font-weight: 300;
-    text-decoration: none;
-    text-align: right;
-    vertical-align: bottom;
-}
-
-.intro__notion a:hover{
-    font-family: 'Century Gothic Regular', sans-serif;
-    font-size: 20px;
-    color: white;
-    font-weight: 300;
-    text-decoration: underline;
-    text-align: right;
-    vertical-align: bottom;
+html {
+    background: #111 url("../gallery/witnesing/innsbruk.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 .what_is_mmdt{
@@ -306,16 +249,14 @@ p {
 .intro__witnesing{
     text-align: center;
     color: white;
-    font-size: 10vw;
-    vertical-align: middle;
-    margin-top: 320px;
-    margin-bottom: 220px;
+    font-size: 7vw;
+    margin-top: 20vh;
+    margin-bottom: 420px;
     font-family: 'Coworking';
+    display: grid;
+    grid-template-rows: 1fr 1fr;
 }
 
-.intro__witnesing p{
-    width: 10%;
-}
 
 * {
     box-sizing: border-box;
@@ -334,13 +275,9 @@ body {
 }
 
 .content {
-    position: fixed;
-    bttom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
+   margin-top: 100vh;
+    background: rgba(255, 255, 255, 0.7);
     width: 100%;
-    padding: 20px;
-    min-height: 100%;
 }
 
 .w_inner{
@@ -349,10 +286,12 @@ body {
 }
 
 #myBtn {
+    box-shadow: black;
     width: 300px;
-    font-size: 25px;
+    font-size: 20px;
     padding: 15px;
     border: none;
+    border-radius: 7px;
     background: #fff;
     color: #000;
     cursor: pointer;
@@ -364,9 +303,15 @@ body {
 }
 
 .witnesing_panorama {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 3fr 1fr;
+    
     width: 100%;
     min-height: 100%;
+}
+
+#container{
+    padding: 20PX;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    background: white;
 }
