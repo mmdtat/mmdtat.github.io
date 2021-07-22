@@ -70,10 +70,11 @@ p {
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 200px;
+    height: 150px;
 }
 
 .header__inner {
+    padding-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,6 +84,7 @@ p {
     display: flex;
     padding: 80px;
     padding-right: 0;
+    padding-top: 0;
 }
 
 .nav__link {
@@ -116,6 +118,7 @@ p {
 
 .header__logo {
     padding: 45px;
+    padding-top: 0;
 }
 
 .header__logo img {
@@ -305,8 +308,8 @@ p {
     color: white;
     font-size: 10vw;
     vertical-align: middle;
-    margin-top: 400px;
-    margin-bottom: 220px;
+    margin-top: 320px;
+    margin-bottom: 180px;
     font-family: 'Coworking';
 }
 
@@ -321,16 +324,15 @@ body {
 }
 
 #myVideo {
-    position: fixed;
+    position: fixed;    
     right: 0;
-    bottom: 0;
     min-width: 100%; 
     min-height: 100%;
 }
 
 .content {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bttom: 0;
     background: rgba(0, 0, 0, 0);
     color: #f1f1f1;
     width: 100%;
