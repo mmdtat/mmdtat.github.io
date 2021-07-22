@@ -29,6 +29,7 @@
     font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 body {
     margin: 0;
     font-family: 'Century Gothic Regular', sans-serif;
@@ -303,9 +304,8 @@ body {
 }
 
 .witnesing_panorama {
-    
     width: 100%;
-    min-height: 100%;
+    height: 100vh;
 }
 
 #container{
@@ -315,3 +315,10 @@ body {
     margin: 0 auto;
     background: white;
 }
+
+.witnesing_content p, h1{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 100px;
+    line-height: 1.4;
+}
+
