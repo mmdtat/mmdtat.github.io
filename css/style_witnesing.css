@@ -43,6 +43,10 @@ body {
     box-sizing: border-box;
 }
 
+img{
+    width: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -342,3 +346,15 @@ body {
     transform: translate(-50%, -50%) 
 }
 
+.partners{padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr;
+    grid-column-gap: 100px;
+    align-items: center;
+    text-align: center;
+}
+
+.partners img{
+    width: 70%;
+}
