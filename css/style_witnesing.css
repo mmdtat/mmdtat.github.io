@@ -272,12 +272,7 @@ body {
     font-size: 25px;
 }
 
-#myVideo {
-    position: fixed;    
-    right: 0;
-    width: 0%; 
-    height: 0%;
-}
+
 
 .content {
    margin-top: 100vh;
