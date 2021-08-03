@@ -379,3 +379,15 @@ input[type="checkbox"]:checked ~ .grid {
 	grid-template-rows: 1fr 1fr;
 	margin: 0 auto;
 }
+
+#jam{
+	font-size: 25px;
+	max-width: 1000px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: left;
+	font-family: 'Century Gothic Regular';
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	color: white;
+}
