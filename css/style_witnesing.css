@@ -353,3 +353,11 @@ body {
 .partners img{
     width: 70%;
 }
+
+#background{
+    position: fixed  ;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+}

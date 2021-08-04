@@ -24,10 +24,23 @@
 </head>
 <body>
     <header class="header">
-        <div id="audio">
-            <audio autoplay="autoplay">
-                <source src="witnessing.wav" type="audio/wav">
-            </audio>
+        <div>
+            <audio src="witnessing.wav" autoplay loop id="myAudio"></audio>
+            <div    id="background" onclick="myFunction()" >         
+            </div>
+            <script>
+                var video = document.getElementById("myAudio");
+                var btn = document.getElementById("myBtn");
+
+                function myFunction() {
+                  if (video.paused) {
+                    video.play();
+                    document.getElementById('background').hidden = true;
+                  } else {
+                    video.pause();
+                  }
+                }
+            </script>
         </div>
         <div class="container">
             <div class="header__inner">
