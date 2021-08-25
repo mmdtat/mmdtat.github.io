@@ -358,3 +358,57 @@ p {
     line-height: 1.5;
 
 }
+
+.intro_partnering {
+    height: 950px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    padding-top: 200px;
+
+}
+
+.partnering{
+    background: #111 url("../img/partnering_bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+.witnesing_content p, h1, h4{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 80px;
+    line-height: 1.6;
+}
+
+.witnesing_content a{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+
+#title{
+    margin-top: 7vh;
+    font-size: 25px;
+}
+
+.bgr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100wh;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.witnesing_content{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.witnesing_content p, a{
+    font-size: 25px;
+}

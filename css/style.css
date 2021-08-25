@@ -119,8 +119,8 @@ nav a:hover{
 }
 .news img{
 	background: #e6eef0;
-	padding-left: 20px;
-	padding-top: 20px;
+	margin-left: 20px;
+	margin-top: 20px;
 	filter:grayscale(1);
 	transition: 0.5s;
 	transform:scale(1);
