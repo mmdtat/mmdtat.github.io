@@ -40,6 +40,15 @@
                     video.pause();
                   }
                 }
+                function myFunction1() {
+                  if (video.play) {
+                    
+                    video.pause();
+                    document.getElementById('background').hidden = true;
+                  } else {
+                    video.play();
+                  }
+                }
             </script>
         </div>
         <div class="container">
@@ -57,12 +66,14 @@
                 WITNESSING
                 <a href="http://mmdt.at/witnessing_1"><button id="myBtn">Go to the exhibition</button></a>
         </div>
+        <div class="container"><button onclick="myFunction1()" id="Btn">Stop Music
+        </button></div>
     </header>
     <div class="content">
 
         <div id="container">
             <div id="a">
-                    <a href="https://www.donationalerts.com/r/avidishev"><button id="donation">DONATION</button></a>
+                    <a href="https://www.donationalerts.com/r/tamaramaksymenko"><button id="donation">DONATION </button><p id="donation_text">The project Witnessing needs your support. <br>Please feel free to donate.</p></a>
                 </div>
             <div class="witnesing_content">
                 <br>
