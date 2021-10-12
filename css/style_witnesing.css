@@ -256,7 +256,7 @@ html {
     color: white;
     font-size: 7vw;
     margin-top: 20vh;
-    margin-bottom: 120px;
+    margin-bottom: 20vh;
     font-family: 'Coworking';
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -273,6 +273,7 @@ body {
 }
 
 #Btn{
+    margin-left: 15px;
     box-shadow: black;
     width: 200px;
     font-size: 20px;
