@@ -476,7 +476,7 @@ p {
     padding-bottom: 50px;
     padding-top: 30px;
 }
-.WEST_MEATS_EAST_content p{
+.WEST_MEATS_EAST_content p, ul{
     color: white;
     font-size: 130%;
     line-height: 1.6;
@@ -530,6 +530,7 @@ p {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 20px;
 }
+
 .semichevi1{
     font-size: 130%;
     line-height: 1.6;
@@ -543,4 +544,11 @@ p {
     grid-column-gap: 50px;
     align-items: center;
     text-align: left;
+}
+
+.covid{
+    background: rgba(100, 0, 0, 0.6);
+    width: 100%;
+    padding: 10px;
+    text-align: center;
 }
