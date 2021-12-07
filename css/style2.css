@@ -476,11 +476,20 @@ p {
     padding-bottom: 50px;
     padding-top: 30px;
 }
-.WEST_MEATS_EAST_content p, ul{
+.WEST_MEATS_EAST_content p{
     color: white;
     font-size: 130%;
     line-height: 1.6;
-    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.WEST_MEATS_EAST_content ul{
+    color: white;
+    font-size: 130%;
+    line-height: 1.6;
+    padding-left: 70px;
+    padding-right: 30px;
 }
 
 .WEST_MEATS_EAST_href{
