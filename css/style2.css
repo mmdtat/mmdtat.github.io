@@ -556,6 +556,21 @@ p {
     text-align: left;
 }
 
+.semichevi2{
+    font-size: 130%;
+    line-height: 1.6;
+    color: white;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px;
+    grid-column-gap: 50px;
+    align-items: center;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
 .covid{
     background: rgba(100, 0, 0, 0.6);
     width: 100%;
