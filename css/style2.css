@@ -556,6 +556,18 @@ p {
     text-align: left;
 }
 
+#semichevi1{
+    font-size: 130%;
+    line-height: 1.6;
+    color: white;
+    margin: 0 auto;
+    width: 60%;
+    max-width: 1200px;
+    padding: 30px;
+    align-items: center;
+    text-align: center;
+}
+
 .semichevi2{
     font-size: 130%;
     line-height: 1.6;
