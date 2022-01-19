@@ -588,6 +588,7 @@ p {
     width: 100%;
     padding: 10px;
     text-align: center;
+    border-radius: 25px;
 }
 
 .food{
@@ -600,4 +601,18 @@ p {
     grid-column-gap: 50px;
     align-items: center;
     text-align: left;
+}
+
+.aw_news{
+    border-radius: 25px;
+    font-size: 130%;
+    line-height: 1.6;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: white;
+}
+
+.aw_news_text{
+    padding: 0;
+    color: black;
 }
