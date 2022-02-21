@@ -332,7 +332,6 @@ body {
 
 .witnesing_content p, h1{
     font-family: 'Montserrat', sans-serif;
-    padding: 0 0px;
     line-height: 1.4;
 }
 
@@ -407,4 +406,14 @@ body {
     grid-column-gap: 50px;
     align-items: center;
     text-align: left;
+}
+
+.title_text{
+    font-size: 35px;
+    padding: 0px 20px;
+}
+
+.plain_text{
+    font-size: 20px;
+    padding: 0px 20px;
 }
