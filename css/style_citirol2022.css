@@ -88,7 +88,7 @@ p {
 
 .nav {
     /*display: flex;*/
-    padding: 80px;
+    padding: 20px 50px;
     padding-right: 0;
     
 }
@@ -381,7 +381,7 @@ body {
 }
 
 .intro{
-    margin-top: 17vh;
+    margin-top: 10vh;
 }
 
 
