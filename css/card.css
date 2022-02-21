@@ -1,0 +1,71 @@
+ @import url('https://fonts.googleapis.com/css?family=Roboto');
+ body{
+     font-family: 'Roboto', sans-serif;
+}
+.wrapper{
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+}
+ .card{
+    max-width: 300px;
+     min-height: 250px;
+     background: #02b875;
+     padding: 30px;
+     padding-bottom: 80px;
+     box-sizing: border-box;
+     color: #FFF;
+     margin:20px;
+     box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.75);
+     position: relative;
+}
+ .card:nth-child(2){
+    background: #4181ee;
+}
+ .card:last-child{
+    background: #673ab7;
+}
+ .card-title{
+     margin-top: 0;
+     font-size: 18px;
+     font-weight: 600;
+     letter-spacing: 1.2px;
+}
+ .card-content{
+   padding: 0px 15px;
+   font-size: 14px;
+   letter-spacing: 0.5px;
+   line-height: 1.5;
+}
+ .card-btn{
+   all: unset;
+   display: block;
+   position: absolute;
+   border: 2px solid #FFF;
+   padding: 10px;
+   width: 120px;
+   border-radius: 25px;
+   font-size: 10px;
+   font-weight: 600;
+   transition: all 0.5s;
+   cursor: pointer;
+   letter-spacing: 1.2px;
+   text-align: center;
+   display: block;
+   bottom: 20px;
+   text-align: center;
+   left: 50%;
+   transform: translateX(-50%);
+}
+ .card-btn:hover{
+    color:#02b875;
+    background: #FFF;
+}
+ .card:nth-child(2) .card-btn:hover{
+    color:#4181ee;
+    background: #FFF;
+}
+ .card:last-child .card-btn:hover{
+    color:#673ab7;
+     background: #FFF;
+}
