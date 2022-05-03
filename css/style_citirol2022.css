@@ -423,7 +423,7 @@ body {
 
 .refund_content p, h1{
     font-family: 'Montserrat', sans-serif;
-    padding: 0 100px;
+    /*padding: 0 100px;*/
     line-height: 1.4;
 }
 
