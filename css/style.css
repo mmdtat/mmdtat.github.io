@@ -30,45 +30,7 @@ body, html{
 	margin: 0;
 }
 
-header{
-	align-content: top;
-	background: #384a58;
-	background-size: cover;
-	width: 100%;
-	text-align: center; 
-	padding: 20px;
-	font-size: 20px;
-}
-header a{
-	font-family: 'Century Gothic Regular';
-	color:#e6eef0;
-	margin-right: 15px;
-	transition:1s;
-	text-decoration: none;
-}
-header a:hover{
-	text-decoration-line: underline;
-}
-nav{
-	clear: both;
-	align-content: top;
-	background: #e6eef0;
-	background-size: cover;
-	width: 100%;
-	text-align: center; 
-	padding: 20px;
-	font-size: 20px;
-}
-nav a{
-	font-family: 'Century Gothic Regular';
-	color:#384a58;
-	margin-right: 15px;
-	transition:1s;
-	text-decoration: none;
-}
-nav a:hover{
-	text-decoration-line: underline;
-}
+
 #ph1{
 	
 	width: 100%;
@@ -118,7 +80,6 @@ nav a:hover{
 	height: 20%;
 }
 .news img{
-	background: #e6eef0;
 	margin-left: 20px;
 	margin-top: 20px;
 	filter:grayscale(1);
@@ -126,7 +87,6 @@ nav a:hover{
 	transform:scale(1);
 }
 .news img:hover{
-	background: #e6eef0;
 	filter:grayscale(0);
 	transform:scale(1.1);
 	position: relative;
@@ -134,7 +94,6 @@ nav a:hover{
 }
 .news{
 	font-family: 'Comfortaa', cursive;
-	background: #e6eef0;
 	float: left;
 	padding: 10px;
 }
@@ -152,7 +111,7 @@ nav a:hover{
 }
 main {
 	font-family: 'Comfortaa', cursive;
-	background: #ebf5f7;
+	background: #fff;
 	width: 70%;
 	float: left;
 	height: 100%;
@@ -182,7 +141,7 @@ main a{
 }
 .laloba{
 	font-family: 'Open Sans', sans-serif;
-	background: #EBF5F7;
+	background: #fff;
 	width: 85%;
 	float: left;
 	height: 100%;
@@ -227,17 +186,7 @@ td{
 	color: black;
 	font-family: 'Open Sans', sans-serif; font-size: 15px; background: #BACFD1; padding: 5px;
 }
-footer{
-	font-family: 'Century Gothic Regular';
-	text-align: center;
-	clear: both; 
-	padding: 20px;
-	background: #e6eef0; 
-	font-size: 20px;
-}
-footer p{
-	color: #4F4F4F;
-}
+
 * {
  box-sizing: border-box;
 }
@@ -251,7 +200,7 @@ input[type="checkbox"] {
 }
  
 body {
- background-color: #e6edef;
+ background-color: #FFF;
 }
  
 .lightbox, .grid {
@@ -402,4 +351,13 @@ input[type="checkbox"]:checked ~ .grid {
 	margin-left: 25px;
 	margin-right: 25px;
 	transition: 0.2s;
+}
+
+.footer{
+    background: #000;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }

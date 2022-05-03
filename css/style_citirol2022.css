@@ -219,6 +219,8 @@ html {
     text-align: center;
     font-size: 20px;
     color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 
@@ -289,7 +291,7 @@ body {
 }
 
 
-.content {
+.content{
    margin-top: 100vh;
     background: rgba(255, 255, 255, 0.7);
     width: 100%;
@@ -417,4 +419,31 @@ body {
     font-size: 20px;
     padding: 0px 20px;
     text-align: left;
+}
+
+.refund_content p, h1{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 100px;
+    line-height: 1.4;
+}
+
+.refund_intro{
+    margin-top: 5vh;
+}
+
+
+.refund_header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 70vh;
+    background: black;
+}
+
+.refund_content{
+   margin-top: 35vh;
+    background: rgba(255, 255, 255, 1);
+    width: 100%;
 }
