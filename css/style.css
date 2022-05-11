@@ -354,10 +354,8 @@ input[type="checkbox"]:checked ~ .grid {
 }
 
 .footer{
-    background: #000;
-    text-align: center;
+    /*background: #000;*/
     font-size: 20px;
-    color: #fff;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
