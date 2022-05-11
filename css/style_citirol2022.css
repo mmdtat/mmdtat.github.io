@@ -43,9 +43,9 @@ body {
     box-sizing: border-box;
 }
 
-img{
+/*img{
     width: 100%;
-}
+}*/
 
 h1,
 h2,
@@ -215,13 +215,24 @@ html {
 }
 
 .footer{
-    background: #000;
-    text-align: center;
+    margin: auto;
+    max-width: 1500px;
+    background: #fff;
     font-size: 20px;
-    color: #fff;
+    color: #000;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.footer_element{
+    margin: 20px;
+}
+
+.footer_element:last-child{
+    text-align: right;
+}
+
+
 
 
 /*=============

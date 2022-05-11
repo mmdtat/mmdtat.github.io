@@ -619,15 +619,19 @@ p {
 .footer{
     margin: auto;
     max-width: 1500px;
-    background: #fff;
+    /*background: #fff;*/
     font-size: 20px;
-    color: #000;
+    
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
 .footer_element{
-    margin: 0 20px;
+    margin: 20px;
+}
+
+.footer_element a{
+    color: #FFF;
 }
 
 .footer_element:last-child{
