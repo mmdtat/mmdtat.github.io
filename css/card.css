@@ -85,15 +85,15 @@
 .photo{
    max-width: 280px;
    min-width: 150px;
-   margin: 30px;
+   margin: 5px;
    position: relative;
 }
 
 .teachers_wrapper{
    display: flex;
    flex-wrap: wrap;
+   margin: auto;
 }
-
 .teacher{
    max-width: 710px;
    min-width: 300px;
@@ -102,5 +102,31 @@
    margin: 10px;
    position: relative;
    border-radius: 20px;
-   box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.50);
+   box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.20);
+}
+
+@media(max-width: 1500px){
+   .teacher{
+   max-width: 600px;
+   min-width: 300px;
+   min-height: 300px;
+   padding: 15px;
+   margin: 10px;
+   position: relative;
+   border-radius: 20px;
+   box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.20);
+}
+}
+
+@media(max-width: 1280px){
+   .teacher{
+   max-width: 100%;
+   min-width: 300px;
+   min-height: 300px;
+   padding: 15px;
+   margin: 10px;
+   position: relative;
+   border-radius: 20px;
+   box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.20);
+}
 }

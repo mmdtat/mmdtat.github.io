@@ -224,6 +224,21 @@ html {
     grid-template-columns: 1fr 1fr;
 }
 
+
+@media(max-width: 500px){
+    .footer{
+    margin: auto;
+    max-width: 1500px;
+    background: #fff;
+    font-size: 20px;
+    color: #000;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+} 
+
+
+
 .footer_element{
     margin: 20px;
 }
