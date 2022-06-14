@@ -140,6 +140,7 @@ p {
     padding-top: 200px;
 
 }
+
 .intro__inner{
     float: right;
     width: 200px;
@@ -309,11 +310,11 @@ p {
 ================*/
 
 
-.projects{
+/*.projects{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     background: white;
-}
+}*/
 
 .festivals{
     display: grid;
@@ -321,15 +322,14 @@ p {
     background: white;
 }
 
-.projects_item{
-    padding: 30px;
-}
 
 .projects_item img{
     width: 100%;
 }
 .projects_item a{
     opacity: 0.8;
+    font-size: 0px;
+    background: rgba(0, 0, 0, 0);
 }
 .projects_item a:hover{
     opacity: 1;

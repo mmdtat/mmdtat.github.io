@@ -130,3 +130,20 @@
    box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.20);
 }
 }
+
+
+.projects{
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+
+.projects_item{
+   max-width: 300px;
+   min-width: 300px;
+   min-height: 300px;
+   margin:20px;
+   box-shadow: 0px 2px 18px rgba(0,0,0,0.15);
+   position: relative;
+}
