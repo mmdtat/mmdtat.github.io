@@ -140,6 +140,11 @@ html {
     background-size: cover;
 }
 
+.html_wme{
+    background: #111 url("../img/wme.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
 .what_is_mmdt{
     background: black;
     height: 600px;
@@ -423,11 +428,26 @@ body {
   animation: ani 3s forwards;
 }
 
+#title1 {
+    margin-top: 5vh;
+  opacity: 0;
+  animation: ani 3s forwards;
+}
+
 .title2 {
   opacity: 0;
   animation: ani 3s forwards;
   background: rgba(0, 0, 0, 1.0);
 }
+
+.title3 {
+    
+    color: black;
+  opacity: 0;
+  animation: ani 3s forwards;
+  background: rgba(255, 255, 255, 1.0);
+}
+
 
 @keyframes ani {
   0% {opacity: 0;}
