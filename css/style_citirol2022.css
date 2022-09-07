@@ -517,3 +517,13 @@ body {
     cursor: pointer;
     margin: auto;
 }
+
+.covid{
+    padding: 10px;
+    margin: auto;
+    width: 70%;
+    background: white;
+    border: solid;
+    border-color: red;
+    border-radius: 15px;
+}
