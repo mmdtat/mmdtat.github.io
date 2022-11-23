@@ -323,6 +323,12 @@ p {
     border-right: black;
 }
 
+@media(max-width: 1000px){
+    .events{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+} 
 
 .button{
     box-shadow: black;
