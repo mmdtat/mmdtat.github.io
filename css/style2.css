@@ -323,10 +323,22 @@ p {
     border-right: black;
 }
 
+.in_tirol{
+    border-right: 2px solid black;
+    padding-right: 10px;
+    padding: 15px;
+}
+
 @media(max-width: 1000px){
     .events{
     display: grid;
     grid-template-columns: 1fr;
+}
+    .in_tirol{
+        border-right: 0px solid black;
+        padding-right: 0px;
+        border-bottom: 2px solid black;
+        padding-bottom: 10px;
 }
 } 
 
