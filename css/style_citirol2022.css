@@ -75,7 +75,8 @@ p {
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 100vh;
+    height: 200px;
+    background: rgba(60, 85, 119, 0.6);
 }
 
 .header__inner {
@@ -526,4 +527,68 @@ body {
     border: solid;
     border-color: red;
     border-radius: 15px;
+}
+
+.html_CI2023{
+    background: #111 url("../gallery/SOLO_CI_TlROL_Fest_2023.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Style the tab */
+.tab {
+
+    overflow: hidden;
+    
+    background-color: rgb(60, 85, 119);
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    
+    font-size: 20px;
+    padding: 0, 30px;
+    color: white;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    width: 150px;
+    border: 1px solid #ccc;
+    background-color: #FFF;
+    color: black;
+    font-weight: bold;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+/*    border: 1px solid #ccc;*/
+    border-top: none;
+}
+
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+a{
+    color: #3c5577;
 }
