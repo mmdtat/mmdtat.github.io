@@ -306,7 +306,7 @@ html {
 
 body {
     margin: 0;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #Btn{
@@ -533,7 +533,12 @@ body {
     background: #111 url("../gallery/SOLO_CI_TlROL_Fest_2023.jpg") no-repeat center center fixed;
     background-size: cover;
 }
-
+@media(max-width: 650px){
+    .html_CI2023{
+    background: #111 url("../gallery/SOLO_CI_TlROL_Fest_2023_1.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+} 
 /* Style the tab */
 .tab {
 
@@ -565,7 +570,9 @@ body {
 
 /* Create an active/current tablink class */
 .tab button.active {
-    width: 150px;
+/*    width: 150px;*/
+    padding-left: 50px;
+    padding-right: 50px;
     border: 1px solid #ccc;
     background-color: #FFF;
     color: black;
