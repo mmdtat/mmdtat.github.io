@@ -519,6 +519,19 @@ body {
     margin: auto;
 }
 
+#btn-back{
+    box-shadow: black;
+    width: 200px;
+    font-size: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 7px;
+    background: #2f3d4d;
+    color: #FFF;
+    cursor: pointer;
+    
+}
+
 .covid{
     padding: 10px;
     margin: auto;
