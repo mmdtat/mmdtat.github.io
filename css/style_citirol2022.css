@@ -580,3 +580,30 @@ body {
 a{
     color: #3c5577;
 }
+
+.org-team{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.ot-elmt{
+    padding: 10px;
+}
+.ot-elmt img{
+    padding: 10px;
+    border-radius: 30px;
+}
+
+@media(max-width: 1300px){
+    .org-team{
+        display: grid;
+        grid-template-columns: 2fr 4fr;
+    }
+} 
+
+@media(max-width: 800px){
+    .org-team{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+} 
