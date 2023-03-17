@@ -540,62 +540,30 @@ body {
 }
 } 
 /* Style the tab */
-.tab {
-
-    overflow: hidden;
-    
-    background-color: rgb(60, 85, 119);
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-    
-    font-size: 20px;
-    padding: 0, 30px;
-    color: white;
-    background-color: inherit;
-    float: left;
+.tab-button {
+    box-shadow: black;
+    width: 100%;
+    font-size: 25px;
+    padding: 20px;
     border: none;
-    outline: none;
+    border-radius: 7px;
+    background: #7a97c1;
+    color: #000;
     cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
+    margin: 7px auto;
 }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ddd;
-    color: black;
+.tab:last-child{
+    background: #739AA1;
 }
 
-/* Create an active/current tablink class */
-.tab button.active {
-/*    width: 150px;*/
-    padding-left: 50px;
-    padding-right: 50px;
-    border: 1px solid #ccc;
-    background-color: #FFF;
-    color: black;
-    font-weight: bold;
+.tab-button:hover{
+    color:#000;
+    background: #f7edd3;
+    transition: 0.3S;
 }
 
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-/*    border: 1px solid #ccc;*/
-    border-top: none;
-}
 
-.tabcontent {
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
-}
-
-/* Go from zero to full opacity */
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
 a{
     color: #3c5577;
 }
