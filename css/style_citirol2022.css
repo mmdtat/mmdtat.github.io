@@ -548,8 +548,8 @@ body {
 }
 @media(max-width: 650px){
     .html_CI2023{
-    background: #111 url("../gallery/SOLO_CI_TlROL_Fest_2023_1.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: #bbd3de url("../gallery/SOLO_CI_TlROL_Fest_2023_1.jpg") no-repeat center center fixed;
+    background-size: 100%;
 }
 } 
 /* Style the tab */
