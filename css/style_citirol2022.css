@@ -607,3 +607,59 @@ a{
         grid-template-columns: 1fr;
     }
 } 
+
+.teachers2023{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.tchrs-elmt{
+    padding: 10px;
+}
+.tchrs-elmt img{
+    width: 30%;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+@media(max-width: 1300px){
+    .teachers2023{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .tchrs-elmt img{
+        width: 40%;
+    }
+} 
+
+@media(max-width: 800px){
+    .teachers2023{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .tchrs-elmt img{
+        width: 100%;
+    }
+} 
+
+#description{
+    border-radius: 30px;
+    background: #d8ebf3;
+}
+
+#description p{
+    padding: 0 10px;
+}
+
+#description h3{
+    padding: 0 10px;
+}
+
+.video{
+    width: 100%;
+}
+
+.video div{
+    margin: auto;
+    max-width: 600px;
+}
