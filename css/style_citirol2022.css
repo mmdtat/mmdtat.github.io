@@ -674,8 +674,14 @@ a{
     padding: 7px;
 }
 
-@media(max-width: 1000px){
+@media(max-width: 1150px){
     .pc_ver{
     display: none;
     }
-} 
+}
+
+@media(min-width: 1150px){
+    .mobile_ver{
+    display: none;
+    }
+}
