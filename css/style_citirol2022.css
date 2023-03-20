@@ -663,3 +663,13 @@ a{
     margin: auto;
     max-width: 600px;
 }
+
+.pc_ver{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.pc_ver img{
+    border-radius: 25px;
+    padding: 7px;
+}
