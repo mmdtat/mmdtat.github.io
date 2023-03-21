@@ -685,3 +685,20 @@ a{
     display: none;
     }
 }
+
+#myBtn1 {
+    box-shadow: black;
+    width: 300px;
+    font-size: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    color: white;
+    background: black;
+}
+
+#myBtn1:hover {
+    opacity: 0.7;
+    color: black;
+}
