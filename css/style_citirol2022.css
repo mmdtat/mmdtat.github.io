@@ -618,7 +618,8 @@ a{
     padding: 10px;
 }
 .tchrs-elmt img{
-    width: 30%;
+    max-height: 350px;
+    width: auto;
     padding: 10px;
     border-radius: 30px;
 }
