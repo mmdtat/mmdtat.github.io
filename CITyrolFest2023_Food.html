@@ -11,6 +11,20 @@
 <script src="js/pgwslider.min.js"></script>
 <link rel="stylesheet" href="css/pgwslider.min.css">
 <link rel="stylesheet" href="css/demo.css">
+<link rel="stylesheet" href="css/simple-adaptive-slider.css">
+<script defer src="js/simple-adaptive-slider.js"></script>
+
+<script defer src="js/simple-adaptive-slider.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // активация слайдера
+    new ItcSimpleSlider('.itcss', {
+      loop: true,
+      autoplay: true,
+      swipe: true
+    });
+  });
+</script>
 </head>
 <body>
     <header class="header">
@@ -36,17 +50,43 @@
             <div class="witnesing_content"><br>
                   <h1 style="text-align: center;">Food</h1><br>
                   <a href="https://mmdt.at/CITyrolFest2023"><button class="button" id="btn-back">← Back</button></a>
-                  <br>
+                  <br><br>
+                   <div class="pc_ver" id="food">
+                    <img src="gallery/CITyrolFest2023/food.jpg" width="100%">
+                    <img src="gallery/CITyrolFest2023/food1.jpg" width="100%">
+                    <img src="gallery/CITyrolFest2023/food2.jpg" width="100%">
+                </div>
+                <div class="mobile_ver">
+                    <div class="itcss">
+                      <div class="itcss__wrapper">
+                        <div class="itcss__items">
+                          <div class="itcss__item">
+                            <img src="gallery/CITyrolFest2023/food.jpg" width="100%">
+                          </div>
+                          <div class="itcss__item">
+                            <img src="gallery/CITyrolFest2023/food1.jpg" width="100%">
+                          </div>
+                          <div class="itcss__item">
+                            <img src="gallery/CITyrolFest2023/food2.jpg" width="100%">
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Стрелки для перехода к предыдущему и следующему слайду -->
+                      <button class="itcss__btn itcss__btn_prev" role="button" data-slide="prev"></button>
+                    <button class="itcss__btn itcss__btn_next" role="button" data-slide="next"></button>
+                    </div>
+                </div>
+                <br>
                     <p>
-                        We would like to minimize your effort during the week of the SOLO & CI Tirol Festival, that's why we would like to offer you good, diverse, vegetarian food two times per day. <br><br>
+                       We would like to minimize your effort during the week of the "SOLO & CI Tirol Festival", that's why we would like to offer you good, diverse, vegetarian food two times per day. <br><br>
 
-                        Pay attention that it won't be possible to use the kitchen in the space. In case you want to eat on your own, you would have to organize yourself.<br><br>
+                       Pay attention that it won't be possible to use the kitchen in the space. In case you want to eat on your own, you would have to organize yourself.<br><br>
 
-                        Food 2 times per day (Check the program please of the festival) - 175 euros.<br><br>
+                       Food 2 times per day (Check please the  <a href="https://mmdt.at/CITyrolFest2023_Program">program of the festival</a> ) - 175 euros.<br><br>
 
-                        It will not be possible to order food from us during the festival. Please take the decision in advance.<br><br>
+                       It will not be possible to order food from us during the festival. Please take the decision in advance.<br><br>
 
-                        Book your food<br>
+                       Book your food
                     </p>
                      <a href="https://pay.fondy.eu/s/SyX6CXa"><button id="myBtn1">
                          Prepayment 88 €
