@@ -57,6 +57,7 @@ h6 {
 }
 
 p {
+    font-size: 15px;
     margin: 0 0 10px;
 }
 
@@ -474,7 +475,7 @@ body {
 }
 
 .plain_text{
-    font-size: 20px;
+    font-size: 15px;
     padding: 0px HTML20px;
     text-align: left;
 }
