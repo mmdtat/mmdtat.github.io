@@ -675,7 +675,7 @@ a{
     padding: 7px;
 }
 
-@media(max-width: 1150px){
+@media(max-width: 1151px){
     .pc_ver{
     display: none;
     }
