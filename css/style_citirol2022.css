@@ -618,7 +618,8 @@ a{
     padding: 10px;
 }
 .tchrs-elmt img{
-    width: 30%;
+    height: 300px;
+    width: auto;
     padding: 10px;
     border-radius: 30px;
 }
@@ -629,7 +630,7 @@ a{
         grid-template-columns: 1fr;
     }
     .tchrs-elmt img{
-        width: 40%;
+        width: auto;
     }
 } 
 
@@ -639,7 +640,7 @@ a{
         grid-template-columns: 1fr;
     }
     .tchrs-elmt img{
-        width: 100%;
+        width: auto;
     }
 } 
 
