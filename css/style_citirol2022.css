@@ -640,7 +640,8 @@ a{
         grid-template-columns: 1fr;
     }
     .tchrs-elmt img{
-        width: auto;
+        height: auto;
+        width: 100%;
     }
 } 
 
