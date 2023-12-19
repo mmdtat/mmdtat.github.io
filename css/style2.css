@@ -728,3 +728,10 @@ p {
 .info__headline:hover {
   text-decoration: underline;
 }
+
+#mainpage{
+    background: 0;
+    color: white;
+    text-align: center;
+    margin-top: 15%;
+}
