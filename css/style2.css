@@ -242,9 +242,9 @@ p {
 }
 
 .what_is_mmdt_content{
-    width: 50%;
+/*    width: 50%;*/
     display: flex;
-    justify-content: center;
+/*    justify-content: center;*/
     flex-direction: column;
     padding-left: 15px;
 }
@@ -366,6 +366,12 @@ p {
 .projects_item img{
     width: 100%;
 }
+
+.projects_item p{
+    font-weight: bold;
+    text-align: center;
+}
+
 .projects_item a{
     opacity: 0.8;
     font-size: 0px;
