@@ -741,3 +741,48 @@ p {
     text-align: center;
     margin-top: 15%;
 }
+
+.membership{
+    padding: 20px;
+    overflow: hidden;
+}
+
+.membership_item {
+     display: flex;
+    flex-wrap: wrap;
+}
+
+.membership_photo{
+    width: 50%;
+    position: relative;
+}
+
+.membership_content{
+/*    width: 50%;*/
+    display: flex;
+/*    justify-content: center;*/
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.membership_text{
+    font-size: 22px;
+    line-height: 1.5;
+    color: black;
+}
+
+.membership__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 600px;
+}
+
+.intro_membership {
+    height: 950px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    background: #111 url("../gallery/membership.jpg") no-repeat center / cover;
+    padding-top: 200px;
+}
