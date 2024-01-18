@@ -786,3 +786,15 @@ p {
     background: #111 url("../gallery/membership.jpg") no-repeat center / cover;
     padding-top: 200px;
 }
+
+#membership_cost{
+    font-size: 120%;
+    margin: 0;
+    display: inline-block;
+}
+
+#membership_cost_inner{
+    display: inline-block;
+    border: #000 5px solid;
+    padding: 15px;
+}
