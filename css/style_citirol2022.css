@@ -733,3 +733,14 @@ a{
 .flex-container img {
     width: 100%;
 }
+
+.html_CI2024{
+    background: #111 url("../gallery/SOLO_CI_TlROL_Fest_2024.png") no-repeat center center fixed;
+    background-size: cover;
+}
+@media(max-width: 650px){
+    .html_CI2024{
+    background: #bbd3de url("../gallery/SOLO_CI_TlROL_Fest_2024_1.png") no-repeat center center fixed;
+    background-size: cover;
+}
+} 
