@@ -74,16 +74,18 @@ p {
 }
 
 .header__inner {
+    
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid white;
     align-items: center;
+    vertical-align: ;
 }
 
 .nav {
-    display: flex;
-    padding: 80px;
+    /*display: flex;*/
+    padding: 20px 50px;
     padding-right: 0;
+    
 }
 
 .nav__link {
@@ -95,14 +97,14 @@ p {
 }
 
 .nav__link:first-child {
-    margin-left: 0;
+    /*margin-left: 0;*/
 }
 
 
 /*ДЛЯ ПОСЛЕДНЕЙ ССЫЛКИ*/
 
 .nav__link:last-child {
-    margin-right: 20px;
+    margin-right: 100px;
 }
 
 
@@ -115,10 +117,11 @@ p {
 
 .header__logo {
     padding: 45px;
+    
 }
 
 .header__logo img {
-    width: 100%;
+    width: 90%;
     max-width: 140px;
 }
 
@@ -782,10 +785,19 @@ p {
     height: 950px;
     display: flex;
     flex-direction: column;
-    justify-content: right;
+    justify-content: center;
     background: #111 url("../gallery/membership.jpg") no-repeat center / cover;
     padding-top: 200px;
 }
+
+#intro__notion_membership{
+    background: rgba(255, 255, 255, 0.5);
+    margin-top: 700px; color: black; font-weight: bold; opacity: 100%; text-align: center;
+    display: inline-block;
+    padding: 5px;
+}
+
+
 
 #membership_cost{
     font-size: 120%;
@@ -797,4 +809,24 @@ p {
     display: inline-block;
     border: #000 5px solid;
     padding: 15px;
+}
+
+.partners button{
+    box-shadow: black;
+    font-size: 100%;
+    padding: 15px;
+    border: none;
+    border-right: 2px solid #000;;
+    background: #FFF;
+    color: ;
+    cursor: pointer;
+}
+
+.partners a{
+    color: black;
+    text-decoration: none;
+}
+
+.partners button:hover{
+   background: #f3f3f3;
 }
