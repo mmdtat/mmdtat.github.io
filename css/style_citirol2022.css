@@ -743,4 +743,46 @@ a{
     background: #bbd3de url("../gallery/SOLO_CI_TlROL_Fest_2024_1.png") no-repeat center center fixed;
     background-size: cover;
 }
-} 
+}
+
+.info {
+  padding: 10px 25px;
+
+}
+
+.info__body {
+/*  max-height: 0;*/
+/*  overflow: hidden;*/
+  transition: 0.4s;
+}
+
+
+
+.hiddenText {
+  display: none;
+  
+}
+
+.showText {
+  display: block;
+}
+
+.toggleButton{
+  display: block;
+  position: relative;
+  margin-bottom: 15px;
+  user-select: none;
+  color: #39739d;
+  font-size: 100%;
+  font-weight: normal;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+}
+
+.toggleButton:hover {
+  text-decoration: underline;
+}
