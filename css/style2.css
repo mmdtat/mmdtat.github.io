@@ -71,6 +71,7 @@ p {
     left: 0;
     z-index: 1000;
     height: 200px;
+    background: rgba(60, 85, 119, 0.6);
 }
 
 .header__inner {
@@ -83,7 +84,7 @@ p {
 
 .nav {
     /*display: flex;*/
-    padding: 20px 50px;
+    padding: 20px;
     padding-right: 0;
     
 }
@@ -96,15 +97,15 @@ p {
     margin-left: 40px;
 }
 
-.nav__link:first-child {
-    /*margin-left: 0;*/
+/*.nav__link:first-child {
+    margin-left: 0;
 }
-
+*/
 
 /*ДЛЯ ПОСЛЕДНЕЙ ССЫЛКИ*/
 
 .nav__link:last-child {
-    margin-right: 100px;
+/*    margin-right: 100px;*/
 }
 
 
@@ -116,12 +117,12 @@ p {
 }
 
 .header__logo {
-    padding: 45px;
+    padding: 45px 20px 10px 20px;
     
 }
 
 .header__logo img {
-    width: 90%;
+    width: 100%;
     max-width: 140px;
 }
 

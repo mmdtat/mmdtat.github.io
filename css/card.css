@@ -178,3 +178,44 @@
    text-align: center;
    font-weight: normal;
 }
+
+#double{
+   max-width: 1100px;
+   margin: 20px
+}
+
+#double_img {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#double_img img {
+  max-width: 50%;
+  height: auto;
+  padding: 10px; /* Добавьте отступ между изображениями (по желанию) */
+}
+
+.double_info{
+   width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   padding: 0;
+}
+
+.double_info_item{
+   max-width: 45%;
+   min-width: 200px;
+   min-height: 50px;
+   margin: 0 20px;
+   position: relative;
+}
+
+@media(max-width: 1024px){
+   .double_info_item{
+   max-width: 460px;
+}
+}

@@ -90,7 +90,7 @@ p {
 
 .nav {
     /*display: flex;*/
-    padding: 20px 50px;
+    padding: 20px;
     padding-right: 0;
     
 }
@@ -103,15 +103,15 @@ p {
     margin-left: 40px;
 }
 
-.nav__link:first-child {
-    /*margin-left: 0;*/
+/*.nav__link:first-child {
+    margin-left: 0;
 }
-
+*/
 
 /*ДЛЯ ПОСЛЕДНЕЙ ССЫЛКИ*/
 
 .nav__link:last-child {
-    margin-right: 100px;
+/*    margin-right: 100px;*/
 }
 
 
@@ -123,7 +123,7 @@ p {
 }
 
 .header__logo {
-    padding: 45px;
+    padding: 45px 20px 10px 20px;
     
 }
 
