@@ -76,7 +76,7 @@ p {
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 200px;
+    height: 180px;
     background: rgba(60, 85, 119, 0.6);
 }
 
@@ -123,7 +123,7 @@ p {
 }
 
 .header__logo {
-    padding: 45px 20px 10px 20px;
+    padding: 30px 20px 10px 20px;
     
 }
 
@@ -735,12 +735,19 @@ a{
 }
 
 .html_CI2024{
-    background: #111 url("../gallery/SOLO_CI_TlROL_Fest_2024.png") no-repeat center center fixed;
+    background: #111 url("../gallery/CITyrolFest2024/CI_Fest_2024.jpg") no-repeat center center fixed;
     background-size: cover;
 }
+@media(max-width: 1024px){
+    .html_CI2024{
+    background: #bbd3de url("../gallery/CITyrolFest2024/CI_Fest_2024_1024.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+}
+
 @media(max-width: 650px){
     .html_CI2024{
-    background: #bbd3de url("../gallery/SOLO_CI_TlROL_Fest_2024_1.png") no-repeat center center fixed;
+    background: #bbd3de url("../gallery/CITyrolFest2024/CI_Fest_2024_mobile.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 }
@@ -785,4 +792,16 @@ a{
 
 .toggleButton:hover {
   text-decoration: underline;
+}
+
+
+
+#header_CI_2024 {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 180px;
+    background: rgba(29, 42, 48, 0.6);
 }
