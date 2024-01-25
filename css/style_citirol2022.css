@@ -748,7 +748,8 @@ a{
 @media(max-width: 650px){
     .html_CI2024{
     background: #bbd3de url("../gallery/CITyrolFest2024/CI_Fest_2024_mobile.jpg") no-repeat center center fixed;
-    background-size: cover;
+    width: 100%;
+    background-size: auto 100vh;
 }
 }
 
@@ -803,5 +804,5 @@ a{
     left: 0;
     z-index: 1000;
     height: 180px;
-    background: rgba(29, 42, 48, 0.6);
+    background: rgba(29, 42, 48, 0.45);
 }
