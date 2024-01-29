@@ -735,7 +735,7 @@ a{
 }
 
 .html_CI2024{
-    background: #111 url("../gallery/CITyrolFest2024/CI_Fest_2024.jpg") no-repeat center center fixed;
+    background: #111 url("../gallery/CITyrolFest2024/CI_Fest_2024_1.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 @media(max-width: 1024px){
@@ -805,4 +805,38 @@ a{
     z-index: 1000;
     height: 180px;
     background: rgba(29, 42, 48, 0.45);
+}
+
+.partners button{
+    box-shadow: black;
+    font-size: 100%;
+    padding: 15px;
+    border: none;
+    border-left: 2px solid #000;;
+    background: #FFF;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.partners a{
+    color: black;
+    text-decoration: none;
+}
+
+.partners button:hover{
+   background: #f3f3f3;
+}
+
+#partners_CI_2024{
+    padding: 20px;
+    text-align: left;
+}
+
+@media(max-width: 650px){
+    #partners_CI_2024{
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+/*        text-align: center;*/
+    }
 }
