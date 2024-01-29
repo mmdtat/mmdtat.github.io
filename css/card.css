@@ -15,7 +15,7 @@
    min-height: 300px;
    background: #575c6f;
    padding: 30px;
-   padding-bottom: 80px;
+   padding-bottom: 30px;
    box-sizing: border-box;
    color: #FFF;
    margin:20px;
@@ -30,19 +30,18 @@
 }
  .card-title{
      margin-top: 0;
-     font-size: 18px;
+     font-size: 22px;
      font-weight: 600;
      letter-spacing: 1.2px;
 }
  .card-content{
    padding: 0px 15px;
-   font-size: 14px;
+   font-size: 16px;
    letter-spacing: 0.5px;
    line-height: 1.5;
 }
  .card-btn{
    all: unset;
-   display: block;
    position: absolute;
    border: 2px solid #FFF;
    padding: 10px;
@@ -54,9 +53,7 @@
    cursor: pointer;
    letter-spacing: 1.2px;
    text-align: center;
-   display: block;
-   bottom: 20px;
-   text-align: center;
+   bottom: 80px;
    left: 50%;
    transform: translateX(-50%);
 }
@@ -82,6 +79,16 @@
    float: right;
    background: #222;
    padding: 5px;
+}
+
+.card-btn-exp{
+   font-size: 10px;
+   font-weight: 400;
+   letter-spacing: 1.2px;
+   text-align: center;
+   bottom: 10px;
+   margin: 0;
+   margin-top: 80px;
 }
 
 .photo{
