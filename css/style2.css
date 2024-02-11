@@ -70,7 +70,7 @@ p {
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 200px;
+    height: 180px;
     background: rgba(60, 85, 119, 0.6);
 }
 
@@ -227,7 +227,6 @@ p {
 .what_is_mmdt{
     padding: 50px;
     background: black;
-    height: 700px;
     overflow: hidden;
 
 }
@@ -235,7 +234,6 @@ p {
 .what_is_mmdt__item {
      display: flex;
     flex-wrap: wrap;
-    height: 600px;
 
 }
 
@@ -830,4 +828,22 @@ p {
 
 .partners button:hover{
    background: #f3f3f3;
+}
+
+
+.bio{
+    padding: 50px;
+    background: white;
+    overflow: hidden;
+}
+
+.bio h1{
+    color: black;
+    padding: 0;
+}
+
+.bio p{
+    font-family: 'Century Gothic Regular', sans-serif;
+    font-size: 22px;
+    line-height: 1.5;
 }
