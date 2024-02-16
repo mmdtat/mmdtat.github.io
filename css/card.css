@@ -277,3 +277,36 @@
    margin:20px;
    position: relative;
 }
+
+@media(max-width: 1580px){
+   .founders_item{
+   width: 100%;
+   max-width: 500px;
+   min-width: 300px;
+   min-height: 50px;
+   margin:20px;
+   position: relative;
+}
+}
+
+
+@media(max-width: 1200px){
+   .founders_item{
+   max-width: 400px;
+   min-width: 300px;
+   min-height: 50px;
+   margin:20px;
+   position: relative;
+}
+}
+
+
+@media(max-width: 1000px){
+   .founders_item{
+   max-width: 100%;
+   min-width: 300px;
+   min-height: 50px;
+   margin:20px;
+   position: relative;
+}
+}
