@@ -147,6 +147,11 @@ html {
     background-size: cover;
 }
 
+.html_CoD{
+    background: #111 url("../img/projects/Code_of_dance1.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
 .what_is_mmdt{
     background: black;
     height: 600px;
@@ -431,7 +436,9 @@ body {
 }
 
 #title1 {
-    margin-top: 5vh;
+    margin-top: 35vh;
+    margin-right: 10px;
+    margin-left: 10px;
   opacity: 0;
   animation: ani 3s forwards;
 }
@@ -850,4 +857,21 @@ a{
     background: black;
     color: white;
     padding: 2px;
+}
+
+.grid2col{
+    display: grid;
+    grid-template-columns: 1fr 1.3fr; 
+    grid-column-gap: 50px;
+}
+
+
+@media(max-width: 850px){
+    .grid2col{
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        grid-row-gap: 30px;
+/*        text-align: center;*/
+    }
 }
