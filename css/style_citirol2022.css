@@ -869,6 +869,11 @@ a{
     grid-template-columns: 1fr 1.4fr;
 }
 
+.sign{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 @media(max-width: 850px){
     .grid2col{
         display: grid;
@@ -879,6 +884,10 @@ a{
     }
     #media-text{
     grid-template-columns: 1fr;
+}
+    .sign{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
 }
 }
 
@@ -899,3 +908,5 @@ a{
     opacity: 0.7;
     color: black;
 }
+
+
