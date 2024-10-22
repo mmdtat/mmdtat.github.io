@@ -847,3 +847,8 @@ p {
     font-size: 22px;
     line-height: 1.5;
 }
+
+#title-festivals{
+    text-align: center;
+    margin: 30px auto;
+}
