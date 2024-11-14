@@ -7,7 +7,7 @@ html{
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 body {
     margin: 0;
-    font-family: 'Century Gothic Regular', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 14pt;
     color: black;
 }
@@ -22,7 +22,18 @@ h6 {
 }
 
 p {
-    margin: 0 0 10px;
+    margin: 0 0 5px;
+}
+
+button{
+    font-size: 25px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 7px;
+    background: #4D4D54;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 20px;
 }
 
 .container {
@@ -44,7 +55,7 @@ p {
 }
 
 .header__inner {
-    
+    padding: 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -111,7 +122,7 @@ html {
 }
 
 #container p, h1, h2, h3, footer{
-    padding: 20px;
+    padding: 5px 20px;
 }
 
 .tab-button {
@@ -124,7 +135,7 @@ html {
     color: #fff;
     cursor: pointer;
     height: 3em;
-/*    margin: 7px auto;*/
+    margin: 0;
 }
 
 .tab-button:hover{
@@ -166,12 +177,21 @@ html {
 }
 } 
 
-
-
 .footer_element{
     margin: 20px;
 }
 
 .footer_element:last-child{
     text-align: right;
+}
+
+.headliner{
+    margin: 0 15px;
+    border: 2px solid;
+    padding: 10px 0;
+}
+
+.headliner-img{
+/*    float: left;*/
+
 }
