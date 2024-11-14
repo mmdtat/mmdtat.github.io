@@ -1,0 +1,177 @@
+html{
+    background: #111 url("../img/partnering_bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body {
+    margin: 0;
+    font-family: 'Century Gothic Regular', sans-serif;
+    font-size: 14pt;
+    color: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.header__inner {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: ;
+}
+
+.nav {
+    /*display: flex;*/
+    padding: 20px;
+    padding-right: 0;
+    
+}
+
+.nav__link {
+    font-size: 16pt;
+    color: white;
+    text-decoration: none;
+    opacity: 0.75;
+    margin-left: 40px;
+}
+
+/*.nav__link:first-child {
+    margin-left: 0;
+}
+*/
+
+/*ДЛЯ ПОСЛЕДНЕЙ ССЫЛКИ*/
+
+.nav__link:last-child {
+/*    margin-right: 100px;*/
+}
+
+
+/*ДЛЯ ПОСЛЕДНЕЙ ССЫЛКИ*/
+
+.nav__link:hover {
+    transition: 0.2s linear;
+    opacity: 1;
+}
+
+.header__logo {
+    padding: 45px 20px 10px 20px;
+    
+}
+
+.header__logo img {
+    width: 100%;
+    max-width: 140px;
+}
+
+html {
+    background: #111 url("../gallery/CITyrolFest2025/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.content{
+    margin-top: 100vh;
+    background: rgba(255, 255, 255, 0.7);
+    width: 100%;
+}
+
+#container{
+    background: white;
+}
+
+#container p, h1, h2, h3, footer{
+    padding: 20px;
+}
+
+.tab-button {
+    width: 100%;
+    font-size: 25px;
+/*    padding: auto 10px;*/
+    border: none;
+    border-radius: 7px;
+    background: #4D4D54;
+    color: #fff;
+    cursor: pointer;
+    height: 3em;
+/*    margin: 7px auto;*/
+}
+
+.tab-button:hover{
+    color:#4D4D54;
+    background: #fff;
+    border: 1px solid;
+    transition: 0.3S;
+}
+
+.tab {
+    margin: auto;
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивные колонки */
+}
+
+
+.footer{
+    margin: auto;
+    max-width: 1500px;
+    background: #fff;
+    font-size: 20px;
+    color: #000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+@media(max-width: 500px){
+    .footer{
+    margin: auto;
+    max-width: 1500px;
+    background: #fff;
+    font-size: 20px;
+    color: #000;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+} 
+
+
+
+.footer_element{
+    margin: 20px;
+}
+
+.footer_element:last-child{
+    text-align: right;
+}
