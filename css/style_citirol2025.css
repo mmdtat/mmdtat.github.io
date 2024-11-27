@@ -235,7 +235,14 @@ html {
 }
 
 @media(max-width: 720px){
+    .teacher-class{
+        display: block;
+    }
     .teacher-class-image{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .teacher-class-image img:last-child{
         display: none;
     }
     .teacher-bio-img-top-right {
