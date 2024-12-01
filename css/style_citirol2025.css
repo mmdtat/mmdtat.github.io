@@ -288,3 +288,26 @@ html {
   margin: 0 auto; /* Выравнивание по горизонтали */
   text-align: center; /* Выравнивание текста внутри кнопки */
 }
+
+.flex-container {
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 1rem;
+    text-align: center;
+    max-width: 600px;
+}
+
+.flex-container img {
+    width: 100%;
+}
