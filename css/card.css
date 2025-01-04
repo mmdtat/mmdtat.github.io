@@ -56,6 +56,7 @@
    bottom: 80px;
    left: 50%;
    transform: translateX(-50%);
+   
 }
  .card-btn:hover{
     color:#02b875;
@@ -88,7 +89,7 @@
    text-align: center;
    bottom: 10px;
    margin: 0;
-   margin-top: 80px;
+   margin-top: 70px;
 }
 
 .photo{
