@@ -331,18 +331,6 @@ p {
     padding: 15px;
 }
 
-@media(max-width: 1000px){
-    .events{
-    display: grid;
-    grid-template-columns: 1fr;
-}
-    .in_tirol{
-        border-right: 0px solid black;
-        padding-right: 0px;
-        border-bottom: 2px solid black;
-        padding-bottom: 10px;
-}
-} 
 
 .button{
     box-shadow: black;
@@ -852,3 +840,79 @@ p {
     text-align: center;
     margin: 30px auto;
 }
+
+.concert-list {
+    max-width: 1000px;
+    padding: 20px;
+    margin: auto;
+}
+.concert-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: white;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.concert-item img {
+    max-width: 300px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+.concert-info {
+    flex: 1;
+    padding-left: 15px;
+}
+.concert-info h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+.concert-info p {
+    margin: 5px 0;
+    color: #444;
+}
+.concert-info .price {
+    color: #243347;
+}
+.buy-button {
+    background-color: #243347;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14pt;
+}
+
+@media(max-width: 600px){
+    .concert-item{
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+}
+    .footer{
+    margin: auto;
+    max-width: 1500px;
+    background: #fff;
+    font-size: 20px;
+    color: #000;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+}
+
+@media(max-width: 1000px){
+    .events{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+    .in_tirol{
+        border-right: 0px solid black;
+        padding-right: 0px;
+        border-bottom: 2px solid black;
+        padding-bottom: 10px;
+}
+} 
