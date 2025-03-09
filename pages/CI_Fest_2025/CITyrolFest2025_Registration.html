@@ -32,54 +32,90 @@
             <h1 style="text-align: center;">Registration</h1><br>
             <a href="https://mmdt.at/CITyrolFest2025"><button>← Back</button></a>
             <br><br>
-            <p style="max-width: 1200px; margin: 0 auto;">
+            <!-- <p style="max-width: 1200px; margin: 0 auto;">
                 We are thrilled to announce that early bird registration for the SOLO & CI TYROL FESTIVAL 2025 is now open! Don’t miss this incredible opportunity to dance, connect, and celebrate with us in the breathtaking Tyrolean mountains.
-            </p>
+            </p> -->
             <h2>Early Bird Options:</h2>
             <p>Choose from three flexible possibilities to suit your schedule and preferences:</p>
-            <br>
+            <!-- <br> -->
             <script src="/_demo/demo.js"></script>
             <div class="wrapper">
-                <div class="card" style="max-width: 300px;">
-                    <!-- <div class="card-places"><b>Sold out</b></div><br> -->
-                    <h2 class="card-title">Full Festival Experience <br>
-                    (8 Days):</h2> <p class="card-content">Immerse yourself
-                    in the magic of dance across both parts of the
-                    festival.</p> <ul class="card-content"> <li>Cost: 355
-                    €</li> </ul> <a class="card-btn"
-                    href="https://buy.stripe.com/5kAaHD3of1iogh2bJ3"
-                    data-button="">REGISTRATION* </a > <p
-                    class="card-btn-exp">*By clicking on this button you
-                    confirm that you agree with the refund and privacy
-                    policies</p> </div> <div class="card" style="max-width:
-                    300px;">
-                    <!-- <div class="card-places"><b>Sold out</b></div><br> -->
+                <div class="card" id="CI2025" style="max-width: 300px;">
+                    <div class="card-places">
+                        <b><div id="countdown1" class="timer">Загрузка...</div></b>
+                    </div>
+                    <br>
+                    <h2 class="card-title">Full Festival Experience:</h2> 
+                    <!-- <p class="card-content">Immerse yourself in the magic of dance across both parts of the festival.</p>  -->
+                    <br>
+                    <p class="card-content"> 
+                        <span style="text-decoration: line-through;">659 €</span><br>
+                        <span style="font-weight: bold; font-size: 120%;">355 €</span>
+                    </p> 
+                    <a class="card-btn" href="https://buy.stripe.com/5kAaHD3of1iogh2bJ3" data-button="">REGISTRATION* </a> 
+                    <p class="card-btn-exp">*By clicking on this button you confirm that you agree with the refund and privacy policies</p> 
+                </div> 
+                <div class="card" id="CI2025" style="max-width: 300px;">
+                    <div class="card-places">
+                        <b><div id="countdown2" class="timer">Загрузка...</div></b>
+                    </div>
+                    <br>
                     <h2 class="card-title">First Part of the Festival: </h2>
-                    <p class="card-content">Experience the joy of movement
-                    and connection during the festival's opening days. </p>
-                    <ul class="card-content"> <li>Cost: 255 €</li> </ul> <a
-                    class="card-btn"
-                    href="https://buy.stripe.com/3cscPLf6X5yE2qcaF0"
-                    data-button="">REGISTRATION* </a > <p
-                    class="card-btn-exp">*By clicking on this button you
-                    confirm that you agree with the refund and privacy
-                    policies</p> </div> <div class="card" style="max-width:
-                    300px;">
-                    <!-- <div class="card-places"><b>Sold out</b></div><br> -->
+                    <!-- <p class="card-content">Experience the joy of movement and connection during the festival's opening days. </p> -->
+                    <br>
+                    <p class="card-content"> 
+                        <span style="text-decoration: line-through;">499 €</span><br>
+                        <span style="font-weight: bold; font-size: 120%;">255 €</span>
+                    </p>
+                    <a class="card-btn" href="https://buy.stripe.com/3cscPLf6X5yE2qcaF0" data-button="">REGISTRATION* </a> 
+                    <p class="card-btn-exp">*By clicking on this button you confirm that you agree with the refund and privacy policies</p> 
+                </div> 
+                <div class="card" id="CI2025" style="max-width: 300px;">
+                    <div class="card-places">
+                        <b><div id="countdown3" class="timer">Загрузка...</div></b>
+                    </div>
+                    <br>
                     <h2 class="card-title">Second Part of the Festival: </h2>
-                        <p class="card-content">Join us for the festival's dynamic and inspiring conclusion.</p>
-                        <ul class="card-content">
-                            <li>Cost: 255 €</li>
-                        </ul>
-                    <a class="card-btn" href="https://buy.stripe.com/9AQaHDaQHf9e6Gs6oL" style="margin-bottom: 30px;" data-button="">REGISTRATION*
-                    </a >
+                    <!-- <p class="card-content">Join us for the festival's dynamic and inspiring conclusion.</p> -->
+                    <br>
+                    <p class="card-content"> 
+                        <span style="text-decoration: line-through;">499 €</span><br>
+                        <span style="font-weight: bold; font-size: 120%;">255 €</span>
+                    </p> 
+                    <a class="card-btn" href="https://buy.stripe.com/9AQaHDaQHf9e6Gs6oL" data-button="">REGISTRATION*</a>
                     <p class="card-btn-exp" >*By clicking on this button you confirm that you agree with the refund and privacy policies</p>
                 </div>
+                <script>
+                    function startCountdown(id, targetDate) {
+                        function updateCountdown() {
+                            const now = new Date().getTime();
+                            const timeLeft = targetDate - now;
+
+                            if (timeLeft <= 0) {
+                                document.getElementById(id).innerHTML = "00d 00h 00m";
+                                clearInterval(interval);
+                                return;
+                            }
+
+                            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+
+                            document.getElementById(id).innerHTML = `${days}d ${hours}h ${minutes}m`;
+                        }
+
+                        updateCountdown(); 
+                        const interval = setInterval(updateCountdown, 1000 * 60);
+                    }
+
+                    startCountdown("countdown1", new Date(2025, 3, 29, 23, 59, 59).getTime()); 
+                    startCountdown("countdown2", new Date(2025, 3, 29, 23, 59, 59).getTime()); 
+                    startCountdown("countdown3", new Date(2025, 3, 29, 23, 59, 59).getTime()); 
+                </script>
             </div>
-            <h3>Act Now – Prices Go Up after April 30, 2025!</h3>
+            <h3>Hurry up – Prices Go Up after April 30, 2025!</h3>
             <p>
-                Take advantage of the early bird rates before they soar. After April 30, 2025, registration prices will increase. <br><br>
-                Secure your spot today to guarantee your place at this unforgettable event! Spaces are limited, and we strongly encourage you to register as soon as possible to ensure you don’t miss out.
+                Take advantage of the early bird rates before they soar. After April 30, 2025, registration prices will increase to 455, later to 559 and later to 659.
             </p>
         <footer style="background: rgba(255, 255, 255, 0.7);">
                 <div class="footer">

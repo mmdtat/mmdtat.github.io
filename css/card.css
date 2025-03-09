@@ -28,6 +28,19 @@
  .card:last-child{
     background: #163551;
 }
+
+#CI2025:first-child{
+   background: #163551;
+}
+
+#CI2025{
+   background: #575c6f;
+}
+
+#CI2025:last-child{
+   background: #4c5061;
+}
+
  .card-title{
      margin-top: 0;
      font-size: 22px;
