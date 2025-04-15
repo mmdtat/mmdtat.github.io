@@ -152,6 +152,11 @@ html {
     background-size: cover;
 }
 
+.html_anna{
+    background: #111 url("../img/projects/project_ANNA1.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
 .what_is_mmdt{
     background: black;
     height: 600px;
@@ -910,3 +915,13 @@ a{
 }
 
 
+#anna{
+    font-size: 6vw; 
+    background: rgba(0, 0, 0, 0.0);
+}
+
+@media(max-width: 1200px){
+    #anna{
+        font-size: 10vw; 
+    }
+}
