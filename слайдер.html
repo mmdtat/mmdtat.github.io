@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Слайдер с Lazy-Loading</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    .slider-container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .main-slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+
+    .main-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 24px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .nav-btn:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .nav-btn.prev { left: 10px; }
+    .nav-btn.next { right: 10px; }
+
+    .thumbnails {
+      display: flex;
+      overflow-x: auto;
+      gap: 6px;
+      padding: 10px 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .thumbnail {
+      flex: 0 0 auto;
+      width: 80px;
+      height: 50px;
+      cursor: pointer;
+      scroll-snap-align: start;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumbnail.active {
+      border-color: #007aff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="slider-container">
+  <div class="main-slider">
+    <button class="nav-btn prev" id="prev">&#10094;</button>
+    <div class="main-slide" id="mainSlide"></div>
+    <button class="nav-btn next" id="next">&#10095;</button>
+  </div>
+
+  <div class="thumbnails" id="thumbnails"></div>
+</div>
+
+<script>
+  const TOTAL_IMAGES = 85;
+
+  // Замените на свои изображения:
+  const images = [
+      'gallery/ANNA/0K4A2198.jpg',
+      'gallery/ANNA/0K4A2265.jpg',
+      'gallery/ANNA/0K4A2280.jpg',
+      'gallery/ANNA/0K4A2305.jpg',
+      'gallery/ANNA/0K4A2347.jpg',
+      'gallery/ANNA/0K4A2365.jpg',
+      'gallery/ANNA/0K4A2375.jpg',
+      'gallery/ANNA/0K4A2434.jpg',
+      'gallery/ANNA/0K4A2449.jpg',
+      'gallery/ANNA/0K4A2471.jpg',
+      'gallery/ANNA/0K4A2494.jpg',
+      'gallery/ANNA/0K4A2516.jpg',
+      'gallery/ANNA/0K4A2517.jpg',
+      'gallery/ANNA/0K4A2522.jpg',
+      'gallery/ANNA/0K4A2541.jpg',
+      'gallery/ANNA/0K4A2583.jpg',
+      'gallery/ANNA/0K4A2614.jpg',
+      'gallery/ANNA/0K4A2637.jpg',
+      'gallery/ANNA/0K4A2641.jpg',
+      'gallery/ANNA/0K4A2649.jpg',
+      'gallery/ANNA/0K4A2651.jpg',
+      'gallery/ANNA/0K4A2662.jpg',
+      'gallery/ANNA/0K4A7557.jpg',
+      'gallery/ANNA/0K4A7560.jpg',
+      'gallery/ANNA/0K4A7565.jpg',
+      'gallery/ANNA/0K4A7605.jpg',
+      'gallery/ANNA/0K4A7613.jpg',
+      'gallery/ANNA/0K4A7631.jpg',
+      'gallery/ANNA/0K4A7647.jpg',
+      'gallery/ANNA/0K4A7656.jpg',
+      'gallery/ANNA/0K4A7660.jpg',
+      'gallery/ANNA/0K4A7665.jpg',
+      'gallery/ANNA/0K4A7735.jpg',
+      'gallery/ANNA/0K4A7738.jpg',
+      'gallery/ANNA/0K4A7747.jpg',
+      'gallery/ANNA/0K4A7767.jpg',
+      'gallery/ANNA/0K4A7768.jpg',
+      'gallery/ANNA/0K4A7816.jpg',
+      'gallery/ANNA/0K4A7853.jpg',
+      'gallery/ANNA/0K4A7858.jpg',
+      'gallery/ANNA/0K4A7859.jpg',
+      'gallery/ANNA/0K4A7866.jpg',
+      'gallery/ANNA/0K4A7867.jpg',
+      'gallery/ANNA/0K4A7868.jpg',
+      'gallery/ANNA/0K4A7871.jpg',
+      'gallery/ANNA/0K4A7876.jpg',
+      'gallery/ANNA/0K4A7879.jpg',
+      'gallery/ANNA/0K4A7880.jpg',
+      'gallery/ANNA/0K4A7881.jpg',
+      'gallery/ANNA/0K4A7892.jpg',
+      'gallery/ANNA/0K4A8255.jpg',
+      'gallery/ANNA/0K4A8260.jpg',
+      'gallery/ANNA/0K4A8307.jpg',
+      'gallery/ANNA/0K4A8357.jpg',
+      'gallery/ANNA/0K4A0198.jpg',
+      'gallery/ANNA/0K4A0208.jpg',
+      'gallery/ANNA/0K4A0225.jpg',
+      'gallery/ANNA/0K4A0241.jpg',
+      'gallery/ANNA/0K4A0258.jpg',
+      'gallery/ANNA/0K4A0287.jpg',
+      'gallery/ANNA/0K4A0330.jpg',
+      'gallery/ANNA/0K4A0335.jpg',
+      'gallery/ANNA/0K4A0340.jpg',
+      'gallery/ANNA/0K4A0360.jpg',
+      'gallery/ANNA/0K4A0371.jpg',
+      'gallery/ANNA/0K4A0391.jpg',
+      'gallery/ANNA/0K4A0426.jpg',
+      'gallery/ANNA/0K4A0512.jpg',
+      'gallery/ANNA/0K4A0515.jpg',
+      'gallery/ANNA/0K4A0520.jpg',
+      'gallery/ANNA/0K4A0534.jpg',
+      'gallery/ANNA/0K4A0596.jpg',
+      'gallery/ANNA/0K4A0599.jpg',
+      'gallery/ANNA/0K4A0604.jpg',
+      'gallery/ANNA/0K4A0673.jpg',
+      'gallery/ANNA/0K4A0800.jpg',
+      'gallery/ANNA/0K4A0804.jpg',
+      'gallery/ANNA/0K4A0819.jpg',
+      'gallery/ANNA/0K4A2044.jpg',
+      'gallery/ANNA/0K4A2091.jpg',
+      'gallery/ANNA/0K4A2153.jpg',
+      'gallery/ANNA/0K4A2157.jpg'
+    ];
+
+  const mainSlide = document.getElementById("mainSlide");
+  const thumbnails = document.getElementById("thumbnails");
+
+  let index = 0;
+
+  function renderMainSlide() {
+    const img = document.createElement("img");
+    img.src = images[index];
+    img.alt = `Картинка ${index + 1}`;
+    img.loading = "eager";
+    mainSlide.innerHTML = "";
+    mainSlide.appendChild(img);
+
+    document.querySelectorAll(".thumbnail").forEach((thumb, i) => {
+      thumb.classList.toggle("active", i === index);
+    });
+
+    // Автопрокрутка превьюшек к активному
+    const activeThumb = thumbnails.querySelector(`.thumbnail[data-index="${index}"]`);
+    if (activeThumb) activeThumb.scrollIntoView({ behavior: "smooth", inline: "center" });
+  }
+
+  function createThumbnail(i) {
+    const thumb = document.createElement("div");
+    thumb.className = "thumbnail";
+    thumb.dataset.index = i;
+
+    const img = document.createElement("img");
+    // img.setAttribute("loading", "lazy");
+    img.src = images[i];
+    img.alt = `Превью ${i + 1}`;
+    thumb.appendChild(img);
+
+    if (i === index) thumb.classList.add("active");
+
+    thumb.addEventListener("click", () => {
+      index = i;
+      renderMainSlide();
+    });
+
+    return thumb;
+  }
+
+  function renderThumbnails() {
+    for (let i = 0; i < images.length; i++) {
+      const thumb = createThumbnail(i);
+      thumbnails.appendChild(thumb);
+    }
+  }
+
+  document.getElementById("next").addEventListener("click", () => {
+    index = (index + 1) % images.length;
+    renderMainSlide();
+  });
+
+  document.getElementById("prev").addEventListener("click", () => {
+    index = (index - 1 + images.length) % images.length;
+    renderMainSlide();
+  });
+
+  renderThumbnails();
+  renderMainSlide();
+</script>
+
+</body>
+</html>
+
+  
