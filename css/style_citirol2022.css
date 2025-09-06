@@ -157,6 +157,11 @@ html {
     background-size: cover;
 }
 
+.html_TSOTM{
+    background: #111 url("../img/projects/TheSilenceoftheMass.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
 .what_is_mmdt{
     background: black;
     height: 600px;
@@ -920,8 +925,15 @@ a{
     background: rgba(0, 0, 0, 0.0);
 }
 
+#TSOTM{
+    font-size: 64px;
+}
+
 @media(max-width: 1200px){
     #anna{
         font-size: 10vw; 
     }
+    #TSOTM{
+    font-size: 10vw;
+}
 }
