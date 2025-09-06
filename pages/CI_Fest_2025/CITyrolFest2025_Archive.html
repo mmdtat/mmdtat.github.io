@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../../css/style_citirol2025.css">
 <link rel="stylesheet" type="text/css" href="../../css/card.css">
-</head>
 <style>
     body {
       margin: 0;
@@ -14,6 +13,7 @@
       background: #f8f8f8;
     }
 
+    /* Сетка галереи */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -34,7 +34,7 @@
       transform: scale(1.03);
     }
 
-    /* Модальное окно */
+    /* Модалка */
     .modal {
       display: none;
       position: fixed;
@@ -45,6 +45,10 @@
       z-index: 1000;
     }
 
+    .modal.active {
+      display: flex;
+    }
+
     .modal img {
       max-width: 90%;
       max-height: 90%;
@@ -52,10 +56,7 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.6);
     }
 
-    .modal.active {
-      display: flex;
-    }
-
+    /* Крестик */
     .modal-close {
       position: absolute;
       top: 20px;
@@ -65,7 +66,36 @@
       cursor: pointer;
       user-select: none;
     }
+
+    /* Стрелки */
+    .modal-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 48px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      padding: 10px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .modal-arrow:hover {
+      background: rgba(0,0,0,0.6);
+    }
+
+    .modal-arrow.left {
+      left: 20px;
+    }
+
+    .modal-arrow.right {
+      right: 20px;
+    }
   </style>
+</head>
+
 <body>
     <header class="header">
         <div class="container">
@@ -462,7 +492,9 @@
 
         <div class="modal" id="modal">
           <span class="modal-close" id="modalClose">&times;</span>
+          <span class="modal-arrow left" id="prev">&#10094;</span>
           <img id="modalImg" src="">
+          <span class="modal-arrow right" id="next">&#10095;</span>
         </div>
 
         <script>
@@ -470,23 +502,54 @@
           const modal = document.getElementById('modal');
           const modalImg = document.getElementById('modalImg');
           const modalClose = document.getElementById('modalClose');
+          const prevBtn = document.getElementById('prev');
+          const nextBtn = document.getElementById('next');
 
-          gallery.forEach(img => {
+          let currentIndex = 0;
+
+          // Открытие картинки
+          gallery.forEach((img, index) => {
             img.addEventListener('click', () => {
               modal.classList.add('active');
               modalImg.src = img.src;
+              currentIndex = index;
             });
           });
 
+          // Закрыть модалку
           modalClose.addEventListener('click', () => {
             modal.classList.remove('active');
           });
 
+          // Клик по фону закрывает
           modal.addEventListener('click', (e) => {
             if (e.target === modal) {
               modal.classList.remove('active');
             }
           });
+
+          // Переключение стрелками на странице
+          document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+
+            if (e.key === 'ArrowRight') showNext();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'Escape') modal.classList.remove('active');
+          });
+
+          // Переключение кнопками
+          nextBtn.addEventListener('click', showNext);
+          prevBtn.addEventListener('click', showPrev);
+
+          function showNext() {
+            currentIndex = (currentIndex + 1) % gallery.length;
+            modalImg.src = gallery[currentIndex].src;
+          }
+
+          function showPrev() {
+            currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+            modalImg.src = gallery[currentIndex].src;
+          }
         </script>
         <footer style="background: rgba(255, 255, 255, 0.7);">
                 <div class="footer">
