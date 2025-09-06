@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Archive</title>
+<link rel="shortcut icon" href="../../gallery/lg.png" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../css/style_citirol2025.css">
+<link rel="stylesheet" type="text/css" href="../../css/card.css">
+</head>
+<style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f8f8f8;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Модальное окно */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <img src="../../img/logo.png" alt="">
+                </div>
+                <nav class="nav">
+                    <a class="nav__link" href="https://mmdt.at/">HOME</a>
+                    <a class="nav__link" href="https://mmdt.at/pages/projects">PROJECTS</a>
+                    <a class="nav__link" href="https://mmdt.at/pages/festival">FESTIVAL</a>
+                    <a class="nav__link" href="https://mmdt.at/pages/partners">PARTNERS</a>
+                    <a class="nav__link" href="https://mmdt.at/pages/contants">CONTACTS</a>
+                    <a class="nav__link" href="https://mmdt.at/pages/events">EVENTS</a>
+                    <a class="nav__link" href="https://mmdt.at/pages/membership">MEMBERSHIP</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="content" style="margin-top: 180px;">
+        <div class="container" id="container">
+            <br>
+            <a href="https://mmdt.at/CITyrolFest2025"><button>← Back</button></a>
+            <h1 style="text-align: center;">Photomaterial</h1>
+            <p style="text-align: center;">Photo by Serhii Semichev</p><br>
+        <div class="gallery">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5336_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5337_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5337_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5339_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5341 копия_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5341_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5345_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5355_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5425_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5427_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5427_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5429_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5429_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5434_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5434_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5435_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5441_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5443_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5449_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5455_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5457_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5458_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5459_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5465_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5469_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5472_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5477_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5483_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5593_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5593_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5594_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5594_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5603_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5607_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5607_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5611_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5614_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5614_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5617_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5617_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5618_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5618_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5626_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5626_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5629_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5634_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5636_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5637_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5637_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5640_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5646_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5658_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5659_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5663_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5664_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5665_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5666_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5668_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5671_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5673_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5677_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5679_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5684_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5693_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5700_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5703_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5713_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5720_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5729_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5733_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5738_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5741_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5747_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5752_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5755_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5755_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5771_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5771_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5785_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5785_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5788_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5788_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5790_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5790_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5794_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5794_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5795_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5795_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5796_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5803_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5803_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5803_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5810_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5810_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5818_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5826_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5826_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5828_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5828_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5834_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5834_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5840_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5840_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5845_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5851_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5851_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5866_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5866_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5873_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5873_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5873_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5876_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5885_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5885_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5893_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5893_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5895_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5905_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5910_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5910_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5916_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5916_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5924_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5938_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5938_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5948_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5948_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5956_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5961_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5961_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5975_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5981_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5981_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5989_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5989_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5996_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5996_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6005_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6005_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6014_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6014_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6016_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6016_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6019_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6019_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6025_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6025_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6027_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6027_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6035_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6039_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6039_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6044_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6044_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6056_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6060_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6060_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6066_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6066_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6074_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6074_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6078_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6078_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6083_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6083_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6087_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6087_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6111_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6111_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6120_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6121_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6121_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6141_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6141_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6151_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6151_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6158_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6158_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6166_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6239_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6239_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6247_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6247_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6252_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6252_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6252_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6260_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6260_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6266_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6266_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6266_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6276_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6279_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6279_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6280_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6280_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6284_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6284_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6288_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6288_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6297_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6297_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6310_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6315_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6315_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6331_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6331_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6335_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6335_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6336_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6336_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6347_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6347_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6358_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6358_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6361_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6361_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6365_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6365_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6377_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6389_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6389_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6389_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6394_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6394_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6398_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6398_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6398_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6399_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6399_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6404_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6404_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6410_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6410_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6438_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6438_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6444_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6461_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6472_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6473_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6486_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6494_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6494_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6503_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6513_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6514_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6523_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6523_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6525_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6525_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6537_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6540_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6544_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6548_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6562_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6562_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6565_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6565_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6568_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6573_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6577_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6577_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6578_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6578_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6583_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6583_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6584_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6584_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6587_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6587_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6589_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6593_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6595_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6595_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6607_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6607_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6608_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6608_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6610_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6612_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6613_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6614_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6614_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6616_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6616_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6623_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6627_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6627_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6636_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6636_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6644_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6644_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6645_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6645_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6646_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6646_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6650_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6650_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6652_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6652_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6669_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6669_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6672_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6672_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6681_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6681_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6698_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6698_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6698_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6702_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6702_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6707_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6707_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6710_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6710_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6710_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6715_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6715_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6715_3_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6715_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6718_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6721_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6726_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6731_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6731_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6735_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6735_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6736_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6738_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6740_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6740_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6741_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6741_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6743_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6743_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6745_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6745_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6749_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6749_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6752_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6752_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6754_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6754_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6756_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6756_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6760_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6760_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6761_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6761_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6764_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6764_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6771_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6771_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6773_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6781_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6782_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6786_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A6786_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5325_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5327_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5327_2_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5327_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5329_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5335_1_compress.jpg" alt="">
+          <img src="..\..\gallery\CITyrolFest2025\Archive\5R7A5335_2_compress.jpg" alt="">
+        </div>
+
+        <div class="modal" id="modal">
+          <span class="modal-close" id="modalClose">&times;</span>
+          <img id="modalImg" src="">
+        </div>
+
+        <script>
+          const gallery = document.querySelectorAll('.gallery img');
+          const modal = document.getElementById('modal');
+          const modalImg = document.getElementById('modalImg');
+          const modalClose = document.getElementById('modalClose');
+
+          gallery.forEach(img => {
+            img.addEventListener('click', () => {
+              modal.classList.add('active');
+              modalImg.src = img.src;
+            });
+          });
+
+          modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+          });
+
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+              modal.classList.remove('active');
+            }
+          });
+        </script>
+        <footer style="background: rgba(255, 255, 255, 0.7);">
+                <div class="footer">
+                    <div class="footer_element">
+                        <br> <a href="#" style="text-decoration: none; color: #000;"><b>MOTION MODE DANCE THEATRE</b></a><br> <br>
+                        <img src="../../img/visa_mc.png" alt="" width="300px" style="text-align: left;">
+
+                    </div>
+                    <div class="footer_element"> <br>
+                        <a href="https://mmdt.at/Privacy_policy" style="color: #000; text-align: right;">Privacy Policy</a> <br> <br>
+                        <a href="https://mmdt.at/Refund_policy" style="color: #000; text-align: right;">Refund & Return Policy</a> <br><br>
+                        <a href="https://mmdt.at/Terms&Conditions" style="color: #000; text-align: right;">Terms & Conditions</a> <br> <br>
+                        <a href="https://mmdt.at/GEP" style="color: #000; text-align: right;">Gender Equality Plan</a> <br> <br>
+                    </div>
+                </div>
+        </footer>
+    </div>
+</body>
+</html>

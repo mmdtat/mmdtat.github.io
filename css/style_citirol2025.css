@@ -146,6 +146,19 @@ html {
     transition: 0.3S;
 }
 
+#archive{
+    background: #23233B;
+    max-width: 700px;
+}
+
+#archive:hover{
+    color:#23233B;
+    background: #fff;
+    border: 1px #23233B solid;
+    transition: 0.3S;
+}
+
+
 .tab {
     margin: auto;
     display: grid;
