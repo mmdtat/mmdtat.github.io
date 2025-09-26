@@ -692,8 +692,13 @@ p {
   transition: 0.4s;
 }
 
+.info__body img{
+    max-width: 100%;
+  width: 100%;
+}
+
 .info__switch:checked~.info__body {
-  max-height: 1000px;
+  max-height: 9000px;
 }
 
 .info__headline::before {
@@ -848,6 +853,9 @@ p {
 }
 .concert-item {
     display: grid;
+    grid-template-areas:
+    "image content"
+    "footer footer";
     grid-template-columns: 1fr 2fr;
     background: white;
     margin-bottom: 15px;
@@ -876,6 +884,19 @@ p {
 .concert-info .price {
     color: #243347;
 }
+
+.concert-item > div.concert-img{
+    grid-area: image;
+}
+
+.concert-item > div.concert-info{
+    grid-area: content;
+}
+
+.concert-item > div.info{
+    grid-area: footer;
+}
+
 .buy-button {
     background-color: #243347;
     color: white;
