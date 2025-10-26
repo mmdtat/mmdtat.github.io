@@ -1,0 +1,392 @@
+html{
+    background: #111 url("../img/partnering_bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    color: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 5px;
+}
+
+button{
+    font-size: 25px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 7px;
+    background: #4D4D54;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 20px;
+
+}
+
+.container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.header__inner {
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: ;
+}
+
+.nav {
+    /*display: flex;*/
+    padding: 20px;
+    padding-right: 0;
+    
+}
+
+.nav__link {
+    font-size: 16pt;
+    color: white;
+    text-decoration: none;
+    opacity: 0.75;
+    margin-left: 40px;
+}
+
+/*.nav__link:first-child {
+    margin-left: 0;
+}
+*/
+
+/*ДЛЯ ПОСЛЕДНЕЙ ССЫЛКИ*/
+
+.nav__link:last-child {
+/*    margin-right: 100px;*/
+}
+
+
+/*ДЛЯ ПОСЛЕДНЕЙ ССЫЛКИ*/
+
+.nav__link:hover {
+    transition: 0.2s linear;
+    opacity: 1;
+}
+
+.header__logo {
+    padding: 45px 20px 10px 20px;
+    
+}
+
+.header__logo img {
+    width: 100%;
+    max-width: 140px;
+}
+
+html {
+    background: #111 url("../gallery/CITyrolFest2025/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.content{
+    margin-top: 100vh;
+    background: rgba(255, 255, 255, 0.7);
+    width: 100%;
+}
+
+#container{
+    background: white;
+}
+
+#container footer{
+    padding: 5px 20px;
+}
+
+.tab-button {
+    width: 100%;
+    font-size: 25px;
+/*    padding: auto 10px;*/
+    border: none;
+    border-radius: 7px;
+    background: #4D4D54;
+    color: #fff;
+    cursor: pointer;
+    height: 3em;
+    margin: 0;
+}
+
+.tab-button:hover{
+    color:#4D4D54;
+    background: #fff;
+    border: 1px solid;
+    transition: 0.3S;
+}
+
+#archive{
+    background: #23233B;
+    max-width: 700px;
+}
+
+#archive:hover{
+    color:#23233B;
+    background: #fff;
+    border: 1px #23233B solid;
+    transition: 0.3S;
+}
+
+
+.tab {
+    margin: auto;
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивные колонки */
+}
+
+
+.footer{
+    margin: auto;
+    max-width: 1500px;
+    background: #fff;
+    font-size: 20px;
+    color: #000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+@media(max-width: 500px){
+    .footer{
+    margin: auto;
+    max-width: 1500px;
+    background: #fff;
+    font-size: 20px;
+    color: #000;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+} 
+
+.footer_element{
+    margin: 20px;
+}
+
+.footer_element:last-child{
+    text-align: right;
+}
+
+.teacher{
+
+}
+
+.teacher h2{
+    font-weight: 400;
+    letter-spacing: 0.8rem;
+    text-align: center;
+}
+
+.teacher p{
+    line-height: 1.4;
+}
+
+#main.teacher{
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+
+}
+
+#main.teacher img{
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px 0px rgba(0,5,25,0.19);
+}
+
+
+.teacher-bio{
+    padding: 5px 30px;
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.teacher-bio-text{
+    flex: 2 500px;
+}
+
+.teacher-bio-image{
+    flex: 1 400px;
+    padding: 10px 0px;
+}
+
+.teacher-bio-image img{
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px 0px rgba(0,5,25,0.19);
+}
+
+
+.teacher-class p{
+    padding: 0;
+}
+
+.teacher-class{
+    padding: 0 30px;
+}
+
+.org-team{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+
+.ot-elmt{
+    padding: 10px;
+}
+.ot-elmt img{
+    padding: 10px;
+    border-radius: 30px;
+}
+
+@media(max-width: 1300px){
+    .org-team{
+        display: grid;
+        grid-template-columns: 2fr 4fr;
+    }
+} 
+
+@media(max-width: 800px){
+    .org-team{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+} 
+
+
+.registration {
+  display: block;
+  margin: 0 auto; /* Выравнивание по горизонтали */
+  text-align: center; /* Выравнивание текста внутри кнопки */
+}
+
+.flex-container {
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 1rem;
+    text-align: center;
+    max-width: 600px;
+}
+
+.flex-container img {
+    width: 100%;
+}
+
+.info {
+
+  padding: 10px 20px;
+}
+
+.info__switch {
+  display: none;
+}
+
+.info__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+#info__body p{
+    position: relative;
+    z-index: 1;
+    padding: 5px 0;
+}
+
+.info__body img{
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    z-index: 0;
+    margin-top: -30%;
+}
+
+.info__switch:checked~.info__body {
+  max-height: 9000px;
+}
+
+.info__headline::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 4px;
+  border: 6px solid #39739d;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+
+.info__switch:checked~.info__headline::before {
+  transform: rotate(180deg) translateY(6px);
+}
+
+.info__headline {
+  display: block;
+  position: relative;
+  margin-bottom: 15px;
+  user-select: none;
+  color: #39739d;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.info__headline:hover {
+  text-decoration: underline;
+}
+
+
+.maitane-videos{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 15px;
+}
+
+.maitane-videos iframe{
+    flex: 500px;
+    height: 42vh;
+}
