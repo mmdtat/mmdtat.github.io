@@ -1,5 +1,5 @@
 html{
-    background: #111 url("../img/partnering_bg.jpg") no-repeat center center fixed;
+    background: #111 url("../gallery/CITyrolFest2026/bg.jpg") no-repeat center center fixed;
     background-size: cover;
     width: 100%;
 }
@@ -107,13 +107,9 @@ button{
     max-width: 140px;
 }
 
-html {
-    background: #111 url("../gallery/CITyrolFest2025/bg.jpg") no-repeat center center fixed;
-    background-size: cover;
-}
 
 .content{
-    margin-top: 100vh;
+    /*margin-top: 100vh;*/
     background: rgba(255, 255, 255, 0.7);
     width: 100%;
 }
@@ -389,4 +385,34 @@ html {
 .maitane-videos iframe{
     flex: 500px;
     height: 42vh;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Центрирует h1 по вертикали */
+  align-items: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 1%, transparent);
+}
+
+.title p {
+  position: absolute;
+  bottom: 40px;
+  left: 45%;
+  transform: translateX(-45%);
+  margin: 0 auto;
+  width: 90%; /* ← растягивает по всей ширине контейнера */
+  text-align: center; /* ← чтобы текст остался по центру */
+}
+
+.title h1 {
+    margin: 0;
+  font-size: clamp(1.8rem, 4vw + 1rem, 5rem);
+}
+
+.plain_text{
+    padding: 0 20px;
 }

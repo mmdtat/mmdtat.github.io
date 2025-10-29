@@ -12,6 +12,94 @@
 <link rel="stylesheet" href="css/pgwslider.min.css">
 <link rel="stylesheet" href="css/myslider.css">
 <link rel="stylesheet" href="css/demo.css">
+<style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f8f8f8;
+    }
+
+    /* Сетка галереи */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Модалка */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    /* Крестик */
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Стрелки */
+    .modal-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 48px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      padding: 10px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .modal-arrow:hover {
+      background: rgba(0,0,0,0.6);
+    }
+
+    .modal-arrow.left {
+      left: 20px;
+    }
+
+    .modal-arrow.right {
+      right: 20px;
+    }
+  </style>
 </head>
 <body>
     <header class="header">
@@ -97,6 +185,207 @@
                 </div>
                 <br>
             </div>
+                <h1 style="text-align: center;">Photomaterial</h1>
+            <div class="gallery">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-1_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-3_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-4_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-5_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-6_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-7_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-8_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-9_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-10_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-11_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-12_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-13_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-14_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-15_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-16_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-17_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-18_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-19_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-20_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-21_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-22_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-23_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-24_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-25_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-26_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-27_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-28_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-29_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-30_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-31_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-32_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-33_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-34_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-35_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-36_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-37_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-38_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-39_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-40_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-41_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-42_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-43_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-44_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-45_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-46_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-47_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-48_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-49_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-50_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-51_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-52_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-53_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-54_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-55_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-56_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-57_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-58_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-59_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-60_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-61_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-62_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-63_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-64_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-65_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-66_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-67_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-68_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-69_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-70_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-71_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-72_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-73_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-74_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-75_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-76_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-77_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-78_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-79_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-80_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-81_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-82_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-83_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-84_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-85_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-86_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-87_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-88_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-89_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-90_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-91_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-92_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-93_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-94_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-95_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-96_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-97_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-98_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-99_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-100_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-101_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-102_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-103_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-104_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-105_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-106_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-107_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-108_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-109_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-110_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-111_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-112_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-113_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-114_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-115_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-116_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-117_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-118_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-119_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-120_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-121_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-122_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-123_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-124_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-125_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-126_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-127_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-128_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-129_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-130_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-131_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-132_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-133_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-134_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-135_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-1_.jpg" alt="">
+              <img src="gallery\The_Silence_of_the_Mass\The Silence of the Mass_BRUX_25.10.25-2_.jpg" alt="">
+            </div>
+
+            <div class="modal" id="modal">
+              <span class="modal-close" id="modalClose">&times;</span>
+              <span class="modal-arrow left" id="prev">&#10094;</span>
+              <img id="modalImg" src="">
+              <span class="modal-arrow right" id="next">&#10095;</span>
+            </div>
+
+            <script>
+              const gallery = document.querySelectorAll('.gallery img');
+              const modal = document.getElementById('modal');
+              const modalImg = document.getElementById('modalImg');
+              const modalClose = document.getElementById('modalClose');
+              const prevBtn = document.getElementById('prev');
+              const nextBtn = document.getElementById('next');
+
+              let currentIndex = 0;
+
+              // Открытие картинки
+              gallery.forEach((img, index) => {
+                img.addEventListener('click', () => {
+                  modal.classList.add('active');
+                  modalImg.src = img.src;
+                  currentIndex = index;
+                });
+              });
+
+              // Закрыть модалку
+              modalClose.addEventListener('click', () => {
+                modal.classList.remove('active');
+              });
+
+              // Клик по фону закрывает
+              modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                  modal.classList.remove('active');
+                }
+              });
+
+              // Переключение стрелками на странице
+              document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('active')) return;
+
+                if (e.key === 'ArrowRight') showNext();
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'Escape') modal.classList.remove('active');
+              });
+
+              // Переключение кнопками
+              nextBtn.addEventListener('click', showNext);
+              prevBtn.addEventListener('click', showPrev);
+
+              function showNext() {
+                currentIndex = (currentIndex + 1) % gallery.length;
+                modalImg.src = gallery[currentIndex].src;
+              }
+
+              function showPrev() {
+                currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+                modalImg.src = gallery[currentIndex].src;
+              }
+            </script>
         <footer style="background: rgba(255, 255, 255, 0.7);">
                 <div class="footer">
                     <div class="footer_element">
