@@ -30,7 +30,7 @@ button{
     padding: 15px 30px;
     border: none;
     border-radius: 7px;
-    background: #4D4D54;
+    background: #750025;
     color: #fff;
     cursor: pointer;
     margin: 0 20px;
@@ -128,7 +128,7 @@ button{
 /*    padding: auto 10px;*/
     border: none;
     border-radius: 7px;
-    background: #4D4D54;
+    background: #750025;
     color: #fff;
     cursor: pointer;
     height: 3em;
@@ -136,7 +136,7 @@ button{
 }
 
 .tab-button:hover{
-    color:#4D4D54;
+    color:#750025;
     background: #fff;
     border: 1px solid;
     transition: 0.3S;
