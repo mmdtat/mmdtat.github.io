@@ -157,6 +157,11 @@ html {
     background-size: cover;
 }
 
+.html_Coastal_Reverie{
+    background: #111 url("../gallery/Coastal_Reverie_bg.jpg") no-repeat bottom center fixed;
+    background-size: cover;
+}
+
 .html_TSOTM{
     background: #111 url("../gallery/TSOTM.jpg") no-repeat center center fixed;
     background-size: cover;
@@ -380,7 +385,7 @@ body {
 #container{
     padding: 20PX;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     background: white;
 }
@@ -936,4 +941,62 @@ a{
     #TSOTM{
     font-size: 10vw;
 }
+}
+
+
+#Coastal_Reverie_location{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    /*align-items: left;*/
+    justify-content: space-around;
+}
+
+#Coastal_Reverie_location div{
+    flex: 500px;
+}
+
+
+#Coastal_Reverie_location_img{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#Coastal_Reverie_location_img div{
+    flex: 200px;
+}
+
+#Coastal_Reverie_reg {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    /*align-items: left;*/
+    justify-content: space-around;
+}
+
+#Coastal_Reverie_reg div{
+    flex: 500px;
+}
+
+#Coastal_Reverie_reg button{
+    width: 95%;
+    font-size: 25px;
+    padding: 20px;
+    border: none;
+    border-radius: 7px;
+    background: #001d39;
+    color: #000;
+    cursor: pointer;
+    margin: 7px auto;
+}
+
+#Coastal_Reverie_reg button:hover{
+    color:#000;
+    background: #004385;
+    transition: 0.3S;
 }
