@@ -1000,3 +1000,34 @@ a{
     background: #004385;
     transition: 0.3S;
 }
+
+#Coastal_Reverie_menu {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    /*align-items: left;*/
+    justify-content: space-around;
+}
+
+#Coastal_Reverie_menu a{
+    flex: 300px;
+}
+
+#Coastal_Reverie_menu button{
+    width: 100%;
+    font-size: 25px;
+    padding: 20px;
+    border: none;
+    border-radius: 7px;
+    background: #986846;
+    color: #fff;
+    cursor: pointer;
+    margin: 7px auto;
+}
+
+#Coastal_Reverie_menu button:hover{
+    color:#000;
+    background: #ffc075;
+    transition: 0.3S;
+}
