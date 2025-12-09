@@ -387,6 +387,11 @@ button{
     height: 42vh;
 }
 
+.maitane-videos div{
+    flex: 300px;
+
+}
+
 .title {
   display: flex;
   flex-direction: column;
