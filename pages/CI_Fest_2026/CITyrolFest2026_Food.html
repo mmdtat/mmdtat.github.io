@@ -53,17 +53,61 @@
                 See you in Innsbruck!
             </p>
             <br><br>
+            <hr> <br>
             <h2 class="plain_text">
                 Festival Food
             </h2>
+            <br>
+
+            <h3 class="plain_text">
+                We have wonderful news! 
+            </h3>
             <p class="plain_text">
-                We are carefully exploring the best options for meals at the festival.
-                Detailed information will be shared with all participants in March–April.
+                This year, our kitchen will be in the hands of someone truly special — a cook who is also a dancer and brings the same care and creativity to food as we do to movement. We are so happy to have her with us. <br><br>
+
+                As we are organising a dedicated kitchen space to make mealtimes comfortable and communal for everyone, we kindly ask you to register for meals as early as possible.
             </p>
-           <!--  <div class="tab">
-                    <a href="https://buy.stripe.com/cNiaEX3hC8b6fXecvQd3i0A"><button class="tab-button">Full Festival food</button></a>
-                    <a href="https://buy.stripe.com/9B63cv5pK2QM7qIanId3i0B"><button class="tab-button">Half Festival food</button></a>
-            </div> -->
+            <br><br>
+            <div class="teacher-bio" style="align-items: start;">
+            <div class="teacher-bio-text">
+            <h3>Maya Schwartz</h3>
+            <br>
+            <p>
+                A dancer, vegan cook, choreographer, and teacher of release technique, contact improvisation, and yoga, as well as an Ilan Lev therapist.<br>
+                Originally from Ukraine and Israel–Palestine, she has worked with choreographers such as Roni Chadash, Gil Kerer, Maya Brinner, Michal Ben Lior, Sally Ann Friedland, Lilach Pnina Livne, and Judi Adini, and collaborated with Vertigo Dance Company on The Birth of the Phoenix and Vertigo POB.<br><br>
+                Her choreographic works include Primal Feelings (duet), Alata (duet), and solo pieces such as Nothing and Growing Pains.
+                Maya has performed and taught at institutions and festivals worldwide, including Masdanza (Gran Canaria), Zürcher Theater Spektakel, Bratislava in Movement, Dance Days Chania (Greece), and Prisma Festival (Panama).<br><br>
+                She also co-organized workshops and events through Deep Into You, a series of retreats blending art and movement in nature across Israel–Palestine, Sinai, Portugal, France, and Peru.<br><br>
+                Worked as a cook at Fall Jam Freiburg, Sweden CI festival, Larret en moments, Larretude Program, BodyWeather training and more!
+            </p>
+            </div>
+            <div class="teacher-bio-image" style="flex: 1 200px;">
+                <img src="../../gallery/CITyrolFest2026/Maya1.jpg" width="100%">
+            </div>
+        </div>
+        <div class="mini-gallery">
+          <img src="../../gallery/CITyrolFest2026/Maya2.jpg" alt="Thumbnail 1" class="gallery-thumb" onclick="openModal(this.src)">
+          <img src="../../gallery/CITyrolFest2026/Maya3.jpg" alt="Thumbnail 2" class="gallery-thumb" onclick="openModal(this.src)">
+          <img src="../../gallery/CITyrolFest2026/Maya4.jpg" alt="Thumbnail 3" class="gallery-thumb" onclick="openModal(this.src)">
+          <img src="../../gallery/CITyrolFest2026/Maya5.jpg" alt="Thumbnail 4" class="gallery-thumb" onclick="openModal(this.src)">
+        </div>
+
+        <div id="imageModal" class="modal" onclick="closeModal()">
+          <span class="close-btn">&times;</span>
+          <img id="enlargedImg" class="modal-content">
+        </div>
+        <script>
+            function openModal(imageSrc) {
+              const modal = document.getElementById("imageModal");
+              const expandedImg = document.getElementById("enlargedImg");
+              modal.style.display = "flex";
+              expandedImg.src = imageSrc;
+            }
+
+            function closeModal() {
+              document.getElementById("imageModal").style.display = "none";
+            }
+        </script>
         <footer style="background: rgba(255, 255, 255, 0.7);">
                 <div class="footer">
                     <div class="footer_element">
@@ -80,5 +124,6 @@
                 </div>
         </footer>
     </div>
+
 </body>
 </html>
