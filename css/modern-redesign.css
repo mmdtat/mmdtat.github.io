@@ -1,0 +1,2480 @@
+/* ============================================================
+   MMDT.at — Swiss Minimalist Redesign
+   Inspired by Kunstraum Innsbruck & Büchsenhausen
+   Font: Geologica | Accent: #e0245e (rosa)
+   ============================================================ */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Colors — Monochrome + single accent */
+    --bg-white: #ffffff;
+    --bg-light: #f5f5f3;
+    --bg-section: #fafaf8;
+
+    --text-black: #000000;
+    --text-body: #333333;
+    --text-meta: #666666;
+    --text-muted: #999999;
+
+    --accent: #e0245e;
+    --accent-light: rgba(224, 36, 94, 0.08);
+
+    --border: #e0e0e0;
+    --border-light: #eeeeee;
+
+    /* Typography */
+    --font-main: 'Geologica', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* Layout — 1440px wide with 80px gutter margins */
+    --container-width: 1440px;
+    --container-padding-x: 80px;
+    --container-padding: 0 var(--container-padding-x);
+
+    /* Spacing */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 48px;
+    --space-xl: 80px;
+    --space-xxl: 120px;
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --container-padding-x: 48px;
+        --container-padding: 0 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --container-padding-x: 24px;
+        --container-padding: 0 24px;
+    }
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg-white) !important;
+    background-image: none !important;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-top: 64px !important;
+    background: var(--bg-white) !important;
+    color: var(--text-body) !important;
+    font-family: var(--font-main) !important;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    line-height: 1.65 !important;
+    overflow-x: hidden;
+}
+
+/* Kill the old dark overlay */
+body::before {
+    display: none !important;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-black) !important;
+    font-family: var(--font-main) !important;
+    font-weight: 600 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem) !important;
+    font-weight: 700 !important;
+}
+
+h2 {
+    font-size: clamp(1.4rem, 3.5vw, 2rem) !important;
+    font-weight: 500 !important;
+}
+
+h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem) !important;
+    font-weight: 500 !important;
+}
+
+p {
+    color: var(--text-body) !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1em;
+    font-weight: 300 !important;
+}
+
+b, strong {
+    font-weight: 600 !important;
+    color: var(--text-black) !important;
+}
+
+a {
+    color: var(--text-black) !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent) !important;
+    text-decoration: none;
+}
+
+ul, ol {
+    padding-left: 1.2em;
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 0.4em;
+    color: var(--text-body) !important;
+    font-weight: 300 !important;
+}
+
+/* ============================================================
+   LAYOUT — Container
+   ============================================================ */
+
+.container {
+    width: 100% !important;
+    max-width: var(--container-width) !important;
+    margin: 0 auto !important;
+    padding: var(--container-padding) !important;
+}
+
+/* ============================================================
+   HEADER — Minimal, white, line at bottom
+   ============================================================ */
+
+.header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 64px !important;
+    background: var(--bg-white) !important;
+    border-bottom: 1px solid var(--border) !important;
+    z-index: 10000 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+}
+
+/* Black header for Homepage — frosted over hero */
+.header_home {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.header_home .nav__link {
+    color: var(--bg-white) !important;
+}
+
+.header_home .nav__link:hover {
+    color: var(--accent) !important;
+}
+
+.header_home .burger-menu-btn span {
+    background-color: var(--bg-white) !important;
+}
+
+.header__inner {
+    width: 100% !important;
+    max-width: var(--container-width) !important;
+    margin: 0 auto !important;
+    padding: var(--container-padding) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 100% !important;
+    gap: 16px !important;
+}
+
+.header__logo {
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+}
+
+.header__logo img {
+    height: 36px !important;
+    width: auto !important;
+    max-width: 120px !important;
+    filter: none !important;
+    transition: opacity 0.2s ease !important;
+}
+
+.header__logo img:hover {
+    opacity: 0.7 !important;
+    transform: none !important;
+}
+
+/* Navigation — Desktop (Centered) */
+.nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 1 auto !important;
+    gap: 0 !important;
+    padding: 0 !important;
+}
+
+.nav__link {
+    font-family: var(--font-main) !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: var(--text-black) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    margin: 0 14px !important;
+    padding: 6px 0 !important;
+    opacity: 1 !important;
+    position: relative !important;
+    transition: color 0.2s ease !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+
+.nav__link::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 2px !important;
+    background: var(--accent) !important;
+    transition: width 0.3s ease !important;
+}
+
+.nav__link:hover {
+    color: var(--accent) !important;
+    opacity: 1 !important;
+    text-decoration: none !important;
+}
+
+.nav__link:hover::after {
+    width: 100% !important;
+}
+
+.nav__link.active {
+    color: var(--accent) !important;
+    font-weight: 500 !important;
+}
+
+.nav__link.active::after {
+    width: 100% !important;
+}
+
+/* Header Actions (Right side: Contact CTA + Burger) */
+.header__actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    flex: 0 0 auto !important;
+}
+
+.header__cta-mail {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 7px 14px !important;
+    border: 1px solid var(--border) !important;
+    background: transparent !important;
+    color: var(--text-black) !important;
+    font-family: var(--font-main) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+}
+
+.header__cta-mail svg {
+    width: 15px !important;
+    height: 15px !important;
+    stroke: currentColor !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.2s ease !important;
+}
+
+.header__cta-mail:hover {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+    text-decoration: none !important;
+}
+
+.header__cta-mail:hover svg {
+    transform: translateY(-1px) !important;
+}
+
+.header_home .header__cta-mail {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: var(--bg-white) !important;
+}
+
+.header_home .header__cta-mail:hover {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+}
+
+@media (max-width: 900px) {
+    .header__cta-mail .mail-text {
+        display: none !important;
+    }
+    .header__cta-mail {
+        padding: 8px !important;
+    }
+    .nav__link {
+        margin: 0 8px !important;
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none !important;
+    }
+}
+
+/* ============================================================
+   HAMBURGER MENU — Mobile
+   ============================================================ */
+
+.burger-menu-btn {
+    display: none !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 24px !important;
+    height: 16px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 10002 !important;
+    padding: 0 !important;
+}
+
+.burger-menu-btn span {
+    width: 100% !important;
+    height: 1.5px !important;
+    background-color: var(--text-black) !important;
+    border-radius: 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.burger-menu-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg) !important;
+}
+
+.burger-menu-btn.active span:nth-child(2) {
+    opacity: 0 !important;
+}
+
+.burger-menu-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg) !important;
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: var(--bg-white) !important;
+    z-index: 10001 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    padding: 0 24px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+    backdrop-filter: none !important;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.mobile-nav-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.mobile-nav-menu li {
+    margin: 12px 0 !important;
+    opacity: 0 !important;
+    transform: translateY(10px) !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+}
+
+.mobile-nav-overlay.active .mobile-nav-menu li {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.mobile-nav-overlay.active .mobile-nav-menu li:nth-child(1) { transition-delay: 0.05s !important; }
+.mobile-nav-overlay.active .mobile-nav-menu li:nth-child(2) { transition-delay: 0.1s !important; }
+.mobile-nav-overlay.active .mobile-nav-menu li:nth-child(3) { transition-delay: 0.15s !important; }
+.mobile-nav-overlay.active .mobile-nav-menu li:nth-child(4) { transition-delay: 0.2s !important; }
+.mobile-nav-overlay.active .mobile-nav-menu li:nth-child(5) { transition-delay: 0.25s !important; }
+.mobile-nav-overlay.active .mobile-nav-menu li:nth-child(6) { transition-delay: 0.3s !important; }
+.mobile-nav-overlay.active .mobile-nav-menu li:nth-child(7) { transition-delay: 0.35s !important; }
+
+.mobile-nav-link {
+    font-family: var(--font-main) !important;
+    font-size: 28px !important;
+    font-weight: 300 !important;
+    color: var(--text-black) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.mobile-nav-link:hover {
+    color: var(--accent) !important;
+}
+
+.mobile-nav-logo {
+    position: absolute !important;
+    top: 20px !important;
+    left: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    z-index: 10003 !important;
+    text-decoration: none !important;
+}
+
+.mobile-nav-logo img {
+    height: 36px !important;
+    width: auto !important;
+    max-width: 120px !important;
+    display: block !important;
+}
+
+.mobile-nav-close {
+    position: absolute !important;
+    top: 16px !important;
+    right: 24px !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-black) !important;
+    font-size: 42px !important;
+    font-weight: 200 !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    z-index: 10003 !important;
+    transition: color 0.2s ease !important;
+}
+
+.mobile-nav-close:hover {
+    color: var(--accent) !important;
+}
+
+/* ============================================================
+   SECTIONS — Clean, spacious
+   ============================================================ */
+
+.what_is_mmdt, .bio, .membership, .through, .events, .festivals, .projects, .teachers_CI_Fest {
+    background: transparent !important;
+    padding: var(--space-xl) 0 !important;
+}
+
+/* ============================================================
+   INTRO / HERO — Minimal, text-based
+   ============================================================ */
+
+.intro, .intro_through, .intro_partnering {
+    height: auto !important;
+    min-height: 200px !important;
+    padding: var(--space-xl) 0 var(--space-lg) !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: var(--bg-white) !important;
+}
+
+.intro_home {
+    background: #000 url("../img/header_bg.jpg") no-repeat center / cover !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 600px !important;
+    margin-top: -64px !important;
+    padding-top: 100px !important;
+    padding-bottom: 40px !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.intro_membership {
+    background: #111 url("../gallery/membership.jpg") no-repeat center center / cover !important;
+    height: calc(100vh - 64px) !important;
+    height: calc(100dvh - 64px) !important;
+    min-height: 560px !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Vignette overlay for rich contrast */
+.intro_home::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 100%) !important;
+    z-index: 1 !important;
+}
+
+.intro_membership::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.45) !important;
+    z-index: 1 !important;
+}
+
+/* Text above overlay */
+.intro_home .container, .intro_membership .container {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+}
+
+/* Swiss Architectural Hero Typography */
+.intro__headline {
+    font-family: var(--font-main) !important;
+    font-size: clamp(2.4rem, 6.2vw, 4.4rem) !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.04 !important;
+    margin-bottom: 14px !important;
+}
+
+.intro__subline {
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem) !important;
+    font-weight: 300 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    max-width: 650px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 28px !important;
+}
+
+.intro__badge-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+}
+
+.intro__badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 9px 18px !important;
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+    border: 1px solid var(--accent) !important;
+}
+
+.intro__badge:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.intro__badge--ghost {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.intro__badge--ghost:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+.badge__dot {
+    width: 7px !important;
+    height: 7px !important;
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+}
+
+.intro_home .intro__title,
+.intro_home .intro__notion,
+.intro_home .intro__notion p,
+.intro_home .intro__notion a,
+.intro_membership #intro__notion_membership,
+.intro_membership #intro__notion_membership span {
+    color: var(--bg-white) !important;
+}
+
+.intro_home .intro__notion a {
+    text-decoration: underline !important;
+}
+
+.intro_home .intro__notion a:hover {
+    color: var(--accent) !important;
+}
+
+/* Kill dark gradient overlays for other sections */
+.intro::before, .intro_through::before, .intro_partnering::before {
+    display: none !important;
+}
+
+.intro__inner {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+.intro__title {
+    background: transparent !important;
+    color: var(--text-black) !important;
+    font-family: var(--font-main) !important;
+    font-size: clamp(2.5rem, 7vw, 4.5rem) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.05 !important;
+    margin-bottom: 16px !important;
+    display: block !important;
+}
+
+.intro__title:hover {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+}
+
+/* Page title for sub-pages */
+.intro__projects {
+    font-family: var(--font-main) !important;
+    font-size: clamp(2.5rem, 7vw, 4.5rem) !important;
+    font-weight: 700 !important;
+    color: var(--text-black) !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.05 !important;
+}
+
+.intro__notion {
+    margin-top: 16px !important;
+    text-align: left !important;
+    opacity: 0.9 !important;
+    font-size: 0.85rem !important;
+    color: var(--text-meta) !important;
+}
+
+.intro__notion p {
+    color: inherit !important;
+    font-size: 0.85rem !important;
+    margin: 0 !important;
+}
+
+.intro__bottom-bar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 28px !important;
+    padding-top: 18px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+    width: 100% !important;
+}
+
+.intro_home .intro__bottom-bar .intro__notion {
+    margin-top: 0 !important;
+}
+
+.intro__scroll-hint {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.intro__scroll-hint:hover {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+    transform: translateY(2px) !important;
+}
+
+/* Section Tags */
+.section-tag {
+    display: inline-block !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: var(--accent) !important;
+    margin-bottom: 8px;
+}
+
+.concert-info .section-tag {
+    margin-bottom: 6px !important;
+}
+
+/* Swiss Manifesto Section */
+.manifesto-header {
+    margin-bottom: 24px !important;
+}
+
+.manifesto-title {
+    font-size: clamp(1.45rem, 2.8vw, 2.4rem) !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.015em !important;
+    color: var(--text-black) !important;
+    max-width: 1100px !important;
+}
+
+.manifesto-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 48px;
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+    margin-top: 24px;
+}
+
+.manifesto-card {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.manifesto-label {
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    color: var(--accent) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 10px !important;
+}
+
+.manifesto-card h3 {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 10px !important;
+    color: var(--text-black) !important;
+}
+
+.manifesto-card p {
+    font-size: 1.02rem !important;
+    line-height: 1.7 !important;
+    color: var(--text-body) !important;
+}
+
+@media (max-width: 768px) {
+    .manifesto-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+}
+
+/* Video Frame Responsive */
+.video-responsive-frame {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    background: #000 !important;
+    border: 1px solid var(--border) !important;
+    overflow: hidden !important;
+}
+
+.video-responsive-frame iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+}
+
+.intro__notion a {
+    color: var(--text-meta) !important;
+    text-decoration: underline !important;
+}
+
+.intro__notion a:hover {
+    color: var(--accent) !important;
+}
+
+/* ============================================================
+   TITLE SECTION (Festival sub-pages hero)
+   ============================================================ */
+
+.title {
+    height: auto !important;
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    background: none !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: var(--space-xl) var(--container-padding-x) var(--space-lg) !important;
+    max-width: var(--container-width) !important;
+    margin: 0 auto !important;
+}
+
+.title h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    margin-bottom: 8px !important;
+    text-shadow: none !important;
+    color: var(--text-black) !important;
+}
+
+.title h2 {
+    font-size: clamp(1rem, 2.5vw, 1.3rem) !important;
+    font-weight: 400 !important;
+    color: var(--text-meta) !important;
+    margin-bottom: 8px !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+.title p {
+    font-size: 1rem !important;
+    opacity: 1 !important;
+    color: var(--text-body) !important;
+}
+
+/* ============================================================
+   CONTENT CONTAINER
+   ============================================================ */
+
+.content {
+    background: transparent !important;
+    margin-top: 0 !important;
+}
+
+#container {
+    background: var(--bg-white) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-top: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    padding: var(--space-lg) 0 !important;
+    margin-top: 0 !important;
+    position: relative !important;
+    z-index: 3 !important;
+    box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+    #container {
+        padding: var(--space-md) 0 !important;
+        margin-top: 0 !important;
+        border-radius: 0 !important;
+    }
+}
+
+/* ============================================================
+   GRID LAYOUTS — Projects, Festivals, Founders, Teachers
+   ============================================================ */
+
+.projects, .festivals {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 32px !important;
+    padding: 0 var(--container-padding-x) 80px !important;
+    width: 100% !important;
+    max-width: var(--container-width) !important;
+    margin: 0 auto !important;
+}
+
+.teachers_CI_Fest, .timetable, .houses, .double_info {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    padding: 0 var(--container-padding-x) !important;
+    width: 100% !important;
+    max-width: var(--container-width) !important;
+    margin: 0 auto !important;
+}
+
+.founders {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 60px !important;
+    padding: 0 !important;
+    max-width: var(--container-width) !important;
+    margin: 0 auto !important;
+}
+
+/* ============================================================
+   CARDS — Swiss Gallery Catalog Cards
+   ============================================================ */
+
+.projects_item {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.projects_item:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+.projects_item a {
+    display: block !important;
+    overflow: hidden !important;
+    background: #f4f4f4 !important;
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
+}
+
+.projects_item img {
+    border-radius: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.4s ease !important;
+}
+
+.projects_item:hover img {
+    transform: scale(1.04) !important;
+}
+
+.projects_item p {
+    margin: 0 !important;
+    padding: 14px 16px !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: var(--text-black) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: var(--bg-white) !important;
+    border-top: 1px solid var(--border-light) !important;
+    flex-grow: 1 !important;
+}
+
+.projects_item p::after {
+    content: '→' !important;
+    color: var(--accent) !important;
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    transition: transform 0.2s ease !important;
+}
+
+.projects_item:hover p::after {
+    transform: translateX(4px) !important;
+}
+
+.teacher, .card, .flex-item, .double_info_item, .sat, .aw_news {
+    background: var(--bg-white) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    padding: 16px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease !important;
+    color: var(--text-body) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.teacher:hover, .card:hover, .flex-item:hover, .double_info_item:hover, .sat:hover, .aw_news:hover {
+    border-color: var(--accent) !important;
+}
+
+.founders_item {
+    background: var(--bg-white) !important;
+    border: 1px solid var(--border) !important;
+    padding: 28px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease !important;
+    color: var(--text-body) !important;
+}
+
+.founders_item:hover {
+    border-color: var(--accent) !important;
+}
+
+.founders_item img {
+    border-radius: 0 !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+    display: block !important;
+    margin-bottom: 20px !important;
+    background: #f0f0f0 !important;
+}
+
+.founders_item h1 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    margin: 0 0 14px 0 !important;
+    color: var(--text-black) !important;
+}
+
+.founders_item p {
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    font-weight: 300 !important;
+    margin-bottom: 14px !important;
+}
+
+@media (max-width: 768px) {
+    .projects, .festivals {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .founders {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects, .festivals {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================================
+   BUTTONS — Black, rectangular, functional
+   ============================================================ */
+
+.tab-button, button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    height: auto !important;
+    font-family: var(--font-main) !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    background: var(--text-black) !important;
+    color: var(--bg-white) !important;
+    border: 1px solid var(--text-black) !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    margin: 4px !important;
+    padding: 12px 24px !important;
+    box-shadow: none !important;
+}
+
+.tab-button:hover, button:hover {
+    background: var(--accent) !important;
+    border-color: var(--accent) !important;
+    box-shadow: none !important;
+    transform: none !important;
+    color: var(--bg-white) !important;
+}
+
+/* Tab grid */
+.tab {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin: var(--space-lg) 0 !important;
+}
+
+/* Back button */
+a[href*="CITyrolFest2026"] button,
+a[href*="festival.html"] button,
+a[href*="Back"] button,
+button.back-btn {
+    background: transparent !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text-black) !important;
+    box-shadow: none !important;
+    max-width: none !important;
+}
+
+a[href*="CITyrolFest2026"] button:hover,
+a[href*="festival.html"] button:hover,
+a[href*="Back"] button:hover,
+button.back-btn:hover {
+    background: var(--text-black) !important;
+    border-color: var(--text-black) !important;
+    color: var(--bg-white) !important;
+}
+
+/* Buy / CTA button */
+.buy-button {
+    background-color: var(--text-black) !important;
+    color: var(--bg-white) !important;
+    padding: 12px 24px !important;
+    border-radius: 0 !important;
+    font-weight: 400 !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    box-shadow: none !important;
+    display: inline-block !important;
+    margin-top: 16px !important;
+    font-family: var(--font-main) !important;
+}
+
+.buy-button:hover {
+    background-color: var(--accent) !important;
+    text-decoration: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    color: var(--bg-white) !important;
+}
+
+/* ============================================================
+   IFRAMES / VIDEO — Clean, no decoration
+   ============================================================ */
+
+.video-responsive,
+.founders_item iframe,
+.container iframe,
+.maitane-videos iframe {
+    width: 100% !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    aspect-ratio: 16/9 !important;
+    height: auto !important;
+}
+
+.maitane-videos {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 16px !important;
+    margin-top: 24px !important;
+}
+
+.maitane-videos iframe {
+    height: auto !important;
+    flex: unset !important;
+}
+
+/* ============================================================
+   ACCORDION / READ MORE
+   ============================================================ */
+
+.info {
+    padding: 0 !important;
+    margin-top: 16px !important;
+}
+
+.info__headline {
+    color: var(--text-black) !important;
+    font-family: var(--font-main) !important;
+    font-weight: 400 !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.02em !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding-left: 0 !important;
+    user-select: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.info__headline::before {
+    all: unset !important;
+    content: '→' !important;
+    display: inline-block !important;
+    transition: transform 0.3s ease !important;
+}
+
+.info__switch:checked ~ .info__headline::before {
+    transform: rotate(90deg) !important;
+}
+
+.info__headline:hover {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+}
+
+.info__body {
+    border-left: 1px solid var(--border) !important;
+    padding-left: 16px !important;
+    margin-top: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1) !important;
+}
+
+.info__switch:checked ~ .info__body {
+    max-height: 2000px !important;
+    margin-top: 12px !important;
+    transition: max-height 0.4s cubic-bezier(0.9, 0, 0.8, 0.2) !important;
+}
+
+.info__body p {
+    font-size: 0.95rem !important;
+    color: var(--text-body) !important;
+}
+
+/* ============================================================
+   TEACHER BIO
+   ============================================================ */
+
+.teacher-bio {
+    display: flex !important;
+    gap: 32px !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    padding: 0 !important;
+}
+
+.teacher-bio-text {
+    flex: 1 1 500px !important;
+}
+
+.teacher-bio-image {
+    flex: 1 1 300px !important;
+    max-width: 400px !important;
+}
+
+.teacher-bio-image img {
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+.teacher-class {
+    margin-top: 24px !important;
+    border-top: 1px solid var(--border) !important;
+    padding-top: 24px !important;
+}
+
+.teacher hr {
+    border: none !important;
+    border-top: 1px solid var(--border) !important;
+    margin: 32px 0 !important;
+}
+
+/* ============================================================
+   FOOTER — Swiss Grid with Sitemap, Legal, Payments & Bottom Bar
+   ============================================================ */
+
+footer {
+    background: var(--bg-white) !important;
+    border-top: 1px solid var(--border) !important;
+    margin-top: var(--space-xl) !important;
+    padding: 56px 0 36px !important;
+}
+
+.footer {
+    max-width: var(--container-width) !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: var(--container-padding) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+    background: transparent !important;
+    color: var(--text-meta) !important;
+}
+
+.footer__top {
+    display: grid !important;
+    grid-template-columns: 1.4fr 1fr 0.8fr !important;
+    gap: 48px !important;
+    align-items: start !important;
+}
+
+.footer__col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.footer__heading {
+    display: inline-block !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: var(--text-black) !important;
+    margin-bottom: 16px !important;
+}
+
+.footer__links-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(110px, 160px)) !important;
+    gap: 10px 24px !important;
+    width: 100% !important;
+}
+
+.footer__links-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.footer__col a {
+    color: var(--text-meta) !important;
+    font-size: 0.88rem !important;
+    font-weight: 300 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+    line-height: 1.4 !important;
+}
+
+.footer__col a:hover {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+}
+
+.footer__payments img {
+    max-width: 160px !important;
+    height: auto !important;
+    opacity: 0.45 !important;
+    transition: opacity 0.2s ease !important;
+    filter: grayscale(1) !important;
+    display: block !important;
+}
+
+.footer__payments img:hover {
+    opacity: 0.75 !important;
+}
+
+.footer__bottom {
+    border-top: 1px solid var(--border) !important;
+    padding-top: 24px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+}
+
+.footer__brand {
+    color: var(--text-black) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    transition: color 0.2s ease !important;
+}
+
+.footer__brand:hover {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+}
+
+.footer__copy {
+    font-size: 0.8rem !important;
+    color: var(--text-meta) !important;
+    font-weight: 300 !important;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 0 28px !important;
+    }
+
+    .footer {
+        gap: 28px !important;
+    }
+
+    .footer__top {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+
+    .footer__links-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px 16px !important;
+    }
+
+    .footer__bottom {
+        padding-top: 20px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+    }
+}
+
+/* ============================================================
+   HR — Thin, clean
+   ============================================================ */
+
+hr {
+    border: none !important;
+    border-top: 1px solid var(--border) !important;
+    margin: var(--space-lg) 0 !important;
+}
+
+/* ============================================================
+   EVENTS / CONCERT ITEMS
+   ============================================================ */
+
+#title-festivals {
+    margin: var(--space-lg) 0 !important;
+    text-align: left !important;
+}
+
+#title-festivals h2 {
+    font-weight: 300 !important;
+    line-height: 1.5 !important;
+}
+
+.concert-list {
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.concert-item {
+    background: var(--bg-white) !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+    padding: 40px 0 !important;
+    display: grid !important;
+    grid-template-columns: 420px 1fr !important;
+    gap: 48px !important;
+    align-items: start !important;
+}
+
+.concert-list > .concert-item:first-child {
+    padding-top: 16px !important;
+}
+
+.concert-list > .concert-item:last-child,
+.concert-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+.concert-item--no-media,
+.concert-item:has(> .concert-info:only-child) {
+    grid-template-columns: 1fr !important;
+}
+
+@media (max-width: 900px) {
+    .concert-item {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 28px 0 !important;
+    }
+    .concert-list > .concert-item:first-child {
+        padding-top: 12px !important;
+    }
+    .concert-list > .concert-item:last-child,
+    .concert-item:last-child {
+        padding-bottom: 0 !important;
+    }
+}
+
+.concert-item img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: cover !important;
+    border: 1px solid var(--border) !important;
+}
+
+.concert-item iframe {
+    width: 100% !important;
+    aspect-ratio: 16/9 !important;
+    border: none !important;
+}
+
+.concert-info p {
+    color: var(--text-body) !important;
+    line-height: 1.65 !important;
+    font-size: 0.95rem !important;
+}
+
+.concert-info h2 {
+    color: var(--text-black) !important;
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+}
+
+/* Accordion Switch Hide Fix */
+.info__switch {
+    display: none !important;
+}
+
+/* Tabs for Events page */
+.tabs-container {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 0 var(--container-padding-x) 16px !important;
+    margin: 0 auto 48px !important;
+    max-width: var(--container-width) !important;
+}
+
+.tabs-container .tab-button {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-meta) !important;
+    font-family: var(--font-main) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    cursor: pointer !important;
+    padding: 8px 16px !important;
+    position: relative !important;
+    margin: 0 !important;
+    transition: color 0.2s ease !important;
+    box-shadow: none !important;
+}
+
+.tabs-container .tab-button::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -17px !important; /* Align exactly with container border-bottom */
+    left: 0 !important;
+    width: 0 !important;
+    height: 2px !important;
+    background: var(--text-black) !important;
+    transition: width 0.25s ease !important;
+}
+
+.tabs-container .tab-button.active {
+    color: var(--text-black) !important;
+}
+
+.tabs-container .tab-button.active::after {
+    width: 100% !important;
+}
+
+.tabs-container .tab-button:hover {
+    color: var(--accent) !important;
+}
+
+/* ============================================================
+   MEMBERSHIP & PORTAL GRIDS
+   ============================================================ */
+
+.intro_membership {
+    background-size: cover !important;
+    background-position: center center !important;
+    height: calc(100vh - 64px) !important;
+    height: calc(100dvh - 64px) !important;
+    min-height: 560px !important;
+    padding: 90px 0 48px !important;
+}
+
+.intro_membership::before {
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.85) 100%) !important;
+}
+
+#intro__notion_membership {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.85rem !important;
+}
+
+.membership-benefits-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 32px !important;
+    border-top: 1px solid var(--border) !important;
+    padding-top: 40px !important;
+    margin-bottom: 72px !important;
+}
+
+.membership-benefit-card {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.membership-tiers-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 40px !important;
+    margin-top: 32px !important;
+}
+
+.membership-tier-card {
+    border: 1px solid var(--border) !important;
+    padding: 40px !important;
+    background: var(--bg-white) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.membership-tier-card:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06) !important;
+}
+
+.tier-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    border-bottom: 1px solid var(--border-light) !important;
+    padding-bottom: 24px !important;
+    margin-bottom: 24px !important;
+}
+
+.tier-price-box {
+    text-align: right !important;
+    flex-shrink: 0 !important;
+}
+
+.tier-price {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: var(--text-black) !important;
+    line-height: 1 !important;
+    display: block !important;
+}
+
+.tier-fee {
+    font-size: 0.75rem !important;
+    color: var(--text-meta) !important;
+    display: block !important;
+    margin-top: 4px !important;
+}
+
+.tier-features {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 32px 0 !important;
+}
+
+.tier-features li {
+    position: relative !important;
+    padding-left: 24px !important;
+    margin-bottom: 12px !important;
+    font-size: 0.98rem !important;
+    line-height: 1.6 !important;
+    color: var(--text-body) !important;
+}
+
+.tier-features li::before {
+    content: '—' !important;
+    position: absolute !important;
+    left: 0 !important;
+    color: var(--accent) !important;
+    font-weight: 600 !important;
+}
+
+/* Homepage Quick Portal Grid */
+.home-portal-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+    margin-top: 18px !important;
+}
+
+.home-portal-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    border: 1px solid var(--border) !important;
+    padding: 28px 24px !important;
+    background: var(--bg-white) !important;
+    text-decoration: none !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    min-height: 210px !important;
+}
+
+.home-portal-card:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05) !important;
+}
+
+.home-portal-card h3 {
+    font-size: 1.35rem !important;
+    font-weight: 600 !important;
+    margin: 8px 0 10px 0 !important;
+    transition: color 0.2s ease !important;
+}
+
+.home-portal-card:hover h3 {
+    color: var(--accent) !important;
+}
+
+.home-portal-card p {
+    font-size: 0.9rem !important;
+    color: var(--text-meta) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 20px !important;
+}
+
+.home-portal-link {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--text-black) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-top: 14px !important;
+    border-top: 1px solid var(--border-light) !important;
+}
+
+.home-portal-card:hover .home-portal-link {
+    color: var(--accent) !important;
+}
+
+@media (max-width: 1024px) {
+    .home-portal-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .membership-benefits-grid {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+    .membership-tiers-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-portal-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .membership-tier-card {
+        padding: 24px !important;
+    }
+    .tier-header {
+        flex-direction: column !important;
+    }
+    .tier-price-box {
+        text-align: left !important;
+    }
+}
+
+/* ============================================================
+   PARTNERS — 3-Column Swiss Grid
+   ============================================================ */
+
+.partners {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 28px !important;
+    margin: 0 !important;
+    border-top: none !important;
+}
+
+.partner-card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    border: 1px solid var(--border) !important;
+    padding: 32px 28px !important;
+    background: var(--bg-white) !important;
+    text-decoration: none !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    min-height: 230px !important;
+}
+
+.partner-card:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05) !important;
+    text-decoration: none !important;
+}
+
+.partner-card__tag {
+    display: inline-block !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: var(--accent) !important;
+    margin-bottom: 10px !important;
+}
+
+.partner-card h3 {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    color: var(--text-black) !important;
+    margin: 0 0 12px 0 !important;
+    line-height: 1.3 !important;
+    transition: color 0.2s ease !important;
+}
+
+.partner-card:hover h3 {
+    color: var(--accent) !important;
+}
+
+.partner-card p {
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    color: var(--text-body) !important;
+    margin: 0 0 24px 0 !important;
+    font-weight: 300 !important;
+}
+
+.partner-card__footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-top: 14px !important;
+    border-top: 1px solid var(--border-light) !important;
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--text-black) !important;
+    transition: color 0.2s ease !important;
+}
+
+.partner-card__footer span:last-child {
+    font-size: 1.1rem !important;
+    color: var(--text-meta) !important;
+    transition: transform 0.25s ease, color 0.25s ease !important;
+}
+
+.partner-card:hover .partner-card__footer,
+.partner-card:hover .partner-card__footer span:last-child {
+    color: var(--accent) !important;
+}
+
+.partner-card:hover .partner-card__footer span:last-child {
+    transform: translateX(4px) !important;
+}
+
+@media (max-width: 1024px) {
+    .partners {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .partners {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ============================================================
+   FESTIVAL TEMPLATE — Full-Screen Hero, Sticky Tabs & Sections
+   ============================================================ */
+
+.intro_festival {
+    background-color: #0d0d0d !important;
+    background-repeat: no-repeat !important;
+    background-position: 35% center !important;
+    background-size: cover !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 620px !important;
+    margin-top: -64px !important;
+    padding-top: 100px !important;
+    padding-bottom: 48px !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.intro_festival::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.08) 45%, rgba(0,0,0,0.52) 100%) !important;
+    z-index: 1 !important;
+}
+
+.intro_festival > .container {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+}
+
+.fest-hero-back {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.78rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    text-decoration: none !important;
+    margin-bottom: 14px !important;
+    transition: color 0.2s ease !important;
+}
+
+.fest-hero-back:hover {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.fest-hero-tag {
+    display: inline-block !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    color: var(--accent) !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+    border: 1px solid rgba(224, 36, 94, 0.5) !important;
+    padding: 6px 14px !important;
+    margin-bottom: 14px !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.fest-hero-title {
+    font-size: clamp(2.4rem, 5.8vw, 4.6rem) !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.025em !important;
+    text-transform: uppercase !important;
+    margin: 0 0 12px 0 !important;
+    max-width: 1000px !important;
+}
+
+.fest-hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.5rem) !important;
+    font-weight: 300 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    line-height: 1.45 !important;
+    margin: 0 0 6px 0 !important;
+    max-width: 780px !important;
+}
+
+.fest-hero-author {
+    font-size: 0.95rem !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.04em !important;
+    margin: 0 !important;
+}
+
+/* Sticky Sub-Navigation Bar for Festival Sections */
+.fest-tabs-wrapper {
+    position: sticky !important;
+    top: 64px !important;
+    z-index: 900 !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--border) !important;
+    width: 100% !important;
+}
+
+.fest-tabs-bar {
+    max-width: var(--container-width) !important;
+    margin: 0 auto !important;
+    padding: 0 var(--container-padding-x) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+}
+
+.fest-tabs-bar::-webkit-scrollbar {
+    display: none !important;
+}
+
+.fest-tab-btn {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: var(--text-meta) !important;
+    font-family: var(--font-main) !important;
+    font-size: 12.5px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    padding: 18px 14px 16px !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    transition: all 0.2s ease !important;
+}
+
+.fest-tab-btn:focus,
+.fest-tab-btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.fest-tab-panel {
+    padding-top: 40px !important;
+    padding-bottom: 16px !important;
+}
+
+.fest-tab-btn:hover {
+    color: var(--accent) !important;
+    background: transparent !important;
+}
+
+.fest-tab-btn.active {
+    color: var(--text-black) !important;
+    border-bottom-color: var(--accent) !important;
+    font-weight: 600 !important;
+    background: transparent !important;
+}
+
+.fest-tab-btn--highlight {
+    color: var(--accent) !important;
+    font-weight: 600 !important;
+}
+
+/* Festival Quick Facts Strip */
+.fest-facts-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 0 0 32px 0 !important;
+    margin-bottom: 36px !important;
+}
+
+.fest-fact-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+}
+
+.fest-fact-label {
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--accent) !important;
+}
+
+.fest-fact-value {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: var(--text-black) !important;
+    line-height: 1.35 !important;
+}
+
+.fest-fact-sub {
+    font-size: 0.85rem !important;
+    color: var(--text-meta) !important;
+    font-weight: 300 !important;
+}
+
+/* Festival Highlights Bullet Cards */
+.fest-includes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    gap: 20px !important;
+    margin: 16px 0 40px !important;
+}
+
+.fest-include-card {
+    border: 1px solid var(--border) !important;
+    padding: 24px !important;
+    background: var(--bg-off) !important;
+}
+
+.fest-include-card span {
+    display: block !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: var(--accent) !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 8px !important;
+}
+
+.fest-include-card p {
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
+    color: var(--text-black) !important;
+    line-height: 1.5 !important;
+}
+
+/* Festival Pricing / Registration Cards */
+.fest-pricing-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px !important;
+    margin: 24px 0 40px !important;
+}
+
+.fest-price-card {
+    border: 1px solid var(--border) !important;
+    padding: 32px 28px !important;
+    background: var(--bg-white) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: all 0.25s ease !important;
+}
+
+.fest-price-card:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05) !important;
+}
+
+.fest-price-card--soldout {
+    background: var(--bg-off) !important;
+    opacity: 0.78 !important;
+}
+
+.fest-price-card--soldout:hover {
+    border-color: var(--border) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.fest-price-old {
+    font-size: 1rem !important;
+    color: var(--text-meta) !important;
+    text-decoration: line-through !important;
+    margin-right: 10px !important;
+}
+
+.fest-price-current {
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    color: var(--text-black) !important;
+    line-height: 1 !important;
+}
+
+/* Festival Photo Gallery Grid */
+.fest-gallery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+    margin: 16px 0 0 0 !important;
+}
+
+.fest-gallery-grid img {
+    width: 100% !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+    display: block !important;
+    border: 1px solid var(--border) !important;
+    cursor: pointer !important;
+    transition: transform 0.25s ease, border-color 0.25s ease !important;
+}
+
+.fest-gallery-grid img:hover {
+    transform: scale(1.02) !important;
+    border-color: var(--accent) !important;
+}
+
+/* Festival Partners Logo Grid */
+.fest-partners-logos {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+    gap: 20px !important;
+    margin-top: 16px !important;
+}
+
+.fest-partner-logo-box {
+    border: 1px solid var(--border) !important;
+    padding: 28px 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--bg-white) !important;
+    min-height: 130px !important;
+}
+
+.fest-partner-logo-box img {
+    max-height: 80px !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* Lightbox Modal for Festival Gallery */
+.fest-lightbox {
+    display: none;
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.92) !important;
+    z-index: 10050 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px !important;
+}
+
+.fest-lightbox.active {
+    display: flex !important;
+}
+
+.fest-lightbox img {
+    max-width: 86vw !important;
+    max-height: 88vh !important;
+    object-fit: contain !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+.fest-lightbox-close {
+    position: absolute !important;
+    top: 20px !important;
+    right: 28px !important;
+    font-size: 42px !important;
+    color: #fff !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    padding: 8px !important;
+}
+
+.fest-lightbox-arrow {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 36px !important;
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    cursor: pointer !important;
+    padding: 12px 18px !important;
+    line-height: 1 !important;
+    user-select: none !important;
+    transition: background 0.2s ease !important;
+}
+
+.fest-lightbox-arrow:hover {
+    background: var(--accent) !important;
+    border-color: var(--accent) !important;
+}
+
+.fest-lightbox-arrow--prev {
+    left: 24px !important;
+}
+
+.fest-lightbox-arrow--next {
+    right: 24px !important;
+}
+
+@media (max-width: 1024px) {
+    .fest-facts-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .fest-pricing-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .fest-gallery-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro_festival {
+        margin-top: -56px !important;
+        padding-top: 84px !important;
+        padding-bottom: 32px !important;
+        background-position: 28% center !important;
+    }
+    .fest-hero-back {
+        margin-bottom: 10px !important;
+        font-size: 0.72rem !important;
+    }
+    .fest-hero-tag {
+        font-size: 0.7rem !important;
+        letter-spacing: 0.08em !important;
+        padding: 5px 10px !important;
+        margin-bottom: 10px !important;
+    }
+    .fest-hero-title {
+        font-size: clamp(2rem, 8vw, 2.75rem) !important;
+        margin-bottom: 10px !important;
+    }
+    .fest-hero-subtitle {
+        font-size: 1.05rem !important;
+        margin-bottom: 6px !important;
+    }
+    .fest-tabs-wrapper {
+        top: 56px !important;
+    }
+    .fest-tab-btn {
+        padding: 14px 12px 12px !important;
+        font-size: 11.5px !important;
+    }
+    .fest-tab-panel {
+        padding-top: 32px !important;
+        padding-bottom: 8px !important;
+    }
+    .fest-facts-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        padding: 0 0 24px 0 !important;
+        margin-bottom: 28px !important;
+    }
+    .fest-gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+}
+
+/* ============================================================
+   MISC — Hide old nav elements, fix legacy markup
+   ============================================================ */
+
+#h {
+    display: none !important;
+}
+
+/* Old intro__witnesing */
+.intro__witnesing a p {
+    color: var(--text-black) !important;
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile adjustments
+   ============================================================ */
+
+@media (max-width: 991px) {
+    .nav {
+        display: none !important;
+    }
+    .burger-menu-btn {
+        display: flex !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 56px !important;
+    }
+
+    .header {
+        height: 56px !important;
+    }
+
+    .intro, .intro_through, .intro_partnering {
+        padding: var(--space-lg) 0 var(--space-md) !important;
+        min-height: 120px !important;
+    }
+
+    .intro_membership {
+        height: calc(100vh - 56px) !important;
+        height: calc(100dvh - 56px) !important;
+        min-height: 480px !important;
+        padding: var(--space-lg) 0 36px !important;
+        background-position: 68% center !important;
+    }
+
+    .intro__title, .intro__projects {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+    }
+
+    .what_is_mmdt, .bio, .membership, .through {
+        padding: var(--space-lg) 0 !important;
+    }
+}
+
+/* ============================================================
+   PRINT — Clean output
+   ============================================================ */
+
+@media print {
+    .header, footer, .burger-menu-btn, .mobile-nav-overlay {
+        display: none !important;
+    }
+
+    body {
+        padding-top: 0 !important;
+        color: #000 !important;
+        background: #fff !important;
+    }
+}

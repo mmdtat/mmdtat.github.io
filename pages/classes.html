@@ -1,154 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>
-		Classes</title>
-	<link rel="shortcut icon" href="../gallery/lg.png" type="image/x-icon">
-	<link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../css/style2.css">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-	<link rel="stylesheet" href="ism/css/my-slider.css"/>
-	<script src="ism/js/ism-2.2.min.js"></script>
-	<style>
-		p{
-			font-size: 16px;
-		}
-	    .button-buy{
-	        padding: 15px 45px;
-	        /*width: 100%;*/
-	        font-size: 18px;
-	        border: none;
-	        border-radius: 7px;
-	        background: #174354;
-	        color: #fff;
-	        cursor: pointer;
-	        margin: 0;
-	    }
-	    .button-buy:hover{
-	    	color: #174354;
-	    	background: #fff;
-	    	border: 1px solid;
-	    	transition: 0.35s;
-	    }
-	    .classes_class{
-	    	display: flex;
-	    	  flex-wrap: wrap;
-	    	  gap: 40px;
-	    	  padding: 40px;
-	    	  margin: 48 0;
-	    }
-	    .classes_img{
-	    	flex: 1 1 300px;
-	    	min-width: 400px;
-	    }
-	    .classes_img img{
-	    	width: 100%;
-	    	height: auto;
-	    	display: block;
-	    }
-	    .classes_description{
-	    	flex: 2 1 400px;
-	    	min-width: 500px;
-	    }
-	    @media (max-width: 700px) {
-	      .lasses_class{
-	        padding: 20px;
-	        gap: 24px;
-	      }
-
-	      .classes_img{
-	        min-width: 260px;
-	        margin: 0 auto;
-	      }
-	     .classes_description{
-	     	flex: 2 1 400px;
-	     	min-width: 200px;
-	     }
-	  }
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes — MMDT</title>
+    <meta name="description" content="Body Work — Weekly somatic and movement classes in Innsbruck by Motion Mode of Dialogue in Tirol.">
+    <link rel="shortcut icon" href="../gallery/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/modern-redesign.css">
+    <script src="../js/modern-redesign.js" defer></script>
 </head>
 <body>
-	<header class="header" style="background: black; position: static;">
+    <header class="header">
         <div class="container">
             <div class="header__inner">
                 <div class="header__logo">
-                    <img src="../img/logo.png" alt="">
+                    <a href="../index.html" aria-label="MMDT Home"><img src="../img/logo_black.png" alt="MMDT"></a>
                 </div>
                 <nav class="nav">
-                    <a class="nav__link" href="https://mmdt.at/">HOME</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/projects">PROJECTS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/festival">FESTIVAL</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/classes">CLASSES</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/partners">PARTNERS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/contants">CONTACTS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/events">EVENTS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/membership">GET MEMBERSHIP</a>
+                    <a class="nav__link" href="projects.html">Projects</a>
+                    <a class="nav__link" href="festival.html">Festival</a>
+                    <a class="nav__link active" href="classes.html">Classes</a>
+                    <a class="nav__link" href="events.html">Events</a>
+                    <a class="nav__link" href="partners.html">Partners</a>
+                    <a class="nav__link" href="membership.html">Membership</a>
+                    <a class="nav__link" href="contacts.html">Contacts</a>
                 </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
-    <div class="container"> 
-		<div class="classes_class">
-			<div class="classes_img">
-				<img src="../gallery/bodywork_course.jpg" width="100%">
-			</div>
-			<div class="classes_description">
-				<div>
-					<h3>Body Work — Weekly Classes in Innsbruck</h3><br>
-					<p>
-						Body Work is a gentle, guided movement practice rooted in somatic and movement-based traditions. We explore the body with curiosity and care — through slow movement, breath, and natural contact with others. No experience needed. No right or wrong. Just show up.<br><br>
-						Classes take place most Wednesdays from September to December 2026.<br>
-						Arrive: 17:00 · Start: 17:15 · End: 18:45<br>
-						📍 Meditationszentrum, Brixnerstraße 4, Innsbruck
-					</p><br>
-					<p>
-						<b>Upcoming dates:</b><br>
-						September: 8, 9, 22, 23<br>
-						October: 7, 14, 21, 28<br>
-						November: 4, 11, 18, 25<br>
-						December: 2, 9, 16, 23, 30<br>
-						Price: 15–25 € per class (sliding scale)<br>
-						Full season pass (17 classes): 220 €, 255 €
-					</p><br>
-					<p>
-						Should a class need to be cancelled for any reason, the session will either be rescheduled at a time that works for everyone, or the amount will be deducted from your total.<br><br>
 
-						Minimum: 6 participants per class
-					</p><br>
-					<p>
-						<i>Full season registration is open now. Single attendance by contacting Tamara Maksymenko <a href="tel:+4367763027506" style="font-size: 14pt;">+4367763027506</a></i>
-					</p>
-					<br>
-					<div style="display: flex; gap: 16px;"> 
-						<a href="https://buy.stripe.com/6oUfZhg4o0IE3asgM6d3i10" ><button class="button-buy">Double discount</button></a>
-						<a href="https://buy.stripe.com/6oU4gz05q2QMcL21Rcd3i11" ><button class="button-buy">Discount</button></a>
-					</div>
-					
-				</div>
-				<div>
-					
-				</div>
-			</div>
-		</div>
-    </div>
-    <hr>
-	<footer>
-	            <div class="footer">
-	                <div class="footer_element">
-	                    <br> <a href="#" style="text-decoration: none; color: #000;"><b>MOTION MODE DANCE THEATRE</b></a><br> <br>
-	                    <img src="../img/visa_mc.png" alt="" width="386px" style="text-align: left;">
+    <section class="intro">
+        <div class="container">
+            <span class="section-tag">Weekly Practice &amp; Somatic Movement</span>
+            <div class="intro__projects">Classes</div>
+        </div>
+    </section>
 
-	                </div>
-	                <div class="footer_element"> <br>
-	                                    <a href="https://mmdt.at/Privacy_policy" style="color: #000; text-align: right;">Privacy Policy</a> <br> <br>
-	                                    <a href="https://mmdt.at/Refund_policy" style="color: #000; text-align: right;">Refund & Return Policy</a> <br><br>
-	                                    <a href="https://mmdt.at/Terms&Conditions" style="color: #000; text-align: right;">Terms & Conditions</a> <br> <br>
-	                                    <a href="https://mmdt.at/GEP" style="color: #000; text-align: right;">Gender Equality Plan</a> <br> <br>
-	                                </div>
-	            </div>
-	    </footer>
+    <main class="container" style="padding-bottom: 80px;">
+        <div class="concert-list">
+            <div class="concert-item" style="border-top: 1px solid var(--border); padding-top: 48px !important;">
+                <div>
+                    <img src="../gallery/bodywork_course.jpg" alt="Body Work — Weekly Classes in Innsbruck">
+                </div>
+                <div class="concert-info">
+                    <span class="section-tag" style="margin-bottom: 8px;">September – December 2026 · Innsbruck</span>
+                    <h2>Body Work — Weekly Classes in Innsbruck</h2>
+                    <p>
+                        Body Work is a gentle, guided movement practice rooted in somatic and movement-based traditions. We explore the body with curiosity and care — through slow movement, breath, and natural contact with others. No experience needed. No right or wrong. Just show up.
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin: 28px 0; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+                        <div>
+                            <div class="manifesto-label" style="margin-bottom: 8px;">Time &amp; Location</div>
+                            <p style="margin: 0;">
+                                <strong>Schedule:</strong> Most Wednesdays (Sep – Dec 2026)<br>
+                                <strong>Time:</strong> Arrive 17:00 · Start 17:15 · End 18:45<br>
+                                <strong>Venue:</strong> Meditationszentrum, Brixnerstraße 4, Innsbruck<br>
+                                <strong>Group size:</strong> Minimum 6 participants per class
+                            </p>
+                        </div>
+                        <div>
+                            <div class="manifesto-label" style="margin-bottom: 8px;">Upcoming Dates</div>
+                            <p style="margin: 0;">
+                                <strong>September:</strong> 8, 9, 22, 23<br>
+                                <strong>October:</strong> 7, 14, 21, 28<br>
+                                <strong>November:</strong> 4, 11, 18, 25<br>
+                                <strong>December:</strong> 2, 9, 16, 23, 30
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                        <strong>Price:</strong> 15–25 € per class (sliding scale)<br>
+                        <strong>Full season pass (17 classes):</strong> 220 €, 255 €
+                    </p>
+                    <p style="color: var(--text-meta) !important; font-size: 0.9rem !important;">
+                        Should a class need to be cancelled for any reason, the session will either be rescheduled at a time that works for everyone, or the amount will be deducted from your total.
+                    </p>
+                    <p style="margin-top: 16px;">
+                        <em>Full season registration is open now. Single attendance by contacting Tamara Maksymenko: <a href="tel:+4367763027506" style="font-weight: 600; text-decoration: underline;">+43 677 630 275 06</a></em>
+                    </p>
+
+                    <div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px;">
+                        <a href="https://buy.stripe.com/6oUfZhg4o0IE3asgM6d3i10" class="buy-button" target="_blank" rel="noopener">Double discount</a>
+                        <a href="https://buy.stripe.com/6oU4gz05q2QMcL21Rcd3i11" class="buy-button" target="_blank" rel="noopener">Discount</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer_element">
+                <a href="../index.html" style="text-decoration: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;">Motion Mode of Dialogue in Tirol</a><br><br>
+                <img src="../img/visa_mc.png" alt="Payment Methods">
+            </div>
+            <div class="footer_element" style="display: flex; flex-direction: column; align-items: flex-end;">
+                <a href="../Privacy_policy.html">Privacy Policy</a>
+                <a href="../Refund_policy.html">Refund &amp; Return Policy</a>
+                <a href="../Terms&Conditions.html">Terms &amp; Conditions</a>
+                <a href="../GEP.html">Gender Equality Plan</a>
+            </div>
+        </div>
+    </footer>
 </body>
-<img src=>
 </html>

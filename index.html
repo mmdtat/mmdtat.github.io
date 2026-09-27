@@ -2,118 +2,189 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>
-        Motion Mode of Dialogue in Tirol - Association of visual and performative art
-    </title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMDT — Motion Mode of Dialogue in Tirol</title>
+    <meta name="description" content="Motion Mode of Dialogue in Tirol — Association of visual and performative art in Innsbruck, Austria.">
     <link rel="shortcut icon" href="gallery/lg.png" type="image/x-icon">
-
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link rel="stylesheet" href="ism/css/my-slider.css"/>
-    <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="css/card.css">
-    <script src="ism/js/ism-2.2.min.js"></script>
+    <link rel="stylesheet" href="css/modern-redesign.css">
+    <script src="js/modern-redesign.js" defer></script>
 </head>
 <body>
-    <header class="header">
+    <header class="header header_home">
         <div class="container">
             <div class="header__inner">
                 <div class="header__logo">
-                    <img src="img/logo.png" alt="">
+                    <a href="index.html" aria-label="MMDT Home"><img src="img/logo.png" alt="MMDT"></a>
                 </div>
                 <nav class="nav">
-                    <a class="nav__link" href="https://mmdt.at/">HOME</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/projects">PROJECTS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/festival">FESTIVAL</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/classes">CLASSES</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/partners">PARTNERS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/contants">CONTACTS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/events">EVENTS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/membership">MEMBERSHIP</a>
+                    <a class="nav__link" href="pages/projects.html">Projects</a>
+                    <a class="nav__link" href="pages/festival.html">Festival</a>
+                    <a class="nav__link" href="pages/classes.html">Classes</a>
+                    <a class="nav__link" href="pages/events.html">Events</a>
+                    <a class="nav__link" href="pages/partners.html">Partners</a>
+                    <a class="nav__link" href="pages/membership.html">Membership</a>
+                    <a class="nav__link" href="pages/contacts.html">Contacts</a>
                 </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="intro">
-       <div class="container">
-        <div class="intro__inner">
-            <a href="pages/news.html" class="intro__title">News</a>
-        </div>
-        </div>
+    <section class="intro intro_home">
         <div class="container">
-        <!-- <div class="intro__title" id="mainpage">
-            
-        </div> -->
+            <div class="intro__badge-row">
+                <a href="CITyrolFest2026.html" class="intro__badge">
+                    <span class="badge__dot"></span> Next: Solo &amp; CI Tirol Fest 2026 &rarr;
+                </a>
+                <a href="pages/news.html" class="intro__badge intro__badge--ghost">
+                    News &amp; Updates &rarr;
+                </a>
+            </div>
+            <h1 class="intro__headline">Motion Mode<br>of Dialogue in Tirol</h1>
+            <p class="intro__subline">Association of visual and performative art &middot; Innsbruck, Austria</p>
+            <div class="intro__bottom-bar">
+                <div class="intro__notion">
+                    <p>Photo by Eugene Hill <a href="https://makeportraits.in.ua" target="_blank" rel="noopener">makeportraits.in.ua</a></p>
+                </div>
+                <a href="#about" class="intro__scroll-hint" aria-label="Scroll to content">
+                    <span>Scroll</span> &darr;
+                </a>
+            </div>
         </div>
+    </section>
+
+    <section class="what_is_mmdt" id="about">
         <div class="container">
-        <div class="intro__notion">
-            <p>Photo by Eugene Hill <a href="makeportraits.in.ua">makeportraits.in.ua</a></p>
-        </div>
-        </div>
-    </div>
-    
-    <div class="what_is_mmdt">
-        <div class="container">
-            <div class="what_is_mmdt__item">
-                <div class="what_is_mmdt_content">
-                        <div class="what_is_mmdt_text">
-                            <h2 style="text-align: center;">
-                            Motion Mode of Dialogue in Tirol 
-                            - Association of visual and performative art
-                        </h2>
+            <div class="manifesto-header">
+                <span class="section-tag">About the Association</span>
+                <h2 class="manifesto-title">Fostering dialogue through motion, contemporary dance, and multidisciplinary performative research in the Alps.</h2>
+            </div>
+
+            <div class="manifesto-grid">
+                <div class="manifesto-card">
+                    <span class="manifesto-label">01 / Vision</span>
+                    <h3>Transcend Boundaries</h3>
+                    <p>Embracing the vibrant spirit of Tirol, we envision a cultural landscape where visual and performative art intertwine to create a dynamic tapestry that reflects the essence of dialogue through motion. Our vision is to cultivate an environment where artistic expressions transcend boundaries, fostering a rich and inclusive artistic community.</p>
+                </div>
+
+                <div class="manifesto-card">
+                    <span class="manifesto-label">02 / Mission</span>
+                    <h3>Catalyst for Artistic Growth</h3>
+                    <p>"Motion Mode of Dialogue in Tirol" is dedicated to advancing visual and performative art by providing a platform for artists to explore the convergence of motion and dialogue. Through exhibitions, performances, and collaborative projects, our mission is to ignite conversations, spark creativity, and celebrate the diverse voices that contribute to the cultural mosaic of Tirol.</p>
+                </div>
+            </div>
+
+            <!-- Quick Directory Portal -->
+            <div style="margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--border);">
+                <span class="section-tag">Explore MMDT</span>
+                <h2>Programs &amp; Initiatives</h2>
+                <div class="home-portal-grid">
+                    <a href="pages/festival.html" class="home-portal-card">
+                        <div>
+                            <span class="section-tag" style="margin-bottom: 4px;">01 / Annual Editions</span>
+                            <h3>Festivals</h3>
+                            <p>Solo &amp; CI Tirol Festival and international dance gatherings from 2019 to 2026.</p>
                         </div>
-                        <br>
-                        <div class="what_is_mmdt_text"><b>Vision:</b> Embracing the vibrant spirit of Tirol, we envision a cultural landscape where visual and performative art intertwine to create a dynamic tapestry that reflects the essence of dialogue through motion. Our vision is to cultivate an environment where artistic expressions transcend boundaries, fostering a rich and inclusive artistic community. <br><br>
-                        <b>Mission:</b> "Motion Mode of Dialogue in Tirol" is dedicated to advancing visual and performative art by providing a platform for artists to explore the convergence of motion and dialogue. Through exhibitions, performances, and collaborative projects, our mission is to ignite conversations, spark creativity, and celebrate the diverse voices that contribute to the cultural mosaic of Tirol. We strive to be a catalyst for artistic growth, fostering connections that bridge tradition and innovation in the ever-evolving landscape of artistic expression.
+                        <div class="home-portal-link">
+                            <span>View Editions</span> <span>&rarr;</span>
                         </div>
+                    </a>
+
+                    <a href="pages/projects.html" class="home-portal-card">
+                        <div>
+                            <span class="section-tag" style="margin-bottom: 4px;">02 / Productions</span>
+                            <h3>Art Projects</h3>
+                            <p>Performative research, contemporary dance theatre, and multimedia films.</p>
+                        </div>
+                        <div class="home-portal-link">
+                            <span>Explore Archive</span> <span>&rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="pages/events.html" class="home-portal-card">
+                        <div>
+                            <span class="section-tag" style="margin-bottom: 4px;">03 / Schedule</span>
+                            <h3>Events &amp; Workshops</h3>
+                            <p>Upcoming classes, contact improvisation jams, and performances in Tirol &amp; abroad.</p>
+                        </div>
+                        <div class="home-portal-link">
+                            <span>See Calendar</span> <span>&rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="pages/membership.html" class="home-portal-card">
+                        <div>
+                            <span class="section-tag" style="margin-bottom: 4px;">04 / Community</span>
+                            <h3>Membership</h3>
+                            <p>Join our association, enjoy 20% event discounts, and promote your artistic work.</p>
+                        </div>
+                        <div class="home-portal-link">
+                            <span>Join Us</span> <span>&rarr;</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="bio">
+    </section>
+
+    <section class="bio">
         <div class="container">
-            <h1 style="text-align: center;">FOUNDERS</h1>
+            <div style="margin-bottom: 32px;">
+                <span class="section-tag">Team &amp; Direction</span>
+                <h1>Founders &amp; Curators</h1>
+            </div>
             <div class="founders">
                 <div class="founders_item">
-                    <img src="gallery/Tamara-1.jpg" width="100%">
+                    <img src="gallery/Tamara-1.jpg" alt="Tamara Maksymenko">
+                    <span class="section-tag" style="margin-bottom: 6px;">Founder &middot; Choreographer</span>
                     <h1>Tamara Maksymenko</h1>
-                    <p>Tamara Maksymenko is a professional dancer, choreographer, and teacher of contact improvisation and contemporary dance for 18 years already. She has been teaching many workshops all over the world (Poland, Spain, Israel, Austria, Italy, Greece, Finland, Egypt, Germany, Russia, Ukraine, Morocco, Bulgary, Sweden, Portugal, France, and Turkey). She is the founder of Motion Mode Dance Theatre (MMDT), one of the founders of Motion Mode of Dialogue in Tirol - Association for visual and performative art in Austria, and the creator of many dance projects. <br><br>
-                    30 years of dance experience (since the early age of 4). She got medical education in body therapy and sociology at Dnipropetrovsk National University and trained at the Physical Theatre in Intragna (Switzerland) with Thomas Mattler. <br><br>
-                    Now Tamara is a member of the Ukrainian Contemporary Dance Platform Association and she is a member of OFFTANZ Tirol Association (Austria). The founder of "Solo & CI Tirol Festival" and "West meets East".</p>
-                    <div style="margin: 0 auto;">
-                        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/ZeR774mYVsY?si=UE5KwxgDe9U3LdrF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <p>Tamara Maksymenko is a professional dancer, choreographer, and teacher of contact improvisation and contemporary dance for 18 years already. She has been teaching workshops across Europe, Asia, and North Africa (Poland, Spain, Israel, Austria, Italy, Greece, Finland, Egypt, Germany, Ukraine, Morocco, Bulgaria, Sweden, Portugal, France, Turkey).</p>
+                    <p>Founder of Motion Mode Dance Theatre (MMDT), co-founder of Motion Mode of Dialogue in Tirol, and creator of the "Solo &amp; CI Tirol Festival" and "West meets East". With 30 years of dance practice, she holds medical and sociological degrees, and trained at the Physical Theatre in Intragna (Switzerland) with Thomas Mattler. Member of the Ukrainian Contemporary Dance Platform and OFFTANZ Tirol.</p>
+                    <div class="video-responsive-frame" style="margin-top: 24px;">
+                        <iframe src="https://www.youtube-nocookie.com/embed/ZeR774mYVsY?si=UE5KwxgDe9U3LdrF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="founders_item">
-                    <img src="gallery/Patrizi.jpg" width="100%">
+                    <img src="gallery/Patrizi.jpg" alt="Lucilla Patrizi">
+                    <span class="section-tag" style="margin-bottom: 6px;">Co-Founder &middot; Visual Artist</span>
                     <h1>Lucilla Patrizi</h1>
-                    <p>Lucilla Patrizi is a freelance artist, biologist and pole art trainer living in Innsbruck, Tyrol. In 2021 she graduated from the Faculty of Design and Arts at the Free University of Bolzano, specialising in art. 2017 Degree in Biology at the Free University of Innsbruck. 2016 A. S. C training for belly dance in Rome. Ongoing training and further education as a trainer for pole dance. Active as a freelance artist in Tyrol and South Tyrol with exhibitions, performances, illustration commissions and co-organisation of cultural and artistic projects at provincial level. Since 2023 co-organiser of the annual "Solo and CI Festival in Tyrol". Co-founder of the association "Motion Mode of Dialogue in Tirol - Verein für performative und visuelle Kunst" with Tamara Maksymenko.<br><br>
-                    Member of the Tiroler Künstler:innenschaft Tirol since 2022.</p>
+                    <p>Lucilla Patrizi is a freelance artist, biologist and pole art trainer living in Innsbruck, Tyrol. In 2021 she graduated from the Faculty of Design and Arts at the Free University of Bolzano, specialising in art, following a Degree in Biology at the University of Innsbruck.</p>
+                    <p>Active as a freelance artist in Tyrol and South Tyrol with exhibitions, performances, illustration commissions and co-organisation of cultural and artistic projects. Co-organiser of the annual "Solo and CI Festival in Tyrol" and co-founder of "Motion Mode of Dialogue in Tirol". Member of the Tiroler K&uuml;nstler:innenschaft Tirol since 2022.</p>
+                    <div style="margin-top: 24px; border: 1px solid var(--border); padding: 12px; background: #fafafa;">
+                        <img src="gallery/liquid-cat.jpg" alt="Artwork by Lucilla Patrizi" style="width: 100%; display: block; margin-bottom: 8px;">
+                        <p style="margin: 0; text-align: right; font-style: italic; color: var(--text-meta) !important; font-size: 0.85rem !important;">Artwork by Lucilla Patrizi</p>
+                    </div>
                 </div>
-            </div>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <img src="gallery/liquid-cat.jpg" width="100%">
-                <p style="text-align:right; font-style: italic;">by Lucilla Patrizi</p>
             </div>
         </div>
-    </div>
+    </section>
 
     <footer>
-            <div class="footer">
-                <div class="footer_element">
-                    <br> <a href="#" style="text-decoration: none; color: #000;"><b>MOTION MODE DANCE THEATRE</b></a><br> <br>
-                    <img src="img/visa_mc.png" alt="" width="386px" style="text-align: left;">
-
-                </div>
-                <div class="footer_element"> <br>
-                    <a href="https://mmdt.at/Privacy_policy" style="color: #000; text-align: right;">Privacy Policy</a> <br> <br>
-                    <a href="https://mmdt.at/Refund_policy" style="color: #000; text-align: right;">Refund & Return Policy</a> <br><br>
-                    <a href="https://mmdt.at/Terms&Conditions" style="color: #000; text-align: right;">Terms & Conditions</a> <br> <br>
-                    <a href="https://mmdt.at/GEP" style="color: #000; text-align: right;">Gender Equality Plan</a> <br> <br>
-                </div>
+        <div class="footer">
+            <div class="footer_element">
+                <a href="index.html" style="text-decoration: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;">Motion Mode of Dialogue in Tirol</a><br><br>
+                <img src="img/visa_mc.png" alt="Payment Methods">
             </div>
+            <div class="footer_element" style="display: flex; flex-direction: column; align-items: flex-end;">
+                <a href="Privacy_policy.html">Privacy Policy</a>
+                <a href="Refund_policy.html">Refund & Return Policy</a>
+                <a href="Terms&Conditions.html">Terms & Conditions</a>
+                <a href="GEP.html">Gender Equality Plan</a>
+            </div>
+        </div>
     </footer>
 </body>
-
 </html>
