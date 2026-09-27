@@ -538,7 +538,7 @@ li {
 }
 
 .intro_home {
-    background: #000 url("../img/header_bg.jpg") no-repeat center / cover !important;
+    background: #000 url("../img/common/brand/header_bg.jpg") no-repeat center / cover !important;
     height: 100vh !important;
     height: 100dvh !important;
     min-height: 600px !important;
@@ -552,7 +552,7 @@ li {
 }
 
 .intro_membership {
-    background: #111 url("../gallery/membership.jpg") no-repeat center center / cover !important;
+    background: #111 url("../img/pages/membership/membership.jpg") no-repeat center center / cover !important;
     height: calc(100vh - 64px) !important;
     height: calc(100dvh - 64px) !important;
     min-height: 560px !important;

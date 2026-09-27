@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         const path = window.location.pathname;
-        if (path.includes('/pages/festivals/') || path.includes('/pages/projects/') || path.includes('/pages/CI_Fest_202')) {
+        if (path.includes('/pages/festivals/') || path.includes('/pages/projects/') || path.includes('/pages/legal/') || path.includes('/pages/CI_Fest_202')) {
             return '../../';
         } else if (path.includes('/pages/')) {
             return '../';
@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const oldHeader = document.querySelector('header');
     if (oldHeader) {
         const isDarkHeroPage = !!document.querySelector('.intro_home, .intro_festival');
-        const logoSrc = isDarkHeroPage ? `${relRoot}img/logo.png` : `${relRoot}img/logo_black.png`;
-        const logoFallbackSrc = isDarkHeroPage ? `${relRoot}gallery/logo.png` : `${relRoot}img/logo_black.png`;
+        const logoSrc = isDarkHeroPage ? `${relRoot}img/common/brand/logo.png` : `${relRoot}img/common/brand/logo_black.png`;
+        const logoFallbackSrc = isDarkHeroPage ? `${relRoot}img/common/brand/logo.png` : `${relRoot}img/common/brand/logo_black.png`;
 
         const path = window.location.pathname.toLowerCase();
         const isProjects = path.includes('/projects.') || path.includes('/projects/');
-        const isFestival = path.includes('/festival.') || path.includes('/festivals/') || path.includes('ci_fest') || path.includes('cityrolfest');
+        const isFestival = path.includes('/festival.') || path.includes('/festivals/') || path.includes('ci_fest') || path.includes('cityrolfest') || path.includes('west_meets_east');
         const isClasses = path.includes('/classes.');
         const isEvents = path.includes('/events.');
         const isPartners = path.includes('/partners.');
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const mobileOverlayHTML = `
             <div class="mobile-nav-overlay" id="mobileNavOverlay">
                 <a class="mobile-nav-logo" href="${relRoot}index.html" aria-label="MMDT Home">
-                    <img src="${relRoot}img/logo_black.png" alt="MMDT">
+                    <img src="${relRoot}img/common/brand/logo_black.png" alt="MMDT">
                 </a>
                 <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
                 <ul class="mobile-nav-menu">
@@ -155,15 +155,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="footer__col footer__legal">
                         <span class="footer__heading">Legal</span>
                         <div class="footer__links-list">
-                            <a href="${relRoot}Privacy_policy.html">Privacy Policy</a>
-                            <a href="${relRoot}Refund_policy.html">Refund &amp; Return Policy</a>
-                            <a href="${relRoot}Terms&Conditions.html">Terms &amp; Conditions</a>
-                            <a href="${relRoot}GEP.html">Gender Equality Plan</a>
+                            <a href="${relRoot}pages/legal/Privacy_policy.html">Privacy Policy</a>
+                            <a href="${relRoot}pages/legal/Refund_policy.html">Refund &amp; Return Policy</a>
+                            <a href="${relRoot}pages/legal/Terms&Conditions.html">Terms &amp; Conditions</a>
+                            <a href="${relRoot}pages/legal/GEP.html">Gender Equality Plan</a>
                         </div>
                     </div>
                     <div class="footer__col footer__payments">
                         <span class="footer__heading">Payment Methods</span>
-                        <img src="${relRoot}img/visa_mc.png" alt="Visa & MasterCard" onerror="this.style.display='none'">
+                        <img src="${relRoot}img/common/brand/visa_mc.png" alt="Visa & MasterCard" onerror="this.style.display='none'">
                     </div>
                 </div>
                 <div class="footer__bottom">
@@ -266,6 +266,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     };
+
+    if (window.location.hash) {
+        const hashTab = window.location.hash.substring(1);
+        if (document.querySelector(`.fest-tab-btn[data-fest-tab="${hashTab}"]`)) {
+            window.switchFestivalTab(hashTab, false);
+        }
+    }
 
     // 8. Lightbox helper for Festival galleries (with Prev/Next & Keyboard arrows)
     let currentGalleryImgs = [];

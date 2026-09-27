@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI Tyrol Fest 2019 — MMDT</title>
+    <meta name="description" content="CI Tyrol Fest 2019 (July 21–27, 2019 in Innsbruck, Austria) — First Contact Improvisation Tyrolean Festival in the heart of the Alpine mountains.">
+    <link rel="shortcut icon" href="img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/modern-redesign.css">
+    <script src="js/modern-redesign.js" defer></script>
+</head>
+<body>
+    <header class="header header_home">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="index.html" aria-label="MMDT Home"><img src="img/common/brand/logo.png" alt="MMDT"></a>
+                </div>
+                <nav class="nav">
+                    <a class="nav__link" href="pages/projects.html">Projects</a>
+                    <a class="nav__link active" href="pages/festival.html">Festival</a>
+                    <a class="nav__link" href="pages/classes.html">Classes</a>
+                    <a class="nav__link" href="pages/events.html">Events</a>
+                    <a class="nav__link" href="pages/partners.html">Partners</a>
+                    <a class="nav__link" href="pages/membership.html">Membership</a>
+                    <a class="nav__link" href="pages/contacts.html">Contacts</a>
+                </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Full-Screen Festival Hero -->
+    <section class="intro_festival" style="background-image: url('img/festivals/2019/CI Tyrol Fest 2019(1).jpg');">
+        <div class="container">
+            <div>
+                <a href="pages/festival.html" class="fest-hero-back">&larr; All Festivals</a>
+            </div>
+            <span class="fest-hero-tag">July 21 – 27, 2019 &middot; Innsbruck, Austria</span>
+            <h1 class="fest-hero-title">CI Tyrol Fest 2019</h1>
+            <p class="fest-hero-subtitle">&ldquo;The First Contact Improvisation Tyrolean Festival in the Heart of the Alpine Mountains&rdquo;</p>
+        </div>
+    </section>
+
+    <!-- Sticky Sub-Navigation Tabs -->
+    <div class="fest-tabs-wrapper" id="festTabsAnchor">
+        <div class="fest-tabs-bar">
+            <button class="fest-tab-btn active" data-fest-tab="overview" onclick="switchFestivalTab('overview', false)">Overview</button>
+            <button class="fest-tab-btn" data-fest-tab="team" onclick="switchFestivalTab('team', false)">Team &amp; Teachers</button>
+            <button class="fest-tab-btn" data-fest-tab="program" onclick="switchFestivalTab('program', false)">Program</button>
+            <button class="fest-tab-btn" data-fest-tab="location" onclick="switchFestivalTab('location', false)">Location</button>
+            <button class="fest-tab-btn fest-tab-btn--highlight" data-fest-tab="prices" onclick="switchFestivalTab('prices', false)">Prices</button>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <!-- ==========================================
+             TAB 1: OVERVIEW (Complete text, no prices)
+             ========================================== -->
+        <div id="fest-tab-overview" class="fest-tab-panel" style="display: block;">
+            <!-- Quick Facts Strip (No prices) -->
+            <div class="fest-facts-grid">
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Dates</span>
+                    <span class="fest-fact-value">July 21st to 27th, 2019</span>
+                    <span class="fest-fact-sub">Arrival July 20 &middot; Departure July 28</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Location</span>
+                    <span class="fest-fact-value">Street Motion Studio</span>
+                    <span class="fest-fact-sub">Viaduktb&ouml;gen 7–10, 6020 Innsbruck</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Teachers</span>
+                    <span class="fest-fact-value">Daniele Sardella, Alexander Kosko</span>
+                    <span class="fest-fact-sub">Tamara Maksymenko, Ulli Wittemann</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Format</span>
+                    <span class="fest-fact-value">CI, Acrobatics, Playfight &amp; Jams</span>
+                    <span class="fest-fact-sub">Live Music by Denys Petryshyn</span>
+                </div>
+            </div>
+
+            <!-- Complete Original Text of 2019 -->
+            <div class="manifesto-header">
+                <span class="section-tag">July 21st to 27th, 2019 &middot; Innsbruck, Tyrol</span>
+                <h2 class="manifesto-title">
+                    We are happy to introduce the first Contact Improvisation Tyrolean Festival and to invite you to celebrate one week together.
+                </h2>
+            </div>
+
+            <div class="manifesto-grid" style="margin-bottom: 48px;">
+                <div class="manifesto-card">
+                    <span class="manifesto-label">01 / Alpine Inspiration</span>
+                    <p>
+                        We are happy to introduce the first Contact Improvisation Tyrolean Festival and to invite you to celebrate one week together. Come and enjoy one of the most beautiful places in the world, in the heart of the Alpine mountains - Tyrol land.
+                    </p>
+                    <p>
+                        July 21st to 27th you will be surrounded by rocks and forest, lakes and meadows, friends and high experienced teachers. You will be involved into tiny old Innsbruck city life. Bewitching nature around will inspire to make every movement from heart and to create the most beautiful picture of your life.
+                    </p>
+                </div>
+                <div class="manifesto-card">
+                    <span class="manifesto-label">02 / Practices &amp; Spirit of the Alps</span>
+                    <p>
+                        ...Contact improvisation and acrobatics, solo-improvisation technique, performative, somatic practices, playfight... are waiting for you. Jams will be leaded by live vocalists and musicians. You will have opportunity to live in a your tent or in a shared common tent, eat tasty food, dance every day, hick up to the mountains, swim in the lakes and enjoy the spirit of Alps!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section Cards (with original graphic thumbnails) -->
+            <div style="border-top: 1px solid var(--border); padding-top: 36px;">
+                <span class="section-tag">Explore Festival Sections</span>
+                <h3>Festival Directory</h3>
+                <div class="home-portal-grid">
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('team', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">01 / Faculty &amp; Artists</span>
+                            <h3>Team &amp; Teachers</h3>
+                            <img src="img/festivals/2019/team(s).jpg" alt="Team" style="width: 100%; margin: 12px 0; display: block;">
+                        </div>
+                        <span class="home-portal-link">View Team <span>&rarr;</span></span>
+                    </a>
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('program', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">02 / Timetable</span>
+                            <h3>Program</h3>
+                            <img src="img/festivals/2019/program(s).jpg" alt="Program" style="width: 100%; margin: 12px 0; display: block;">
+                        </div>
+                        <span class="home-portal-link">View Program <span>&rarr;</span></span>
+                    </a>
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('location', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">03 / Studio &amp; Living</span>
+                            <h3>Location</h3>
+                            <img src="img/festivals/2019/location(s).jpg" alt="Location" style="width: 100%; margin: 12px 0; display: block;">
+                        </div>
+                        <span class="home-portal-link">View Location <span>&rarr;</span></span>
+                    </a>
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('prices', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">04 / Opportunities</span>
+                            <h3>Prices</h3>
+                            <img src="img/festivals/2019/price(s).jpg" alt="Prices" style="width: 100%; margin: 12px 0; display: block;">
+                        </div>
+                        <span class="home-portal-link">View Prices <span>&rarr;</span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 2: TEAM & TEACHERS (100% Complete Text, Photos & Videos)
+             ========================================== -->
+        <div id="fest-tab-team" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Teachers, Organizers &amp; Musicians</span>
+            <h2 style="margin-bottom: 16px;">Team</h2>
+            <div style="margin-bottom: 32px;">
+                <img src="img/festivals/2019/team.jpg" alt="Team Banner" style="width: 100%; max-height: 360px; object-fit: cover; display: block;">
+            </div>
+
+            <div class="concert-list">
+                <!-- 1. Daniele Sardella / Italy -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2019/daniele 3.jpg" alt="Daniele Sardella / Italy" style="margin-bottom: 16px;" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2019/daniele 2.jpg" alt="Daniele Sardella Workshop" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">The main course: Fly with Flow between sky and floor</span>
+                        <h2>Daniele Sardella / Italy</h2>
+                        <p>
+                            Mechanical Engineer, since 1997 is dedicated to Street Art, juggling and equilibrium, from 2002 it became his main job. In 2003 he came in contact with the Biotransazionale Method and begins to practise it and study its principles, and to integrate them with the study of circus techniques; simultaneously he got formed artistically by attending various courses of Equilibrium (Arial Miluca, Claude Victoria), clown (Rita Pelusio, Jean Manigault, Michelin Vanderpoel), dance (Claude Coldy, Lucia Latour, Ketty Russo, Simona Fichera, Marta Ciappina, Tom Weksler, Kira Kirsh, Nita Little, Angelika Donji, Ray Chung), studying theater at "Pontedera Theatre Foundation" (2004-2005) and working at the Bellucci Aquatic Circus (2005-2006). From 2009 to the present days he is forming in teaching a personal application of Biotransazionale Method to Handstand and Movement and to Contact Improvisation, through continuous personal research and by giving classes and intensive workshops. Now he is going deeply into the research of Acrobatic Fluid Dance and Acrobatic Contact Improvisation with special focus to training that increases both the health and the performance possibilities.<br>
+                            In 2017 teaches handstand, acrobatic movement, and contact improvisation also in India (Goa e Mumbai) and in China (Pechino, Shanghai, Guangzhou, Yinchuan, Nantong). In January 2018 he has been the organizer and host of the performance night if the Goa's Contact Festival. In April 2018 he teaches a one week workshop for the major dancer of the National Academy of Chinese Theatre Arts of Beijing (Oper of Beijing).<br>
+                            From October 2018 he is the teacher of Movement (Floorwork, Acrobatic Movement and Contact Impro) at the Roman School of Circus. From February 2019 he is the personal trainer and teacher of a dance of Carolina Kostner, Olympic athlete in ice skating.
+                        </p>
+
+                        <div class="video-responsive-frame" style="margin: 20px 0;">
+                            <iframe src="https://www.youtube-nocookie.com/embed/5B3n0fOTgo0" title="Daniele Sardella Video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <span class="manifesto-label">The main course</span>
+                            <h3 style="margin-bottom: 10px;">Fly with Flow between sky and floor</h3>
+                            <p>
+                                The main focus of this intensive workshop is to learn how to train our body to improve its health conditions and at the same time its movement skills for individual dance and contact improvisation. Every day it will be composed of three different and integrated parts:
+                            </p>
+                            <ul>
+                                <li>We will start with an Active Postural Stretching in Movement, based on the knowledge of how the parts of the body are connected and using it to reduce compensation and get the stretching more efficient. Through this training, we will meet our body's particular limits, and learn to not pass them, and increase them in a respectful way while getting awareness of the connections between the different parts. In this way, we will enhance our movement possibilities and get already the movement more</li>
+                                <li>We will then explore the individual movement and how to get it efficient, fluid and effortless. We will learn some important basic tools (floorwork, change of levels, back bending, reversing the weight on the hands) that will get the personal movement's research more safe and rich and joyful.</li>
+                                <li>We will finally learn how to improvise in contact with other bodies, looking for flow and enjoyment. This last part integrates the tools explored in the first part of the class with the intent of learning how to listen to the partner's movement and communicate in an easy and effortless way, up to support and be supported and fly with easiness and care.</li>
+                            </ul>
+                            <p>The training proposed is a healing process for several reasons:</p>
+                            <ul>
+                                <li>The Active Postural Stretching is derived by a physiotherapeutic approach (named Biotransazionale) and causes a better alignment of the body;</li>
+                                <li>Exploring one's personal movement with this gentle approach helps the body to redistribute the tensions in a coherent way;</li>
+                                <li>The training helps to open one's vision and be more adaptable to the external conditions;</li>
+                                <li>It also develops trust and listening for oneself and for the partner, without schemes or predetermined roles, invites the authenticity in communication and then in relationships</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Alexander Kosko -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2019/kosko1.jpg" alt="Alexander Kosko" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2019/kosko2.jpg" alt="Alexander Kosko Workshop" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Workshop: &ldquo;Imagination as a dance partner&rdquo;</span>
+                        <h2>Alexander Kosko</h2>
+                        <p>
+                            Movement-voice therapist, Tai Chi teacher and CI dancer, performer, and traveler.<br>
+                            Alexander deals over 30 years with the body and movement material, starting with Martial Arts, meditation, Qigong and Tai Chi, continuing with psychology, dance-therapy, body-mind therapy, bodywork and massage practice, vocal and performance studies.<br>
+                            Contact Improvisation and performance learned from Nita Little, Andrew Harwood, Benno Voorham, Martin Keogh, Rey Chang, Arie Burstein, Mirva Makinen, Angela Donny, Ekaterina Basalaeva and many others.<br>
+                            Alexander teaching original material for 14 years in Russia, Israel and other countries. Creator and one of the leaders of Development Dance Israel Festival, part of The Association of ICIL (Israeli Contact Improvisation Leaders).<br>
+                            These days Alexander leads “School for voice, speech and public speaking”, gives weekly classes of “Physical hallucinations movement theatre”, leads long session explorations with blindfolds, works in his outdoor project “Creation from the cave”, leads abroad trips with kind of road-trainings, on regularly base performs in “Passive / Aggressive” performance.
+                        </p>
+
+                        <div class="video-responsive-frame" style="margin: 20px 0;">
+                            <iframe src="https://www.youtube-nocookie.com/embed/84v7kf3Y19o" title="Alexander Kosko Video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <span class="manifesto-label">Workshop</span>
+                            <h3 style="margin-bottom: 10px;">&ldquo;Imagination as a dance partner&rdquo;</h3>
+                            <p>
+                                If neither current mood, playing music and my partner inspires my dance, can I find inspiration in Imagination?<br>
+                                There are so many sources to dance. And imagination - is one of the greatest supporters for infinite movement energy.<br>
+                                Technically, an image influence the nervous system and through it in a certain way stimulate body muscles. Our relation to image is emotion, that proposes movement direction and sets a certain intensity.
+                            </p>
+                            <p>
+                                Moving from imagination, we can be completely free from external stimulation.<br>
+                                In contact dance, sometimes I meet partner by the inner response, visually enchanted by his or her movements. And this image of echo moves me in common body language with my partner.
+                            </p>
+                            <p>
+                                In 3 classes “Imagination as a dance partner” we explore different approaches in solo and contact dance from the point of creative imagination.<br>
+                                We’ll play with self-body Image and a new quality of it brings us to our new dance. With static postures, we will stimulate our imagination and create new movement patterns. We explore the magical connection between color and movement. We will seek for different ideas of movement image transformation. We will use movement and imagining skills to enrich our ability to enter and accommodate in a contact jam space.<br>
+                                All this process will lead to small groups performances, inspired and choreographed by our imagination score.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Tamara Maksymenko -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/common/la_loba_stage/2019_03_15_LaLoba-24.jpg" alt="Tamara Maksymenko" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/common/la_loba_stage/3.jpg" alt="Tamara Maksymenko Workshop" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Workshop: "Support and flying in a dynamic"</span>
+                        <h2>Tamara Maksymenko - organizer, project leader, teacher</h2>
+                        <p>
+                            Tamara is professional dancer, choreographer and a teacher of contact improvisation and contemporary dance for 12 years already. She has been teaching many workshops all over the world (Poland, Spain, Israel, Austria, Italy, Greece, Finland, Egypt, Germany, Russia, Ukraine, Morocco, Bulgary). She is the founder of Motion Mode Dance Theatre (MMDT) and the creator of the DNAture, FEMMINILE, 6th DAY, The MIRROR, La Loba projects on the MMDT base. Organizer of Evenings of Improvisation around all over the world. 25 years of dance experience (since the early age of 4). She got medical education in body therapy and sociology at Dnipropetrovsk National University and trained at the Physical Theatre in Intragna (Switzerland) with Thomas Mattler <a href="http://www.keep-searching.ch/about.html" target="_blank" rel="noopener">http://www.keep-searching.ch/about.html</a> Now Tamara is collaborating with the Austrian Culture Association Don Quichotte KulturZentrum ~ Freier Proberaum Kunst Manifeste ~ Innsbruck, Ukrainian Contemporary Dance Platform Association and she is a member of OFFTANZ Tirol Association (Austria)
+                        </p>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <span class="manifesto-label">Workshop</span>
+                            <h3 style="margin-bottom: 10px;">"Support and flying in a dynamic"</h3>
+                            <p>
+                                For 1,5 hours of WS we can only open a few approaches to fly together. The workshop will be based on the idea of how to be light, dynamic and how to be strong but agile support. How to recognize clearly the direction of inertia during couple movements, how to help and to follow through the liftings energy.
+                            </p>
+                        </div>
+
+                        <div class="video-responsive-frame" style="margin-top: 20px;">
+                            <iframe src="https://www.youtube-nocookie.com/embed/8upw5LyvbT8" title="Tamara Maksymenko Video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Ulli Wittemann (Germany) -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2019/wittemann.jpg" alt="Ulli Wittemann" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2019/ulliwit.jpg" alt="Ulli Wittemann Playfight Intensive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Workshop: PLAYFIGHT INTENSIVE</span>
+                        <h2>Ulli Wittemann (Germany)</h2>
+                        <p>
+                            A passion for movement and growth has drawn Ulli to new directions since he was a child. From practicing Ballroom Dance and Hip Hop as a teenager and many years of studying different Martial Arts forms (Judo, Aikido, Kickboxing, Boxing and nowadays Muay Thai) he finally fell in love with Contact Improvisation in 2001 during his actor's studies at the University of Performing Arts in Frankfurt, Germany. After eight years of performing more than 1000 shows in the German State Theater system, he decided to change his focus from performing to sharing his love for Contact Improvisation, Acting, Awareness, and Communication in Munich and abroad. In the last years, he taught Workshops, Classes, and Retreats in China, Japan, India, Thailand, Bali, Israel, Palestine, Russia, USA, Canada, Turkey, and many European Countries. He is one of the Founders of the Tempelhof Contact Festival in Germany and the Conscious Flow Festival in India and currently co-organizes the new BODY MIND SOUL Festival (17. to 19. May), the third German edition of the Touch&amp;Play Festival (1. to 7. August) and his nature retreat BEING HUMAN (28. August to 1. September).
+                        </p>
+                        <p>
+                            <em>"For me, a good class consists of the sensation of growth of every individual and the joy of the collective experience."</em>
+                        </p>
+                        <p>
+                            <a href="http://consciouscontact.de/" target="_blank" rel="noopener">http://consciouscontact.de</a>
+                        </p>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <span class="manifesto-label">Intensive Workshop</span>
+                            <h3 style="margin-bottom: 10px;">PLAYFIGHT INTENSIVE</h3>
+                            <p>
+                                A couple of years ago I started combining two of the things I love most in my life - dancing and playful fighting. In this workshop I am offering you a safe space, where the desire for intensity and dynamic play meets the awareness and listening of Contact Improvisation. From 25 years of experience in different martial arts forms (Judo, Aikido, Kickboxing, Boxing and Muay Thai) and Playfighting I derived a set of exercises, which enables also less sportive people to explore and enjoy their warrior energy in a safe environment. We will work with clearly structured exercises to practice keeping our awareness and presence even in moments of more intense interactions. With clear rules and high presence we can work on a level which we usually wouldn't dare to. There will also be phases of free play, where we can either play with the material we learned in a light sparring or just jam and dance or wrestle as you like. If wanted I will give you scores or ideas to play with and coach you and your partner/s in your work. We will wrap up the sessions by warming down together or doing some relaxing bodywork.
+                            </p>
+                            <p>
+                                The focus of our work will be to replace old stereotypes of violent conflicts (or even trauma) with a joyful and playful togetherness. An opportunity for learning something about yourself and communication and to enjoy intensity together with presence, respect, humour and love!<br>
+                                Since 2011 I've been offering this work countless times in classes, workshops and festivals all over the globe and the reactions never were less than enthusiastic.
+                            </p>
+                            <p>
+                                I'm excited to share this work at the Tyrolia Contact Festival- come and enjoy dancing, fighting and playing together!<br>
+                                Love and light, Ulli.
+                            </p>
+                            <p><strong>What to bring:</strong></p>
+                            <ul>
+                                <li>a water-bottle</li>
+                                <li>comfortable clothes for intense moving - good to bring a second or third T- shirt!</li>
+                                <li>motivation for intense moving and connecting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Dmitriy Zakharov (Ukraine) -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2019/zakharov.jpg" alt="Dmitriy Zakharov (Ukraine)" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">VideoMaker, Photographer &amp; CI Dancer</span>
+                        <h2>Dmitriy Zakharov (Ukraine)</h2>
+                        <p>
+                            VideoMaker, photographer and CI dancer. Creates video stories of the emotional body, and of the people who create incredible stories with their movements.
+                        </p>
+                        <p>
+                            <a href="https://www.youtube.com/c/zaharovproduction?fbclid=IwAR13zRzcZ-9q4tK9tOvFrslUjWrFta0NwX76oOdwKMf6Qp_WgLjAfU0OviU" target="_blank" rel="noopener">https://www.youtube.com/zaharovproduction</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 6. Denys Petryshyn - musician -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2019/petryshyn.jpg" alt="Denys Petryshyn - musician" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Live Music</span>
+                        <h2>Denys Petryshyn - musician</h2>
+                        <p>
+                            A multi-instrumentalist from Ukraine (guitar, didgeridoo, jew's harp and vocal). Likes playing the music that tends to immerse into a place where nothing is left except space for discovering yourself. By watching, listening, dancing...
+                        </p>
+                        <div class="video-responsive-frame" style="margin-top: 20px;">
+                            <iframe src="https://www.youtube-nocookie.com/embed/dEZeLZ-MIIU" title="Denys Petryshyn Video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 3: PROGRAM (100% Complete Text & Schedule Embed)
+             ========================================== -->
+        <div id="fest-tab-program" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Schedule &amp; Activities</span>
+            <h2 style="margin-bottom: 16px;">Program</h2>
+            <div style="margin-bottom: 28px;">
+                <img src="img/festivals/2019/program.jpg" alt="Program Banner" style="width: 100%; max-height: 360px; object-fit: cover; display: block;">
+            </div>
+
+            <p style="max-width: 860px;">
+                Our team prepared for you really tasty program of workshops, underscore jams, trackings into the mountains + swimming in the lake in a day-off (24th of July). Festival will be filled with the art of painters. If you are one of them and you would like to have a place for a stand of your work, please tag it in registration.
+            </p>
+            <p style="max-width: 860px;">
+                <strong>20th of July (Saturday)</strong> is an arrival day.
+            </p>
+            <p style="max-width: 860px; margin-bottom: 28px;">
+                <strong>28th of July (Sunday)</strong> is a day of departure.
+            </p>
+
+            <div style="border: 1px solid var(--border); background: #fff; padding: 12px;">
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTadGXtNoxfJtHQdZ3zu1bHuCANqSP78RnDU8qJ12VwOmqfI-8RQqfneRC_oMeLez6Tg3eEq8cVcjI8/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="100%" style="height: 520px !important; aspect-ratio: unset !important; border: 0; display: block;" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 4: LOCATION (100% Complete Text & Map)
+             ========================================== -->
+        <div id="fest-tab-location" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Innsbruck &middot; Street Motion Studio</span>
+            <h2 style="margin-bottom: 16px;">Location</h2>
+            <div style="margin-bottom: 28px;">
+                <img src="img/festivals/2019/location.jpg" alt="Location Banner" style="width: 100%; max-height: 360px; object-fit: cover; display: block;">
+            </div>
+
+            <div class="manifesto-grid" style="margin-bottom: 40px;">
+                <div class="manifesto-card">
+                    <span class="manifesto-label">01 / Living, Dancing &amp; Eating Together</span>
+                    <p>
+                        Dear participants, the team of CI Tyrol Festival decided to change the official place of living - camping place, because of too unpredictable weather this year. Recently it was only 14 degrees during the day, under the sun and only two days before it was up to 30... We decided that nothing is worth to get sick. At the same moment, these changes bring us more free time during the day, because of no way to the dancing place and then back again to the camping. We propose to all of the participants to live, to dance, to eat together in the center of Innsbruck - Street Motion Studio (Viaduktb&ouml;gen 7-10, 6020 Innsbruck, &Ouml;sterreich). We have three big rooms, shower, toilet, a kind of coffee machine (fridge), fridge, entrance room with sofa and chairs, dressing rooms where you can put all your stuff, we have a courtyard for parking and with a small chill zone. Your important things will be in safety. There is warm, cozy and super useful. We don't have there washing machine, but in Innsbruck center, we have some laundries with very available prices and close to Street Motion Studio. Teachers, organizers, and musicians will live in the same place (in different rooms). As well, we have there folding screens to divide a bit more space. So, please, take your sleeping bag and mat if you have, and you are very and very welcome in Street Motion Studio.
+                    </p>
+                </div>
+                <div class="manifesto-card">
+                    <span class="manifesto-label">02 / Travel Directions</span>
+                    <h3>How to get</h3>
+                    <p>
+                        To reach Tyrol land by plane from different parts of the world is much better through Munich or Memmingen (Ryanair, Wizzair... Low-cost airlines) then you can take a FlixBus to get to Innsbruck (all prices you can find on the internet on the websites of transport companies. Also, we would suggest to consider Blablacar. Munich - Innsbruck, Vienna - Innsbruck, those two are very popular directions. Definitely, you will find something.) From HBf (main railway station) and from Flix Bus station you can walk to Street Motion Studio by foot. From HBF - it's approximately 8 min, from flix bus is more. Please download the map before (if you'll lose mobile connection) and just follow strait there - Viaduktb&ouml;gen 7-10, 6020 Innsbruck, &Ouml;sterreich.
+                    </p>
+                    <p>
+                        <strong>The team of CI Tyrol Fest is excited to meet all</strong>
+                    </p>
+                </div>
+            </div>
+
+            <h3>Dancing space — Viaduktbogen 7-10, 6020 Innsbruck, Austria:</h3>
+            <div style="margin-top: 16px; border: 1px solid var(--border);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2707.4096104297932!2d11.399444315618746!3d47.26724687916366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479d695628cbcbdb%3A0x3b51c95beb0ab865!2sStreet+Motion+Studio!5e0!3m2!1sru!2sru!4v1562158703618!5m2!1sru!2sru" width="100%" style="height: 450px !important; aspect-ratio: unset !important; border: 0; display: block;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 5: PRICES (100% Complete Text, Prices & Form)
+             ========================================== -->
+        <div id="fest-tab-prices" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Opportunities, Price &amp; Registration</span>
+            <h2 style="margin-bottom: 16px;">Opportunities</h2>
+            <div style="margin-bottom: 28px;">
+                <img src="img/festivals/2019/price.jpg" alt="Price Banner" style="width: 100%; max-height: 360px; object-fit: cover; display: block;">
+            </div>
+
+            <div class="manifesto-grid" style="margin-bottom: 40px;">
+                <div class="manifesto-card">
+                    <span class="manifesto-label">01 / Early Bird &amp; Helpers</span>
+                    <p>
+                        Dear participants, we offer you a few possibilities to pay. As fast as you will register will help us to organize everything in the best way that's why the earliest registration is the cheapest.
+                    </p>
+                    <p>
+                        The second opportunity you will have is to be a helper at our festival, which gives you a good discount. You will be part of the organizational process and will be responsible for several tasks.
+                    </p>
+                </div>
+                <div class="manifesto-card">
+                    <span class="manifesto-label">02 / Artists &amp; Craftsmen</span>
+                    <p>
+                        The third opportunity will be for painters, sculptor or any kind of handmade craftsman. If you would like to sale/share your art or skills at our festival you will receive a 10% discount for participation!
+                    </p>
+                </div>
+            </div>
+
+            <span class="section-tag">Festival Passes</span>
+            <h2 style="margin-bottom: 20px;">Price</h2>
+            <div class="fest-pricing-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 36px;">
+                <div class="fest-price-card">
+                    <div>
+                        <span class="manifesto-label">21st–27th of July! whole week!</span>
+                        <h3 style="margin: 8px 0 12px;">Full Participation</h3>
+                        <p>
+                            <strong>Living in tent/full participation in WS, jams/food is included till July, 10th - 340 euro</strong><br>
+                            from July, 10th - 390 euro
+                        </p>
+                    </div>
+                    <div style="padding-top: 16px; border-top: 1px solid var(--border-light);">
+                        <span class="fest-price-current">340 &euro; / 390 &euro;</span>
+                    </div>
+                </div>
+                <div class="fest-price-card">
+                    <div>
+                        <span class="manifesto-label">Community Contribution</span>
+                        <h3 style="margin: 8px 0 12px;">For helpers!</h3>
+                        <p>
+                            <strong>Attention! For today we are done. In case you have lack of possibilities and a huge desire to dance, write about it,please, via mail</strong><br>
+                            till July, 10th - 210 euro<br>
+                            from July, 10th - 260 euro
+                        </p>
+                    </div>
+                    <div style="padding-top: 16px; border-top: 1px solid var(--border-light);">
+                        <span class="fest-price-current">210 &euro; / 260 &euro;</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border: 1px solid var(--border); padding: 28px; background: var(--bg-off); margin-bottom: 36px;">
+                <p style="font-weight: 600; font-style: italic;">
+                    We hope to see you at the CI Tyrol Festival 21st-27th of July, 2019!!!<br>
+                    You are welcome to register below.
+                </p>
+                <p style="color: #88050A; font-style: italic;">
+                    In case of changing mind to participate after registration, 50% of the prepayment will not come back. Your prepayment is proof for the festival to be realized. Please, respect the organization process.
+                </p>
+                <p style="color: #88050A; font-style: italic; margin-bottom: 0;">
+                    With best regards, the team of CI Tyrol Festival
+                </p>
+            </div>
+
+            <h2 style="margin-bottom: 16px;">Registration</h2>
+            <div style="border: 1px solid var(--border); background: #fff; padding: 12px;">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfu00Csf42FZhOQARCweHb2iEX57NlV0_o6oGWFWh49Lk_WKA/viewform?embedded=true" width="100%" style="height: 900px !important; aspect-ratio: unset !important; border: 0; display: block;" loading="lazy">Загрузка...</iframe>
+            </div>
+        </div>
+
+    </main>
+
+    <footer></footer>
+</body>
+</html>

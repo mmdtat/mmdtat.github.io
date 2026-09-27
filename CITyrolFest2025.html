@@ -1,84 +1,1255 @@
 <!DOCTYPE html>
-<html class="html_CI2024">
+<html lang="en">
 <head>
-    <title>SOLO & CI TlROL Fest 2024</title>
-<link rel="shortcut icon" href="gallery/lg.png" type="image/x-icon">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/style_citirol2025.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLO &amp; CI TIROL Fest 2025 — MMDT</title>
+    <meta name="description" content="SOLO & CI TIROL Fest 2025 (August 6–14, 2025 in Innsbruck, Austria) — The Very Beginning, featuring headliner Daniel Lepkoff.">
+    <link rel="shortcut icon" href="img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/modern-redesign.css">
+    <script src="js/modern-redesign.js" defer></script>
 </head>
 <body>
-    <header class="header">
+    <header class="header header_home">
         <div class="container">
             <div class="header__inner">
                 <div class="header__logo">
-                    <img src="img/logo.png" alt="">
+                    <a href="index.html" aria-label="MMDT Home"><img src="img/common/brand/logo.png" alt="MMDT"></a>
                 </div>
                 <nav class="nav">
-                    <a class="nav__link" href="https://mmdt.at/">HOME</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/projects">PROJECTS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/festival">FESTIVAL</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/classes">CLASSES</a>
-                    
-                    <a class="nav__link" href="https://mmdt.at/pages/partners">PARTNERS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/contants">CONTACTS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/events">EVENTS</a>
-                    <a class="nav__link" href="https://mmdt.at/pages/membership">MEMBERSHIP</a>
+                    <a class="nav__link" href="pages/projects.html">Projects</a>
+                    <a class="nav__link active" href="pages/festival.html">Festival</a>
+                    <a class="nav__link" href="pages/classes.html">Classes</a>
+                    <a class="nav__link" href="pages/events.html">Events</a>
+                    <a class="nav__link" href="pages/partners.html">Partners</a>
+                    <a class="nav__link" href="pages/membership.html">Membership</a>
+                    <a class="nav__link" href="pages/contacts.html">Contacts</a>
                 </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
-        
-    </div>
     </header>
-    <div class="content">
-        <div class="container" id="container">
-            <br>
-            <h1 style="text-align: center;">
-                August 6-14, 2025<br>
-                INNSBRUCK
-            </h1>
-            <br>
-            <p class="plain_text">
-                Welcome to the 7th Edition of Solo & CI Tyrol Festival! <br><br>
 
-                We are thrilled to invite you to join us from August 6th to 14th, 2025, in the breathtaking city of Innsbruck, Austria, for a week celebrating the roots and possibilities of Contact Improvisation. This year, we embrace the theme "The Very Beginning," taking us back to the early days of CI in the 1970s, when Steve Paxton and his pioneering circle first explored this groundbreaking form.<br><br>
-
-                In an extraordinary addition to our program, we are honored to welcome <b>Daniel Lepkoff</b> as our headliner—one of the original artists who danced alongside Paxton and a lifelong, legendary figure in the dance world. His presence is a gift to our community, offering a rare opportunity to connect with CI’s living history through one of its foundational voices. To honor Daniel's visit and his invaluable contributions, we’ve extended the festival by an extra day, making space for deeper exploration, unique workshops, and enriching discussions.
-                <br><br>
-                Join us in discovering the essence of "The Very Beginning" and experience CI's dynamic legacy as we reconnect with its roots and create new possibilities for its future. We can’t wait to dance with you!
-            </p>
-            <div class="tab">
-                    <a href="https://mmdt.at/pages/CI_Fest_2025/CITyrolFest2025_Venue"><button class="tab-button">Venue</button></a>
-                    <a href="https://mmdt.at/pages/CI_Fest_2025/CITyrolFest2025_Org_team"><button class="tab-button">Org Team</button></a>
-                    <a href="https://mmdt.at/pages/CI_Fest_2025/CITyrolFest2025_Teachers"><button class="tab-button">Teachers and Classes</button></a>
-                    <a href="https://mmdt.at/pages/CI_Fest_2025/CITyrolFest2025_Musicians"><button class="tab-button">Musicians and guests</button></a>
-                    <a href="https://mmdt.at/pages/CI_Fest_2025/CITyrolFest2025_Program"><button class="tab-button">Program</button></a> 
-                    <a href="https://mmdt.at/pages/CI_Fest_2025/CITyrolFest2025_Food"><button class="tab-button">Accommodation and food</button></a>
-                    <a href="https://mmdt.at/pages/CI_Fest_2025/CITyrolFest2025_Partners"><button class="tab-button">Partners</button></a>
-                    <a href="https://mmdt.at/pages/CI_Fest_2025/CITyrolFest2025_Registration"><button class="tab-button">Registration</button></a>
+    <!-- Full-Screen Festival Hero (Lighter overlay, no bottom buttons, no edition tag) -->
+    <section class="intro_festival" style="background-image: url('img/festivals/2025/bg.jpg');">
+        <div class="container">
+            <div>
+                <a href="pages/festival.html" class="fest-hero-back">&larr; All Festivals</a>
             </div>
-            <div class="tab"> 
-                <a href=""></a>
-                <a href="https://mmdt.at/pages/CI_Fest_2025/CITyrolFest2025_Archive"><button class="tab-button" id="archive">Archive</button></a>
-                <a href=""></a>
+            <span class="fest-hero-tag">August 6 – 14, 2025 &middot; Innsbruck, Austria</span>
+            <h1 class="fest-hero-title">SOLO &amp; CI TIROL Fest 2025</h1>
+            <p class="fest-hero-subtitle">&ldquo;The Very Beginning&rdquo;</p>
+            <p class="fest-hero-author">Headliner: Daniel Lepkoff</p>
+        </div>
+    </section>
+
+    <!-- Sticky Sub-Navigation Tabs -->
+    <div class="fest-tabs-wrapper" id="festTabsAnchor">
+        <div class="fest-tabs-bar">
+            <button class="fest-tab-btn active" data-fest-tab="overview" onclick="switchFestivalTab('overview', false)">Overview</button>
+            <button class="fest-tab-btn fest-tab-btn--highlight" data-fest-tab="registration" onclick="switchFestivalTab('registration', false)">Registration</button>
+            <button class="fest-tab-btn" data-fest-tab="teachers" onclick="switchFestivalTab('teachers', false)">Teachers &amp; Classes</button>
+            <button class="fest-tab-btn" data-fest-tab="musicians" onclick="switchFestivalTab('musicians', false)">Musicians &amp; Guests</button>
+            <button class="fest-tab-btn" data-fest-tab="program" onclick="switchFestivalTab('program', false)">Program</button>
+            <button class="fest-tab-btn" data-fest-tab="venue" onclick="switchFestivalTab('venue', false)">Venue &amp; Food</button>
+            <button class="fest-tab-btn" data-fest-tab="team" onclick="switchFestivalTab('team', false)">Team &amp; Partners</button>
+            <button class="fest-tab-btn" data-fest-tab="archive" onclick="switchFestivalTab('archive', false)">Archive</button>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <!-- ==========================================
+             TAB 1: OVERVIEW (Complete text, no prices)
+             ========================================== -->
+        <div id="fest-tab-overview" class="fest-tab-panel" style="display: block;">
+            <!-- Quick Facts Strip (No prices) -->
+            <div class="fest-facts-grid">
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Dates</span>
+                    <span class="fest-fact-value">August 6th to 14th, 2025</span>
+                    <span class="fest-fact-sub">INNSBRUCK</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Location</span>
+                    <span class="fest-fact-value">K&uuml;nstlerhaus B&uuml;chsenhausen</span>
+                    <span class="fest-fact-sub">Weiherburggasse 13, Innsbruck</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Headliner &amp; Faculty</span>
+                    <span class="fest-fact-value">Daniel Lepkoff, Giorgia Livan</span>
+                    <span class="fest-fact-sub">Pedro Penuela, Valeria Chan, Serhii Semichev, Ingrid H&ouml;rlezeder</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Theme</span>
+                    <span class="fest-fact-value">&ldquo;The Very Beginning&rdquo;</span>
+                    <span class="fest-fact-sub">8 Days of Classes, Workshops &amp; Discussions</span>
+                </div>
             </div>
 
+            <!-- Complete Original Text of 2025/index.html -->
+            <div class="manifesto-header">
+                <span class="section-tag">August 6-14, 2025 &middot; INNSBRUCK</span>
+                <h2 class="manifesto-title">
+                    Welcome to the 7th Edition of Solo &amp; CI Tyrol Festival!
+                </h2>
+            </div>
 
-        <footer style="background: rgba(255, 255, 255, 0.7);">
-                <div class="footer">
-                    <div class="footer_element">
-                        <br> <a href="#" style="text-decoration: none; color: #000;"><b>MOTION MODE DANCE THEATRE</b></a><br> <br>
-                        <img src="img/visa_mc.png" alt="" width="300px" style="text-align: left;">
+            <div class="manifesto-grid" style="margin-bottom: 48px;">
+                <div class="manifesto-card">
+                    <span class="manifesto-label">01 / The Very Beginning</span>
+                    <p>
+                        We are thrilled to invite you to join us from August 6th to 14th, 2025, in the breathtaking city of Innsbruck, Austria, for a week celebrating the roots and possibilities of Contact Improvisation. This year, we embrace the theme "The Very Beginning," taking us back to the early days of CI in the 1970s, when Steve Paxton and his pioneering circle first explored this groundbreaking form.
+                    </p>
+                </div>
+                <div class="manifesto-card">
+                    <span class="manifesto-label">02 / Living History with Daniel Lepkoff</span>
+                    <p>
+                        In an extraordinary addition to our program, we are honored to welcome <b>Daniel Lepkoff</b> as our headliner—one of the original artists who danced alongside Paxton and a lifelong, legendary figure in the dance world. His presence is a gift to our community, offering a rare opportunity to connect with CI’s living history through one of its foundational voices. To honor Daniel's visit and his invaluable contributions, we’ve extended the festival by an extra day, making space for deeper exploration, unique workshops, and enriching discussions.
+                    </p>
+                    <p>
+                        Join us in discovering the essence of "The Very Beginning" and experience CI's dynamic legacy as we reconnect with its roots and create new possibilities for its future. We can’t wait to dance with you!
+                    </p>
+                </div>
+            </div>
 
+            <!-- Quick Directory Portal inside Overview -->
+            <div style="border-top: 1px solid var(--border); padding-top: 36px; margin-top: 0;">
+                <span class="section-tag">Explore Festival Sections</span>
+                <h3>Festival Directory</h3>
+                <div class="home-portal-grid">
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('teachers', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">01 / Faculty</span>
+                            <h3>Teachers and Classes</h3>
+                            <p>Daniel Lepkoff, Giorgia Livan, Pedro Penuela, Valeria Chan, Serhii Semichev, and Ingrid H&ouml;rlezeder.</p>
+                        </div>
+                        <span class="home-portal-link">View Teachers <span>&rarr;</span></span>
+                    </a>
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('musicians', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">02 / Community</span>
+                            <h3>Musicians and guests</h3>
+                            <p>Live musicians Jonathan Adem, Nepomuk Lasio, Franz Ferdinand, guest teachers, and scholarship artists.</p>
+                        </div>
+                        <span class="home-portal-link">View Musicians &amp; Guests <span>&rarr;</span></span>
+                    </a>
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('venue', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">03 / Logistics</span>
+                            <h3>Venue, Accommodation &amp; Food</h3>
+                            <p>K&uuml;nstlerhaus B&uuml;chsenhausen in Innsbruck, accommodation support, and fresh vegetarian meals.</p>
+                        </div>
+                        <span class="home-portal-link">Venue &amp; Food <span>&rarr;</span></span>
+                    </a>
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('archive', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">04 / Documentation</span>
+                            <h3>Archive</h3>
+                            <p>Videos, audio recordings, and 366 festival photographs by Serhii Semichev.</p>
+                        </div>
+                        <span class="home-portal-link">Open Archive <span>&rarr;</span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 2: REGISTRATION (100% Complete Text)
+             ========================================== -->
+        <div id="fest-tab-registration" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Passes &amp; Booking</span>
+            <h2 style="margin-bottom: 16px;">Registration</h2>
+
+            <div style="border: 1px solid var(--border); padding: 36px; background: var(--bg-off); margin-bottom: 48px;">
+                <h2 style="margin-top: 0; margin-bottom: 12px;">Registration is now officially closed</h2>
+                <p>Thank you for your interest in our festival!</p>
+                <p>
+                    If you have any urgent questions or special circumstances,<br>
+                    please contact Tamara directly via WhatsApp:<br>
+                    <a href="tel:+4367763027506" style="color: var(--accent) !important; font-weight: 500;">+43 677 630 27506</a>
+                </p>
+                <h3 style="margin-top: 24px; margin-bottom: 0;">We look forward to dancing with you soon!</h3>
+            </div>
+
+            <div class="fest-pricing-grid">
+                <!-- Full Festival Experience -->
+                <div class="fest-price-card fest-price-card--soldout">
+                    <div>
+                        <span class="manifesto-label">August 6–14, 2025</span>
+                        <h3 style="margin: 8px 0 12px;">Full Festival Experience:</h3>
+                        <p style="font-size: 0.92rem !important; color: var(--text-meta) !important; margin-bottom: 24px;">
+                            Immerse yourself in the magic of dance across both parts of the festival.
+                        </p>
                     </div>
-                    <div class="footer_element"> <br>
-                        <a href="https://mmdt.at/Privacy_policy" style="color: #000; text-align: right;">Privacy Policy</a> <br> <br>
-                        <a href="https://mmdt.at/Refund_policy" style="color: #000; text-align: right;">Refund & Return Policy</a> <br><br>
-                        <a href="https://mmdt.at/Terms&Conditions" style="color: #000; text-align: right;">Terms & Conditions</a> <br> <br>
-                        <a href="https://mmdt.at/GEP" style="color: #000; text-align: right;">Gender Equality Plan</a> <br> <br>
+                    <div>
+                        <div style="margin-bottom: 20px; padding-top: 20px; border-top: 1px solid var(--border-light);">
+                            <span class="fest-price-old">699 &euro;</span>
+                            <span class="fest-price-current">499 &euro;</span>
+                        </div>
+                        <a href="https://buy.stripe.com/fZu3cvcSc0IEeTa2Vgd3i0C" target="_blank" rel="noopener" class="buy-button" style="width: 100%; text-align: center; margin-top: 0 !important;">
+                            REGISTRATION*
+                        </a>
+                        <p style="font-size: 0.75rem !important; color: var(--text-meta) !important; margin-top: 10px; margin-bottom: 0;">
+                            *By clicking on this button you confirm that you agree with the refund and privacy policies
+                        </p>
                     </div>
                 </div>
-        </footer>
+
+                <!-- First Part of the Festival -->
+                <div class="fest-price-card fest-price-card--soldout">
+                    <div>
+                        <span class="manifesto-label">Part 1</span>
+                        <h3 style="margin: 8px 0 12px;">First Part of the Festival:</h3>
+                    </div>
+                    <div>
+                        <div style="margin-bottom: 20px; padding-top: 20px; border-top: 1px solid var(--border-light);">
+                            <span class="fest-price-old">499 &euro;</span>
+                            <span class="fest-price-current">399 &euro;</span>
+                        </div>
+                        <a href="https://buy.stripe.com/14AbJ105qbni26o2Vgd3i0D" target="_blank" rel="noopener" class="buy-button" style="width: 100%; text-align: center; margin-top: 0 !important;">
+                            REGISTRATION*
+                        </a>
+                        <p style="font-size: 0.75rem !important; color: var(--text-meta) !important; margin-top: 10px; margin-bottom: 0;">
+                            *By clicking on this button you confirm that you agree with the refund and privacy policies
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Second Part of the Festival -->
+                <div class="fest-price-card fest-price-card--soldout">
+                    <div>
+                        <span class="manifesto-label">Part 2</span>
+                        <h3 style="margin: 8px 0 12px;">Second Part of the Festival:</h3>
+                        <p style="font-size: 0.92rem !important; color: var(--text-meta) !important; margin-bottom: 24px;">
+                            Join us for the festival's dynamic and inspiring conclusion.
+                        </p>
+                    </div>
+                    <div>
+                        <div style="margin-bottom: 20px; padding-top: 20px; border-top: 1px solid var(--border-light);">
+                            <span class="fest-price-old">499 &euro;</span>
+                            <span class="fest-price-current">399 &euro;</span>
+                        </div>
+                        <a href="https://buy.stripe.com/4gM8wPg4o8b6aCUcvQd3i0E" target="_blank" rel="noopener" class="buy-button" style="width: 100%; text-align: center; margin-top: 0 !important;">
+                            REGISTRATION*
+                        </a>
+                        <p style="font-size: 0.75rem !important; color: var(--text-meta) !important; margin-top: 10px; margin-bottom: 0;">
+                            *By clicking on this button you confirm that you agree with the refund and privacy policies
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <!-- ==========================================
+             TAB 3: TEACHERS & CLASSES (100% Complete Text & Media)
+             ========================================== -->
+        <div id="fest-tab-teachers" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">International Faculty</span>
+            <h2 style="margin-bottom: 12px;">Teachers and Classes</h2>
+            <p style="max-width: 860px; margin-bottom: 16px;">
+                This year, we're thrilled to announce that the headliner of our 7th festival will be the legendary Daniel Lepkoff, one of the pioneers of Contact Improvisation! To honor this special opportunity, we've extended the festival to a full 8 days of immersive CI dancing and exploration.
+            </p>
+            <p style="max-width: 860px; margin-bottom: 32px;">
+                You will find all teachers who will share their experience during the festival on this page.
+            </p>
+
+            <div class="concert-list">
+                <!-- 1. DANIEL LEPKOFF -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2025/teachers/Lepkoff.jpg" alt="Daniel Lepkoff" style="margin-bottom: 16px;" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Lepkoff2.jpg" alt="Daniel Lepkoff" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/bg.jpg" alt="Daniel Lepkoff" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Festival Headliner &middot; Workshop &amp; Open Talk</span>
+                        <h2>Daniel Lepkoff</h2>
+                        <h3 style="margin-top: 8px; margin-bottom: 12px;">PHYSICAL DIALOGUES:</h3>
+                        <p>
+                            EXPERIMENTS IN COMMUNICATION THROUGH MOVEMENT<br>
+                            a dance technique and approach to movement researchdeveloped by: Daniel Lepkoff
+                        </p>
+                        <p>
+                            Our living physical interactions with the environment are expressions of our desires, imagination, and intelligence. We frame this spontaneous material as "danced composition".<br>
+                            Addressing all our physical senses, we explore of the details inside of functional movement: breathing, rolling, reaching, crawling, standing, walking, running.....
+                        </p>
+                        <p>
+                            Practicing:<br>
+                            -OBSERVATION<br>
+                            -THE MOVEMENT OF ATTENTION<br>
+                            -RECEIVING INSTRUCTIONS FROM THE ENVIRONMENT.<br>
+                            lead us, as dancers, to experience being a transmitter of questions rather than the maker of images.
+                        </p>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <p><b>Open talk/lecture</b></p>
+                            <p>
+                                TITLE: "Is the Small Dance Improvised?"<br>
+                                Daniel will speak briefly of his understanding of Contact Improvisation as a practice and performance action designed to display the reflexive movement of the human animal as "danced composition". He will briefly describe his work of over 50 years researching functional movement as a medium for making performance and an alternate vision of "dance" technique.<br>
+                                His presentation will be short, so most of the time can be for fielding question from festival participants, hopefully beginning a conversation, learning about each other and our various ideas about movement, performance, practice, and Contact Improvisation.
+                            </p>
+                        </div>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <h3 style="margin-bottom: 12px;">Biography</h3>
+                            <p>
+                                DANIEL LEPKOFF is a dancer known for bringing the process of living movement into the studio and onto the stage.<br><br>
+                                Since the early '70's he played a central role in the development of Release Technique with Mary Fulkerson and Contact Improvisation with Steve Paxton. Throughout the '70's and '80's he traveled extensively; teaching, performing and exposing these new ideas worldwide.<br><br>
+                                He was one of the founders of Movement Research in NYC (1975), playing as active role in defining the initial conception of this seminal organization: designing new programs, curating events, teaching regular classes and offering intensive workshops.<br><br>
+                                Living in New York City in the '80's Daniel performed in the works of several choreographers including: Trisha Brown, Simone Forti, Mary Fulkerson, Lisa Nelson, Mary Overlie, Judy Padow, Steve Paxton, &amp; Nancy Topf. In this period his own movement based solo and group work experimented with the elements of voice, text, film, video, &amp; photography, and interactions with physical objects. His work has been shown at Danspace, PS122, Movement Researh at Jusdon Church, in New York City as well as internationally throughout Europe, Eastern Europe and Russia, and South America.<br><br>
+                                Over the years Daniel has engaged in several long term and important collaborations with other performing artists including: Lisa Nelson, Steve Paxton; Paul Langland, Saira Blanche Theater in Moscow (Oleg Soulimenko and Andrej Andrianov), Hungarian experimental musician Dora Attila and Japanese dancer, Sakura Shimada, among others.
+                                In 2002, working with Mira Kovarva and The Bratislava in Movement Festival Daniel was the artistic director of ' Rozhovory tiel / Physical Dialogues' a seminal artistic/educational event that brought a cross section of mature and developed approaches to improvisation.<br><br>
+                                He has published numerous articles articulating concepts that are central to his approach to dance making. These writings appear in Contact Quarterly, The MR Performance Journal, and Contredanse Publications in Bruxelles, and on his website: <a href="https://daniellepkoff.com/index.php" target="_blank" rel="noopener" style="color: var(--accent) !important;">www.daniellepkoff.com</a><br><br>
+                                He lives on a piece of land in Vermont.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. GIORGIA LIVAN -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2025/teachers/Livan.jpg" alt="Giorgia Livan" style="margin-bottom: 16px;" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Livan1.jpg" alt="Giorgia Livan" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Livan2.jpg" alt="Giorgia Livan" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Livan3.jpg" alt="Giorgia Livan" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Workshop: Ensemble &amp; Solo CI</span>
+                        <h2>Giorgia Livan</h2>
+                        <h3 style="margin-top: 8px; margin-bottom: 12px;">"MARKER: BODYGRAPHY ON THE FLOOR WALL"</h3>
+                        <p>
+                            How can bodies and surfaces be marked by intentional or unintentional actions?
+                        </p>
+                        <p>
+                            How do ensembles change composition? And how do solos flourish during these markings?
+                        </p>
+                        <p>
+                            Through the practice of marking, we will analyse and experience from a scientific as well as an artistic point of view (combining different techniques) the concept of marking in solo dance and in the practice of Ensemble Contact Improvisation. Thanks to these marks, we will translate into space an exploration that is guided at first and spontaneous at a later stage.
+                        </p>
+                        <p>
+                            The focus will be on the awareness of how these mnemonic and material scars influence the environment of practice and the relationships created in it.
+                        </p>
+                        <h3 style="margin-top: 20px; margin-bottom: 10px;">MORE ABOUT THE PROCESS:</h3>
+                        <p>
+                            The process will be marked in a dialogue between pauses and translation on paper and movement.<br>
+                            The dance will be both ensemble and solo in order to observe the difference of moving from a complex organ such as being in a group and collectivity to returning to oneself with the wake of the marks left by others.<br><br>
+                            It is not necessary to be a visual artist, this is a device for dancers (especially in the dynamics of Contact Improvisation) to make the intuitive choice that the body feels resurface.<br>
+                            We will work with simplicity and synthesis, taking away rather than adding and without acting automatically and compulsively in flying or falling.<br><br>
+                            We will also have the pleasure of crossing the perspective of our map directly on the wall, after travelling from the floor.
+                        </p>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <h3 style="margin-bottom: 12px;">Biography</h3>
+                            <p>
+                                Biological (rather than biographical) human being, I have known movement through walking on the floor, taking trains, transport and training in contemporary dance academies since I was a child.<br><br>
+                                At the same time, music, drawing and natural sciences have always supported these movements in an organic way. I have also published research in the field of improvisation, which is still part of what I investigate daily and for creative work.<br><br>
+                                As an artist, the lens through which I observe and touch the ground comes from streetart and streetdance with which I grew up in all ages of life as a second home, both abroad and in my home country. This background of many years within the disciplines of Cypher and Freestyle in big cities and industrial fringe areas, evolved in a natural way also in less anthropic areas; Landing closer to the sensibility that captures my interest around 2015, through the knowledge of Contact Improvisation and Dance Theatre especially in the space of Jam and Performance all over Europe and outside Europe (Africa, USA, France, Germany, Hungary, Austria, Switzerland, etc.)<br><br>
+                                I have studied a lot with many teachers and artists in both music and dance and I am constantly learning and studying in the creation of collaborations and projects in many different forms.<br><br>
+                                Recognising that my gaze falls especially on impressions and the dialogue between composition and signs, allows me to witness how this can create both in social hierarchies and in performance spaces an impactful change.<br><br>
+                                Moving away from expressive egos and narcissistic personalities, moving closer to the rhythm of simplification in counterpoint to the historicity of our time, is developing a different way of connecting bodies.<br><br>
+                                Starting from the traditional pattern and deconstructing it.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. PEDRO PENUELA -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2025/teachers/Penuela.jpg" alt="Pedro Penuela" style="margin-bottom: 16px;" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Penuela2.jpg" alt="Pedro Penuela" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Penuela1.jpg" alt="Pedro Penuela" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Penuela3.jpg" alt="Pedro Penuela" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Workshop, Lecture &amp; Public Talk</span>
+                        <h2>Pedro Penuela</h2>
+                        <h3 style="margin-top: 8px; margin-bottom: 12px;">Supportive architectures in the body</h3>
+                        <p>
+                            In these two classes we will work on skills, techniques and forms that help us to access a sense and experience of support. This aims to bring safety in motion and to open a wide range of movement possibilities that can be investigated and explored during an improvisation, especially in situations of weight exchange.
+                        </p>
+                        <p>
+                            To develop it, we'll focus on:<br><br>
+                            . Sensing, knowing and experimenting with and from our skeleton,<br>
+                            . Dynamic alignments and embodied understanding of our supports and ways to offer support,<br>
+                            . Tuning to the reflex intelligence in our own body and in the others',<br>
+                            . Feeling and playing with gravity and action-reaction interplay with the ground,<br>
+                            . Pathways to connect the whole body and to feel its different architectures in each moment,<br>
+                            . Forms that teach the body important skills when "flying",<br>
+                            . Feeling and getting awareness of the center of gravity and it's role in CI,<br>
+                            . Use of momentum, leverages and centripetal forces.
+                        </p>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <h3 style="margin-bottom: 10px;">Lecture with Pedro: "The political relevance of some principles of Contact Improvisation"</h3>
+                            <p>
+                                The lecture will discuss ethical and political implications that characterize Contact Improvisation, highlighting the relevance of some of its principles, such as:<br>
+                                1. The dilation of time and the stretching of perception,<br>
+                                2. The question of resistance (or the resistance under question),<br>
+                                3. The rupture with the imperative of productivity,<br>
+                                4. The (open) question of community, collective bonds and spaces of "refuge".<br>
+                                By examining these aspects, we highlight how this dance form subverts the hegemonic cultural imperatives of accelerating action, densifying stimulation and increasing productivity, as well as it helps us to problematize the notion of resistance and the strategies of political and cultural opposition to a status quo, thus having the potential to create particular spaces of sharing, articulated by commonalities in perception and sensitivity.
+                            </p>
+                        </div>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <h3 style="margin-bottom: 10px;">Public talk and discussion with Pedro Penuela: "The transformative power of Contact Improvisation"</h3>
+                            <p>
+                                Contact Improvisation can be considered a very transformative practice to those who experience it.
+                                Elements like: the complexity of touch and communication through touch, sensing gravity and weight in very subtle levels, opening the periferal vision and a spherical sense of space, dealing with disorientation and finding balance and calm in adrenalized states and situations of risk, among many other aspects of this practice have the potential to deeply reshape our perception and the way we experience our bodies in general.
+                                Moreover, it can have deep emotional, social and political implications too.
+                                In this circle our intention is to share reflections, thoughts and experiences from all of us participants about the transformative powers of CI and what aspects of this dance form do we think we should or should not activate, deepen, question, increase, improve, change, maintain etc...
+                            </p>
+                        </div>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <h3 style="margin-bottom: 12px;">Biography</h3>
+                            <p>
+                                Pedro Penuela is a dancer, psychologist and PhD in performing arts from Brazil, now living in Greece. In his PhD he researched forms of presence in the works of Steve Paxton, Pina Bausch and Kazuo Ohno, having had the opportunity of interviewing Paxton twice. He has been dancing and practicing Contact Improvisation since 2006, having studied with many different teachers such as Nita Little, Ray Chung, Daniel Lepkoff, Otto Ramstad, Lisa Nelson, and many others from different countries. Pedro has given workshops and classes in Brazil, Argentina, Spain, Italy, Greece, Israel/Palestine, France.<br><br>
+                                In 2024 he was also a member of the curating team of ECITE (European Contact Improvisation Teacher's Exchange).<br>
+                                Website: <a href="http://pedropenuelaeng.wordpress.com" target="_blank" rel="noopener" style="color: var(--accent) !important;">pedropenuelaeng.wordpress.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. VALERIA CHAN -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2025/teachers/Chan.jpg" alt="Valeria Chan" style="margin-bottom: 16px;" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Chan1.jpg" alt="Valeria Chan" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Chan3.jpg" alt="Valeria Chan" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Chan2.jpg" alt="Valeria Chan" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Workshop: Gravity, Fall &amp; Flight</span>
+                        <h2>Valeria Chan</h2>
+                        <h3 style="margin-top: 8px; margin-bottom: 12px;">THE POETRY OF GRAVITY</h3>
+                        <p>
+                            Gravity, the most invisible yet ever-present universal force, it never abandons us. It surrounds us in silence, constant and unwavering, a quiet companion that holds us in its embrace, always. It does not discriminate; it treats every body, every object, every movement with the same gentle persistence. In this way, gravity is a great equalizer—a silent, democratic presence that unites us through its constant embrace.
+                        </p>
+                        <p>
+                            As Steve Paxton observed: "We are born into gravity, and from that moment, gravity becomes part of our movement, our being, our dance."
+                        </p>
+                        <p>
+                            It is an invitation to explore gravity not just as a physical principle, but as a partner in movement. Gravity is like an invisible rain, always present, or like the wind, constantly flowing through and around us. It is the source of balance, motion, and stillness. To dance is to let these unseen forces move through us while simultaneously asking them to support and shape our movement.<br><br>
+                            During the workshop, we will explore the idea that flight begins with a state of falling and surrender to gravity. To fly is to fall with purpose and trust, using the kinetic energy of the fall to lift us effortlessly into space. It is through the grace of surrendering to gravity that we find the flow of flight. We will engage with the small dance, the micro-movements of stillness that emerge as we connect with gravity. This foundation will guide us into larger movements, including lifts and flights, as we let gravity and weight shape our improvisation in solo, duets, trios, and group dances.<br><br>
+                            How can we fall softly, only to rise and fly just as gently? What role does breath play in both falling and flying? What is the difference between surrendering and collapsing? What does it mean to dance, to fly, and to continuously fall while lifting others?<br><br>
+                            To breath, to fall, to fly: let us embrace and being embraced by the poetry of gravity.
+                        </p>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <h3 style="margin-bottom: 12px;">Biography</h3>
+                            <p>
+                                Born to a fusion of Chinese and Italian heritage, Valeria began her (inner and outer) world exploration at the age of 19, driven by a deep curiosity for wonder and truth. Her travels across Africa, Asia, and South America led her to encounter Contact Improvisation (CI) in Brazil, where she quickly fell in love with the practice. CI became not only her home but also her life school, serving as a tangible vehicle for accessing states of flow and grace, and as a radical practice of presence and awareness.<br><br>
+                                Since 2016, she has been studying Contact Improvisation with international teachers, including Nita Little, Karen Nelson, Ray Chung, Anya Cloud, Charlie Morrissey, Martin Keogh, Itay Yatuv, and Kirstie Simson. Her movement practice draws from a wide range of influences, including Butoh dance, martial arts (specifically Kinomichi) and somatic practices. She has a solid background in contemporary dance, with both formal training and a collaborative work with the Dance Ensemble Opera Studio Company in Italy.<br><br>
+                                Her practice remains ever-evolving, and she increasingly feels the humbling truth of not knowing. The question that stays most alive for her is: what does it mean to be human?<br>
+                                Valeria is also certified in Emotional Energy Release Massage and continues her studies in Traditional Chinese Medicine and Tuina massage. She teaches Contact Improvisation weekly in Genoa and organizes CI events in Italy, such as Jamazo and 4Elements-Contact Improvisation Retreat in Nature.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. SERHII SEMICHEV -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/common/people/Semichev.jpg" alt="Serhii Semichev" style="margin-bottom: 16px;" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Semichev1.jpg" alt="Serhii Semichev" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Semichev3.jpg" alt="Serhii Semichev" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Semichev2.jpg" alt="Serhii Semichev" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Workshop: Balance &amp; Counterbalance</span>
+                        <h2>Serhii Semichev (Italy/Ukraine)</h2>
+                        <h3 style="margin-top: 8px; margin-bottom: 12px;">The illusion of balance</h3>
+                        <p>
+                            The class will be of interest to participants with any experience.<br>
+                            The class is dedicated to balance, losing and finding balance and counterbalance.<br>
+                            We will find balance in any position with minimal use of muscle effort. We will explore how changing the position of different parts of the body changes the position of the body's center of gravity and loss of balance.<br>
+                            We will explore how the body organizes itself without unnecessary muscle effort in search of balance when the center of gravity changes position in space.
+                            We will explore how the partner's influence affects the position of the center of gravity in space. We will explore how the body organizes itself to find balance when the partner's influence.<br>
+                            We will explore how the position of the partner's body changes the position of the partners' center of gravity and leads to loss of balance for both partners.
+                            We will explore how our bodies organize themselves in contact when losing and finding balance. We will explore the intensity and range of movement in losing and finding balance together with a partner.<br>
+                            We will explore how joint loss of balance and organization of the body to find balance in contact without unnecessary muscle effort can become a game and one of the resources of movement in dance.
+                        </p>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <h3 style="margin-bottom: 12px;">Biography</h3>
+                            <p>
+                                Teacher, dancer performer and researcher of contact improvisation. Teacher and activist of the contact improvisation community in Ukraine. Organizer and co-organizer of contact improvisation festivals in Ukraine. Teacher of contact improvisation in Europe and at European contact improvisation festivals. Teacher and organizer of regular classes and jams in Rome (Italy).<br>
+                                In the past, a gymnast, acrobat, fitness trainer.<br>
+                                Massage therapist, physiotherapist, photographer and videographer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. INGRID HÖRLEZEDER -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2025/teachers/Ingrid1.jpg" alt="Ingrid Hörlezeder" style="margin-bottom: 16px;" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Ingrid3.jpg" alt="Ingrid Hörlezeder" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Ingrid2.jpg" alt="Ingrid Hörlezeder" style="margin-bottom: 16px;" loading="lazy" onclick="openFestLightbox(this.src)">
+                        <img src="img/festivals/2025/teachers/Ingrid.jpg" alt="Ingrid Hörlezeder" loading="lazy" onclick="openFestLightbox(this.src)">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Workshop: Body-Mind Centering &amp; Trager Approach</span>
+                        <h2>Ingrid H&ouml;rlezeder</h2>
+                        <h3 style="margin-top: 8px; margin-bottom: 12px;">"Diving deep and flying high"</h3>
+                        <p>
+                            How would it be, to always feel your center? To simply “know” your position in space? To feel light, safe, and balanced on the tip of the shoulder of your dance partner? All Limps in a “perfect” position to fly.<br><br>
+                            If your body is well organized, you don´t have to think while dancing, your body will find the easiest, most delightful shape.<br><br>
+                            In this class we will use ideas from body mind centering&copy; and the trager&reg; approach to clarify the inner connectivity of our bodies and to get ready for high flying moves.<br><br>
+                            There will be time to deeply relax and to visit our unconscious mind, as well as time to play and to explore.
+                        </p>
+
+                        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 20px;">
+                            <h3 style="margin-bottom: 12px;">Biography</h3>
+                            <p>
+                                Dancing CI is part of Ingrids Life. She started to discover CI in 1990 and became enthusiastic about it. After taking as many classes as possible in Austria, she moved to the bay area in summer 1996, where she graduated from moving on center in summer 1997 after a year of dancing CI nearly daily. On her last day in San Francisco Scott Wells told her “go back to Vienna and start teaching CI” - that’s what she did.<br><br>
+                                In 2006 she was organizing ECITE in Austria – the only CI teachers exchange, which has ever happened in Austria.<br><br>
+                                While raising her kids she became a TRAGER&reg; practitioner in 2007 which enables her to dance in a light and clear way and to feel safe and balanced in all positions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 4: MUSICIANS & GUESTS (100% Complete Text)
+             ========================================== -->
+        <div id="fest-tab-musicians" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Live Sound &amp; Invited Artists</span>
+            <h2 style="margin-bottom: 12px;">Musicians</h2>
+
+            <div class="concert-list">
+                <!-- Jonathan Adem -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2025/Adem.jpg" alt="Jonathan Adem">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Musician</span>
+                        <h2>Jonathan Adem</h2>
+                        <p>
+                            Dancing, singing and listening to music were part of my life from a young age. Honestly, it feels like my true musical journey has just begun. I took singing lessons for a few years, and earlier this year, I discovered the handpan—a deeply expressive instrument that instantly resonated with me. It gives me the rhythm and grounding I need to let my emotions flow freely, even without formal musical training. Through its sound, I’ve found a way to express myself and connect on a more intuitive, heartfelt level. I'm looking forward sharing this with you!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Nepomuk Lasio -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2025/Nepomuk.jpg" alt="Nepomuk Lasio" loading="lazy">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Musician</span>
+                        <h2>Nepomuk Lasio</h2>
+                        <p>
+                            "How can we
+                            …exist in community &amp; be ourselves at the same time?<br>
+                            …move freely respecting each other's boundaries?<br>
+                            …embody emotions &amp; dance to flow?"<br><br>
+                            Nepomuk likes to generate questions. Since his childhood, he has felt the urge to express his spirit.<br>
+                            He has been deeply inspired by teachers like Xandy Liberato, F&eacute;lix Arjona &amp; Tamara, too.<br>
+                            It is now that he allows himself to follow his inner calling. In contact improvisation he has found a place where his creativity has free rain.<br><br>
+                            He studied psychology &amp; educational studies. Nepo is a sharing circle holder &amp; care worker for children. He has the quality to create an atmosphere in which a person can be oneself.<br><br>
+                            As a musician of the festival he wants to manifest his visions &amp; inspire other human beings.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Franz Ferdinand -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2025/Ferdinand.jpg" alt="Franz Ferdinand" loading="lazy">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Musician</span>
+                        <h2>Franz Ferdinand</h2>
+                        <p>
+                            Performance art is more than a display of rehearsed movements and melodies.<br>
+                            Improvised music breaks down the barrier between listener and performer—one often created by predetermined plans and structured execution.<br><br>
+                            “Everything I play begins with a fundamental idea, like the seed of a poem, and evolves in real time. When I start to play, the audience and I begin with the same information. As the music unfolds, we journey together into uncharted territory. ”
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border); padding-top: 40px; margin-top: 24px;">
+                <span class="section-tag">Invited Faculty</span>
+                <h2 style="margin-bottom: 12px;">Guest teachers</h2>
+                <div class="concert-list">
+                    <!-- Sakura Shimada -->
+                    <div class="concert-item">
+                        <div>
+                            <img src="img/festivals/2025/teachers/Sakura.jpeg" alt="Sakura Shimada" loading="lazy">
+                        </div>
+                        <div class="concert-info">
+                            <span class="section-tag" style="margin-bottom: 6px;">Guest teacher</span>
+                            <h2>Sakura Shimada</h2>
+                            <p>
+                                Sakura Shimada is from Japan, currently she lives in Vermont. In Japan, she studied Modern Dance, Ballet, Jazz, and Japanese Fusion dance. She moved to New York City in 1997 and studied at the Martha Graham Contemporary Dance school, Dance Space Center, Movement Research and presented her own works. She was an Artist Residency at Movement Research in 2008. She began working with Daniel Lepkoff in 2001, engaging deeply with his work, co-teaching and traveling internationally. Her improvisation practice is strongly focused on body information and observation of body mind connection with movement.<br><br>
+                                She is a certified teacher of DanceAbility, completing the training with Alito Alessi in Bogota in 2012. In 2018 she completed The Feldenkrais teacher training in NYC.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Stefan Kreuzer -->
+                    <div class="concert-item">
+                        <div>
+                            <img src="img/festivals/2025/teachers/Stefan.jpeg" alt="Stefan Kreuzer" loading="lazy">
+                        </div>
+                        <div class="concert-info">
+                            <span class="section-tag" style="margin-bottom: 6px;">Guest teacher</span>
+                            <h2>Stefan Kreuzer</h2>
+                            <p>
+                                Dance - I am here and now. I feel a bit more alive in space and time - as if the door to heaven were slightly open. I am creator, filled with joy and depth.<br><br>
+                                Improvisation brings me back to a primal human state, constantly searching for its own rules and patterns.<br>
+                                I'm asking, "What are we playing here, and what's the common thread?"<br><br>
+                                I trained at the following schools:<br>
+                                &bull; <b>Freiburg TIP</b> (School for Dance, Improvisation, and Performance): 3 months<br>
+                                &bull; <b>Tanzfabrik Berlin</b> (Dance Intensive, specializing in Contemporary Dance): 1 year<br>
+                                &bull; <b>Kassel SoZo-Vim</b> (School for Contemporary Stage Dance): 3 years<br><br>
+                                Every physical activity and training session f lows into and enriches my dance.<br><br>
+                                However, nothing captivates me as much as <b>Contact Improvisation</b>. It is where all facets of my movement practice and research come together - right now.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border); padding-top: 40px; margin-top: 24px;">
+                <span class="section-tag">Supported Artists</span>
+                <h2 style="margin-bottom: 12px;">Scholarship participants</h2>
+                <div class="concert-list">
+                    <!-- Karina Sojka -->
+                    <div class="concert-item">
+                        <div>
+                            <img src="img/festivals/2025/Sojka.jpg" alt="Karina Sojka" loading="lazy">
+                        </div>
+                        <div class="concert-info">
+                            <span class="section-tag" style="margin-bottom: 6px;">Scholarship participant</span>
+                            <h2>Karina Sojka</h2>
+                            <p>
+                                Karina Sojka - contact improvisation practitioner, traditional authentic songs singer. In her research, she seeks for common principles in movement practices, originated in the past century, like somatics, performance, contemporary dance, CI, and world-old singing techniques and melodies, researching those found in Ukraine. Topics of resilience, living through extraordinary harsh times of history, and finding spirit - are of the most interest.<br>
+                                Dancing CI since 2019. Teaching, performing, and making art projects, inspired by contemporary dancers and CI community in Kyiv, Ukraine.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Maritina Theodorou -->
+                    <div class="concert-item">
+                        <div>
+                            <img src="img/festivals/2025/Theodorou.jpg" alt="Maritina Theodorou" loading="lazy">
+                        </div>
+                        <div class="concert-info">
+                            <span class="section-tag" style="margin-bottom: 6px;">Scholarship participant</span>
+                            <h2>Maritina Theodorou</h2>
+                            <p>
+                                Maritina Theodorou is a Greek artist and performer whose work explores the body, memory, and collective experience through movement, improvisation, and somatic practices. Based in Athens, she creates performances, workshops, and community-based projects that emphasize embodied research and shared presence.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sarah Sea Clarke -->
+                    <div class="concert-item">
+                        <div>
+                            <img src="img/festivals/2025/Sea_Clarke.jpg" alt="Sarah Sea Clarke" loading="lazy">
+                        </div>
+                        <div class="concert-info">
+                            <span class="section-tag" style="margin-bottom: 6px;">Scholarship participant</span>
+                            <h2>Sarah Sea Clarke (UK/AT)</h2>
+                            <p>
+                                As a movement practitioner, Sarah researches the relationship between strength, tonus adaption and holding oneself lightly. Her work is largely influenced by her background in capoeira, contact improvisation, Axis Syllabus, dance improvisation ensemble practices, Action Theater &amp; The Work That Reconnects. Sarah is a certified Movement Pedagog and Facilitator and since co-founding the first contact improv group in Dubai in 2014, she has been teaching and hosting dance and group workshops internationally in UAE, Jordan, New Mexico and Austria.<br><br>
+                                Sarah is passionate about working with humanitarian aid workers, bringing somatic movement and dance improvisation to “non-dancers”. She invites people to know oneself through the “BodyMInd”, creating opportunities to process our stories through the body. Sarah has taught Embodied Practices for Collective and Self Wellbeing at Innsbruck University’s Peace &amp; Conflict MA program and with climate and other activists in Vienna. Currently she offers Feet Up Head Down - a capoeira roots into C.I. one-day workshop, Morning Glory - a weekly 8am dance party in M&ouml;dling, Austria and IOM Somatisches Tanztraining courses. Sarah is a lead researcher and co-founder of the ISSC (Institute for Study of Somatic Communication) Vienna Colab.<br><br>
+                                Sarah also holds a BA Hons in Professional Broadcasting from Sussex University and is known as a Filmmaker. More info: <a href="https://www.inneroutermoves.com/" target="_blank" rel="noopener" style="color: var(--accent) !important;">www.inneroutermoves.com</a>, <a href="mailto:sarahsea@gmail.com" style="color: var(--accent) !important;">sarahsea@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 5: PROGRAM (100% Complete Text)
+             ========================================== -->
+        <div id="fest-tab-program" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Daily Timetable</span>
+            <h2 style="margin-bottom: 12px;">Program</h2>
+            <p style="max-width: 820px; margin-bottom: 24px;">
+                Our festival program is packed with incredible classes and talks, offering something for everyone. However, we want to remind you that you don't need to attend everything! Feel free to follow your own interests and energy levels—it's perfectly okay to skip certain workshops or take a break whenever you need. This is your experience, so make it your own!
+            </p>
+            <div style="border: 1px solid var(--border); background: #fff; padding: 12px;">
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRm7gM6EROoMedssVsnl5Fl8CW94L40pakQ1Hf0j50XBTkGdzkhyC_Y6WlQWkJ5ESeMpILkYZbWxfqp/pubhtml?gid=1255820454&amp;single=false&amp;widget=false&amp;headers=false" width="100%" style="height: 640px !important; aspect-ratio: unset !important; border: none;" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 6: VENUE & FOOD (100% Complete Text, Map & Photos)
+             ========================================== -->
+        <div id="fest-tab-venue" class="fest-tab-panel" style="display: none;">
+            <div class="manifesto-grid" style="border-top: none; padding-top: 0; margin-top: 0; margin-bottom: 48px;">
+                <div>
+                    <span class="section-tag">Festival Location</span>
+                    <h2>Venue</h2>
+                    <p>
+                        The festival's dancing venue for 2025 will be the well-known K&uuml;nstlerhaus B&uuml;chsenhausen, a space familiar to our participants from previous years. Nestled in the heart of Innsbruck, the venue offers an inspiring environment for creativity and performance. It is renowned for its connection to contemporary art and its commitment to fostering artistic collaboration.<br><br>
+                        <b>Address:</b><br>
+                        K&uuml;nstlerhaus B&uuml;chsenhausen<br>
+                        Weiherburggasse 13<br>
+                        6020 Innsbruck, Austria
+                    </p>
+                </div>
+                <div>
+                    <span class="section-tag">Staying in Innsbruck</span>
+                    <h2>Accommodation</h2>
+                    <p style="border-left: 3px solid var(--accent); padding-left: 14px; font-weight: 500; color: var(--text-black) !important;">
+                        This is a non-residential event, but we support arranging accommodation.
+                    </p>
+                    <p>
+                        The festival will take place in the beautiful city of Innsbruck, and we can't wait to welcome you! If you've secured your early bird ticket, we highly recommend booking your accommodation as soon as possible through trusted platforms like Airbnb or Booking.com.<br><br>
+                        In previous years, we tried to arrange accommodations through friends of friends, but this year, our team is actively exploring new solutions to make your stay even<br><br>
+                        smoother.
+                        If you have any questions or need assistance, feel free to reach out to our organizing team at <a href="mailto:soloandcityrolfest@gmail.com" style="color: var(--accent) !important;">soloandcityrolfest@gmail.com</a><br>
+                        We're here to help!<br><br>
+                        See you in Innsbruck!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Google Map Embed -->
+            <div style="margin-bottom: 48px; border: 1px solid var(--border);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1353.4710306033512!2d11.392644243906226!3d47.276387110828644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479d6c07c41c8c2f%3A0x2181003bd076a212!2zV2VpaGVyYnVyZ2dhc3NlIDEzLCA2MDIwIElubnNicnVjaywg0JDQstGB0YLRgNC40Y8!5e0!3m2!1sru!2sua!4v1679091890769!5m2!1sru!2sua" width="100%" style="height: 420px !important; aspect-ratio: unset !important; border: 0; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <!-- Venue Photos -->
+            <span class="section-tag">Space Impressions</span>
+            <h3>Venue Gallery</h3>
+            <div class="fest-gallery-grid" style="margin-bottom: 56px;">
+                <img src="img/common/venues/Venue.jpg" alt="Venue 1" loading="lazy" onclick="openFestLightbox(this.src)">
+                <img src="img/common/venues/Venue1.jpg" alt="Venue 2" loading="lazy" onclick="openFestLightbox(this.src)">
+                <img src="img/common/venues/Venue2.jpg" alt="Venue 3" loading="lazy" onclick="openFestLightbox(this.src)">
+                <img src="img/common/venues/Venue3.jpg" alt="Venue 4" loading="lazy" onclick="openFestLightbox(this.src)">
+                <img src="img/common/venues/Venue4.jpg" alt="Venue 5" loading="lazy" onclick="openFestLightbox(this.src)">
+                <img src="img/common/venues/Venue5.jpg" alt="Venue 6" loading="lazy" onclick="openFestLightbox(this.src)">
+                <img src="img/common/venues/Venue6.jpg" alt="Venue 7" loading="lazy" onclick="openFestLightbox(this.src)">
+                <img src="img/common/venues/Venue7.jpg" alt="Venue 8" loading="lazy" onclick="openFestLightbox(this.src)">
+            </div>
+
+            <!-- Festival Food -->
+            <div style="border-top: 1px solid var(--border); padding-top: 48px;">
+                <span class="section-tag">Nourishment &amp; Community</span>
+                <h2 style="margin-bottom: 16px;">Festival Food</h2>
+                <p style="max-width: 820px;">
+                    We’re happy to share that our wonderful cook will provide fresh, simple, and nourishing meals twice a day — warm lunch and dinner, with additional light sides.
+                    <br><br>
+                    Expect mostly vegetarian, wholesome, and slightly Eastern-inspired food — some prepared on-site, some delivered fresh daily.
+                    <br><br>
+                    Food package for 8 days (lunch + dinner): &euro;185 <br>
+                    Registration for meals is open through July.
+                    <br><br>
+                    If you have any food allergies or special dietary needs, please make sure to email us at the time of your meal registration.
+                    <br><br>
+                    <b>What to bring for meals</b><br>
+                    We kindly ask participants to bring their own plate, fork, and spoon if possible. We do have a limited number of dishes available, but bringing your own helps us stay sustainable and well-organized.
+                    If you’re traveling from far and can’t bring them — no worries, we’ll support you. But if you can — please do! You’ll be responsible for cleaning and keeping your set throughout the festival.
+                    <br>
+                    Eat well, dance better! 🫶
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px;">
+                    <a href="https://buy.stripe.com/cNiaEX3hC8b6fXecvQd3i0A" target="_blank" rel="noopener" class="buy-button" style="margin-top: 0 !important;">Full Festival food</a>
+                    <a href="https://buy.stripe.com/9B63cv5pK2QM7qIanId3i0B" target="_blank" rel="noopener" class="buy-button" style="margin-top: 0 !important;">Half Festival food</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 7: TEAM & PARTNERS (100% Complete Text)
+             ========================================== -->
+        <div id="fest-tab-team" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Organising Collective</span>
+            <h2 style="margin-bottom: 12px;">Org Team</h2>
+
+            <div class="concert-list">
+                <!-- Tamara Maksymenko -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/common/people/Tamara_2.jpg" alt="Tamara Maksymenko">
+                    </div>
+                    <div class="concert-info">
+                        <h2>Tamara Maksymenko. (Ukraine - Austria)</h2>
+                        <p>
+                            Tamara Maksymenko is a professional dancer, choreographer, and teacher of contact improvisation and contemporary dance for 17 years already. She has been teaching many workshops all over the world (Poland, Spain, Israel, Austria, Italy, Greece, Finland, Egypt, Germany, Russia, Ukraine, Morocco, Bulgary, Sweden, Portugal, France, and Turkey). She is the founder of Motion Mode Dance Theatre (MMDT) and the creator of many dance projects.<br>
+                            28 years of dance experience (since the early age of 4). She got medical education in body therapy and sociology at Dnipropetrovsk National University and trained at the Physical Theatre in Intragna (Switzerland) with Thomas Mattler.<br>
+                            Now Tamara is a member of the Ukrainian Contemporary Dance Platform Association and she is a member of OFFTANZ Tirol Association (Austria). The founder of "Solo &amp; CI Tirol Festival" and "West meets East".<br><br>
+                            Question as to participation:<br>
+                            Whatsapp: <a href="tel:+4367763027506">+4367763027506</a><br>
+                            <a href="mailto:soloandcityrolfest@gmail.com" style="color: var(--accent) !important;">soloandcityrolfest@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mirjam Hörmann -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/common/people/Mirjam.jpg" alt="Mirjam Hörmann" loading="lazy">
+                    </div>
+                    <div class="concert-info">
+                        <h2>Mirjam H&ouml;rmann</h2>
+                        <p>
+                            Mirjam has been dancing Contact Improvisation for seven years, driven by her excitement for movement, connection, and an ongoing curiosity to explore life through the body.
+                            <br><br>
+                            She lives in Austria, teaches Yoga, and has a deep interest in somatic practices and nervous system regulation. Alongside her work in a non-dance-related field, she enjoys creating spaces where people can move, connect, and not take themselves too seriously.
+                            <br><br>
+                            She is happy to be part of the organising team at the Solo &amp; CI Festival and looks forward to sharing this experience with everyone, on and off the dance floor.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chiara Scharler -->
+                <div class="concert-item">
+                    <div>
+                        <img src="img/festivals/2025/teachers/Scharler.jpg" alt="Chiara Scharler" loading="lazy">
+                    </div>
+                    <div class="concert-info">
+                        <h2>Chiara Scharler</h2>
+                        <p>
+                            Chiara Scharler is a young contemporary dancer and performer from Austria, passionate about exploring the transformative power of dance. Dance has always been an important part of her life and since the age of 15, se committed herself to dance and has since trained in diverse styles, including contemporary, ballet, physical theater, partnering and floorwork, at Fontys Academy of the Arts in the Netherlands.
+                            <br><br>
+                            Since mid-2024, Chiara has been based in Innsbruck, Austria, where she continues to expand her artistic journey. Alongside performing, she is deeply engaged in nurturing the dance scene. Chiara co-founded the 'Tilburg in Motion' dance festival and is also part of the organizing team for the 'Solo &amp; CI Festival' in Tirol.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Festival Partners -->
+            <div style="border-top: 1px solid var(--border); padding-top: 36px; margin-top: 36px;">
+                <span class="section-tag">Institutional &amp; Cultural Support</span>
+                <h3>Partners</h3>
+                <div class="fest-partners-logos">
+                    <a href="http://www.offtanz.at/" target="_blank" rel="noopener" class="fest-partner-logo-box"><img src="img/common/partners/Off_tanz.png" alt="OFFTANZ Tirol"></a>
+                    <a href="https://www.kuenstlerschaft.at/" target="_blank" rel="noopener" class="fest-partner-logo-box"><img src="img/festivals/2025/OfficeUkraine.png" alt="Office Ukraine"></a>
+                    <a href="#" class="fest-partner-logo-box"><img src="img/common/partners/land tirol.png" alt="Land Tirol"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 8: ARCHIVE (All Videos, Audios & All 366 Photos)
+             ========================================== -->
+        <div id="fest-tab-archive" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Documentation &amp; Memories</span>
+            <h2 style="margin-bottom: 16px;">Videos</h2>
+
+            <div class="manifesto-grid" style="border-top: none; padding-top: 0; margin-top: 0; margin-bottom: 40px; gap: 24px;">
+                <div class="video-responsive-frame">
+                    <iframe src="https://www.youtube-nocookie.com/embed/FCfUrr8GWx0?si=4voDj-_HKeYtYckz" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-responsive-frame">
+                    <iframe src="https://www.youtube-nocookie.com/embed/oBjc6BtKcSI?si=HynFT6kHhGQixdie" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border); padding-top: 32px; margin-bottom: 40px;">
+                <span class="section-tag">Audio Archive</span>
+                <h2 style="margin-bottom: 16px;">Audios</h2>
+                <a href="https://drive.google.com/drive/folders/13PwpPQzcbjgH9QApOGtA1S4BHRDBfTSs" target="_blank" rel="noopener" class="buy-button" style="margin-top: 0 !important;">
+                    Access only for verified users
+                </a>
+            </div>
+
+            <div style="border-top: 1px solid var(--border); padding-top: 32px;">
+                <span class="section-tag">Photo by Serhii Semichev</span>
+                <h3>Photomaterial</h3>
+                <div class="fest-gallery-grid" id="festArchiveGallery">
+                    <img src="img/festivals/2025/archive/5R7A5336_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5337_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5337_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5339_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5341 копия_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5341_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5345_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5355_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5425_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5427_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5427_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5429_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5429_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5434_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5434_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5435_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5441_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5443_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5449_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5455_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5457_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5458_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5459_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5465_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5469_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5472_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5477_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5483_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5593_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5593_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5594_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5594_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5603_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5607_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5607_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5611_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5614_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5614_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5617_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5617_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5618_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5618_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5626_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5626_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5629_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5634_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5636_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5637_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5637_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5640_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5646_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5658_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5659_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5663_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5664_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5665_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5666_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5668_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5671_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5673_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5677_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5679_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5684_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5693_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5700_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5703_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5713_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5720_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5729_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5733_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5738_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5741_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5747_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5752_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5755_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5755_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5771_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5771_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5785_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5785_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5788_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5788_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5790_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5790_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5794_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5794_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5795_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5795_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5796_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5803_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5803_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5803_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5810_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5810_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5818_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5826_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5826_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5828_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5828_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5834_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5834_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5840_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5840_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5845_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5851_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5851_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5866_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5866_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5873_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5873_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5873_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5876_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5885_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5885_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5893_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5893_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5895_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5905_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5910_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5910_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5916_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5916_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5924_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5938_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5938_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5948_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5948_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5956_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5961_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5961_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5975_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5981_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5981_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5989_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5989_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5996_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5996_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6005_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6005_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6014_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6014_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6016_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6016_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6019_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6019_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6025_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6025_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6027_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6027_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6035_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6039_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6039_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6044_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6044_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6056_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6060_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6060_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6066_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6066_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6074_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6074_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6078_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6078_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6083_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6083_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6087_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6087_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6111_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6111_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6120_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6121_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6121_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6141_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6141_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6151_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6151_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6158_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6158_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6166_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6239_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6239_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6247_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6247_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6252_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6252_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6252_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6260_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6260_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6266_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6266_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6266_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6276_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6279_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6279_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6280_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6280_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6284_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6284_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6288_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6288_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6297_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6297_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6310_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6315_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6315_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6331_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6331_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6335_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6335_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6336_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6336_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6347_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6347_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6358_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6358_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6361_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6361_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6365_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6365_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6377_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6389_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6389_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6389_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6394_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6394_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6398_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6398_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6398_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6399_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6399_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6404_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6404_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6410_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6410_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6438_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6438_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6444_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6461_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6472_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6473_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6486_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6494_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6494_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6503_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6513_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6514_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6523_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6523_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6525_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6525_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6537_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6540_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6544_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6548_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6562_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6562_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6565_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6565_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6568_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6573_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6577_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6577_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6578_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6578_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6583_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6583_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6584_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6584_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6587_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6587_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6589_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6593_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6595_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6595_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6607_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6607_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6608_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6608_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6610_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6612_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6613_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6614_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6614_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6616_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6616_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6623_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6627_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6627_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6636_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6636_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6644_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6644_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6645_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6645_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6646_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6646_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6650_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6650_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6652_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6652_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6669_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6669_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6672_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6672_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6681_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6681_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6698_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6698_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6698_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6702_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6702_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6707_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6707_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6710_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6710_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6710_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6715_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6715_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6715_3_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6715_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6718_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6721_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6726_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6731_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6731_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6735_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6735_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6736_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6738_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6740_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6740_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6741_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6741_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6743_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6743_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6745_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6745_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6749_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6749_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6752_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6752_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6754_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6754_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6756_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6756_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6760_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6760_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6761_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6761_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6764_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6764_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6771_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6771_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6773_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6781_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6782_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6786_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A6786_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5325_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5327_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5327_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5327_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5329_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5335_1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                    <img src="img/festivals/2025/archive/5R7A5335_2_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer></footer>
 </body>
 </html>

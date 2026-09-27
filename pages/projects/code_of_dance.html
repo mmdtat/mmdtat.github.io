@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The &ldquo;Code of Dance&rdquo; — MMDT</title>
+    <meta name="description" content="The Code of Dance project and short dance film 'The Drift' — exploring the intersection of dance, storytelling, and the experiences of refugees.">
+    <link rel="shortcut icon" href="../../img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/modern-redesign.css">
+    <script src="../../js/modern-redesign.js" defer></script>
+</head>
+<body>
+    <header class="header header_home">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="../../index.html" aria-label="MMDT Home"><img src="../../img/common/brand/logo.png" alt="MMDT"></a>
+                </div>
+                <nav class="nav">
+                    <a class="nav__link active" href="../projects.html">Projects</a>
+                    <a class="nav__link" href="../festival.html">Festival</a>
+                    <a class="nav__link" href="../classes.html">Classes</a>
+                    <a class="nav__link" href="../events.html">Events</a>
+                    <a class="nav__link" href="../partners.html">Partners</a>
+                    <a class="nav__link" href="../membership.html">Membership</a>
+                    <a class="nav__link" href="../contacts.html">Contacts</a>
+                </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Full-Screen Project Hero -->
+    <section class="intro_festival" style="background-image: url('../../img/projects/code_of_dance/Code_of_dance1.jpg');">
+        <div class="container">
+            <div>
+                <a href="../projects.html" class="fest-hero-back">&larr; All Projects</a>
+            </div>
+            <span class="fest-hero-tag">Short Dance Film &middot; 2024 &middot; Innsbruck, Austria</span>
+            <h1 class="fest-hero-title">The &ldquo;Code of Dance&rdquo;</h1>
+            <p class="fest-hero-subtitle">&ldquo;The Drift&rdquo; — Exploring the intersection of dance, storytelling, and the experiences of refugees.</p>
+        </div>
+    </section>
+
+    <!-- Sticky Sub-Navigation Tabs -->
+    <div class="fest-tabs-wrapper" id="festTabsAnchor">
+        <div class="fest-tabs-bar">
+            <button class="fest-tab-btn active" data-fest-tab="overview" onclick="switchFestivalTab('overview', false)">Overview &amp; Trailer</button>
+            <button class="fest-tab-btn" data-fest-tab="team" onclick="switchFestivalTab('team', false)">Artists &amp; Team</button>
+            <button class="fest-tab-btn" data-fest-tab="partners" onclick="switchFestivalTab('partners', false)">Partners</button>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <!-- ==========================================
+             TAB 1: OVERVIEW & TRAILER
+             ========================================== -->
+        <div id="fest-tab-overview" class="fest-tab-panel" style="display: block;">
+            <!-- Quick Facts Strip -->
+            <div class="fest-facts-grid">
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Film Title</span>
+                    <span class="fest-fact-value">&ldquo;The Drift&rdquo;</span>
+                    <span class="fest-fact-sub">Short Dance Film (2024)</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Creator</span>
+                    <span class="fest-fact-value">Tamara Maksymenko</span>
+                    <span class="fest-fact-sub">Video by Serhii Semichev</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Movement &amp; Form</span>
+                    <span class="fest-fact-value">Sufi Dervish, Contemporary &amp; CI</span>
+                    <span class="fest-fact-sub">Dance, Poetry &amp; Original Music</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Music Composer</span>
+                    <span class="fest-fact-value">Dmitry Sokolovsky</span>
+                    <span class="fest-fact-sub">Cinematic soundtrack</span>
+                </div>
+            </div>
+
+            <!-- Intro & Poster -->
+            <div class="concert-list" style="margin-bottom: 48px;">
+                <div class="concert-item" style="padding-top: 0 !important;">
+                    <div>
+                        <img src="../../img/projects/code_of_dance/poster.jpg" alt="The Code of Dance — The Drift Poster" onclick="openFestLightbox(this.src)" style="cursor: pointer;">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">The &ldquo;Code of Dance&rdquo; &middot; Short Film</span>
+                        <h2>&ldquo;The Drift&rdquo;</h2>
+                        <p>
+                            The &ldquo;Code of Dance&rdquo; project has been an inspiring and challenging journey, driven by our commitment to exploring the intersection of dance, storytelling, and the experiences of refugees.
+                        </p>
+                        <p>
+                            <strong>&ldquo;The Drift&rdquo;</strong> film tells the poignant story of a delicate flower that was brought to Europe centuries ago, symbolizing resilience and transformation. Through expressive dance, poetry, and music the journey of this flower is brought to life, capturing its struggles and triumphs as it adapts to a new world with certain obsticales.
+                        </p>
+                        <p style="margin-bottom: 0;">
+                            The creation of this project unfolded through several key phases, each adding depth to the final work. We began by collaborating with refugees, whose stories shaped the narrative. With the plot in place, we focused on movement, blending Sufi Dervish, contemporary dance, and contact improvisation to express the emotional and spiritual dimensions of the story. Simultaneously, we developed poetry that intertwined with the dance, enhancing the themes and emotions. Finally, during the shooting phase, all these elements—personal narratives, plot, movement, and poetry—were seamlessly integrated, resulting in a powerful and cohesive film.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trailer & Watch Film Section -->
+            <div style="border: 1px solid var(--border); padding: 36px; background: var(--bg-off); margin-bottom: 48px;">
+                <span class="section-tag">Watch &amp; Support Independent Art</span>
+                <h2 style="margin-bottom: 16px;">TRAILER</h2>
+                <div class="manifesto-grid" style="border-top: none; padding-top: 0; margin-top: 0; align-items: start;">
+                    <div class="manifesto-card">
+                        <p>
+                            We’re thrilled to share our short dance film with you, and your small donation can make a huge difference. Your support helps the dancers, filmmakers, and everyone involved in creating something truly beautiful.
+                        </p>
+                        <p>
+                            Our short film cost a small fee because we had only 1/5 of the entire budget needed to bring this project to life. We’ve invested not only our personal funds but also a lot of time and energy into making this film a reality. Your contribution helps cover production costs and supports the artists involved. We are sincerely grateful to everyone who wishes to see and support this work.
+                        </p>
+                        <p style="margin-bottom: 20px;">
+                            Thank you for watching our film — your small contribution, like the cost of a coffee at a caf&eacute;, helps us keep the project alive and thriving!
+                        </p>
+                        <div>
+                            <a href="https://boosty.to/mmdt_culture/posts/078c5dd5-18fe-41ae-b130-5da32c9a541f" target="_blank" rel="noopener" class="buy-button" style="margin-top: 0 !important;">
+                                TO WATCH &rarr;
+                            </a>
+                        </div>
+                    </div>
+                    <div class="manifesto-card">
+                        <div class="video-responsive-frame">
+                            <iframe src="https://www.youtube-nocookie.com/embed/SYHM_Cy0ZNU?si=M5RRnpMGJhRSsXOK" title="Code of Dance Trailer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Project's Background & Music -->
+            <div class="manifesto-grid" style="border-top: none; padding-top: 0; margin-top: 0;">
+                <div class="manifesto-card">
+                    <span class="manifesto-label">01 / Origins &amp; Identity</span>
+                    <h3>The Project’s background</h3>
+                    <p style="margin-bottom: 0;">
+                        Tamara Maksymenko, the creator of &ldquo;Code of Dance,&rdquo; draws deeply from her personal experiences as an immigrant. Moving to Austria, she encountered various obstacles and challenges, even though she never held refugee status. These experiences sparked a profound curiosity in her, leading her to explore the complexities of immigration through her art. By addressing these themes in her projects, Tamara seeks to find answers to the many questions surrounding identity, belonging, and adaptation in a new cultural landscape. &ldquo;Code of Dance&rdquo; is one such project, reflecting her journey and insights through the language of dance and film.
+                    </p>
+                </div>
+                <div class="manifesto-card">
+                    <span class="manifesto-label">02 / Original Score</span>
+                    <h3>Music</h3>
+                    <p style="margin-bottom: 0;">
+                        The film’s evocative music, composed by a Russian artist who emigrated due to the current political situation in Russia, weaves together the themes of displacement and hope, creating a powerful narrative that resonates with both past and present experiences of migration.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 2: ARTISTS & TEAM
+             ========================================== -->
+        <div id="fest-tab-team" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Creative Collective</span>
+            <h2 style="margin-bottom: 8px;">Artists &amp; Team</h2>
+
+            <div class="concert-list">
+                <!-- 1. Tamara Maksymenko -->
+                <div class="concert-item">
+                    <div>
+                        <img src="../../img/projects/code_of_dance/Tamara.jpg" alt="Tamara Maksymenko">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Creator &amp; Dancer</span>
+                        <h2>Tamara Maksymenko</h2>
+                        <p style="margin-bottom: 0;">
+                            Born on 13th of December 1989 in Dnipro city, Ukraine. A dancer, artist, teacher of contact improvisation, contemporary dance. Creator of Solo and CI Tyrol Festival. Resedent of Innsbruck, Austria.
+                            <a href="https://mmdt.at/" target="_blank" rel="noopener" style="color: var(--accent) !important;">www.mmdt.at</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Serhii Semichev -->
+                <div class="concert-item">
+                    <div>
+                        <img src="../../img/projects/code_of_dance/Semichev.jpg" alt="Serhii Semichev" loading="lazy">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">(Video maker)</span>
+                        <h2>Serhii Semichev</h2>
+                        <p style="margin-bottom: 0;">
+                            (Video maker)<br>
+                            Born on June 16, 1978 in the city of Snezhnoe, Donetsk region,Ukraine.
+                            Dancer, improviser, performer, contact improvisation teacher, massage therapist, fitness trainer, photographer, film maker. Currently living in Rome, Italy.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Dmitry Sokolovsky -->
+                <div class="concert-item">
+                    <div>
+                        <img src="../../img/projects/code_of_dance/Sokolovskiy.jpg" alt="Dmitry Sokolovsky" loading="lazy">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Music Composer</span>
+                        <h2>Dmitry Sokolovsky</h2>
+                        <p style="margin-bottom: 0;">
+                            Born on December 15, 1986 in Magnitogorsk. Composer, songwriter, multi-instrumentalist, sound producer. Author of projects Healter Skelter, Nitrogen Lithium. Activity in music since 2003. Now has been living in Los Angeles 2022. Works in the genre of cinematic, cinematic rock, industrial metal, trip hop. Sometimes works on soundtrack for short movies.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Mamal Kianipour -->
+                <div class="concert-item">
+                    <div>
+                        <img src="../../img/projects/code_of_dance/Kianipour.jpg" alt="Mamal Kianipour" loading="lazy">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Multidisciplinary Artist</span>
+                        <h2>Mamal Kianipour</h2>
+                        <p style="margin-bottom: 0;">
+                            Mamal Kianipour is a versatile and multidisciplinary artist who has made a name for himself through his work in art installations, music performances and partially dancing across Innsbruck and Europe, and various other creative endeavors. His artistic journey is deeply rooted in both his cultural heritage and his experiences as a migrant, allowing him to create works that bridge diverse worlds. Originally from Tehran, Iran, Mamal moved to Innsbruck, Austria in January 2016. Since then, he has also been performing as a DJ, working on construction projects for festivals, and actively participating in social events, further enriching his diverse artistic portfolio.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. Ioanis Ezra Petersen -->
+                <div class="concert-item">
+                    <div>
+                        <img src="../../img/projects/code_of_dance/Petersen.jpg" alt="Ioanis Ezra Petersen" loading="lazy">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">(Contact Impro dance)</span>
+                        <h2>Ioanis Ezra Petersen</h2>
+                        <p style="margin-bottom: 0;">
+                            (Contact Impro dance)<br>
+                            Ioanis Ezra Petersen is an explorer of movement &amp; connection and massage therapist living in Innsbruck. In 2021 he finished the last education as massagetherapist for now. Since 2022 he is a part of a dance collective organizing regular ci jams.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 6. Lucilla Patrizi -->
+                <div class="concert-item">
+                    <div>
+                        <img src="../../img/projects/code_of_dance/Patrizi.jpg" alt="Lucilla Patrizi" loading="lazy">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">(Assistant and Botanist)</span>
+                        <h2>Lucilla Patrizi</h2>
+                        <p style="margin-bottom: 0;">
+                            (Assistant and Botanist)<br>
+                            Lucilla Patrizi is a freelance artist, biologist and pole art trainer living in Innsbruck, Tyrol. In 2021 she graduated from the Faculty of Design and Arts at the Free University of Bolzano, specialising in art. 2017 Degree in Biology at the Free University of Innsbruck.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 3: PARTNERS
+             ========================================== -->
+        <div id="fest-tab-partners" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Institutional &amp; Cultural Support</span>
+            <h2 style="margin-bottom: 12px;">Partners</h2>
+            <div class="fest-partners-logos">
+                <div class="fest-partner-logo-box">
+                    <img src="../../img/common/partners/innsbruck.png" alt="Stadt Innsbruck">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer></footer>
+</body>
+</html>
