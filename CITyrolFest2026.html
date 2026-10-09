@@ -60,14 +60,14 @@
     <div class="fest-tabs-wrapper" id="festTabsAnchor">
         <div class="fest-tabs-bar">
             <button class="fest-tab-btn active" data-fest-tab="overview" onclick="switchFestivalTab('overview', false)">Overview</button>
-            <button class="fest-tab-btn fest-tab-btn--highlight" data-fest-tab="registration" onclick="switchFestivalTab('registration', false)">Registration</button>
+            <button class="fest-tab-btn fest-tab-btn--highlight" data-fest-tab="archive" onclick="switchFestivalTab('archive', false)">Archive</button>
             <button class="fest-tab-btn" data-fest-tab="teachers" onclick="switchFestivalTab('teachers', false)">Teachers &amp; Classes</button>
             <button class="fest-tab-btn" data-fest-tab="performances" onclick="switchFestivalTab('performances', false)">Performances</button>
             <button class="fest-tab-btn" data-fest-tab="musicians" onclick="switchFestivalTab('musicians', false)">Musicians &amp; Guests</button>
             <button class="fest-tab-btn" data-fest-tab="program" onclick="switchFestivalTab('program', false)">Program</button>
             <button class="fest-tab-btn" data-fest-tab="venue" onclick="switchFestivalTab('venue', false)">Venue &amp; Food</button>
             <button class="fest-tab-btn" data-fest-tab="team" onclick="switchFestivalTab('team', false)">Team &amp; Partners</button>
-            <button class="fest-tab-btn" data-fest-tab="archive" onclick="switchFestivalTab('archive', false)">Archive</button>
+            <button class="fest-tab-btn" data-fest-tab="registration" onclick="switchFestivalTab('registration', false)">Registration</button>
         </div>
     </div>
 
@@ -183,13 +183,13 @@
                         </div>
                         <span class="home-portal-link">Venue &amp; Meals <span>&rarr;</span></span>
                     </a>
-                    <a href="#festTabsAnchor" onclick="switchFestivalTab('registration', true); return false;" class="home-portal-card">
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('archive', true); return false;" class="home-portal-card">
                         <div>
-                            <span class="manifesto-label">04 / Join Us</span>
-                            <h3>Registration</h3>
-                            <p>Secure your full-week or half-festival pass or support the independent festival community.</p>
+                            <span class="manifesto-label">04 / Documentation</span>
+                            <h3>Archive</h3>
+                            <p>Videos, audios, and 214 festival photographs by Serhii Semichev.</p>
                         </div>
-                        <span class="home-portal-link">Registration <span>&rarr;</span></span>
+                        <span class="home-portal-link">Open Archive <span>&rarr;</span></span>
                     </a>
                 </div>
             </div>
@@ -201,16 +201,28 @@
         <div id="fest-tab-registration" class="fest-tab-panel" style="display: none;">
             <span class="section-tag">Passes &amp; Booking</span>
             <h2 style="margin-bottom: 16px;">Registration</h2>
+
+            <div style="border: 1px solid var(--border); padding: 36px; background: var(--bg-off); margin-bottom: 48px;">
+                <h2 style="margin-top: 0; margin-bottom: 12px;">Registration is now officially closed</h2>
+                <p>Thank you for your interest in our festival!</p>
+                <p>
+                    If you have any urgent questions or special circumstances,<br>
+                    please contact Tamara directly via WhatsApp:<br>
+                    <a href="tel:+4367763027506" style="color: var(--accent) !important; font-weight: 500;">+43 677 630 27506</a>
+                </p>
+                <h3 style="margin-top: 24px; margin-bottom: 0;">We look forward to dancing with you soon!</h3>
+            </div>
+
             <p style="max-width: 820px;">
-                A full week of classes, performances, jams, and lectures is offered at an incredibly low price — only &euro;305 (without accommodation and meals). This is roughly the cost of a two-day retreat!
+                A full week of classes, performances, jams, and lectures was offered at an incredibly low price — only &euro;305 (without accommodation and meals). This is roughly the cost of a two-day retreat!
             </p>
             <p style="max-width: 820px;">
-                We offer this pre-registration to help us ensure the festival can take place and to support participants who may not be able to pay the full fee.
+                We offered this pre-registration to help us ensure the festival could take place and to support participants who may not be able to pay the full fee.
             </p>
 
             <div class="fest-pricing-grid">
                 <!-- Full Pass -->
-                <div class="fest-price-card">
+                <div class="fest-price-card fest-price-card--soldout">
                     <div>
                         <span class="manifesto-label">Full Week Pass &middot; Aug 21–28</span>
                         <h3 style="margin: 8px 0 12px;">Regular participation:</h3>
@@ -233,7 +245,7 @@
                 </div>
 
                 <!-- Half Pass -->
-                <div class="fest-price-card">
+                <div class="fest-price-card fest-price-card--soldout">
                     <div>
                         <span class="manifesto-label">Half Pass</span>
                         <h3 style="margin: 8px 0 12px;">Half of the festival regular participation:</h3>
@@ -967,8 +979,18 @@
                 </div>
             </div>
 
-            <span class="section-tag">Photo by Serhii Semichev</span>
-            <h3>Photomaterial</h3>
+            <div style="border-top: 1px solid var(--border); padding-top: 32px; margin-bottom: 40px;">
+                <span class="section-tag">Audio Archive</span>
+                <h2 style="margin-bottom: 16px;">Audios</h2>
+                <a href="https://drive.google.com/drive/folders/13PwpPQzcbjgH9QApOGtA1S4BHRDBfTSs" target="_blank" rel="noopener" class="buy-button" style="margin-top: 0 !important;">
+                    Access only for verified users &rarr;
+                </a>
+            </div>
+
+            <div style="border-top: 1px solid var(--border); padding-top: 32px;">
+                <span class="section-tag">Photo by Serhii Semichev</span>
+                <h3>Photomaterial</h3>
+            </div>
             <div class="fest-gallery-grid" id="festArchiveGallery">
                 <img src="img/festivals/2026/archive/5R7A9054_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
                 <img src="img/festivals/2026/archive/5R7A9060_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
@@ -1167,7 +1189,7 @@
                 <img src="img/festivals/2026/archive/5R7A7961_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
                 <img src="img/festivals/2026/archive/5R7A7963_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
                 <img src="img/festivals/2026/archive/5R7A7972_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
-                <img src="img/festivals/2026/archive/5R7A7991 1_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
+                <img src="img/festivals/2026/archive/5R7A7991_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
                 <img src="img/festivals/2026/archive/5R7A7922_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
                 <img src="img/festivals/2026/archive/5R7A7927_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
                 <img src="img/festivals/2026/archive/5R7A7932_compress.jpg" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">
