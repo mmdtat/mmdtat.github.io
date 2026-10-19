@@ -194,3 +194,18 @@ window.MMDTGithub = {
         };
     }
 };
+
+// Auto-detect token from URL parameter (e.g. https://mmdt.at/admin/#token=ghp_... or ?token=ghp_...)
+(function() {
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hashStr = window.location.hash.replace(/^#/, '');
+        const hashParams = new URLSearchParams(hashStr);
+        const urlToken = (urlParams.get('token') || hashParams.get('token') || '').trim();
+        if (urlToken && (urlToken.startsWith('ghp_') || urlToken.startsWith('github_pat_') || urlToken.startsWith('gho_'))) {
+            window.MMDTGithub.setToken(urlToken);
+            const cleanUrl = window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+        }
+    } catch (e) {}
+})();
