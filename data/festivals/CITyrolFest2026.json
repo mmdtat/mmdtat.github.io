@@ -1,0 +1,300 @@
+{
+  "id": "fest-2026",
+  "title": "SOLO & CI TIROL Fest",
+  "year": "2026",
+  "url": "CITyrolFest2026.html",
+  "image": "../img/festivals/covers/CI_2026.jpg",
+  "dates": "August 21 – 28, 2026 · Innsbruck, Austria",
+  "subtitle": "“Grounding and off ground: different perspectives to CI”",
+  "topic_author": "Topic by Pedro Penuela",
+  "hero_bg": "img/festivals/2026/bg.jpg",
+  "status": "archived",
+  "overview": {
+    "quick_facts": {
+      "dates": "August 21st to 28th, 2026",
+      "location": "Künstlerhaus Büchsenhausen, Weiherburggasse 13, Innsbruck",
+      "teachers": "Maitane Sarralde, Pedro Penuela, Sarah Sea Clarke, Charlie Morrissey",
+      "format": "Classes, Labs, Jams & Rock CI · Performances, Screenings & Talks"
+    },
+    "manifesto_tag": "Festival 2026 · August 21st to 28th, 2026",
+    "manifesto_title": "What does it mean to be grounded — as artists, as humans, as communities — and what happens when we let go of the ground?",
+    "concept_blocks": [
+      {
+        "label": "01 / Physical & Philosophical Practice",
+        "text": "In 2026, we look at Contact Improvisation as both a physical and philosophical practice — balancing between stability and flight, weight and suspension, presence and risk. Through movement, conversation, and shared reflection, we ask:\nWhat does it mean to be grounded — as artists, as humans, as communities — and what happens when we let go of the ground?\n\nThis year’s program expands CI into new terrains — literally. Participants will have the opportunity to explore movement on the rock with a belay system, discovering new ways to connect gravity and improvisation in nature."
+      },
+      {
+        "label": "02 / Spaces for Dialogue",
+        "text": "Beyond physical practice, the festival continues to open spaces for dialogue. We will host open talks with invited artists such as Pedro Penuela and Sarah Sea, who will lead conversations around sexuality, gender, identity, and body politics, inviting multiple perspectives on how we relate, move, and create together.\n\nMotion Mode of Dialogue continues to be a space where art, movement, and social reflection meet — a place for connection, questioning, and discovery.\n\nJoin us for this journey between earth and air, grounding and flight, body and idea."
+      }
+    ],
+    "highlights": [
+      "Daily CI classes, labs, and research sessions, jams with live music",
+      "Teachers’ performances and improvisation events",
+      "Dance screenings and lectures",
+      "Open discussions",
+      "Shared meals and informal gatherings in the heart of the Tirol mountains."
+    ],
+    "conclusion": "Motion Mode of Dialogue continues to be a space where art, movement, and social reflection meet — a place for connection, questioning, and discovery.\n\nJoin us for this journey between earth and air, grounding and flight, body and idea."
+  },
+  "registration": {
+    "is_closed": true,
+    "closed_notice": "Registration is now officially closed. Thank you for your interest in our festival!",
+    "whatsapp_contact": "+43 677 630 27506",
+    "intro_text": "A full week of classes, performances, jams, and lectures was offered at an incredibly low price — only €305 (without accommodation and meals). This is roughly the cost of a two-day retreat!",
+    "passes": [
+      {
+        "label": "Full Week Pass · Aug 21–28",
+        "title": "Regular participation:",
+        "desc": "(without accommodation and meals)",
+        "price_old": "399 €",
+        "price_current": "365 €",
+        "url": "https://buy.stripe.com/14A28r5pK4YUaCU9jEd3i0V",
+        "is_soldout": true
+      },
+      {
+        "label": "Half Pass",
+        "title": "Half of the festival regular participation:",
+        "desc": "(without accommodation and meals)",
+        "price_old": "349 €",
+        "price_current": "315 €",
+        "url": "https://buy.stripe.com/14A3cvbO8ezubGY8fAd3i0W",
+        "is_soldout": true
+      },
+      {
+        "label": "0 places left",
+        "title": "HELPER",
+        "desc": "(without accommodation and meals)",
+        "price_old": "",
+        "price_current": "0 places left",
+        "url": "",
+        "is_soldout": true
+      }
+    ],
+    "helper": {
+      "title": "Special Participation: HELPER",
+      "desc": "Join our community in a unique way! This special participation lets you reduce costs by contributing your hands. In exchange, you’ll help with tasks like cleaning, organizing, and keeping the space welcoming for everyone.",
+      "status_note": "Helper spots are now fully booked! 🙏"
+    },
+    "support": {
+      "title": "Support the Festival 🤍",
+      "text": "Being an independent community festival, every gesture of support and solidarity enables scholarships and reduced ticket passes for dancers in need."
+    }
+  },
+  "teachers": [
+    {
+      "name": "Maitane Sarralde",
+      "role": "Core Teacher",
+      "photo": "img/festivals/2026/teachers/Maitane_Sarralde.jpg",
+      "photo2": "img/festivals/2026/teachers/Maitane1.jpg",
+      "bio": "After graduating with a degree in Physical Activity and Sports Sciences, she began dancing through improvisation. In her final year of university, she studied dance from a creative and therapeutic perspective at the University of Human Motricity in Lisbon.\n\nSince then, she has trained and devoted herself to the creation and performance of contemporary dance, integrating circus, martial arts, and Contact Improvisation. In 2020, she founded her company to explore new approaches to harness dance, the intrinsic narrative of detachment, and the physics of suspended bodies.",
+      "video_url": "https://www.youtube.com/embed/kB1KjsPpnts",
+      "classes": [
+        {
+          "title": "Vertical Dance in Nature",
+          "label": "WORKSHOP",
+          "desc": "In this vertical dance workshop, we will work with chest harnesses and semi-static rope on a wall between 10-14m high. It will be an introduction to vertical dance on the wall from a healthy and conscious place. We will use the vertical supports of the wall/rock and the harness to understand our bodies in other planes where we can dance in dialogue with the inertia of the pendulum and the sensation of hanging or anti-gravity.",
+          "video_url": "https://www.youtube.com/embed/kB1KjsPpnts"
+        }
+      ]
+    },
+    {
+      "name": "Pedro Penuela",
+      "role": "Core Teacher",
+      "photo": "img/festivals/2026/teachers/Penuela.jpg",
+      "photo2": "img/festivals/2026/teachers/Penuela2.jpg",
+      "bio": "Pedro Penuela is a dancer, psychologist and PhD in performing arts from Brazil, currently based in Greece. In his PhD he researched forms of presence in the works of Steve Paxton, Pina Bausch and Kazuo Ohno, having had the opportunity of interviewing Paxton twice. He has been dancing and practicing Contact Improvisation since 2006, having studied with many teachers including Nita Little, Ray Chung, Daniel Lepkoff, Otto Ramstad, Lisa Nelson, and Karen Nelson.",
+      "video_url": "https://www.youtube.com/embed/bN5nF5bEaV8",
+      "classes": [
+        {
+          "title": "Action-Non-Action",
+          "label": "WORKSHOP",
+          "desc": "“Nature does not hurry, yet everything is accomplished.” — Lao Tzu (Dao de jing)\n\nIn this workshop we will explore connections between the practice of CI and the Taoist principle of Wei wu wei (wu wei), freely translated as 'action without action'. Wu wei means moving in deep attunement with the wider flow of changing events. We will focus on sensing the ongoing life of our organs, investigating layers of contact, and deepening listening.",
+          "video_url": ""
+        },
+        {
+          "title": "The Issue of Sexuality in CI",
+          "label": "LECTURE & SHARED DISCUSSION",
+          "desc": "Sexuality is a topic widely raised and discussed throughout the decades of development of Contact Improvisation. How do we conceive and think nowadays about sexuality and its implications and overlaps with CI? What are our experiences regarding consent, safe spaces, inclusivity and diversity? We will read fragments from Contact Quarterly and engage in guided small-group and circle discussions.",
+          "video_url": ""
+        }
+      ]
+    },
+    {
+      "name": "Sarah Sea Clarke",
+      "role": "Core Teacher",
+      "photo": "img/festivals/2026/teachers/Sarah_Sea_Clarke.jpg",
+      "photo2": "img/festivals/2026/teachers/Sarah_Sea_Clarke1.jpg",
+      "bio": "Sarah Sea Clarke brings an engaged sociopolitical and somatic approach to Contact Improvisation, examining inclusivity, queer identity, and touch cultures in somatic practice across Europe.",
+      "video_url": "",
+      "classes": [
+        {
+          "title": "Cultivating a Sense of/for CI",
+          "label": "WORKSHOP",
+          "desc": "In this two-part workshop we will research our senses and how bringing attention to them might enrich our CI dance practice. We isolate the different senses of sound, sight and touch for deeper awareness of the present moment, including grounding work, embodied meditation techniques and deep listening.",
+          "video_url": ""
+        },
+        {
+          "title": "Contact Improv and the Somatics Family Tree",
+          "label": "OPEN TALK & PARTICIPATORY LECTURE",
+          "desc": "Originating at a time in the United States that rejected hierarchical structures in dance, CI drew from embodiment and neo-phenomenological approaches. In this talk and participatory deliberation, we create our very own CI and Somatics family tree exploring CI as a force for change and collective healing.",
+          "video_url": ""
+        }
+      ]
+    },
+    {
+      "name": "Charlie Morrissey",
+      "role": "Core Teacher",
+      "photo": "img/festivals/2026/teachers/CHARLIE_MORRISSEY.jpg",
+      "photo2": "img/festivals/2026/teachers/CHARLIE_MORRISSEY1.jpg",
+      "bio": "Charlie is a performer, teacher, collaborator and director who has been working with movement for more than 35 years. His work is inspired by long-term relationships with Steve Paxton, Lisa Nelson, Kirstie Simson, and Siobhan Davies. He co-curates Wainsgate Dances in Yorkshire, UK.",
+      "video_url": "",
+      "classes": [
+        {
+          "title": "The Apple Returns to the Tree",
+          "label": "WORKSHOP",
+          "desc": "Referencing Steve Paxton’s musings about the Newtonian apple as it falls from the tree, we return to the basic propositions of CI: noticing ourselves as masses in relation to physical forces, falling and rising, bouncing and tumbling anew with materials developed with Paxton and Nelson.",
+          "video_url": ""
+        }
+      ]
+    }
+  ],
+  "performances": [
+    {
+      "title": "Hacer Sonar El Aire",
+      "date_time": "August 23, 2026 · 18:00",
+      "venue": "Innsbruck City Tower (Stadtturm)",
+      "artists": "Maitane Sarralde",
+      "desc": "A breathtaking vertical dance performance on the medieval facade of the Innsbruck City Tower, interacting with architecture, wind, and audience gaze.",
+      "video_url": "",
+      "ticket_info": "Free public outdoor performance"
+    },
+    {
+      "title": "Grounding – Off Ground",
+      "date_time": "August 26, 2026 · 20:00",
+      "venue": "WEISSRAUM Gallery",
+      "artists": "Festival Faculty & Artists",
+      "desc": "An experimental improvisation performance exploring themes of terrestrial contact and weightlessness within the minimalist white-cube space of WEISSRAUM.",
+      "video_url": "",
+      "ticket_info": "Reservation required at info@mmdt.at"
+    }
+  ],
+  "musicians": [
+    {
+      "name": "Dima Bondarev",
+      "role": "Trumpet & Live Electronics",
+      "photo": "img/festivals/2026/Bondarev.jpg",
+      "bio": "Berlin-based jazz trumpet player and improviser exploring microtonal textures, acoustic resonance, and live electronics."
+    },
+    {
+      "name": "Christian Prader",
+      "role": "Flutes & Multi-instrumentalist",
+      "photo": "img/festivals/2026/Prader.jpg",
+      "bio": "Austrian wind instrument virtuoso weaving ancient and contemporary soundscapes for movement jams."
+    },
+    {
+      "name": "Joshua Meyer",
+      "role": "Percussion & Sound Design",
+      "photo": "img/festivals/2026/Meyer.jpg",
+      "bio": "Organic percussionist blending frame drums, handpans, and field recordings."
+    }
+  ],
+  "program": {
+    "google_sheets_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSyX0wLZ45j2-OJxoeTPxBTKz-xTkAa3bvXWivpYqWwZtK57j9zxfdNPTnYMbPm_riuBqEIN1YHerfK/pubhtml?gid=0&single=false&widget=false&headers=false",
+    "image": "",
+    "intro": "The festival week follows an organic flow balancing rigorous physical morning labs, communal midday nourishment, contemplative afternoon dialogues, and evening jams accompanied by live musicians.",
+    "schedule": [
+      {
+        "time": "08:30 – 09:30",
+        "title": "Somatic Awakening & Meditation"
+      },
+      {
+        "time": "10:00 – 13:00",
+        "title": "Morning CI Masterclasses with Faculty"
+      },
+      {
+        "time": "13:00 – 15:00",
+        "title": "Warm Vegetarian Lunch & Rest"
+      },
+      {
+        "time": "15:00 – 17:30",
+        "title": "Afternoon Research Labs & Rock CI with Belay"
+      },
+      {
+        "time": "18:00 – 19:30",
+        "title": "Screenings, Body Politics Talks & Discussions"
+      },
+      {
+        "time": "20:00 – 23:00",
+        "title": "Open Jam with Live Music & Sound Explorations"
+      }
+    ]
+  },
+  "venue_food": {
+    "venue_name": "Künstlerhaus Büchsenhausen",
+    "venue_address": "Weiherburggasse 13, 6020 Innsbruck, Austria",
+    "venue_desc": "Located on the slope of the Nordkette mountains just above the old town of Innsbruck, Künstlerhaus Büchsenhausen offers light-flooded studios, wooden sprung floors, and historic Alpine architecture.",
+    "venue_photos": [
+      "img/festivals/2026/buchsenhausen.jpg"
+    ],
+    "accommodation_info": "Innsbruck offers a wide range of hostels, apartments, and camp sites. We also coordinate a community hosting network where local dancers host visiting festival participants.",
+    "food_chef": "Communal Meals by Maya Schwartz",
+    "food_desc": "Maya Schwartz prepares fresh, nourishing, 100% vegetarian and vegan meals using organic produce sourced directly from Tirolean farmers.",
+    "food_photos": []
+  },
+  "team_partners": {
+    "team": [
+      {
+        "name": "Tamara Maksymenko",
+        "role": "Artistic Director & Project Lead",
+        "photo": "img/team/tamara.jpg",
+        "bio": "Founder of Motion Mode of Dialogue in Tirol, choreographer, and somatic educator."
+      },
+      {
+        "name": "Serhii Semichev",
+        "role": "Documentary Photographer & Media Curator",
+        "photo": "img/team/serhii.jpg",
+        "bio": "Renowned dance photographer capturing the ephemeral moments of contact improvisation across Europe."
+      }
+    ],
+    "partners": [
+      {
+        "name": "Land Tirol Kultur",
+        "logo": "img/partners/land_tirol.png",
+        "url": "https://www.tirol.gv.at"
+      },
+      {
+        "name": "Stadt Innsbruck",
+        "logo": "img/partners/stadt_innsbruck.png",
+        "url": "https://www.innsbruck.gv.at"
+      },
+      {
+        "name": "Künstlerhaus Büchsenhausen",
+        "logo": "img/partners/buchsenhausen.png",
+        "url": "https://www.buchsenhausen.at"
+      },
+      {
+        "name": "WEISSRAUM",
+        "logo": "img/partners/weissraum.png",
+        "url": "https://www.weissraum.at"
+      }
+    ]
+  },
+  "archive": {
+    "videos": [
+      "https://www.youtube.com/embed/GY5zSOqG1iE?si=kxRxyxudUggpM5nT",
+      "https://www.youtube.com/embed/GRJLxgUjeSo?si=Cl2nZFiAc7BYnAro"
+    ],
+    "audio_link": "https://drive.google.com/drive/folders/13PwpPQzcbjgH9QApOGtA1S4BHRDBfTSs",
+    "photographer": "Photo by Serhii Semichev",
+    "photos": [
+      "img/festivals/2026/archive/5R7A9054_compress.jpg",
+      "img/festivals/2026/archive/5R7A9060_compress.jpg",
+      "img/festivals/2026/archive/5R7A9071-2_compress.jpg",
+      "img/festivals/2026/archive/5R7A9077_compress.jpg",
+      "img/festivals/2026/archive/5R7A9029-2_compress.jpg",
+      "img/festivals/2026/archive/5R7A9030 1_compress.jpg",
+      "img/festivals/2026/archive/5R7A9035_compress.jpg"
+    ]
+  }
+}

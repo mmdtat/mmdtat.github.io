@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMDT Control — Админ-панель</title>
+    <link rel="shortcut icon" href="../img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">MMDT Control</div>
+            <div class="sidebar-sub">Static CMS &middot; Swiss Minimal</div>
+            <div style="margin-top: 12px;">
+                <button type="button" class="btn btn-sm" id="authStatusBtn" style="width: 100%; justify-content: flex-start; background: rgba(255,255,255,0.06); color: #ccc; border-color: rgba(255,255,255,0.15);">
+                    <span id="authDot" style="width:8px; height:8px; border-radius:50%; background:#f59e0b; display:inline-block;"></span>
+                    <span id="authLabel" style="font-size:0.75rem; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;">Настроить доступ</span>
+                </button>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a class="nav-item active" data-section="news">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>
+                Главная &amp; Новости
+            </a>
+            <a class="nav-item" data-section="projects">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+                Проекты (Projects)
+            </a>
+            <a class="nav-item" data-section="festivals">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Фестивали (Festivals)
+            </a>
+            <a class="nav-item" data-section="classes">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/></svg>
+                Занятия (Classes)
+            </a>
+            <a class="nav-item" data-section="events">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                События (Events)
+            </a>
+            <a class="nav-item" data-section="publish">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                Публикация &amp; Git
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="/" target="_blank" class="preview-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Открыть сайт (Live)
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+        <!-- Top bar -->
+        <header class="admin-header">
+            <div class="header-title-box">
+                <h1 id="topTitle">События и воркшопы</h1>
+                <p id="topSub">Управление афишей на странице events.html</p>
+            </div>
+            <div class="header-actions" id="topActions">
+                <button class="btn btn-primary" id="addEventBtn">+ Добавить событие</button>
+            </div>
+        </header>
+
+        <!-- Content Sections -->
+        <div class="admin-content">
+            <!-- SECTION 1: NEWS & HOME -->
+            <section class="admin-panel-section" id="sec-news">
+                <!-- News List View -->
+                <div id="newsListView">
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:8px; padding:24px; margin-bottom:28px; ">
+                        <h3 style="font-size:1.05rem; margin-bottom:6px;">Настройки главной страницы (<a href="../index.html" target="_blank" class="admin-page-link">index.html ↗</a>)</h3>
+                        <p style="font-size:0.82rem; color:var(--text-meta); margin-bottom:16px;">Управление бейджами актуальных событий, копирайтом фотографа и контактами.</p>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Главный бейдж (Next event)</label>
+                                <input type="text" class="form-control" id="badgeLabel" placeholder="Next: Solo & CI Tirol Fest 2026 →">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ссылка главного бейджа</label>
+                                <input type="text" class="form-control" id="badgeUrl" placeholder="CITyrolFest2026.html">
+                            </div>
+                        </div>
+
+                        <div class="form-row" style="margin-top:10px;">
+                            <div class="form-group">
+                                <label class="form-label">Вторичный бейдж (News & updates)</label>
+                                <input type="text" class="form-control" id="newsBadgeLabel" placeholder="News & Updates →">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ссылка вторичного бейджа</label>
+                                <input type="text" class="form-control" id="newsBadgeUrl" placeholder="pages/news.html">
+                            </div>
+                        </div>
+
+                        <div class="form-row" style="margin-top:10px;">
+                            <div class="form-group">
+                                <label class="form-label">Автор фото на главной (Photo credit)</label>
+                                <input type="text" class="form-control" id="settingsPhotoCredit" placeholder="Eugene Hill">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ссылка на автора (Website/Instagram)</label>
+                                <input type="text" class="form-control" id="settingsPhotoCreditUrl" placeholder="https://makeportraits.in.ua">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top:10px;">
+                            <label class="form-label">Контактный email ассоциации (в шапке и меню)</label>
+                            <input type="email" class="form-control" id="settingsContactEmail" placeholder="mm.of.dialogue.in.tyrol@gmail.com">
+                        </div>
+
+                        <button type="button" class="btn btn-sm btn-primary" id="saveBadgeBtn" style="margin-top:16px;">Обновить настройки и главную страницу</button>
+                    </div>
+
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; ">
+                        <h3 style="font-size:1.05rem;">Список новостей и анонсов на странице <a href="../pages/news.html" target="_blank" class="admin-page-link">pages/news.html ↗</a></h3>
+                    </div>
+                    <div class="cards-list" id="newsList" style=""></div>
+                </div>
+
+                <!-- News Editor View (Full Page) -->
+                <div id="newsEditorView" class="editor-page-view" style="display: none;">
+                    <div class="editor-page-header">
+                        <div class="editor-header-left">
+                            <button type="button" class="btn btn-back" id="backNewsBtn" title="Вернуться к списку">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Назад к новостям
+                            </button>
+                            <div class="editor-header-title">
+                                <h2 id="modalNewsTitle">Добавить новость</h2>
+                                <p>Публикация в ленту новостей на странице news.html</p>
+                            </div>
+                        </div>
+                        <div class="editor-header-actions">
+                            <button type="button" class="btn" id="closeNewsModal">Отмена</button>
+                            <button type="button" class="btn btn-primary" onclick="document.getElementById('saveNewsBtn').click()">Сохранить новость</button>
+                        </div>
+                    </div>
+
+                    <form id="newsModalForm">
+                        <div class="editor-page-body">
+                            <input type="hidden" id="newsIndex">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Заголовок новости</label>
+                                    <input type="text" class="form-control" id="newsTitle" placeholder="например, New Workshop in Innsbruck" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Дата / Подзаголовок</label>
+                                    <input type="text" class="form-control" id="newsSubtitle" placeholder="например, 15 October 2026">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Изображение / Афиша (необязательно)</label>
+                                <div class="image-upload-box">
+                                    <img id="newsImgPreview" class="upload-preview-img" src="../img/common/brand/lg.png">
+                                    <div style="flex:1;">
+                                        <input type="file" id="newsImgFileInput" accept="image/*" style="display:none;">
+                                        <button type="button" class="btn btn-sm" onclick="document.getElementById('newsImgFileInput').click()">Загрузить фото</button>
+                                        <input type="hidden" id="newsImagePath">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Текст новости (каждый абзац с новой строки)</label>
+                                <textarea class="form-control" id="newsContent" rows="6" placeholder="Текст новости..."></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Текст кнопки (например, Read more / Register)</label>
+                                    <input type="text" class="form-control" id="newsBtnLabel" placeholder="Read more">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Ссылка кнопки</label>
+                                    <input type="text" class="form-control" id="newsBtnUrl" placeholder="https://... или pages/...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="editor-page-footer">
+                            <button type="button" class="btn" id="cancelNewsModal">Отмена</button>
+                            <button type="submit" class="btn btn-primary" id="saveNewsBtn">Сохранить новость</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SECTION 2: PROJECTS -->
+            <section class="admin-panel-section" id="sec-projects">
+                <!-- Projects List View -->
+                <div id="projectsListView">
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; ">
+                        <p style="font-size:0.85rem; color:var(--text-meta);">Список арт-проектов на странице <a href="../pages/projects.html" target="_blank" class="admin-page-link">pages/projects.html ↗</a></p>
+                    </div>
+                    <div class="cards-list" id="projectsList" style=""></div>
+                </div>
+
+                <!-- Projects Editor View (Full Page) -->
+                <div id="projectsEditorView" class="editor-page-view" style="display: none;">
+                    <div class="editor-page-header">
+                        <div class="editor-header-left">
+                            <button type="button" class="btn btn-back" id="backProjectsBtn" title="Вернуться к списку">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Назад к проектам
+                            </button>
+                            <div class="editor-header-title">
+                                <h2 id="modalProjectTitle">Создать новый арт-проект</h2>
+                                <p id="modalProjectSub">Полный редактор всех разделов: концепция, факты, видео, билеты, команда, партнёры и фотогалерея</p>
+                            </div>
+                        </div>
+                        <div class="editor-header-actions">
+                            <button type="button" class="btn" id="closeProjectModal">Отмена</button>
+                            <button type="button" class="btn btn-primary" onclick="document.getElementById('saveProjBtn').click()">Сохранить проект</button>
+                        </div>
+                    </div>
+
+                    <!-- Project Subtabs Navigation -->
+                    <div class="proj-subtabs-nav">
+                        <button type="button" class="proj-tab-nav-btn active" data-subtab="main">1. Основное &amp; Hero</button>
+                        <button type="button" class="proj-tab-nav-btn" data-subtab="overview">2. Обзор &amp; Концепция</button>
+                        <button type="button" class="proj-tab-nav-btn" data-subtab="team">3. Команда</button>
+                        <button type="button" class="proj-tab-nav-btn" data-subtab="partners">4. Партнёры</button>
+                        <button type="button" class="proj-tab-nav-btn" data-subtab="gallery">5. Фотоматериалы</button>
+                    </div>
+
+                    <form id="projectModalForm" style="display:flex; flex-direction:column;">
+                        <input type="hidden" id="projIndex">
+
+                        <div class="editor-page-body">
+
+                            <!-- ==========================================
+                                 SUBTAB 1: MAIN & HERO
+                                 ========================================== -->
+                            <div class="proj-subtab-pane active" id="pane-proj-main">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Название проекта *</label>
+                                        <input type="text" class="form-control" id="projTitle" placeholder="например, The Silence of the Mass" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Год создания *</label>
+                                        <input type="text" class="form-control" id="projYear" placeholder="2025" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Имя файла (слаг ссылки) *</label>
+                                        <input type="text" class="form-control" id="projSlug" placeholder="the_silence_of_the_mass" required>
+                                        <div class="form-hint">Будет создана страница: <code>pages/projects/&lt;slug&gt;.html</code></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Тег в шапке (Бейдж Hero)</label>
+                                        <input type="text" class="form-control" id="projTag" placeholder="October 24 – 26, 2025 · BRUX Freies Theater, Innsbruck">
+                                        <div class="form-hint">Отображается над названием в шапке страницы. Если пусто — сгенерируется «Год · Performative Project».</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Краткий подзаголовок (Hero Subtitle)</label>
+                                    <input type="text" class="form-control" id="projSubtitle" placeholder="Contemporary Dance & Contact Improvisation Performance...">
+                                    <div class="form-hint">Отображается крупным текстом под названием проекта. Не заполняйте, если не требуется.</div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Обложка в каталоге проектов (pages/projects.html)</label>
+                                        <div class="image-upload-box">
+                                            <img id="projImgPreview" class="upload-preview-img" src="../img/projects/covers/TheSilenceoftheMass.jpg">
+                                            <div style="flex:1;">
+                                                <input type="file" id="projImgFileInput" accept="image/*" style="display:none;">
+                                                <button type="button" class="btn btn-sm" onclick="document.getElementById('projImgFileInput').click()">Загрузить обложку (каталог)</button>
+                                                <input type="hidden" id="projImagePath" value="../img/projects/covers/TheSilenceoftheMass.jpg">
+                                                <div class="form-hint" style="margin-top:4px;">Превью проекта в списке всех проектов MMDT.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Фоновое фото главного экрана (Hero Background)</label>
+                                        <div class="image-upload-box">
+                                            <img id="projHeroBgPreview" class="upload-preview-img" src="../img/projects/silence_of_the_mass/TSOTM.jpg">
+                                            <div style="flex:1;">
+                                                <input type="file" id="projHeroBgInput" accept="image/*" style="display:none;">
+                                                <button type="button" class="btn btn-sm" onclick="document.getElementById('projHeroBgInput').click()">Загрузить фон экрана</button>
+                                                <input type="hidden" id="projHeroBgPath" value="img/projects/silence_of_the_mass/TSOTM.jpg">
+                                                <div class="form-hint" style="margin-top:4px;">Полноэкранный фон шапки страницы проекта. Если не выбран, используется обложка.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ==========================================
+                                 SUBTAB 2: OVERVIEW & CONCEPT
+                                 ========================================== -->
+                            <div class="proj-subtab-pane" id="pane-proj-overview">
+                                
+                                <!-- Quick Facts Strip -->
+                                <div style="margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border);">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                        <h3 style="margin:0; font-size:1rem;">1. Быстрые факты (Quick Facts Strip)</h3>
+                                        <span class="badge" style="background:#f1f5f9; color:#64748b; font-size:0.75rem;">Опционально</span>
+                                    </div>
+                                    <p class="form-hint" style="margin-bottom:14px;">4 ключевых факта в полосе (Даты, Место, Хореография, Формат). Если оставить поля пустыми — блок фактов не отображается.</p>
+                                    
+                                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px;">
+                                        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:6px; padding:10px;">
+                                            <strong style="display:block; font-size:0.8rem; margin-bottom:6px; color:#475569;">Факт 1 (например, Даты)</strong>
+                                            <input type="text" class="form-control" id="projFact1Label" placeholder="Метка (Premiere Dates)" style="margin-bottom:6px; font-size:0.82rem;">
+                                            <input type="text" class="form-control" id="projFact1Value" placeholder="Значение (October 24–26, 2025)" style="margin-bottom:6px; font-size:0.82rem; font-weight:600;">
+                                            <input type="text" class="form-control" id="projFact1Sub" placeholder="Подпись (Time: 19:00 · Innsbruck)" style="font-size:0.82rem;">
+                                        </div>
+                                        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:6px; padding:10px;">
+                                            <strong style="display:block; font-size:0.8rem; margin-bottom:6px; color:#475569;">Факт 2 (например, Площадка)</strong>
+                                            <input type="text" class="form-control" id="projFact2Label" placeholder="Метка (Venue)" style="margin-bottom:6px; font-size:0.82rem;">
+                                            <input type="text" class="form-control" id="projFact2Value" placeholder="Значение (BRUX Freies Theater)" style="margin-bottom:6px; font-size:0.82rem; font-weight:600;">
+                                            <input type="text" class="form-control" id="projFact2Sub" placeholder="Подпись (Innsbruck, Austria)" style="font-size:0.82rem;">
+                                        </div>
+                                        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:6px; padding:10px;">
+                                            <strong style="display:block; font-size:0.8rem; margin-bottom:6px; color:#475569;">Факт 3 (например, Руководство)</strong>
+                                            <input type="text" class="form-control" id="projFact3Label" placeholder="Метка (Artistic Direction)" style="margin-bottom:6px; font-size:0.82rem;">
+                                            <input type="text" class="form-control" id="projFact3Value" placeholder="Значение (Tamara Maksymenko)" style="margin-bottom:6px; font-size:0.82rem; font-weight:600;">
+                                            <input type="text" class="form-control" id="projFact3Sub" placeholder="Подпись (Collective Creation by MMDT)" style="font-size:0.82rem;">
+                                        </div>
+                                        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:6px; padding:10px;">
+                                            <strong style="display:block; font-size:0.8rem; margin-bottom:6px; color:#475569;">Факт 4 (например, Формат)</strong>
+                                            <input type="text" class="form-control" id="projFact4Label" placeholder="Метка (Format)" style="margin-bottom:6px; font-size:0.82rem;">
+                                            <input type="text" class="form-control" id="projFact4Value" placeholder="Значение (Dance Performance)" style="margin-bottom:6px; font-size:0.82rem; font-weight:600;">
+                                            <input type="text" class="form-control" id="projFact4Sub" placeholder="Подпись (Contemporary Dance & CI)" style="font-size:0.82rem;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Manifesto / Tagline Quote -->
+                                <div style="margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border);">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                        <h3 style="margin:0; font-size:1rem;">2. Манифест / Главная цитата проекта</h3>
+                                        <span class="badge" style="background:#f1f5f9; color:#64748b; font-size:0.75rem;">Опционально</span>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group" style="flex:1;">
+                                            <label class="form-label">Тег цитаты</label>
+                                            <input type="text" class="form-control" id="projManifestoTag" placeholder="By Motion Mode of Dialogue in Tirol · 2025">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Текст манифеста / цитата крупным шрифтом</label>
+                                        <textarea class="form-control" id="projManifestoQuote" rows="3" placeholder="«Our aim is to create a performance that does not offer easy answers, but instead invites the audience into a visceral experience of silence...»"></textarea>
+                                        <div class="form-hint">Если не заполнено — блок манифеста полностью скрыт.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Concept Cards Repeater -->
+                                <div style="margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border);">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                        <div>
+                                            <h3 style="margin:0; font-size:1rem;">3. Смысловые карточки концепции (Concept Cards)</h3>
+                                            <p class="form-hint" style="margin:4px 0 0;">Блоки сетки описания (01 / Concept & Inquiry, 02 / Artistic Direction, и т.д.).</p>
+                                        </div>
+                                        <button type="button" class="btn btn-sm" id="addProjConceptCardBtn">+ Добавить смысловой блок</button>
+                                    </div>
+                                    <div id="projConceptCardsContainer"></div>
+                                    
+                                    <!-- Fallback single description text if no cards -->
+                                    <div style="margin-top:16px;">
+                                        <label class="form-label">Базовое описание проекта (если не используются карточки выше)</label>
+                                        <textarea class="form-control" id="projOverview" rows="4" placeholder="Общее текстовое описание проекта (используется если список смысловых блоков пуст)..."></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Video Trailer -->
+                                <div style="margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border);">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                        <h3 style="margin:0; font-size:1rem;">4. Видео трейлер / запись перформанса</h3>
+                                        <span class="badge" style="background:#f1f5f9; color:#64748b; font-size:0.75rem;">Опционально</span>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Тег видео</label>
+                                            <input type="text" class="form-control" id="projVideoTag" placeholder="Performance Video">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Заголовок видео</label>
+                                            <input type="text" class="form-control" id="projVideoTitle" placeholder="The Silence of the Mass — By MMDT">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">YouTube ссылка для встраивания (embed URL)</label>
+                                        <input type="text" class="form-control" id="projVideoUrl" placeholder="https://www.youtube-nocookie.com/embed/R8IGNwbksX8?si=...">
+                                        <div class="form-hint">Если ссылка пуста — видео-блок не будет выводиться на странице.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Premiere & Tickets / Booking Box -->
+                                <div style="margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--border);">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                        <h3 style="margin:0; font-size:1rem;">5. Премьера, расписание &amp; билеты (Premiere &amp; Tickets)</h3>
+                                        <span class="badge" style="background:#f1f5f9; color:#64748b; font-size:0.75rem;">Опционально</span>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Тег блока</label>
+                                            <input type="text" class="form-control" id="projTicketsTag" placeholder="Premiere & Tickets">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Название площадки / театра</label>
+                                            <input type="text" class="form-control" id="projTicketsVenue" placeholder="BRUX Freies Theater Innsbruck">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Даты и время (When)</label>
+                                            <input type="text" class="form-control" id="projTicketsWhen" placeholder="24 - 26 October 2025 · Time: 19:00">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Локация / Адрес (Where)</label>
+                                            <input type="text" class="form-control" id="projTicketsWhere" placeholder="BRUX Freies Theater, Innsbruck">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Цены (Price)</label>
+                                            <input type="text" class="form-control" id="projTicketsPrice" placeholder="20€ / 25€ / 30€">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Текст резервации / билетов</label>
+                                            <input type="text" class="form-control" id="projTicketsBookingText" placeholder="Please reserve via info@brux.at">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Ссылка резервации / Email</label>
+                                            <input type="text" class="form-control" id="projTicketsBookingLink" placeholder="mailto:info@brux.at или https://...">
+                                        </div>
+                                    </div>
+                                    <div class="form-hint">Если все поля пусты — блок расписания и билетов будет скрыт.</div>
+                                </div>
+
+                                <!-- Crowdfunding / Support Box -->
+                                <div>
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                        <h3 style="margin:0; font-size:1rem;">6. Краудфандинг / Поддержка создания</h3>
+                                        <span class="badge" style="background:#f1f5f9; color:#64748b; font-size:0.75rem;">Опционально</span>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Тег</label>
+                                            <input type="text" class="form-control" id="projCrowdTag" placeholder="Support & Production">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Заголовок</label>
+                                            <input type="text" class="form-control" id="projCrowdTitle" placeholder="Support This Creation">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Описание</label>
+                                        <textarea class="form-control" id="projCrowdDesc" rows="2" placeholder="Help us bring this performance on tour..."></textarea>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Текст кнопки</label>
+                                            <input type="text" class="form-control" id="projCrowdBtnText" placeholder="Donate / Support">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Ссылка на краудфандинг / донат</label>
+                                            <input type="text" class="form-control" id="projCrowdBtnUrl" placeholder="https://gofundme.com/...">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- ==========================================
+                                 SUBTAB 3: TEAM & CREDITS
+                                 ========================================== -->
+                            <div class="proj-subtab-pane" id="pane-proj-team">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                    <div>
+                                        <h3 style="margin:0; font-size:1rem;">Творческая команда и авторы (Artistic Team)</h3>
+                                        <p class="form-hint" style="margin:4px 0 0;">Если раздел не заполнен — вкладка «Команда» на сайте не будет отображаться.</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Тег секции</label>
+                                        <input type="text" class="form-control" id="projTeamTag" placeholder="Collective Creation · By MMDT">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Заголовок вкладки</label>
+                                        <input type="text" class="form-control" id="projTeamTitle" placeholder="Artistic Direction & Team">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Афиша / Фотография команды</label>
+                                    <div class="image-upload-box">
+                                        <img id="projTeamImgPreview" class="upload-preview-img" src="../img/projects/covers/TheSilenceoftheMass.jpg">
+                                        <div style="flex:1;">
+                                            <input type="file" id="projTeamImgInput" accept="image/*" style="display:none;">
+                                            <button type="button" class="btn btn-sm" onclick="document.getElementById('projTeamImgInput').click()">Загрузить фото / афишу команды</button>
+                                            <input type="hidden" id="projTeamImgPath" value="">
+                                            <div class="form-hint" style="margin-top:4px;">Отображается в левой колонке карточки команды.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Вводный манифест / Слово художественного руководства</label>
+                                    <textarea class="form-control" id="projTeamStatement" rows="4" placeholder="“The Silence of the Mass” is a collectively created work. Each performer is also a co-creator..."></textarea>
+                                </div>
+
+                                <div style="margin-top:24px;">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                        <h4 style="margin:0; font-size:0.95rem;">Участники и роли (Credits)</h4>
+                                        <button type="button" class="btn btn-sm" id="addProjTeamMemberBtn">+ Добавить участника</button>
+                                    </div>
+                                    <div id="projTeamMembersContainer"></div>
+                                </div>
+                            </div>
+
+                            <!-- ==========================================
+                                 SUBTAB 4: PARTNERS & INSTITUTIONS
+                                 ========================================== -->
+                            <div class="proj-subtab-pane" id="pane-proj-partners">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                    <div>
+                                        <h3 style="margin:0; font-size:1rem;">Партнёры &amp; Институции (Partners &amp; Supporters)</h3>
+                                        <p class="form-hint" style="margin:4px 0 0;">Если партнёры не добавлены — вкладка «Партнёры» на сайте не будет отображаться.</p>
+                                    </div>
+                                    <button type="button" class="btn btn-sm" id="addProjPartnerBtn">+ Добавить партнёра</button>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Тег секции</label>
+                                        <input type="text" class="form-control" id="projPartnersTag" placeholder="Supported By & In Collaboration With">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Заголовок</label>
+                                        <input type="text" class="form-control" id="projPartnersTitle" placeholder="Partners & Institutions">
+                                    </div>
+                                </div>
+
+                                <div id="projPartnersContainer"></div>
+                            </div>
+
+                            <!-- ==========================================
+                                 SUBTAB 5: PHOTOMATERIAL / GALLERY
+                                 ========================================== -->
+                            <div class="proj-subtab-pane" id="pane-proj-gallery">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                    <div>
+                                        <h3 style="margin:0; font-size:1rem;">Фотоматериалы и архив (Photomaterial)</h3>
+                                        <p class="form-hint" style="margin:4px 0 0;">Если фотографии не добавлены — вкладка «Фотоматериалы» на странице проекта не появится.</p>
+                                    </div>
+                                    <div style="display:flex; gap:8px;">
+                                        <button type="button" class="btn btn-sm" id="projGalleryUploadBtn">+ Добавить фотографии</button>
+                                        <button type="button" class="btn btn-sm btn-ghost" id="projGalleryClearAllBtn" style="color:var(--danger);">Очистить все</button>
+                                        <input type="file" id="projGalleryMultiFileInput" accept="image/*" multiple style="display:none;">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Тег секции</label>
+                                        <input type="text" class="form-control" id="projGalleryTag" placeholder="BRUX Freies Theater · 25.10.2025">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Заголовок</label>
+                                        <input type="text" class="form-control" id="projGalleryTitle" placeholder="Photomaterial">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Копирайт фото / Имя фотографа</label>
+                                    <input type="text" class="form-control" id="projGalleryCredits" placeholder="Photography by ...">
+                                </div>
+
+                                <!-- Drag & Drop Zone -->
+                                <div id="projGalleryDropzone" style="border:2px dashed #cbd5e1; border-radius:8px; padding:24px 16px; text-align:center; background:#f8fafc; cursor:pointer; transition:all 0.2s ease; margin-bottom:16px;">
+                                    <div style="color:#64748b; font-size:0.9rem; pointer-events:none;">
+                                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="margin-bottom:6px; display:inline-block;"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7M16 5h6m-3-3v6M4 17l4-4 3 3 5-5 4 4"/></svg>
+                                        <div><strong>Перетащите сюда фотографии проекта</strong> или нажмите для выбора с компьютера</div>
+                                        <div style="font-size:0.75rem; color:#94a3b8; margin-top:4px;">JPG, PNG, WebP (можно выбрать сразу десятки файлов). Фото автоматически оптимизируются под Full HD.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Upload Progress Bar -->
+                                <div id="projGalleryProgressBarBox" style="display:none; margin-bottom:16px; background:#f1f5f9; border-radius:6px; padding:10px 14px; border:1px solid #e2e8f0;">
+                                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px; color:#334155;">
+                                        <span id="projGalleryProgressText">Обработка фотографий...</span>
+                                        <span id="projGalleryProgressPercent">0%</span>
+                                    </div>
+                                    <div style="width:100%; height:6px; background:#e2e8f0; border-radius:3px; overflow:hidden;">
+                                        <div id="projGalleryProgressBar" style="width:0%; height:100%; background:#10b981; transition:width 0.2s ease;"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Visual Thumbnail Grid -->
+                                <div id="projGalleryThumbsGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(95px, 1fr)); gap:10px; max-height:420px; overflow-y:auto; padding:12px; background:#fff; border:1px solid var(--border); border-radius:8px;">
+                                    <div style="grid-column:1/-1; text-align:center; padding:32px 16px; color:var(--text-meta); font-size:0.85rem;" id="projGalleryEmptyState">
+                                        В проекте пока нет фотографий. Нажмите «+ Добавить фотографии» или перетащите их в поле выше.
+                                    </div>
+                                </div>
+
+                                <!-- Collapsible text area for manual paths inspection -->
+                                <div style="margin-top:12px;">
+                                    <button type="button" class="btn btn-sm btn-ghost" id="toggleProjGalleryRawPathsBtn" style="font-size:0.75rem; color:var(--text-meta);">
+                                        ⚙ Показать пути к файлам (текстовый список)
+                                    </button>
+                                    <div id="projGalleryRawBox" style="display:none; margin-top:8px;">
+                                        <textarea class="form-control" id="projGalleryPhotos" rows="5" placeholder="img/projects/silence_of_the_mass/gallery/photo1.jpg"></textarea>
+                                        <div class="form-hint" style="margin-top:4px;">Синхронизируется с визуальной галереей выше.</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="editor-page-footer">
+                            <div style="font-size:0.8rem; color:var(--text-meta);">
+                                Все незаполненные поля и вкладки автоматически скрываются на сайте.
+                            </div>
+                            <div style="display:flex; gap:10px;">
+                                <button type="button" class="btn" id="cancelProjectModal">Отмена</button>
+                                <button type="submit" class="btn btn-primary" id="saveProjBtn">Сохранить проект</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SECTION 3: FESTIVALS -->
+            <section class="admin-panel-section" id="sec-festivals">
+                <!-- Festivals List View -->
+                <div id="festivalsListView">
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; ">
+                        <p style="font-size:0.85rem; color:var(--text-meta);">Все выпуски фестивалей на странице <a href="../pages/festival.html" target="_blank" class="admin-page-link">pages/festival.html ↗</a></p>
+                    </div>
+                    <div class="cards-list" id="festivalsList" style=""></div>
+                </div>
+
+                <!-- Festivals Editor View (Full Page) -->
+                <div id="festivalsEditorView" class="editor-page-view" style="display: none;">
+                    <div class="editor-page-header">
+                        <div class="editor-header-left">
+                            <button type="button" class="btn btn-back" id="backFestivalsBtn" title="Вернуться к списку">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Назад к фестивалям
+                            </button>
+                            <div class="editor-header-title">
+                                <h2 id="modalFestivalTitle">Добавить / Редактировать фестиваль</h2>
+                                <p id="modalFestivalSub">Полный редактор всех разделов и вкладок страницы фестиваля</p>
+                            </div>
+                        </div>
+                        <div class="editor-header-actions">
+                            <button type="button" class="btn btn-sm" id="loadSampleFest2026Btn" title="Заполнить поля данными 2026 года для быстрого старта">📋 Загрузить образец 2026</button>
+                            <button type="button" class="btn" id="closeFestivalModal">Отмена</button>
+                            <button type="button" class="btn btn-primary" onclick="document.getElementById('saveFestBtn').click()">Сохранить фестиваль</button>
+                        </div>
+                    </div>
+
+                    <div class="fest-subtabs-nav">
+                <button type="button" class="fest-tab-nav-btn active" data-subtab="main">1. Основное</button>
+                <button type="button" class="fest-tab-nav-btn" data-subtab="overview">2. Обзор</button>
+                <button type="button" class="fest-tab-nav-btn" data-subtab="registration">3. Регистрация</button>
+                <button type="button" class="fest-tab-nav-btn" data-subtab="teachers">4. Преподаватели</button>
+                <button type="button" class="fest-tab-nav-btn" data-subtab="performances">5. Перформансы</button>
+                <button type="button" class="fest-tab-nav-btn" data-subtab="musicians">6. Музыканты</button>
+                <button type="button" class="fest-tab-nav-btn" data-subtab="program">7. Программа</button>
+                <button type="button" class="fest-tab-nav-btn" data-subtab="venue">8. Локация &amp; Еда</button>
+                <button type="button" class="fest-tab-nav-btn" data-subtab="team">9. Команда</button>
+                <button type="button" class="fest-tab-nav-btn" data-subtab="archive">10. Архив</button>
+            </div>
+
+                    <form id="festivalModalForm" style="display:flex; flex-direction:column;">
+                <input type="hidden" id="festIndex">
+                <input type="hidden" id="festId">
+
+                <div class="editor-page-body">
+
+                    <!-- TAB 1: MAIN & HERO -->
+                    <div class="fest-subtab-pane active" id="pane-fest-main">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Название фестиваля *</label>
+                                <input type="text" class="form-control" id="festTitle" value="Solo & CI Tirol Fest" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Год *</label>
+                                <input type="text" class="form-control" id="festYear" placeholder="2027" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Имя файла в корне сайта *</label>
+                                <input type="text" class="form-control" id="festFileName" placeholder="CITyrolFest2027.html" required>
+                                <small style="color:var(--text-meta); font-size:0.75rem;">Страница будет создана в корне: например, <code>CITyrolFest2027.html</code></small>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Статус фестиваля *</label>
+                                <select class="form-control" id="festStatus">
+                                    <option value="upcoming">Предстоящий (открыта регистрация, кнопка Registration выделена)</option>
+                                    <option value="archived">Прошедший / Архив (вкладка Archive выделена, регистрация закрыта)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Даты и локация (Бейдж в шапке) *</label>
+                            <input type="text" class="form-control" id="festDates" placeholder="August 20 – 27, 2027 · Innsbruck, Austria" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Тема / Подзаголовок Hero</label>
+                                <input type="text" class="form-control" id="festSubtitle" placeholder="«Grounding and off ground: different perspectives to CI»">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Автор темы / Хедлайнер</label>
+                                <input type="text" class="form-control" id="festTopicAuthor" placeholder="Topic by Pedro Penuela">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Афиша в каталоге фестивалей (pages/festival.html)</label>
+                                <div class="image-upload-box">
+                                    <img id="festCatalogImgPreview" class="upload-preview-img" src="../img/festivals/covers/CI_2026.jpg">
+                                    <div style="flex:1;">
+                                        <input type="file" id="festCatalogImgInput" accept="image/*" style="display:none;">
+                                        <button type="button" class="btn btn-sm" onclick="document.getElementById('festCatalogImgInput').click()">Загрузить афишу (каталог)</button>
+                                        <input type="hidden" id="festCatalogImagePath" value="../img/festivals/covers/CI_2026.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Фоновое фото главного экрана (Hero Background)</label>
+                                <div class="image-upload-box">
+                                    <img id="festHeroBgPreview" class="upload-preview-img" src="../img/festivals/2026/bg.jpg">
+                                    <div style="flex:1;">
+                                        <input type="file" id="festHeroBgInput" accept="image/*" style="display:none;">
+                                        <button type="button" class="btn btn-sm" onclick="document.getElementById('festHeroBgInput').click()">Загрузить фон Hero</button>
+                                        <input type="hidden" id="festHeroBgPath" value="img/festivals/2026/bg.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: OVERVIEW -->
+                    <div class="fest-subtab-pane" id="pane-fest-overview">
+                        <div class="editor-section-header">
+                            <h4>Полоса «Быстрые факты» (Quick Facts Strip)</h4>
+                            <p>Компактные карточки с датами, адресом, хедлайнерами и форматом</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Даты проведения</label>
+                                <input type="text" class="form-control" id="festFactDates" placeholder="August 21st to 28th, 2027">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Локация / Адрес</label>
+                                <input type="text" class="form-control" id="festFactLocation" placeholder="Künstlerhaus Büchsenhausen, Weiherburggasse 13, Innsbruck">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Главные преподаватели / Хедлайнеры</label>
+                                <input type="text" class="form-control" id="festFactTeachers" placeholder="Maitane Sarralde, Pedro Penuela, Sarah Sea Clarke">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Формат</label>
+                                <input type="text" class="form-control" id="festFactFormat" placeholder="Classes, Labs, Jams &amp; Rock CI · Performances &amp; Talks">
+                            </div>
+                        </div>
+
+                        <div class="editor-section-header" style="margin-top:20px;">
+                            <h4>Манифест и Концепция</h4>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Тег манифеста</label>
+                            <input type="text" class="form-control" id="festManifestoTag" placeholder="Festival 2027 · August 21st to 28th, 2027">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Главный вопрос / тезис фестиваля (крупный заголовок)</label>
+                            <textarea class="form-control" id="festManifestoTitle" rows="2" placeholder="What does it mean to be grounded — as artists, as humans, as communities — and what happens when we let go of the ground?"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Концепт-блок 1 (Заголовок)</label>
+                                <input type="text" class="form-control" id="festConcept1Label" placeholder="01 / Physical &amp; Philosophical Practice">
+                                <label class="form-label" style="margin-top:8px;">Текст блока 1</label>
+                                <textarea class="form-control" id="festConcept1Text" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Концепт-блок 2 (Заголовок)</label>
+                                <input type="text" class="form-control" id="festConcept2Label" placeholder="02 / Spaces for Dialogue">
+                                <label class="form-label" style="margin-top:8px;">Текст блока 2</label>
+                                <textarea class="form-control" id="festConcept2Text" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top:16px;">
+                            <label class="form-label">В программе фестиваля («As always, the festival will include...», по пункту на строку)</label>
+                            <textarea class="form-control" id="festHighlights" rows="5" placeholder="Daily CI classes, labs, and research sessions, jams with live music
+Teachers’ performances and improvisation events
+Dance screenings and lectures
+Open discussions
+Shared meals and informal gatherings in the heart of the Tirol mountains."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Заключительные слова концепции</label>
+                            <textarea class="form-control" id="festOverviewConclusion" rows="3" placeholder="Motion Mode of Dialogue continues to be a space where art, movement, and social reflection meet — a place for connection, questioning, and discovery..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: REGISTRATION & PASSES -->
+                    <div class="fest-subtab-pane" id="pane-fest-registration">
+                        <div class="editor-section-header">
+                            <h4>Статус и условия бронирования</h4>
+                        </div>
+                        <div class="form-group" style="display:flex; align-items:center; gap:10px; background:var(--bg-off); padding:12px 16px; border-radius:6px; border:1px solid var(--border);">
+                            <input type="checkbox" id="festRegIsClosed" style="width:18px; height:18px;">
+                            <label for="festRegIsClosed" style="margin:0; font-weight:600; cursor:pointer;">Регистрация закрыта (отображать баннер «Registration is now officially closed»)</label>
+                        </div>
+
+                        <div class="form-group" id="festClosedNoticeBox" style="margin-top:12px;">
+                            <label class="form-label">Контакт при закрытой регистрации (WhatsApp / Телефон)</label>
+                            <input type="text" class="form-control" id="festRegWhatsapp" placeholder="+43 677 630 27506">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Вводный текст о ценах и доступности</label>
+                            <textarea class="form-control" id="festRegIntro" rows="3" placeholder="A full week of classes, performances, jams, and lectures is offered at an affordable price..."></textarea>
+                        </div>
+
+                        <div class="editor-section-header" style="margin-top:24px; display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4>Тарифные планы и Пассы</h4>
+                                <p>Билеты на полную неделю, половину фестиваля, раннее бронирование</p>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary" id="addFestPassBtn">+ Добавить тариф</button>
+                        </div>
+                        <div id="festPassesContainer" style="display:flex; flex-direction:column; gap:14px;"></div>
+
+                        <div class="editor-section-header" style="margin-top:28px;">
+                            <h4>Специальное участие: Волонтеры (HELPER)</h4>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Заголовок</label>
+                            <input type="text" class="form-control" id="festHelperTitle" value="Special Participation: HELPER">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Описание обязанностей и условий</label>
+                            <textarea class="form-control" id="festHelperDesc" rows="3" placeholder="Join our community in a unique way! This special participation lets you reduce costs by contributing your hands..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Статус мест для волонтеров</label>
+                            <input type="text" class="form-control" id="festHelperStatus" placeholder="10 helper spots available (или Helper spots are now fully booked! 🙏)">
+                        </div>
+
+                        <div class="editor-section-header" style="margin-top:24px;">
+                            <h4>Поддержка фестиваля (Community Solidarity)</h4>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Текст поддержки сообщества</label>
+                            <textarea class="form-control" id="festSupportText" rows="2" placeholder="Being an independent community festival, every gesture of support and solidarity enables scholarships..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: TEACHERS -->
+                    <div class="fest-subtab-pane" id="pane-fest-teachers">
+                        <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4>Преподаватели фестиваля (Faculty)</h4>
+                                <p>Мастера и хедлайнеры: отдельные поля биографии, фото и возможность добавить 2+ класса/воркшопа на одного учителя</p>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary" id="addFestTeacherBtn">+ Добавить преподавателя</button>
+                        </div>
+                        <div id="festTeachersContainer" style="display:flex; flex-direction:column; gap:16px;"></div>
+                    </div>
+
+                    <!-- TAB 5: PERFORMANCES -->
+                    <div class="fest-subtab-pane" id="pane-fest-performances">
+                        <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4>Перформансы и открытая программа (Public Program)</h4>
+                                <p>Показы, сайт-специфик перформансы, открытые выступления в городе</p>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary" id="addFestPerfBtn">+ Добавить перформанс</button>
+                        </div>
+                        <div id="festPerformancesContainer" style="display:flex; flex-direction:column; gap:16px;"></div>
+                    </div>
+
+                    <!-- TAB 6: MUSICIANS -->
+                    <div class="fest-subtab-pane" id="pane-fest-musicians">
+                        <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4>Музыканты и саунд-артисты</h4>
+                                <p>Живая музыка для джемов, звуковые лаборатории и диджеи</p>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary" id="addFestMusicianBtn">+ Добавить музыканта</button>
+                        </div>
+                        <div id="festMusiciansContainer" style="display:flex; flex-direction:column; gap:16px;"></div>
+                    </div>
+
+                    <!-- TAB 7: PROGRAM -->
+                    <div class="fest-subtab-pane" id="pane-fest-program">
+                        <div class="editor-section-header">
+                            <h4>Программа фестиваля и расписание</h4>
+                            <p>Тамара может прикрепить ссылку на Google Таблицу (обновляется онлайн), загрузить постер с дизайном программы или перечислить ключевые блоки дня.</p>
+                        </div>
+
+                        <!-- 1. Google Sheets Option -->
+                        <div class="form-group" style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:16px; margin-bottom:20px;">
+                            <label class="form-label" style="font-weight:600; color:#0f172a; display:flex; align-items:center; gap:8px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+                                Вариант 1. Ссылка на Google Таблицу (Рекомендуется)
+                            </label>
+                            <input type="url" class="form-control" id="festProgramGoogleSheets" placeholder="https://docs.google.com/spreadsheets/d/.../edit или ссылка публикации pubhtml">
+                            <div class="form-hint" style="margin-top:6px;">
+                                Вставьте сюда любую ссылку на расписание в Google Таблицах. Админка автоматически встроит интерактивную таблицу в страницу фестиваля. Любые правки в Google Sheets будут сразу видны на сайте!
+                            </div>
+                        </div>
+
+                        <!-- 2. Graphic Schedule Poster Option -->
+                        <div class="form-group" style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:16px; margin-bottom:20px;">
+                            <label class="form-label" style="font-weight:600; color:#0f172a; display:flex; align-items:center; gap:8px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                                Вариант 2. Изображение программы (Постер / Дизайн сетки)
+                            </label>
+                            <div class="image-upload-box" style="align-items:flex-start;">
+                                <img id="festProgramImgPreview" class="upload-preview-img" style="width:140px; height:90px; object-fit:cover; display:none; border:1px solid var(--border); border-radius:4px;">
+                                <div style="flex:1;">
+                                    <input type="file" id="festProgramImgFileInput" accept="image/*" style="display:none;">
+                                    <div style="display:flex; gap:10px; align-items:center;">
+                                        <button type="button" class="btn btn-sm btn-outline" id="festProgramImgUploadBtn">Загрузить постер программы (JPG/PNG)</button>
+                                        <button type="button" class="btn btn-sm btn-ghost" id="festProgramImgRemoveBtn" style="display:none; color:#ef4444;">Удалить фото</button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" id="festProgramImagePath" placeholder="Путь к файлу (например: img/festivals/2026/program.jpg)" style="margin-top:8px;">
+                                    <div class="form-hint" style="margin-top:4px;">Готовый экспорт из Canva, Photoshop или верстки дизайнера. На сайте откроется во весь экран по клику.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Intro text -->
+                        <div class="form-group" style="margin-bottom:20px;">
+                            <label class="form-label">Вводный текст / Примечание к расписанию</label>
+                            <textarea class="form-control" id="festProgramIntro" rows="3" placeholder="Our festival program is packed with incredible classes and talks, offering something for everyone. Feel free to follow your own rhythm..."></textarea>
+                        </div>
+
+                        <!-- 4. Text Schedule blocks -->
+                        <div style="border-top:1px solid var(--border); padding-top:16px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                <div>
+                                    <h4 style="margin:0; font-size:1rem;">Вариант 3. Текстовые пункты распорядка дня (Daily Schedule)</h4>
+                                    <p style="margin:0; font-size:0.8rem; color:var(--text-meta);">Используется, если нет таблицы или в дополнение к ней</p>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-outline" id="addFestScheduleBtn">+ Добавить время/блок</button>
+                            </div>
+                            <div id="festScheduleContainer" style="display:flex; flex-direction:column; gap:10px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 8: VENUE & FOOD -->
+                    <div class="fest-subtab-pane" id="pane-fest-venue">
+                        <div class="editor-section-header">
+                            <h4>Локация и залы</h4>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Название площадки</label>
+                                <input type="text" class="form-control" id="festVenueName" placeholder="Künstlerhaus Büchsenhausen">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Точный адрес</label>
+                                <input type="text" class="form-control" id="festVenueAddress" placeholder="Weiherburggasse 13, 6020 Innsbruck, Austria">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Описание здания, залов и атмосферы</label>
+                            <textarea class="form-control" id="festVenueDesc" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Фотографии площадки (пути к изображениям через запятую или перевод строки)</label>
+                            <textarea class="form-control" id="festVenuePhotos" rows="2" placeholder="img/festivals/2026/venue/buchsenhausen.jpg"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Советы по проживанию (Accommodation Guidance)</label>
+                            <textarea class="form-control" id="festAccommodationInfo" rows="3" placeholder="Innsbruck offers a wide range of hostels, apartments, and camp sites. We also coordinate a community hosting network..."></textarea>
+                        </div>
+
+                        <div class="editor-section-header" style="margin-top:28px;">
+                            <h4>Питание (Communal Meals)</h4>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Шеф-повар / Команда кухни</label>
+                            <input type="text" class="form-control" id="festFoodChef" placeholder="Communal Meals by Maya Schwartz">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Описание питания (вегетарианское меню, местные продукты)</label>
+                            <textarea class="form-control" id="festFoodDesc" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- TAB 9: TEAM & PARTNERS -->
+                    <div class="fest-subtab-pane" id="pane-fest-team">
+                        <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4>Команда организаторов</h4>
+                                <p>Организаторы, кураторы, медиа-команда</p>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary" id="addFestTeamBtn">+ Добавить организатора</button>
+                        </div>
+                        <div id="festTeamContainer" style="display:flex; flex-direction:column; gap:14px;"></div>
+
+                        <div class="editor-section-header" style="margin-top:28px; display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h4>Партнеры и институциональная поддержка</h4>
+                                <p>Логотипы и ссылки фондов, театров и культурных департаментов</p>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary" id="addFestPartnerBtn">+ Добавить партнера</button>
+                        </div>
+                        <div id="festPartnersContainer" style="display:flex; flex-direction:column; gap:10px;"></div>
+                    </div>
+
+                    <!-- TAB 10: ARCHIVE -->
+                    <div class="fest-subtab-pane" id="pane-fest-archive">
+                        <div class="editor-section-header">
+                            <h4>Медиа-архив и документация</h4>
+                            <p>Видео с YouTube, ссылка на закрытый аудио-архив и визуальная фотогалерея</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Видеозаписи с YouTube (embed ссылки по одной на строку)</label>
+                            <textarea class="form-control" id="festArchiveVideos" rows="3" placeholder="https://www.youtube.com/embed/GY5zSOqG1iE&#10;https://www.youtube.com/embed/GRJLxgUjeSo"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ссылка на аудиозаписи (Google Drive / внешнее хранилище)</label>
+                            <input type="text" class="form-control" id="festArchiveAudioLink" placeholder="https://drive.google.com/drive/folders/...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Указание автора фотографий</label>
+                            <input type="text" class="form-control" id="festArchivePhotographer" value="Photo by Serhii Semichev">
+                        </div>
+
+                        <!-- Interactive Visual Gallery Dropzone & Grid -->
+                        <div class="form-group" style="margin-top:24px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+                                <div>
+                                    <label class="form-label" style="font-weight:600; font-size:1rem; margin-bottom:2px;">Фотогалерея архива</label>
+                                    <div style="font-size:0.82rem; color:var(--text-meta);">
+                                        Загружено: <strong id="festArchivePhotoCount" style="color:var(--text-main);">0</strong> фото
+                                    </div>
+                                </div>
+                                <div style="display:flex; gap:8px;">
+                                    <input type="file" id="festArchiveMultiFileInput" accept="image/*" multiple style="display:none;">
+                                    <button type="button" class="btn btn-sm btn-primary" id="festArchiveUploadBtn" style="display:flex; align-items:center; gap:6px;">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                                        + Добавить фотографии (мультивыбор)
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-danger" id="festArchiveClearAllBtn" style="display:none;">
+                                        Очистить все
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Drag & Drop Zone -->
+                            <div id="festArchiveDropzone" style="border:2px dashed #cbd5e1; border-radius:8px; padding:24px 16px; text-align:center; background:#f8fafc; cursor:pointer; transition:all 0.2s ease; margin-bottom:16px;">
+                                <div style="color:#64748b; font-size:0.9rem; pointer-events:none;">
+                                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="margin-bottom:6px; display:inline-block;"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7M16 5h6m-3-3v6M4 17l4-4 3 3 5-5 4 4"/></svg>
+                                    <div><strong>Перетащите сюда фотографии</strong> или нажмите для выбора с компьютера</div>
+                                    <div style="font-size:0.75rem; color:#94a3b8; margin-top:4px;">Поддерживаются JPG, PNG, WebP (можно выбрать сразу десятки файлов). Фото автоматически оптимизируются под Full HD.</div>
+                                </div>
+                            </div>
+
+                            <!-- Upload Progress Bar (hidden by default) -->
+                            <div id="festArchiveProgressBarBox" style="display:none; margin-bottom:16px; background:#f1f5f9; border-radius:6px; padding:10px 14px; border:1px solid #e2e8f0;">
+                                <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px; color:#334155;">
+                                    <span id="festArchiveProgressText">Обработка фотографий...</span>
+                                    <span id="festArchiveProgressPercent">0%</span>
+                                </div>
+                                <div style="width:100%; height:6px; background:#e2e8f0; border-radius:3px; overflow:hidden;">
+                                    <div id="festArchiveProgressBar" style="width:0%; height:100%; background:#10b981; transition:width 0.2s ease;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Visual Thumbnail Gallery Grid -->
+                            <div id="festArchiveThumbsGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(95px, 1fr)); gap:10px; max-height:420px; overflow-y:auto; padding:12px; background:#fff; border:1px solid var(--border); border-radius:8px;">
+                                <div style="grid-column:1/-1; text-align:center; padding:32px 16px; color:var(--text-meta); font-size:0.85rem;" id="festArchiveEmptyState">
+                                    В архиве пока нет фотографий. Нажмите «+ Добавить фотографии» или перетащите их в поле выше.
+                                </div>
+                            </div>
+
+                            <!-- Collapsible text area for manual paths inspection -->
+                            <div style="margin-top:12px;">
+                                <button type="button" class="btn btn-sm btn-ghost" id="toggleArchiveRawPathsBtn" style="font-size:0.75rem; color:var(--text-meta);">
+                                    ⚙ Показать пути к файлам (текстовый список)
+                                </button>
+                                <div id="festArchiveRawBox" style="display:none; margin-top:8px;">
+                                    <textarea class="form-control" id="festArchivePhotos" rows="5" placeholder="img/festivals/2026/archive/5R7A9054_compress.jpg"></textarea>
+                                    <div class="form-hint" style="margin-top:4px;">Синхронизируется с визуальной галереей выше.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="editor-page-footer">
+                    <div style="font-size:0.8rem; color:var(--text-meta);">
+                        При сохранении будет сгенерирован полноценный HTML-файл и обновлен каталог.
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <button type="button" class="btn" id="cancelFestivalModal">Отмена</button>
+                        <button type="submit" class="btn btn-primary" id="saveFestBtn">Сохранить фестиваль и создать страницу</button>
+                    </div>
+                </div>
+            </form>
+                </div>
+            </section>
+
+            <!-- SECTION 4: CLASSES -->
+            <section class="admin-panel-section" id="sec-classes">
+                <!-- Classes List View -->
+                <div id="classesListView">
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+                        <p style="font-size:0.85rem; color:var(--text-meta);">Список регулярных курсов и программ на странице <a href="../pages/classes.html" target="_blank" class="admin-page-link">pages/classes.html ↗</a></p>
+                    </div>
+                    <div class="cards-list" id="classesList"></div>
+                </div>
+
+                <!-- Classes Editor View (Full Page) -->
+                <div id="classesEditorView" class="editor-page-view" style="display: none;">
+                    <div class="editor-page-header">
+                        <div class="editor-header-left">
+                            <button type="button" class="btn btn-back" id="backClassesBtn" title="Вернуться к списку">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Назад к занятиям
+                            </button>
+                            <div class="editor-header-title">
+                                <h2 id="modalClassesTitle">Редактировать курс</h2>
+                                <p>Расписание, залы, даты по месяцам и кнопки оплаты Stripe на classes.html</p>
+                            </div>
+                        </div>
+                        <div class="editor-header-actions">
+                            <button type="button" class="btn" id="closeClassesModal">Отмена</button>
+                            <button type="button" class="btn btn-primary" onclick="document.getElementById('saveClassesBtn').click()">Сохранить курс</button>
+                        </div>
+                    </div>
+
+                    <form id="classesForm">
+                        <div class="editor-page-body">
+                            <input type="hidden" id="classIndex">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Сезон / Тег</label>
+                                    <input type="text" class="form-control" id="classTag" placeholder="September – December 2026 · Innsbruck" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Заголовок курса / группы</label>
+                                    <input type="text" class="form-control" id="classTitle" placeholder="Body Work — Weekly Classes in Innsbruck" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Афиша курса (Изображение)</label>
+                                <div class="image-upload-box">
+                                    <img id="classImgPreview" class="upload-preview-img" src="../img/pages/classes/bodywork_course.jpg">
+                                    <div style="flex:1;">
+                                        <input type="file" id="classImgFileInput" accept="image/*" style="display:none;">
+                                        <button type="button" class="btn btn-sm" onclick="document.getElementById('classImgFileInput').click()">Загрузить новое фото</button>
+                                        <div class="form-hint" style="margin-top:6px;">Сжимается на клиенте до 1920px (LANCZOS).</div>
+                                        <input type="hidden" id="classImgPath">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Описание курса (Введение)</label>
+                                <textarea class="form-control" id="classIntro" rows="3" placeholder="Body Work is a gentle, guided movement practice..."></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Расписание (Дни недели)</label>
+                                    <input type="text" class="form-control" id="classSchedule" placeholder="Most Wednesdays (Sep – Dec 2026)">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Время</label>
+                                    <input type="text" class="form-control" id="classTime" placeholder="Arrive 17:00 · Start 17:15 · End 18:45">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Локация / Зал</label>
+                                    <input type="text" class="form-control" id="classVenue" placeholder="Meditationszentrum, Brixnerstraße 4, Innsbruck">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Размер группы</label>
+                                    <input type="text" class="form-control" id="classGroupSize" placeholder="Minimum 6 participants per class">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                    <label class="form-label" style="margin:0;">Даты по месяцам</label>
+                                    <button type="button" class="btn btn-sm" id="addClassDateRow">+ Добавить месяц</button>
+                                </div>
+                                <div id="classDatesContainer" style="display:flex; flex-direction:column; gap:8px;"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Стоимость</label>
+                                <input type="text" class="form-control" id="classPriceInfo" placeholder="15–25 € per class (sliding scale)">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Правила отмены / Политика возврата (Policy)</label>
+                                <textarea class="form-control" id="classPolicy" rows="2" placeholder="Should a class need to be cancelled for any reason..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Примечание к записи / Контакты</label>
+                                <input type="text" class="form-control" id="classContactNote" placeholder="Full season registration is open now. Single attendance by contacting Tamara Maksymenko: +43 677 630 275 06">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Кнопки оплаты Stripe (Текст | Ссылка)</label>
+                                <div id="classButtonsContainer" style="display:flex; flex-direction:column; gap:8px;"></div>
+                                <button type="button" class="btn btn-sm" id="addClassBtnRow" style="align-self:flex-start; margin-top:4px;">+ Добавить кнопку оплаты</button>
+                            </div>
+                        </div>
+
+                        <div class="editor-page-footer">
+                            <div style="font-size:0.82rem; color:var(--text-meta);">
+                                Обновляет блок актуального курса на странице classes.html
+                            </div>
+                            <div style="display:flex; gap:10px;">
+                                <button type="button" class="btn" id="cancelClassesModal">Отмена</button>
+                                <button type="submit" class="btn btn-primary" id="saveClassesBtn">Сохранить и обновить страницу Classes</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SECTION 5: EVENTS -->
+            <section class="admin-panel-section" id="sec-events">
+                <!-- Events List View -->
+                <div id="eventsListView">
+                    <div class="subtabs">
+                        <button class="subtab-btn active" data-tab="upcoming">
+                            Предстоящие <span class="subtab-count" id="count-upcoming">0</span>
+                        </button>
+                        <button class="subtab-btn" data-tab="past_tirol">
+                            Прошедшие (в Тироле) <span class="subtab-count" id="count-past-tirol">0</span>
+                        </button>
+                        <button class="subtab-btn" data-tab="past_abroad">
+                            Прошедшие (за рубежом) <span class="subtab-count" id="count-past-abroad">0</span>
+                        </button>
+                    </div>
+
+                    <div class="cards-list" id="eventsList"></div>
+                </div>
+
+                <!-- Events Editor View (Full Page) -->
+                <div id="eventsEditorView" class="editor-page-view" style="display: none;">
+                    <div class="editor-page-header">
+                        <div class="editor-header-left">
+                            <button type="button" class="btn btn-back" id="backEventsBtn" title="Вернуться к списку">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Назад к событиям
+                            </button>
+                            <div class="editor-header-title">
+                                <h2 id="modalEventTitle">Редактирование события</h2>
+                                <p>Заполните параметры события и загрузите афишу</p>
+                            </div>
+                        </div>
+                        <div class="editor-header-actions">
+                            <button type="button" class="btn" id="closeEventModal">Отмена</button>
+                            <button type="button" class="btn btn-primary" onclick="document.getElementById('saveEventSubmitBtn').click()">Сохранить событие</button>
+                        </div>
+                    </div>
+
+                    <form id="eventModalForm">
+                        <div class="editor-page-body">
+                            <input type="hidden" id="evtId">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Категория события</label>
+                                    <select class="form-control" id="evtCategory">
+                                        <option value="upcoming">Предстоящие (Upcoming)</option>
+                                        <option value="past_tirol">Прошедшие в Тироле (Past in Tirol)</option>
+                                        <option value="past_abroad">Прошедшие за рубежом (Past Abroad)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Ссылка на страницу (если есть)</label>
+                                    <input type="text" class="form-control" id="evtCardLink" placeholder="например, projects/coastal_reverie.html">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Название события</label>
+                                <input type="text" class="form-control" id="evtTitle" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Кто ведёт / Преподаватели (Подзаголовок)</label>
+                                <input type="text" class="form-control" id="evtSubtitle" placeholder="With Serhii Semichev, Sergey Golovnya...">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Афиша события (Изображение)</label>
+                                <div class="image-upload-box">
+                                    <img id="evtImgPreview" class="upload-preview-img" src="../img/pages/events/jam.jpg">
+                                    <div style="flex:1;">
+                                        <input type="file" id="evtImgFileInput" accept="image/*" style="display:none;">
+                                        <button type="button" class="btn btn-sm" onclick="document.getElementById('evtImgFileInput').click()">Выбрать файл с диска</button>
+                                        <div class="form-hint" style="margin-top:6px;">Сжимается на клиенте в Full HD JPEG на лету.</div>
+                                        <input type="hidden" id="evtImagePath">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Даты, время, место и описание</label>
+                                <textarea class="form-control" id="evtContent" rows="4" placeholder="Каждый абзац с новой строки..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Стоимость и покупка билетов</label>
+                                <input type="text" class="form-control" id="evtPrice" placeholder="например, 20€ / 25€ / 30€">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Кнопки оплаты Stripe / Ссылки</label>
+                                <div id="evtButtonsContainer" style="display:flex; flex-direction:column; gap:8px;"></div>
+                                <button type="button" class="btn btn-sm" id="addEvtBtnRow" style="align-self:flex-start; margin-top:4px;">+ Добавить кнопку</button>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Подробности спойлера (Learn more)</label>
+                                <textarea class="form-control" id="evtLearnMore" rows="3" placeholder="Дополнительное описание при раскрытии спойлера..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="editor-page-footer">
+                            <button type="button" class="btn" id="cancelEventModal">Отмена</button>
+                            <button type="submit" class="btn btn-primary" id="saveEventSubmitBtn">Сохранить событие</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SECTION 6: PUBLISH & GIT SYNC -->
+            <section class="admin-panel-section" id="sec-publish">
+                <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:32px;  display:flex; flex-direction:column; gap:24px;">
+                    <div>
+                        <span class="badge" style="background:#ecfdf5; color:#065f46; margin-bottom:8px;">Интеграция с GitHub</span>
+                        <h2 style="font-size:1.35rem; font-weight:600; margin-top:6px;">Публикация на сайт (Commit &amp; Push)</h2>
+                        <p style="color:var(--text-secondary); margin-top:6px; font-size:0.88rem;">
+                            Админка пересобирает страницы, сжимает фотографии и напрямую отправляет изменения в репозиторий <code>mmdtat/mmdtat.github.io</code>. Сайт обновляется автоматически без сторонних программ.
+                        </p>
+                    </div>
+
+                    <div style="background:#f9f9f9; border:1px solid var(--border); border-radius:6px; padding:16px; display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span class="form-label">Статус подключения</span>
+                            <span id="gitStatusBadge" class="badge" style="background:#e0f2fe; color:#0369a1;">Проверка...</span>
+                        </div>
+                        <div id="repoModeDetails" style="font-size:0.85rem; color:var(--text-meta);"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Комментарий к публикации (необязательно)</label>
+                        <input type="text" class="form-control" id="commitMsgInput" placeholder="например: Добавила новый воркшоп и обновила даты">
+                    </div>
+
+                    <div style="display:flex; flex-wrap:wrap; gap:12px;">
+                        <button class="btn btn-primary" id="gitPushBtn" style="padding:14px 28px; font-size:0.95rem; font-weight:600; background:#000;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>
+                            Опубликовать на сайт (Commit &amp; Push)
+                        </button>
+                        <button class="btn" id="rebuildAllBtn" style="padding:14px 16px;">
+                            Пересобрать HTML
+                        </button>
+                    </div>
+
+                    <div id="gitLogBox" style="display:none; background:#0e0e0e; color:#00ff66; padding:16px; border-radius:6px; font-family:var(--font-mono); font-size:0.8rem; line-height:1.4; white-space:pre-wrap; max-height:220px; overflow-y:auto;"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal for GitHub Token Setup (Tamara / Alex) -->
+    <div class="modal-overlay" id="githubTokenModal">
+        <div class="modal-dialog" style="max-width: 580px;">
+            <div class="modal-header">
+                <h2>Настройка доступа к GitHub (Для Тамары)</h2>
+                <button type="button" class="modal-close-btn" id="closeTokenModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+                    Чтобы публиковать изменения прямо из браузера (без сторонних программ и без Git), укажите один раз ваш <strong>GitHub Personal Access Token</strong>. Он будет надёжно сохранён в вашем браузере.
+                </p>
+
+                <div class="form-group" style="margin-top: 12px;">
+                    <label class="form-label">Персональный токен GitHub (PAT)</label>
+                    <input type="password" class="form-control" id="githubPatInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+                    <div class="form-hint" style="margin-top:6px;">
+                        Токен генерируется в GitHub: <em>Settings &rarr; Developer Settings &rarr; Personal access tokens &rarr; Tokens (classic)</em> с галочкой <code>repo</code>.
+                    </div>
+                </div>
+
+                <div id="tokenTestResult" style="display:none; padding:12px; border-radius:6px; font-size:0.85rem;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" id="clearTokenBtn">Сбросить</button>
+                <button type="button" class="btn" id="testTokenBtn">Проверить</button>
+                <button type="button" class="btn btn-primary" id="saveTokenBtn">Сохранить токен</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Box -->
+    <div class="toast-box" id="toastBox"></div>
+
+    <script src="client-compressor.js"></script>
+    <script src="github-api.js"></script>
+    <script src="template-generator.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

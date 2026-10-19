@@ -1,0 +1,19 @@
+{
+  "site_title": "MMDT — Motion Mode of Dialogue in Tirol",
+  "site_description": "Association of visual and performative art in Innsbruck, Austria.",
+  "hero_title": "Motion Mode<br>of Dialogue in Tirol",
+  "hero_subtitle": "Association of visual and performative art · Innsbruck, Austria",
+  "next_event_badge": {
+    "label": "Next: Solo & CI Tirol Fest 2026 →",
+    "url": "CITyrolFest2026.html"
+  },
+  "news_badge": {
+    "label": "News & Updates →",
+    "url": "pages/news.html"
+  },
+  "photo_credit": "Eugene Hill",
+  "photo_credit_url": "https://makeportraits.in.ua",
+  "contact_email": "mm.of.dialogue.in.tyrol@gmail.com",
+  "github_repo": "mmdtat/mmdtat.github.io",
+  "repo_path": "D:\\Алексей\\01_Рабочие_проекты\\mmdtat\\GitHub\\MMDT_AT"
+}

@@ -1,0 +1,33 @@
+[
+  {
+    "id": "bodywork",
+    "title": "Body Work — Weekly Classes in Innsbruck",
+    "tag": "September – December 2026 · Innsbruck",
+    "image": "../img/pages/classes/bodywork_course.jpg",
+    "intro": "Body Work is a gentle, guided movement practice rooted in somatic and movement-based traditions. We explore the body with curiosity and care — through slow movement, breath, and natural contact with others. No experience needed. No right or wrong. Just show up.",
+    "schedule": "Most Wednesdays (Sep – Dec 2026)",
+    "time": "Arrive 17:00 · Start 17:15 · End 18:45",
+    "venue": "Meditationszentrum, Brixnerstraße 4, Innsbruck",
+    "group_size": "Minimum 6 participants per class",
+    "upcoming_dates": {
+      "September": "8, 9, 22, 23",
+      "October": "7, 14, 21, 28",
+      "November": "4, 11, 18, 25",
+      "December": "2, 9, 16, 23, 30"
+    },
+    "price_info": "15–25 € per class (sliding scale)<br><strong>Full season pass (17 classes):</strong> 220 €, 255 €",
+    "policy": "Should a class need to be cancelled for any reason, the session will either be rescheduled at a time that works for everyone, or the amount will be deducted from your total.",
+    "contact_note": "Full season registration is open now. Single attendance by contacting Tamara Maksymenko: +43 677 630 275 06",
+    "contact_phone": "+4367763027506",
+    "buttons": [
+      {
+        "label": "Double discount",
+        "url": "https://buy.stripe.com/6oUfZhg4o0IE3asgM6d3i10"
+      },
+      {
+        "label": "Discount",
+        "url": "https://buy.stripe.com/6oU4gz05q2QMcL21Rcd3i11"
+      }
+    ]
+  }
+]

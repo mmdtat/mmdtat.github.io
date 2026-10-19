@@ -1,0 +1,305 @@
+{
+  "upcoming": [
+    {
+      "id": "evt-1",
+      "title": "Coastal Reverie",
+      "subtitle": "",
+      "image": "../img/pages/events/coastal_reverie.gif",
+      "video_url": "",
+      "content": [
+        "Three days in Çıralı, Turkey, at a beautiful eco-bungalow hotel by the sea, offering space for dance, improvisation, and creative exploration. Pedro Penuella, a psychotherapist, shares his knowledge of contact improvisation through a somatic approach, drawing on his therapeutic experience, while Tamara Maksimenko leads poetic, inspired movement practices exploring love and rejection, acceptance and denial, in solo and paired work.\n                            <br/><br/>\n                            The seaside atmosphere and the surrounding mountains naturally encourage shared time together, from gentle walks and local excursions to evening jams, offering three days to move, breathe, connect, and simply be. Open to all genders, 18+, in a supportive and open environment."
+      ],
+      "price_html": "",
+      "buttons": [
+        {
+          "label": "More Info & Registration",
+          "url": "projects/coastal_reverie.html"
+        }
+      ],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_1"
+    },
+    {
+      "id": "evt-2",
+      "title": "The Silence of the Mass",
+      "subtitle": "",
+      "image": "../img/projects/covers/TheSilenceoftheMass.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> 24 - 26 October 2025<br/>\n<strong>Where:</strong> BRUX Freies Theater<br/>\n<strong>Time:</strong> 19:00<br/>\n<strong>Price:</strong> 20€ / 25€ / 30€\n                            <br/><br/>\n                            The Silence of the Mass is an international dance performance that explores silence as a social phenomenon—not as absence, but as a collective experience of resistance, passivity, and emotional resonance."
+      ],
+      "price_html": "<strong>Buy Tickets &amp; Reservation:</strong><br/>\n                            Please reserve via: <a href=\"mailto:info@brux.at\" style=\"text-decoration: underline;\">info@brux.at</a>",
+      "buttons": [
+        {
+          "label": "More Info",
+          "url": "projects/the_silence_of_the_mass.html"
+        }
+      ],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_2"
+    },
+    {
+      "id": "evt-3",
+      "title": "Contact Improvisation Workshops",
+      "subtitle": "With Serhii Semichev, Sergey Golovnya and Alexandra Soshnikova",
+      "image": "../img/pages/events/contact-improv-workshop.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> 25 - 26 October 2025<br/>\n<strong>Time:</strong> 10:00 - 13:00<br/>\n<strong>Schedule:</strong><br/>\n                            - 25 October: Alexandra Soshnikova and Sergey Golovnya<br/>\n                            - 26 October: Serhii Semichev"
+      ],
+      "price_html": "",
+      "buttons": [
+        {
+          "label": "Register for Both Days",
+          "url": "https://buy.stripe.com/6oU28r3hC8b68uManId3i0M"
+        },
+        {
+          "label": "Register 25.10 Only",
+          "url": "https://buy.stripe.com/8x27sL7xS772fXecvQd3i0N"
+        },
+        {
+          "label": "Register 26.10 Only",
+          "url": "https://buy.stripe.com/cNiaEXcScezu9yQ8fAd3i0O"
+        }
+      ],
+      "learn_more_html": "<img src=\"../img/pages/events/VOICES_dance_duet.jpg\" style=\"max-width: 100%; margin-top: 8px; border: 1px solid var(--border);\"/>",
+      "learn_more_id": "info__body_voices"
+    },
+    {
+      "id": "evt-4",
+      "title": "Invited Voice project in collaboration with local CI community",
+      "subtitle": "",
+      "image": "../img/pages/events/Olena Polianska.png",
+      "video_url": "https://www.youtube-nocookie.com/embed/LCOkvBreqx4?si=ATEQFkuR5-tpxE3a",
+      "content": [
+        "<strong>When:</strong> Thursday 26th of June (19:00 - 21:00)<br/>\n<strong>Where:</strong> Falkstrasse 26, Innsbruck<br/>\n<strong>Details:</strong> Workshop on Contact Improvisation with Olena Polianska (Ukraine/Germany)<br/>\n<strong>Price:</strong> 15-25 euros on donation (No registration needed, just drop in)<br/>\n<br/>\n<strong>When:</strong> Friday 27th of June (19:00 - 20:00)<br/>\n<strong>Where:</strong> Kunstraum Innsbruck (in the frame of the exhibition of Michaela Schwarz)<br/>\n<strong>Details:</strong> Durational performance by Olena Polyanska and Tamara Maksymenko"
+      ],
+      "price_html": "",
+      "buttons": [
+        {
+          "label": "Event Details in KUNSTRAUM",
+          "url": "https://www.kunstraum-innsbruck.at/programm/michaela-schwarz-weismann"
+        }
+      ],
+      "learn_more_html": "<strong>Description of class (26.06.2025 \"Walking as Mapping\"):</strong><br/>\n                                In this class, we explore how walking becomes the foundation of movement and a point of support for our dance. Through working with weight, attention, balance, and contact listening, we create a \"map\" of interaction — with space, with a partner, and with ourselves. We combine structured physical tasks, somatic observation, and improvisational research to practice embodied presence and performative sensitivity.<br/><br/>\n<strong>Olena Polianska:</strong><br/>\n                                Moving and teaching performer, facilitator. She explores how movement resists rigid structures and fosters dynamic, fluid expression, particularly in contexts of displacement and cultural hybridity. Her artistic practice is strongly rooted in Contact Improvisation and Instant Composition, focusing on somatic, performative, and improvisational approaches. Olena has participated in and taught at international festivals in Ukraine, Poland, Austria, Israel, Bulgaria, and Germany.",
+      "learn_more_id": "info__body_invited"
+    },
+    {
+      "id": "evt-5",
+      "title": "The Performative Movement Lab: Exploring Dance Research & Performance",
+      "subtitle": "",
+      "image": "../img/pages/events/movement_performative_lab.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>Where:</strong> Poledance Playground Studio<br/>\n<strong>When:</strong> April 5, May 10, June 7<br/>\n<strong>Time:</strong> 13:00 - 16:00"
+      ],
+      "price_html": "<strong>Cost:</strong><br/>\n                            - Without membership: 25€ per session / 60€ for all three<br/>\n                            - With membership (20% discount): 20€ per session / 48€ for all three",
+      "buttons": [
+        {
+          "label": "1 Session (No Membership)",
+          "url": "https://buy.stripe.com/6oE4jf3ofe5a5Co5kI"
+        },
+        {
+          "label": "3 Sessions (No Membership)",
+          "url": "https://buy.stripe.com/6oEcPL2kb4uAd4QbJ7"
+        },
+        {
+          "label": "1 Session (With Membership)",
+          "url": "https://buy.stripe.com/3cseXT0c35yE9SE4gG"
+        },
+        {
+          "label": "3 Sessions (With Membership)",
+          "url": "https://buy.stripe.com/8wMaHDgb1d16c0MaF5"
+        }
+      ],
+      "learn_more_html": "We offer a three-part workshop series where movement meets exploration! Open to all levels, this lab is designed for dancers, performers, and movers curious about how research-based movement can shape performance. Each session introduces guided tasks, playful experiments, and group explorations.<br/><br/>\n<strong>Session 1: Foundations of Movement Research</strong><br/>\n                                Discover new ways to move through guided prompts, sensory exploration, and playful tasks.<br/><br/>\n<strong>Session 2: Embodying Space &amp; Intention</strong><br/>\n                                Explore how movement interacts with space, dynamics, and intention. Work with structured improvisation.<br/><br/>\n<strong>Session 3: From Exploration to Performance</strong><br/>\n                                Bridge movement research with performative choices. Experiment with how movement is shared with an audience.",
+      "learn_more_id": "info__body_lab"
+    },
+    {
+      "id": "evt-6",
+      "title": "An artistic exchange and research through drawings",
+      "subtitle": "",
+      "image": "../img/pages/events/artistic exchange.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>Dates &amp; Settings:</strong> 29.3. (forest); 10.5. (river); 21.6. (mountain)<br/>\n<strong>Duration:</strong> 3 hours each<br/>\n<strong>Material:</strong> Paper and pen(s), good outdoor shoes and gear"
+      ],
+      "price_html": "<strong>Cost:</strong><br/>\n                            - Without membership: 32€<br/>\n                            - With membership: 26€",
+      "buttons": [
+        {
+          "label": "Book (No Membership)",
+          "url": "https://buy.stripe.com/6oEcPL8IzgdifcYfZr"
+        },
+        {
+          "label": "Book (With Membership)",
+          "url": "https://buy.stripe.com/3csaHD4sjf9ed4Q9B4"
+        }
+      ],
+      "learn_more_html": "Together we will walk to different environments and take time to observe, explore and discover. The practice of 'walking' activates an inner energy to flow and initiates a process. The Art Walks are an invitation to focus on your gaze. Where does it want to go? Where does it stop? What does it discover? The dialogue between the outside and inside world takes place by means of drawing.<br/><br/>\n                                The art walk is therefore not a drawing course, but a magical form of expression and communication connecting the outside world with the inside world. In addition to registering, please send us an email specifying which Art Walk you would like to join. You will receive details about meeting points a few days before the event.",
+      "learn_more_id": "info__body_artwalk"
+    }
+  ],
+  "past_tirol": [
+    {
+      "id": "evt-7",
+      "title": "Contact Improvisation Workshop: Precarious Balances",
+      "subtitle": "With Dilek Üstünalan (Turkey)",
+      "image": "../img/common/shared/Dilek-Üstünalan.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> February 10th - 11th<br/>\n<strong>Schedule:</strong> Saturday and Sunday: 12:00 - 15:00/16:00<br/>\n<strong>Where:</strong> Falkstraße 26, 6020 Innsbruck"
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "<strong>Workshop Description:</strong><br/>\n                                In this workshop, we explore fluid and temporary balancing moments. We practice falling into different directions, rising up with the support of the ground, feeling both our own and our partners' connection to the earth while off-balance. We inhabiting challenging situations and explore how we settle in.<br/><br/>\n<strong>Bio:</strong><br/>\n                                Dilek Üstünalan is a dancer, researcher, sociologist, non-formal education facilitator, and massage therapist based in İstanbul. She is a PhD researcher in Trento, Italy. She organizes CI workshops, camps, jams, and labs, and is part of the team of the annual Fall in CI gathering in Turkey. She studied with many instructors and shared the dance in gatherings like ImPulsTanz, Freiburg, and CECITE.",
+      "learn_more_id": "info__body_dilek"
+    },
+    {
+      "id": "evt-8",
+      "title": "Module of 5 Dance Sessions in Tirol",
+      "subtitle": "",
+      "image": "../img/pages/events/dance_workshops.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> 30.03; 06.04; 13.04; 20.04; 27.04<br/>\n<strong>Time:</strong> 18:00 - 19:30<br/>\n<strong>Where:</strong> Falkstraße 26, 6020 Innsbruck<br/>\n<strong>Cost:</strong> 100€"
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_8"
+    },
+    {
+      "id": "evt-9",
+      "title": "Dance Theatre Performance: HINDURCH",
+      "subtitle": "By Thomas Mettler and Tamara Maksymenko",
+      "image": "../img/pages/events/Hindurch_Plakat_page-0001.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> February 9th, 10th, 11th<br/>\n<strong>Where:</strong> BRUX Freies Theater, Innsbruck<br/>\n<strong>Details:</strong> Dedicated to Ukrainian artists and people affected by the war."
+      ],
+      "price_html": "",
+      "buttons": [
+        {
+          "label": "More Info",
+          "url": "projects/hindurch.html"
+        }
+      ],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_9"
+    },
+    {
+      "id": "evt-10",
+      "title": "Contact Improvisation Class and Jam",
+      "subtitle": "",
+      "image": "../img/pages/events/Dmytro_Vikhrov.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> February 12th<br/>\n<strong>Time:</strong> 12:00 - 15:00<br/>\n<strong>Cost:</strong> 20 - 30€"
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_10"
+    },
+    {
+      "id": "evt-11",
+      "title": "Contemporary Pole Dance Flow Workshop",
+      "subtitle": "",
+      "image": "../img/pages/events/poledance.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> November 25th<br/>\n<strong>Time:</strong> 18:00 - 19:15<br/>\n<strong>Price:</strong> 25€"
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_11"
+    },
+    {
+      "id": "evt-12",
+      "title": "Ecstatic Dance",
+      "subtitle": "",
+      "image": "",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> November 26th<br/>\n<strong>Details:</strong> Ecstatic Dance with warm up - Contact Improvisation led by Tamara Maksymenko."
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_12"
+    },
+    {
+      "id": "evt-13",
+      "title": "Contemporary Dance & Contact Improvisation Workshop",
+      "subtitle": "",
+      "image": "../img/pages/events/contdance.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> December 4th<br/>\n<strong>Schedule:</strong><br/>\n                            - 12:00 - 13:30 Contemporary Dance with Rebecca Plattner<br/>\n                            - 14:00 - 16:00 Contact Improvisation with Tamara Maksymenko<br/>\n                            - 16:00 - 18:00 Jam with live violin music by Denis Vasylynets<br/>\n<strong>Where:</strong> Falkstraße 26, 6020 Innsbruck"
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_13"
+    }
+  ],
+  "past_abroad": [
+    {
+      "id": "evt-14",
+      "title": "Contact Improvisation session & JAM (Antalya, Turkey)",
+      "subtitle": "With Tamara Maksymenko and Dmitry Usov",
+      "image": "../img/pages/events/antalia.jpg",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> January 8th<br/>\n<strong>Time:</strong> 14:00 - 17:00<br/>\n<strong>Where:</strong> Çağlayan, Barınaklar Blv. No: 56, Muratpaşa/Antalya, Turkey"
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_14"
+    },
+    {
+      "id": "evt-15",
+      "title": "Israeli Contact Improvisation Festival",
+      "subtitle": "",
+      "image": "",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> December 20 - 31, 2022<br/>\n<strong>Where:</strong> Israel"
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_15"
+    },
+    {
+      "id": "evt-16",
+      "title": "\"Hug and Push\" — Contact Improvisation Workshop",
+      "subtitle": "",
+      "image": "",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> December 8th - 10th, 2022<br/>\n<strong>Where:</strong> Near Vienna, Austria"
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_16"
+    },
+    {
+      "id": "evt-17",
+      "title": "Performance HINDURCH in Istanbul",
+      "subtitle": "",
+      "image": "",
+      "video_url": "",
+      "content": [
+        "<strong>When:</strong> January 26th - 28th, 2023<br/>\n<strong>Where:</strong> Istanbul, Turkey"
+      ],
+      "price_html": "",
+      "buttons": [],
+      "learn_more_html": "",
+      "learn_more_id": "info__body_17"
+    }
+  ]
+}

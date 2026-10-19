@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Contact Improvisation Workshop & Jam with Live Music",
+    "subtitle": "With Tamara Maksymenko & Vira Lozova (cello, vocal)",
+    "image": "../img/pages/events/jam.jpg",
+    "content": [
+      "<strong>When:</strong> March 21 / 19:00<br/>\n<strong>Where:</strong> Innsbruck, Falkstraße 26<br/>\n<strong>Cost:</strong> Donation from 15 € (15% discount for association members)\n                        <br/><br/>\n                        Topic: \"Extensions and contractions\" in the basic form of Contact Improvisation. Exploring open and closed forms of the body in duo communication."
+    ],
+    "buttons": []
+  },
+  {
+    "title": "Contact Tango in Innsbruck",
+    "subtitle": "With Raffaele Rufo (Italy)",
+    "image": "../img/pages/events/Raffaele-Rufo.jpg",
+    "content": [
+      "<strong>Dates:</strong> April 20 – 21<br/>\n<strong>Early Bird:</strong> Available until March 31"
+    ],
+    "buttons": [
+      {
+        "label": "Event Details (FB)",
+        "url": "https://www.facebook.com/events/1037479630882812/?ref=newsfeed"
+      },
+      {
+        "label": "More Info",
+        "url": "https://facebook.com/events/s/contact-meets-tango-in-innsbru/671066901904877/"
+      }
+    ]
+  },
+  {
+    "title": "Contact Improvisation Workshop",
+    "subtitle": "With Dilek Üstünalan (Turkey)",
+    "image": "../img/common/shared/Dilek-Üstünalan.jpg",
+    "content": [],
+    "buttons": [
+      {
+        "label": "Read More",
+        "url": "projects/through_film.html#project"
+      }
+    ]
+  }
+]

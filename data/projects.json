@@ -1,0 +1,72 @@
+[
+  {
+    "title": "The Silence of the Mass",
+    "year": "2025",
+    "image": "../img/projects/covers/TheSilenceoftheMass.jpg",
+    "url": "projects/the_silence_of_the_mass.html",
+    "page_file": "pages/projects/the_silence_of_the_mass.html"
+  },
+  {
+    "title": "Project ANNA",
+    "year": "2025",
+    "image": "../img/projects/covers/project_ANNA.jpg",
+    "url": "projects/anna.html",
+    "page_file": "pages/projects/anna.html"
+  },
+  {
+    "title": "Coastal Reverie",
+    "year": "2024",
+    "image": "../img/pages/events/coastal_reverie.gif",
+    "url": "projects/coastal_reverie.html",
+    "page_file": "pages/projects/coastal_reverie.html"
+  },
+  {
+    "title": "Code of Dance",
+    "year": "2024",
+    "image": "../img/projects/covers/Code_of_dance.png",
+    "url": "projects/code_of_dance.html",
+    "page_file": "pages/projects/code_of_dance.html"
+  },
+  {
+    "title": "Hindurch",
+    "year": "2022",
+    "image": "../img/projects/covers/Hindurch.png",
+    "url": "projects/hindurch.html",
+    "page_file": "pages/projects/hindurch.html"
+  },
+  {
+    "title": "Witnessing",
+    "year": "2021",
+    "image": "../img/projects/witnessing/innsbruk_1x1.jpg",
+    "url": "projects/witnessing.html",
+    "page_file": "pages/projects/witnessing.html"
+  },
+  {
+    "title": "Through Film",
+    "year": "2020",
+    "image": "../img/projects/covers/through.jpg",
+    "url": "projects/through_film.html",
+    "page_file": "pages/projects/through_film.html"
+  },
+  {
+    "title": "Honor My Sister",
+    "year": "2020",
+    "image": "../img/projects/covers/iwthms1.jpg",
+    "url": "projects/I_want_to_honor_my_sister.html",
+    "page_file": "pages/projects/I_want_to_honor_my_sister.html"
+  },
+  {
+    "title": "La Loba",
+    "year": "2019",
+    "image": "../img/projects/covers/LaLoba.jpg",
+    "url": "projects/LaLoba.html",
+    "page_file": "pages/projects/LaLoba.html"
+  },
+  {
+    "title": "DNAture",
+    "year": "2018",
+    "image": "../img/projects/covers/DNAture_small.jpg",
+    "url": "projects/DNAture.html",
+    "page_file": "pages/projects/DNAture.html"
+  }
+]
