@@ -51,6 +51,36 @@ def get_git_status(repo_path):
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
+def get_windows_github_token():
+    """Reads cached GitHub OAuth token from Windows Credential Manager if present."""
+    try:
+        import ctypes
+        from ctypes import wintypes
+        class CREDENTIAL(ctypes.Structure):
+            _fields_ = [
+                ('Flags', wintypes.DWORD),
+                ('Type', wintypes.DWORD),
+                ('TargetName', wintypes.LPWSTR),
+                ('Comment', wintypes.LPWSTR),
+                ('LastWritten', wintypes.FILETIME),
+                ('CredentialBlobSize', wintypes.DWORD),
+                ('CredentialBlob', ctypes.POINTER(ctypes.c_byte)),
+                ('Persist', wintypes.DWORD),
+                ('AttributeCount', wintypes.DWORD),
+                ('Attributes', ctypes.c_void_p),
+                ('TargetAlias', wintypes.LPWSTR),
+                ('UserName', wintypes.LPWSTR),
+            ]
+        CredRead = ctypes.windll.advapi32.CredReadW
+        CredRead.argtypes = [wintypes.LPCWSTR, wintypes.DWORD, wintypes.DWORD, ctypes.POINTER(ctypes.POINTER(CREDENTIAL))]
+        CredRead.restype = wintypes.BOOL
+        pcred = ctypes.POINTER(CREDENTIAL)()
+        if CredRead('GitHub - https://api.github.com/mmdtat', 1, 0, ctypes.byref(pcred)):
+            return bytes(pcred.contents.CredentialBlob[:pcred.contents.CredentialBlobSize]).decode('utf-8', errors='ignore').strip()
+    except Exception:
+        pass
+    return None
+
 def commit_and_push(repo_path, commit_message="Update site content from MMDT Admin"):
     git_exe = find_git_exe()
     if not git_exe:
@@ -97,16 +127,19 @@ def commit_and_push(repo_path, commit_message="Update site content from MMDT Adm
         if commit_res.returncode != 0:
             return {"ok": False, "error": f"git commit error: {commit_res.stderr}"}
 
-        # 4. git push
+        # 4. git push with token if available to avoid hanging credentials prompts
+        token = get_windows_github_token()
+        remote_dest = f"https://x-access-token:{token}@github.com/mmdtat/mmdtat.github.io.git" if token else "origin"
+
         push_res = subprocess.run(
-            [git_exe, "push"],
+            [git_exe, "push", remote_dest, "master"],
             cwd=repo_path,
             capture_output=True,
             text=True,
             encoding="utf-8"
         )
         if push_res.returncode != 0:
-            # Might need upstream branch or auth error
+            # Fallback to plain push
             push_res2 = subprocess.run(
                 [git_exe, "push", "origin", "master"],
                 cwd=repo_path,
@@ -119,6 +152,9 @@ def commit_and_push(repo_path, commit_message="Update site content from MMDT Adm
                     "ok": False,
                     "error": f"git push error: {push_res2.stderr or push_res.stderr}"
                 }
+
+        # Update tracking ref
+        subprocess.run([git_exe, "fetch", "origin", "master"], cwd=repo_path, capture_output=True)
 
         return {
             "ok": True,
