@@ -1385,9 +1385,21 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                         <p style="font-size:0.85rem; color:var(--text-meta); margin:0;">
                             Партнеры и институциональные коллаборации на странице <a href="../pages/partners.html" target="_blank" class="admin-page-link">pages/partners.html ↗</a>
                         </p>
-                        <button type="button" class="btn btn-primary" id="addPartnerBtn">+ Добавить партнёра</button>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div class="partners-view-toggle">
+                                <button type="button" class="partners-view-btn active" id="partnerViewCardsBtn" title="Вид карточками">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                                    Карточки
+                                </button>
+                                <button type="button" class="partners-view-btn" id="partnerViewRowsBtn" title="Вид строками">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                                    Строки
+                                </button>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="addPartnerBtn">+ Добавить партнёра</button>
+                        </div>
                     </div>
-                    <div class="cards-list" id="partnersList"></div>
+                    <div id="partnersList" class="partners-grid-view"></div>
                 </div>
 
                 <!-- Partners Editor View (Full Page) -->

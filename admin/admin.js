@@ -3484,9 +3484,38 @@ if (clearTokenBtn) {
 // 8. PARTNERS MANAGEMENT
 // ==========================================
 
+let currentPartnersView = localStorage.getItem('mmdt_partners_view') || 'cards';
+
+function setPartnersView(view) {
+    currentPartnersView = view;
+    try {
+        localStorage.setItem('mmdt_partners_view', view);
+    } catch {}
+
+    const cardsBtn = document.getElementById('partnerViewCardsBtn');
+    const rowsBtn = document.getElementById('partnerViewRowsBtn');
+    const list = document.getElementById('partnersList');
+
+    if (cardsBtn) cardsBtn.classList.toggle('active', view === 'cards');
+    if (rowsBtn) rowsBtn.classList.toggle('active', view === 'rows');
+
+    if (list) {
+        list.classList.toggle('partners-grid-view', view === 'cards');
+        list.classList.toggle('partners-rows-view', view === 'rows');
+    }
+
+    renderPartnersList();
+}
+
 async function loadPartners() {
     const raw = await apiGet('partners');
     partnersData = Array.isArray(raw) ? raw : [];
+
+    const cardsBtn = document.getElementById('partnerViewCardsBtn');
+    const rowsBtn = document.getElementById('partnerViewRowsBtn');
+    if (cardsBtn) cardsBtn.classList.toggle('active', currentPartnersView === 'cards');
+    if (rowsBtn) rowsBtn.classList.toggle('active', currentPartnersView === 'rows');
+
     renderPartnersList();
 }
 
@@ -3494,45 +3523,95 @@ function renderPartnersList() {
     const list = document.getElementById('partnersList');
     if (!list) return;
 
+    list.classList.toggle('partners-grid-view', currentPartnersView === 'cards');
+    list.classList.toggle('partners-rows-view', currentPartnersView === 'rows');
+
     if (!partnersData || partnersData.length === 0) {
-        list.innerHTML = `<div style="padding:48px; text-align:center; color:var(--text-meta); background:#fff; border:1px solid var(--border); border-radius:8px;">
+        list.innerHTML = `<div style="padding:48px; text-align:center; color:var(--text-meta); background:#fff; border:1px solid var(--border); border-radius:8px; grid-column: 1 / -1;">
             Список партнеров пуст. Нажмите «+ Добавить партнёра», чтобы создать первую запись.
         </div>`;
         return;
     }
 
-    list.innerHTML = partnersData.map((item, idx) => {
-        const url = item.url || '#';
-        const name = item.name || 'Без названия';
-        const tag = item.tag || '';
-        const desc = item.desc || '';
-        const btnText = item.btn_text || 'Visit Website';
+    if (currentPartnersView === 'cards') {
+        list.innerHTML = partnersData.map((item, idx) => {
+            const url = item.url || '#';
+            const name = item.name || 'Без названия';
+            const tag = item.tag || '';
+            const desc = item.desc || '';
+            const btnText = item.btn_text || 'Visit Website';
 
-        const upBtn = idx > 0 ? `<button type="button" class="btn btn-sm" onclick="movePartner(${idx}, -1)" title="Поднять выше">↑</button>` : '';
-        const downBtn = idx < partnersData.length - 1 ? `<button type="button" class="btn btn-sm" onclick="movePartner(${idx}, 1)" title="Опустить ниже">↓</button>` : '';
+            const upBtn = idx > 0 ? `<button type="button" class="btn-arrow" onclick="movePartner(${idx}, -1)" title="Поднять выше">↑</button>` : `<span style="width:26px;"></span>`;
+            const downBtn = idx < partnersData.length - 1 ? `<button type="button" class="btn-arrow" onclick="movePartner(${idx}, 1)" title="Опустить ниже">↓</button>` : `<span style="width:26px;"></span>`;
 
-        return `
-            <div class="item-card">
-                <div class="item-card-details">
-                    <div class="item-card-meta">${escapeHtml(tag)}</div>
-                    <h3 style="margin:4px 0 6px 0;">${escapeHtml(name)}</h3>
-                    <div class="item-card-desc" style="margin-bottom:8px;">${escapeHtml(desc)}</div>
-                    <div style="font-size:0.78rem; color:var(--text-meta);">
-                        Ссылка: <a href="${url}" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline;">${escapeHtml(url)}</a>
-                        <span style="margin:0 6px;">&middot;</span> Кнопка: <strong>${escapeHtml(btnText)}</strong>
+            return `
+                <div class="partner-admin-card">
+                    <div>
+                        <div class="partner-admin-card__top">
+                            <span class="badge" style="background:#f1f5f9; color:#334155; font-size:0.75rem;">${escapeHtml(tag)}</span>
+                            <div class="partner-admin-card__order">
+                                ${upBtn}
+                                ${downBtn}
+                            </div>
+                        </div>
+                        <div class="partner-admin-card__body">
+                            <h3>${escapeHtml(name)}</h3>
+                            <div class="partner-admin-card__desc">${escapeHtml(desc)}</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="partner-admin-card__link">
+                            Ссылка: <a href="${url}" target="_blank" rel="noopener">${escapeHtml(url)}</a>
+                            <span style="color:var(--text-meta); margin-left:6px;">(${escapeHtml(btnText)})</span>
+                        </div>
+                        <div class="partner-admin-card__actions">
+                            <button type="button" class="btn btn-sm btn-primary" onclick="editPartner(${idx})">Редактировать</button>
+                            <button type="button" class="btn btn-sm btn-danger" onclick="deletePartner(${idx})">Удалить</button>
+                        </div>
                     </div>
                 </div>
-                <div class="item-card-actions">
-                    <div style="display:flex; gap:4px; margin-bottom:6px;">
-                        ${upBtn}
-                        ${downBtn}
+            `;
+        }).join('');
+    } else {
+        // ROWS VIEW
+        list.innerHTML = partnersData.map((item, idx) => {
+            const url = item.url || '#';
+            const name = item.name || 'Без названия';
+            const tag = item.tag || '';
+            const desc = item.desc || '';
+            const btnText = item.btn_text || 'Visit Website';
+
+            const upBtn = idx > 0 ? `<button type="button" class="btn-arrow" onclick="movePartner(${idx}, -1)" title="Поднять выше">↑</button>` : `<button type="button" class="btn-arrow" disabled style="opacity:0.3; cursor:default;">↑</button>`;
+            const downBtn = idx < partnersData.length - 1 ? `<button type="button" class="btn-arrow" onclick="movePartner(${idx}, 1)" title="Опустить ниже">↓</button>` : `<button type="button" class="btn-arrow" disabled style="opacity:0.3; cursor:default;">↓</button>`;
+
+            return `
+                <div class="partner-admin-row">
+                    <div class="partner-admin-row__left">
+                        <div class="partner-admin-row__order">
+                            ${upBtn}
+                            ${downBtn}
+                        </div>
+                        <div class="partner-admin-row__num">#${idx + 1}</div>
+                        <div class="partner-admin-row__info">
+                            <div class="partner-admin-row__header">
+                                <h3>${escapeHtml(name)}</h3>
+                                <span class="badge" style="background:#f1f5f9; color:#334155; font-size:0.72rem;">${escapeHtml(tag)}</span>
+                            </div>
+                            <p class="partner-admin-row__desc">${escapeHtml(desc)}</p>
+                            <div class="partner-admin-row__link">
+                                <a href="${url}" target="_blank" rel="noopener">${escapeHtml(url)}</a>
+                                <span style="color:var(--text-meta); margin-left:6px;">· Кнопка: <strong>${escapeHtml(btnText)}</strong></span>
+                            </div>
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-sm btn-primary" onclick="editPartner(${idx})">Редактировать</button>
-                    <button type="button" class="btn btn-sm btn-danger" onclick="deletePartner(${idx})">Удалить</button>
+                    <div class="partner-admin-row__right">
+                        <button type="button" class="btn btn-sm btn-primary" onclick="editPartner(${idx})">Редактировать</button>
+                        <button type="button" class="btn btn-sm btn-danger" onclick="deletePartner(${idx})">Удалить</button>
+                    </div>
                 </div>
-            </div>
-        `;
-    }).join('');
+            `;
+        }).join('');
+    }
 }
 
 function openAddPartner() {
@@ -3652,6 +3731,12 @@ if (cancelPartnerBtn) cancelPartnerBtn.addEventListener('click', () => hideEntit
 
 const cancelPartnerFooterBtn = document.getElementById('cancelPartnerFooterBtn');
 if (cancelPartnerFooterBtn) cancelPartnerFooterBtn.addEventListener('click', () => hideEntityEditor('partners'));
+
+const partnerViewCardsBtn = document.getElementById('partnerViewCardsBtn');
+if (partnerViewCardsBtn) partnerViewCardsBtn.addEventListener('click', () => setPartnersView('cards'));
+
+const partnerViewRowsBtn = document.getElementById('partnerViewRowsBtn');
+if (partnerViewRowsBtn) partnerViewRowsBtn.addEventListener('click', () => setPartnersView('rows'));
 
 
 // ==========================================
