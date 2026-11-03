@@ -1,0 +1,45 @@
+{
+  "title": "hgfjhfjfh",
+  "year": "2026",
+  "slug": "testtt",
+  "tag": "ngvjgvjhjhv",
+  "subtitle": "hfhgfjhfgf",
+  "image": "../img/projects/covers/color_palette.jpg",
+  "hero_bg": "img/projects/testtt/hero_color palette2.jpg",
+  "overview": {
+    "quick_facts": [],
+    "manifesto_tag": "",
+    "manifesto_quote": "",
+    "concept_cards": [
+      {
+        "label": "01 / Concept & Inquiry",
+        "title": "",
+        "content": ""
+      }
+    ],
+    "general_text": "",
+    "video_tag": "",
+    "video_title": "",
+    "video_url": "",
+    "tickets": {},
+    "crowdfunding": {}
+  },
+  "team": {
+    "tag": "",
+    "title": "",
+    "image": "",
+    "statement": "",
+    "credits": []
+  },
+  "partners": {
+    "tag": "",
+    "title": "",
+    "list": []
+  },
+  "gallery": {
+    "tag": "",
+    "title": "",
+    "credits": "",
+    "photos": []
+  }
+}
