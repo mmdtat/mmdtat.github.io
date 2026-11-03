@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "tag": "Association · Community",
+    "headline": "Become a Member",
+    "subline": "Join \"Motion Mode of Dialogue in Tirol\" — your passport to vibrant performances, artistic exchange, and contemporary movement in the Alps.",
+    "photo_credit": "Photo by Dimitri Baret",
+    "bg_image": ""
+  },
+  "manifesto": {
+    "tag": "Why Join Us",
+    "title": "We invite culture enthusiasts and artists to become valued members of our association in Tirol."
+  },
+  "benefits": [
+    {
+      "label": "01 / Promote Your Art",
+      "title": "Amplify Your Voice",
+      "desc": "As a member, you gain exclusive access to our extensive social network and mailing list. Share your cultural events, exhibitions, or artistic endeavors with a community that appreciates and supports diverse expressions in Tirol."
+    },
+    {
+      "label": "02 / Special Privileges",
+      "title": "20% Discount on Events",
+      "desc": "Enjoy a 20% discount on tickets for all our captivating events, including annual dance festivals, workshops, exhibitions, and performances. Connect with the heart of contemporary culture with member privileges."
+    },
+    {
+      "label": "03 / Cultural Impact",
+      "title": "Support the Creative Sector",
+      "desc": "Supporting an independent artistic association creates opportunities within the creative sector, stimulates local cultural initiatives, and fosters international artistic exchange across Tirol."
+    }
+  ],
+  "tiers_header": {
+    "tag": "Choose Your Tier",
+    "title": "Membership Options"
+  },
+  "tiers": [
+    {
+      "id": "tier-1",
+      "option_tag": "Option 01",
+      "title": "Cultural Enthusiast",
+      "price": "26 €",
+      "fee": "+ 2 € tax & transaction fee",
+      "features": [
+        "Enjoy a 20% discount on all association activities, festivals, and performances.",
+        "Immerse yourself in a vibrant international cultural community in Tirol.",
+        "Directly support independent contemporary dance and visual art projects."
+      ],
+      "button_text": "Get Membership via Stripe →",
+      "button_url": "https://buy.stripe.com/6oEaHDf6X4uA9SEdQR"
+    },
+    {
+      "id": "tier-2",
+      "option_tag": "Option 02",
+      "title": "Professional Artist",
+      "price": "26 €",
+      "fee": "+ 2 € tax & transaction fee",
+      "features": [
+        "Access a 20% discount on all association events, workshops, and festivals.",
+        "Showcase and promote your art project through our website, social networks, and mailing lists.",
+        "Participate in collaborative artistic exchanges and residencies."
+      ],
+      "button_text": "Apply as Artist →",
+      "button_url": "https://docs.google.com/forms/d/e/1FAIpQLSe6TE9glqWwG41-4Wp5saOGlEV2C2P1MHJ3b_Bwez682tuDaQ/viewform?usp=sf_link"
+    }
+  ]
+}

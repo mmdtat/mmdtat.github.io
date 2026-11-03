@@ -50,7 +50,7 @@ class AdminHandler(SimpleHTTPRequestHandler):
         # API: list all data files
         if path == "/api/data/all":
             all_data = {}
-            for fn in ["events", "classes", "news", "settings", "projects", "festivals"]:
+            for fn in ["events", "classes", "news", "settings", "projects", "festivals", "partners", "membership"]:
                 all_data[fn] = builder.load_json(fn)
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -104,6 +104,10 @@ class AdminHandler(SimpleHTTPRequestHandler):
                 builder.build_projects_page()
             elif file_name == "festivals":
                 builder.build_festivals_page()
+            elif file_name == "partners":
+                builder.build_partners_page()
+            elif file_name == "membership":
+                builder.build_membership_page()
             elif file_name == "settings":
                 builder.build_index_page()
 

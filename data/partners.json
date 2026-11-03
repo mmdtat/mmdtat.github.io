@@ -1,0 +1,106 @@
+[
+  {
+    "id": "partner-1",
+    "name": "Tiroler Künstler:innenschaft",
+    "tag": "Art Association · Innsbruck",
+    "desc": "Association of visual artists in Tyrol running experimental exhibition spaces including Kunstpavillon and Neue Galerie Innsbruck to support contemporary art discourse.",
+    "url": "https://www.kuveti.at/verein/team/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-2",
+    "name": "KUNSTRAUM Innsbruck",
+    "tag": "Contemporary Art · Innsbruck",
+    "desc": "Leading contemporary art institution in the heart of Innsbruck presenting international exhibitions, site-specific installations, and interdisciplinary performances.",
+    "url": "https://www.kunstraum-innsbruck.at/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-3",
+    "name": "Künstlerhaus Büchsenhausen",
+    "tag": "Art & Theory Fellowship · Innsbruck",
+    "desc": "International postgraduate fellowship center for art and theory in Innsbruck fostering critical artistic research, production, and public dialogue.",
+    "url": "https://www.buchsenhausen.at/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-4",
+    "name": "OFF-Tanz Tirol",
+    "tag": "Dance Network · Tyrol",
+    "desc": "Independent network and platform promoting contemporary dance, choreography, and professional movement training across the Tyrol region.",
+    "url": "http://www.offtanz.at/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-5",
+    "name": "International Contactjam Innsbruck",
+    "tag": "Movement Community · Innsbruck",
+    "desc": "Tyrol's dedicated Contact Improvisation community organizing regular jams, workshops, and international movement gatherings in Innsbruck.",
+    "url": "https://www.contactjam.at/wp/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-6",
+    "name": "Ballettschule St. Johann",
+    "tag": "Dance Academy · St. Johann in Tirol",
+    "desc": "Dance and ballet academy in St. Johann in Tirol providing education in classical ballet, modern dance, and contemporary movement practices.",
+    "url": "https://www.ballett.ac/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-7",
+    "name": "FLUCHTpunkt",
+    "tag": "Human Rights · Innsbruck",
+    "desc": "Independent humanitarian organization providing legal counseling, social support, and advocacy for refugees and displaced people in Tyrol.",
+    "url": "https://www.fluchtpunkt.org/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-8",
+    "name": "Plattform Asyl",
+    "tag": "Civil Society · Tyrol",
+    "desc": "Tyrolean civil society network (\"Für Menschenrechte\") promoting human rights, solidarity, integration, and intercultural exchange.",
+    "url": "https://plattform-asyl.eu/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-9",
+    "name": "Ammar Ali — Orientalische Küche",
+    "tag": "Culinary & Community · Innsbruck",
+    "desc": "Innsbruck-based culinary project bringing people together through authentic Syrian and Middle Eastern cuisine at cultural and community events.",
+    "url": "https://www.orientkoch-innsbruck.at/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-10",
+    "name": "Pension Paula",
+    "tag": "Hospitality · Innsbruck",
+    "desc": "Welcoming family-run guesthouse in Innsbruck partnering with cultural initiatives to host visiting artists and international festival guests.",
+    "url": "https://www.pensionpaula.at/en/index.html",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-11",
+    "name": "Montagu Bed & Beers",
+    "tag": "Design Hostel & Hub · Innsbruck",
+    "desc": "Modern urban hostel and social hub in Innsbruck offering accommodation and community space for international travelers and visiting performers.",
+    "url": "https://www.montagu-hostel.com/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-12",
+    "name": "Pfarre Saggen Innsbruck",
+    "tag": "Community Space · Innsbruck",
+    "desc": "Local parish community in Innsbruck's Saggen district providing open halls and welcoming venues for rehearsals, workshops, and cultural dialogue.",
+    "url": "https://www.pfarre-saggen.at/",
+    "btn_text": "Visit Website"
+  },
+  {
+    "id": "partner-13",
+    "name": "Il Corvo",
+    "tag": "Cultural Collective · Innsbruck",
+    "desc": "Self-organized cultural and social collective in Innsbruck hosting independent art events, community gatherings, and grassroots initiatives.",
+    "url": "https://ilcorvo.noblogs.org/",
+    "btn_text": "Visit Website"
+  }
+]

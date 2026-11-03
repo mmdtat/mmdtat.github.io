@@ -12,6 +12,8 @@ let newsData = [];
 let settingsData = {};
 let projectsData = [];
 let festivalsData = [];
+let partnersData = [];
+let membershipData = {};
 
 // Track pending uploaded image blobs for GitHub commit mode
 let pendingImageBlobs = [];
@@ -238,7 +240,7 @@ function hideEntityEditor(entity) {
 
 function getSavedSection() {
     const hash = (window.location.hash || '').replace(/^#/, '').trim();
-    const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'publish'];
+    const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'partners', 'membership', 'publish'];
     if (validSections.includes(hash)) return hash;
     const saved = localStorage.getItem('mmdt_admin_active_section');
     if (validSections.includes(saved)) return saved;
@@ -251,7 +253,7 @@ document.querySelectorAll('.admin-sidebar .nav-item').forEach(btn => {
 });
 
 function switchSection(sec, updateUrl = true) {
-    const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'publish'];
+    const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'partners', 'membership', 'publish'];
     if (!validSections.includes(sec)) sec = 'news';
 
     currentSection = sec;
@@ -263,7 +265,7 @@ function switchSection(sec, updateUrl = true) {
         history.replaceState(null, '', '#' + sec);
     }
 
-    ['events', 'news', 'projects', 'festivals', 'classes'].forEach(hideEntityEditor);
+    ['events', 'news', 'projects', 'festivals', 'classes', 'partners'].forEach(hideEntityEditor);
 
     document.querySelectorAll('.admin-sidebar .nav-item').forEach(b => {
         b.classList.toggle('active', b.dataset.section === sec);
@@ -293,6 +295,14 @@ function switchSection(sec, updateUrl = true) {
             title: 'События и воркшопы',
             sub: 'Управление афишей на странице <a href="../pages/events.html" target="_blank" class="admin-page-link">pages/events.html ↗</a>'
         },
+        partners: {
+            title: 'Партнёры и коллаборации',
+            sub: 'Сетевые партнеры и дружественные площадки на странице <a href="../pages/partners.html" target="_blank" class="admin-page-link">pages/partners.html ↗</a>'
+        },
+        membership: {
+            title: 'Программа членства (Membership)',
+            sub: 'Условия, тарифы со Stripe и привилегии на странице <a href="../pages/membership.html" target="_blank" class="admin-page-link">pages/membership.html ↗</a>'
+        },
         publish: {
             title: 'Публикация & Git',
             sub: 'Синхронизация и отправка изменений в репозиторий mmdtat/mmdtat.github.io'
@@ -319,6 +329,12 @@ function switchSection(sec, updateUrl = true) {
     } else if (sec === 'classes') {
         topActions.innerHTML = `<button class="btn btn-primary" id="topAddClassBtn">+ Добавить курс</button>`;
         document.getElementById('topAddClassBtn').addEventListener('click', () => openAddClass());
+    } else if (sec === 'partners') {
+        topActions.innerHTML = `<button class="btn btn-primary" id="topAddPartnerBtn">+ Добавить партнёра</button>`;
+        document.getElementById('topAddPartnerBtn').addEventListener('click', () => openAddPartner());
+    } else if (sec === 'membership') {
+        topActions.innerHTML = `<button class="btn btn-primary" id="topSaveMembershipBtn">Сохранить членство</button>`;
+        document.getElementById('topSaveMembershipBtn').addEventListener('click', () => saveMembership());
     } else {
         topActions.innerHTML = '';
     }
@@ -3465,7 +3481,531 @@ if (clearTokenBtn) {
 }
 
 // ==========================================
-// 7. UNIVERSAL PUBLISH & COMMIT
+// 8. PARTNERS MANAGEMENT
+// ==========================================
+
+async function loadPartners() {
+    const raw = await apiGet('partners');
+    partnersData = Array.isArray(raw) ? raw : [];
+    renderPartnersList();
+}
+
+function renderPartnersList() {
+    const list = document.getElementById('partnersList');
+    if (!list) return;
+
+    if (!partnersData || partnersData.length === 0) {
+        list.innerHTML = `<div style="padding:48px; text-align:center; color:var(--text-meta); background:#fff; border:1px solid var(--border); border-radius:8px;">
+            Список партнеров пуст. Нажмите «+ Добавить партнёра», чтобы создать первую запись.
+        </div>`;
+        return;
+    }
+
+    list.innerHTML = partnersData.map((item, idx) => {
+        const url = item.url || '#';
+        const name = item.name || 'Без названия';
+        const tag = item.tag || '';
+        const desc = item.desc || '';
+        const btnText = item.btn_text || 'Visit Website';
+
+        const upBtn = idx > 0 ? `<button type="button" class="btn btn-sm" onclick="movePartner(${idx}, -1)" title="Поднять выше">↑</button>` : '';
+        const downBtn = idx < partnersData.length - 1 ? `<button type="button" class="btn btn-sm" onclick="movePartner(${idx}, 1)" title="Опустить ниже">↓</button>` : '';
+
+        return `
+            <div class="item-card">
+                <div class="item-card-details">
+                    <div class="item-card-meta">${escapeHtml(tag)}</div>
+                    <h3 style="margin:4px 0 6px 0;">${escapeHtml(name)}</h3>
+                    <div class="item-card-desc" style="margin-bottom:8px;">${escapeHtml(desc)}</div>
+                    <div style="font-size:0.78rem; color:var(--text-meta);">
+                        Ссылка: <a href="${url}" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline;">${escapeHtml(url)}</a>
+                        <span style="margin:0 6px;">&middot;</span> Кнопка: <strong>${escapeHtml(btnText)}</strong>
+                    </div>
+                </div>
+                <div class="item-card-actions">
+                    <div style="display:flex; gap:4px; margin-bottom:6px;">
+                        ${upBtn}
+                        ${downBtn}
+                    </div>
+                    <button type="button" class="btn btn-sm btn-primary" onclick="editPartner(${idx})">Редактировать</button>
+                    <button type="button" class="btn btn-sm btn-danger" onclick="deletePartner(${idx})">Удалить</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function openAddPartner() {
+    const form = document.getElementById('partnerForm');
+    if (form) form.reset();
+    document.getElementById('partnerIndex').value = '';
+    document.getElementById('partnerId').value = `partner-${Date.now()}`;
+    document.getElementById('partnerBtnText').value = 'Visit Website';
+    document.getElementById('partnerEditorTitle').textContent = 'Добавить нового партнёра';
+    showEntityEditor('partners');
+}
+
+window.editPartner = function(idx) {
+    const item = partnersData[idx];
+    if (!item) return;
+
+    const form = document.getElementById('partnerForm');
+    if (form) form.reset();
+
+    document.getElementById('partnerIndex').value = idx;
+    document.getElementById('partnerId').value = item.id || `partner-${Date.now()}`;
+    document.getElementById('partnerName').value = item.name || '';
+    document.getElementById('partnerTag').value = item.tag || '';
+    document.getElementById('partnerUrl').value = item.url || '';
+    document.getElementById('partnerBtnText').value = item.btn_text || 'Visit Website';
+    document.getElementById('partnerDesc').value = item.desc || '';
+    document.getElementById('partnerEditorTitle').textContent = `Редактировать: ${item.name || 'партнёра'}`;
+
+    showEntityEditor('partners');
+};
+
+window.deletePartner = async function(idx) {
+    const item = partnersData[idx];
+    if (!item) return;
+
+    if (!confirm(`Удалить партнёра "${item.name || 'Без названия'}"?`)) return;
+
+    partnersData.splice(idx, 1);
+    await syncPartners();
+    renderPartnersList();
+    showToast('Партнёр удалён');
+};
+
+window.movePartner = async function(idx, dir) {
+    const targetIdx = idx + dir;
+    if (targetIdx < 0 || targetIdx >= partnersData.length) return;
+
+    const tmp = partnersData[idx];
+    partnersData[idx] = partnersData[targetIdx];
+    partnersData[targetIdx] = tmp;
+
+    await syncPartners();
+    renderPartnersList();
+};
+
+async function syncPartners() {
+    await apiSave('partners', partnersData);
+    if (window.MMDTTemplates && window.MMDTTemplates.generatePartnersPage) {
+        const partnersHtml = window.MMDTTemplates.generatePartnersPage(partnersData);
+        await saveGeneratedFile('pages/partners.html', partnersHtml);
+    }
+}
+
+async function handleSavePartner(e) {
+    if (e) e.preventDefault();
+
+    const name = document.getElementById('partnerName').value.trim();
+    const url = document.getElementById('partnerUrl').value.trim();
+
+    if (!name || !url) {
+        showToast('Укажите название и ссылку партнёра', true);
+        return;
+    }
+
+    const tag = document.getElementById('partnerTag').value.trim();
+    const btn_text = document.getElementById('partnerBtnText').value.trim() || 'Visit Website';
+    const desc = document.getElementById('partnerDesc').value.trim();
+    const id = document.getElementById('partnerId').value || `partner-${Date.now()}`;
+    const idxVal = document.getElementById('partnerIndex').value;
+
+    const partnerObj = {
+        id: id,
+        name: name,
+        tag: tag,
+        desc: desc,
+        url: url,
+        btn_text: btn_text
+    };
+
+    if (idxVal !== '' && !isNaN(parseInt(idxVal))) {
+        partnersData[parseInt(idxVal)] = partnerObj;
+    } else {
+        partnersData.push(partnerObj);
+    }
+
+    await syncPartners();
+    hideEntityEditor('partners');
+    renderPartnersList();
+    showToast('Партнёр успешно сохранён!');
+}
+
+// Partner listeners
+const partnerForm = document.getElementById('partnerForm');
+if (partnerForm) partnerForm.addEventListener('submit', handleSavePartner);
+
+const savePartnerTopBtn = document.getElementById('savePartnerTopBtn');
+if (savePartnerTopBtn) savePartnerTopBtn.addEventListener('click', handleSavePartner);
+
+const addPartnerBtn = document.getElementById('addPartnerBtn');
+if (addPartnerBtn) addPartnerBtn.addEventListener('click', openAddPartner);
+
+const backPartnersBtn = document.getElementById('backPartnersBtn');
+if (backPartnersBtn) backPartnersBtn.addEventListener('click', () => hideEntityEditor('partners'));
+
+const cancelPartnerBtn = document.getElementById('cancelPartnerBtn');
+if (cancelPartnerBtn) cancelPartnerBtn.addEventListener('click', () => hideEntityEditor('partners'));
+
+const cancelPartnerFooterBtn = document.getElementById('cancelPartnerFooterBtn');
+if (cancelPartnerFooterBtn) cancelPartnerFooterBtn.addEventListener('click', () => hideEntityEditor('partners'));
+
+
+// ==========================================
+// 9. MEMBERSHIP MANAGEMENT
+// ==========================================
+
+async function loadMembership() {
+    const raw = await apiGet('membership');
+    membershipData = (raw && typeof raw === 'object' && !Array.isArray(raw)) ? raw : {};
+
+    if (!membershipData.hero) {
+        membershipData.hero = {
+            tag: 'Association · Community',
+            headline: 'Become a Member',
+            subline: 'Join "Motion Mode of Dialogue in Tirol" — your passport to vibrant performances, artistic exchange, and contemporary movement in the Alps.',
+            photo_credit: 'Photo by Dimitri Baret',
+            bg_image: ''
+        };
+    }
+    if (!membershipData.manifesto) {
+        membershipData.manifesto = {
+            tag: 'Why Join Us',
+            title: 'We invite culture enthusiasts and artists to become valued members of our association in Tirol.'
+        };
+    }
+    if (!Array.isArray(membershipData.benefits) || membershipData.benefits.length === 0) {
+        membershipData.benefits = [
+            { label: '01 / Promote Your Art', title: 'Amplify Your Voice', desc: '' },
+            { label: '02 / Special Privileges', title: '20% Discount on Events', desc: '' },
+            { label: '03 / Cultural Impact', title: 'Support the Creative Sector', desc: '' }
+        ];
+    }
+    if (!membershipData.tiers_header) {
+        membershipData.tiers_header = {
+            tag: 'Choose Your Tier',
+            title: 'Membership Options'
+        };
+    }
+    if (!Array.isArray(membershipData.tiers) || membershipData.tiers.length === 0) {
+        membershipData.tiers = [
+            {
+                id: 'tier-1',
+                option_tag: 'Option 01',
+                title: 'Cultural Enthusiast',
+                price: '26 €',
+                fee: '+ 2 € tax & transaction fee',
+                features: [
+                    'Enjoy a 20% discount on all association activities, festivals, and performances.',
+                    'Immerse yourself in a vibrant international cultural community in Tirol.',
+                    'Directly support independent contemporary dance and visual art projects.'
+                ],
+                button_text: 'Get Membership via Stripe →',
+                button_url: 'https://buy.stripe.com/6oEaHDf6X4uA9SEdQR'
+            },
+            {
+                id: 'tier-2',
+                option_tag: 'Option 02',
+                title: 'Professional Artist',
+                price: '26 €',
+                fee: '+ 2 € tax & transaction fee',
+                features: [
+                    'Access a 20% discount on all association events, workshops, and festivals.',
+                    'Showcase and promote your art project through our website, social networks, and mailing lists.',
+                    'Participate in collaborative artistic exchanges and residencies.'
+                ],
+                button_text: 'Apply as Artist →',
+                button_url: 'https://docs.google.com/forms/d/e/1FAIpQLSe6TE9glqWwG41-4Wp5saOGlEV2C2P1MHJ3b_Bwez682tuDaQ/viewform?usp=sf_link'
+            }
+        ];
+    }
+
+    populateMembershipForm();
+}
+
+function populateMembershipForm() {
+    // 1. Hero
+    const hero = membershipData.hero || {};
+    const heroTag = document.getElementById('memHeroTag');
+    if (heroTag) heroTag.value = hero.tag || '';
+    const heroHeadline = document.getElementById('memHeroHeadline');
+    if (heroHeadline) heroHeadline.value = hero.headline || '';
+    const heroSubline = document.getElementById('memHeroSubline');
+    if (heroSubline) heroSubline.value = hero.subline || '';
+    const heroPhotoCredit = document.getElementById('memHeroPhotoCredit');
+    if (heroPhotoCredit) heroPhotoCredit.value = hero.photo_credit || '';
+    const heroBgImage = document.getElementById('memHeroBgImage');
+    if (heroBgImage) heroBgImage.value = hero.bg_image || '';
+
+    // 2. Manifesto
+    const manifesto = membershipData.manifesto || {};
+    const manifestoTag = document.getElementById('memManifestoTag');
+    if (manifestoTag) manifestoTag.value = manifesto.tag || '';
+    const manifestoTitle = document.getElementById('memManifestoTitle');
+    if (manifestoTitle) manifestoTitle.value = manifesto.title || '';
+
+    // 3. Benefits (3 items)
+    renderBenefits();
+
+    // 4. Tiers Header
+    const tiersHeader = membershipData.tiers_header || {};
+    const tiersHeaderTag = document.getElementById('memTiersHeaderTag');
+    if (tiersHeaderTag) tiersHeaderTag.value = tiersHeader.tag || '';
+    const tiersHeaderTitle = document.getElementById('memTiersHeaderTitle');
+    if (tiersHeaderTitle) tiersHeaderTitle.value = tiersHeader.title || '';
+
+    // 5. Tiers
+    renderTiers();
+}
+
+function renderBenefits() {
+    const container = document.getElementById('memBenefitsContainer');
+    if (!container) return;
+
+    const benefits = membershipData.benefits || [];
+    container.innerHTML = benefits.map((b, idx) => `
+        <div style="background:#f9fafb; border:1px solid var(--border); border-radius:8px; padding:16px;">
+            <div class="form-group" style="margin-bottom:10px;">
+                <label class="form-label" style="font-size:0.75rem;">Метка / Номер карточки</label>
+                <input type="text" class="form-control mem-benefit-label" data-idx="${idx}" value="${escapeHtml(b.label || '')}" placeholder="0${idx + 1} / Label">
+            </div>
+            <div class="form-group" style="margin-bottom:10px;">
+                <label class="form-label" style="font-size:0.75rem;">Заголовок преимущества</label>
+                <input type="text" class="form-control mem-benefit-title" data-idx="${idx}" value="${escapeHtml(b.title || '')}" placeholder="Title">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label" style="font-size:0.75rem;">Описание</label>
+                <textarea class="form-control mem-benefit-desc" data-idx="${idx}" rows="4" placeholder="Description...">${escapeHtml(b.desc || '')}</textarea>
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderTiers() {
+    const container = document.getElementById('memTiersContainer');
+    if (!container) return;
+
+    const tiers = membershipData.tiers || [];
+    container.innerHTML = tiers.map((t, idx) => {
+        const featuresText = Array.isArray(t.features) ? t.features.join('\n') : (t.features || '');
+        const deleteBtn = tiers.length > 1 ? `<button type="button" class="btn btn-sm btn-danger" onclick="deleteTier(${idx})">Удалить тариф</button>` : '';
+
+        return `
+            <div style="background:#f9fafb; border:1px solid var(--border); border-radius:10px; padding:20px;" class="mem-tier-block" data-idx="${idx}">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                    <span style="font-weight:600; font-size:0.95rem; color:var(--text-primary);">Тариф #${idx + 1}: ${escapeHtml(t.title || 'Новый тариф')}</span>
+                    ${deleteBtn}
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Тег тарифа</label>
+                        <input type="text" class="form-control mem-tier-opt-tag" value="${escapeHtml(t.option_tag || `Option 0${idx + 1}`)}" placeholder="Option 01">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Название тарифа *</label>
+                        <input type="text" class="form-control mem-tier-title" value="${escapeHtml(t.title || '')}" placeholder="Cultural Enthusiast" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Стоимость</label>
+                        <input type="text" class="form-control mem-tier-price" value="${escapeHtml(t.price || '')}" placeholder="26 €">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Сбор / Налог</label>
+                        <input type="text" class="form-control mem-tier-fee" value="${escapeHtml(t.fee || '')}" placeholder="+ 2 € tax &amp; transaction fee">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Пункты условий и преимуществ (каждый пункт с новой строки)</label>
+                    <textarea class="form-control mem-tier-features" rows="4" placeholder="Пункт 1&#10;Пункт 2&#10;Пункт 3">${escapeHtml(featuresText)}</textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Текст кнопки действия</label>
+                        <input type="text" class="form-control mem-tier-btn-text" value="${escapeHtml(t.button_text || 'Get Membership via Stripe →')}" placeholder="Get Membership via Stripe →">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ссылка кнопки (Stripe Checkout или форма) *</label>
+                        <input type="text" class="form-control mem-tier-btn-url" value="${escapeHtml(t.button_url || '')}" placeholder="https://buy.stripe.com/..." required>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+window.deleteTier = function(idx) {
+    if (!membershipData.tiers || membershipData.tiers.length <= 1) {
+        showToast('На странице должен оставаться как минимум один тариф', true);
+        return;
+    }
+    if (!confirm('Удалить этот вариант членства?')) return;
+    membershipData.tiers.splice(idx, 1);
+    renderTiers();
+};
+
+const addTierBtn = document.getElementById('addTierBtn');
+if (addTierBtn) {
+    addTierBtn.addEventListener('click', () => {
+        if (!membershipData.tiers) membershipData.tiers = [];
+        const nextNum = membershipData.tiers.length + 1;
+        membershipData.tiers.push({
+            id: `tier-${Date.now()}`,
+            option_tag: `Option 0${nextNum}`,
+            title: `Membership Tier ${nextNum}`,
+            price: '26 €',
+            fee: '+ 2 € tax & transaction fee',
+            features: [
+                'Enjoy a 20% discount on all association activities, festivals, and performances.',
+                'Directly support independent contemporary dance and visual art projects.'
+            ],
+            button_text: 'Get Membership →',
+            button_url: '#'
+        });
+        renderTiers();
+    });
+}
+
+// Background Image upload for Membership Hero
+const memHeroUploadBtn = document.getElementById('memHeroUploadBtn');
+const memHeroFileInput = document.getElementById('memHeroFileInput');
+if (memHeroUploadBtn && memHeroFileInput) {
+    memHeroUploadBtn.addEventListener('click', () => memHeroFileInput.click());
+    memHeroFileInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        memHeroUploadBtn.disabled = true;
+        memHeroUploadBtn.textContent = 'Сжатие...';
+
+        try {
+            const compressed = await window.MMDTImageCompressor.compressImage(file, {
+                maxWidth: 1920,
+                maxHeight: 1280,
+                quality: 0.84,
+                outputFormat: 'image/jpeg'
+            });
+
+            const filename = `membership_${Date.now()}.jpg`;
+
+            if (isLocalServerRunning) {
+                const formData = new FormData();
+                formData.append('file', compressed.blob, filename);
+                formData.append('subpath', 'pages/membership');
+                const uploadRes = await fetch('/api/upload', { method: 'POST', body: formData });
+                const data = await uploadRes.json();
+                if (data.success) {
+                    document.getElementById('memHeroBgImage').value = data.path;
+                    showToast('Фоновое изображение загружено!');
+                }
+            } else {
+                const cleanPath = `img/pages/membership/${filename}`;
+                pendingImageBlobs.push({
+                    path: cleanPath,
+                    content: compressed.base64,
+                    isBase64: true
+                });
+                document.getElementById('memHeroBgImage').value = `../${cleanPath}`;
+                showToast('Изображение готово для публикации!');
+            }
+        } catch (err) {
+            console.error('Mem hero upload error:', err);
+            showToast('Ошибка загрузки фото', true);
+        } finally {
+            memHeroUploadBtn.disabled = false;
+            memHeroUploadBtn.textContent = 'Загрузить';
+            memHeroFileInput.value = '';
+        }
+    });
+}
+
+async function saveMembership(e) {
+    if (e) e.preventDefault();
+
+    // 1. Hero
+    membershipData.hero = {
+        tag: document.getElementById('memHeroTag')?.value.trim() || 'Association · Community',
+        headline: document.getElementById('memHeroHeadline')?.value.trim() || 'Become a Member',
+        subline: document.getElementById('memHeroSubline')?.value.trim() || '',
+        photo_credit: document.getElementById('memHeroPhotoCredit')?.value.trim() || '',
+        bg_image: document.getElementById('memHeroBgImage')?.value.trim() || ''
+    };
+
+    // 2. Manifesto
+    membershipData.manifesto = {
+        tag: document.getElementById('memManifestoTag')?.value.trim() || 'Why Join Us',
+        title: document.getElementById('memManifestoTitle')?.value.trim() || ''
+    };
+
+    // 3. Benefits (read from inputs)
+    const newBenefits = [];
+    document.querySelectorAll('#memBenefitsContainer > div').forEach((card, idx) => {
+        const label = card.querySelector('.mem-benefit-label')?.value.trim() || `0${idx + 1}`;
+        const title = card.querySelector('.mem-benefit-title')?.value.trim() || '';
+        const desc = card.querySelector('.mem-benefit-desc')?.value.trim() || '';
+        newBenefits.push({ label, title, desc });
+    });
+    if (newBenefits.length > 0) {
+        membershipData.benefits = newBenefits;
+    }
+
+    // 4. Tiers Header
+    membershipData.tiers_header = {
+        tag: document.getElementById('memTiersHeaderTag')?.value.trim() || 'Choose Your Tier',
+        title: document.getElementById('memTiersHeaderTitle')?.value.trim() || 'Membership Options'
+    };
+
+    // 5. Tiers
+    const newTiers = [];
+    document.querySelectorAll('.mem-tier-block').forEach((block, idx) => {
+        const opt_tag = block.querySelector('.mem-tier-opt-tag')?.value.trim() || `Option 0${idx + 1}`;
+        const title = block.querySelector('.mem-tier-title')?.value.trim() || '';
+        const price = block.querySelector('.mem-tier-price')?.value.trim() || '';
+        const fee = block.querySelector('.mem-tier-fee')?.value.trim() || '';
+        const featuresRaw = block.querySelector('.mem-tier-features')?.value || '';
+        const features = featuresRaw.split('\n').map(s => s.trim()).filter(Boolean);
+        const button_text = block.querySelector('.mem-tier-btn-text')?.value.trim() || 'Get Membership →';
+        const button_url = block.querySelector('.mem-tier-btn-url')?.value.trim() || '#';
+
+        newTiers.push({
+            id: membershipData.tiers?.[idx]?.id || `tier-${idx + 1}`,
+            option_tag: opt_tag,
+            title: title,
+            price: price,
+            fee: fee,
+            features: features,
+            button_text: button_text,
+            button_url: button_url
+        });
+    });
+    if (newTiers.length > 0) {
+        membershipData.tiers = newTiers;
+    }
+
+    // Save JSON
+    await apiSave('membership', membershipData);
+
+    // Generate HTML and save/queue
+    if (window.MMDTTemplates && window.MMDTTemplates.generateMembershipPage) {
+        const membershipHtml = window.MMDTTemplates.generateMembershipPage(membershipData);
+        await saveGeneratedFile('pages/membership.html', membershipHtml);
+    }
+
+    showToast('Страница членства успешно сохранена!');
+}
+
+const membershipForm = document.getElementById('membershipForm');
+if (membershipForm) membershipForm.addEventListener('submit', saveMembership);
+
+// ==========================================
+// 10. UNIVERSAL PUBLISH & COMMIT
 // ==========================================
 
 const gitPushBtn = document.getElementById('gitPushBtn');
@@ -3524,6 +4064,8 @@ if (gitPushBtn) {
             const projectsHtml = window.MMDTTemplates.generateProjectsPage(projectsData);
             const festivalsHtml = window.MMDTTemplates.generateFestivalsPage(festivalsData);
             const newsHtml = window.MMDTTemplates.generateNewsPage(newsData);
+            const partnersHtml = window.MMDTTemplates.generatePartnersPage(partnersData);
+            const membershipHtml = window.MMDTTemplates.generateMembershipPage(membershipData);
 
             const filesToCommit = [
                 { path: 'data/events.json', content: JSON.stringify(allEventsData, null, 2) },
@@ -3532,11 +4074,15 @@ if (gitPushBtn) {
                 { path: 'data/settings.json', content: JSON.stringify(settingsData, null, 2) },
                 { path: 'data/projects.json', content: JSON.stringify(projectsData, null, 2) },
                 { path: 'data/festivals.json', content: JSON.stringify(festivalsData, null, 2) },
+                { path: 'data/partners.json', content: JSON.stringify(partnersData, null, 2) },
+                { path: 'data/membership.json', content: JSON.stringify(membershipData, null, 2) },
                 { path: 'pages/events.html', content: eventsHtml },
                 { path: 'pages/classes.html', content: classesHtml },
                 { path: 'pages/projects.html', content: projectsHtml },
                 { path: 'pages/festival.html', content: festivalsHtml },
                 { path: 'pages/news.html', content: newsHtml },
+                { path: 'pages/partners.html', content: partnersHtml },
+                { path: 'pages/membership.html', content: membershipHtml },
                 ...pendingImageBlobs
             ];
 
@@ -3587,6 +4133,15 @@ function updateTopActions() {
     } else if (currentSection === 'festivals') {
         topActions.innerHTML = `<button class="btn btn-primary" id="topAddFestBtn">+ Новый фестиваль</button>`;
         document.getElementById('topAddFestBtn').addEventListener('click', openAddFestival);
+    } else if (currentSection === 'classes') {
+        topActions.innerHTML = `<button class="btn btn-primary" id="topAddClassBtn">+ Добавить курс</button>`;
+        document.getElementById('topAddClassBtn').addEventListener('click', openAddClass);
+    } else if (currentSection === 'partners') {
+        topActions.innerHTML = `<button class="btn btn-primary" id="topAddPartnerBtn">+ Добавить партнёра</button>`;
+        document.getElementById('topAddPartnerBtn').addEventListener('click', openAddPartner);
+    } else if (currentSection === 'membership') {
+        topActions.innerHTML = `<button class="btn btn-primary" id="topSaveMembershipBtn">Сохранить членство</button>`;
+        document.getElementById('topSaveMembershipBtn').addEventListener('click', saveMembership);
     } else {
         topActions.innerHTML = '';
     }
@@ -3601,7 +4156,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 2. Listen to browser Back / Forward navigation
     window.addEventListener('hashchange', () => {
         const hash = (window.location.hash || '').replace(/^#/, '').trim();
-        const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'publish'];
+        const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'partners', 'membership', 'publish'];
         if (validSections.includes(hash) && hash !== currentSection) {
             switchSection(hash, false);
         }
@@ -3613,4 +4168,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadClasses();
     await loadNewsAndSettings();
     await loadProjectsAndFestivals();
+    await loadPartners();
+    await loadMembership();
 });

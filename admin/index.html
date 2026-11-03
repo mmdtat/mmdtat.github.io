@@ -42,6 +42,14 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                 События (Events)
             </a>
+            <a class="nav-item" data-section="partners">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Партнёры (Partners)
+            </a>
+            <a class="nav-item" data-section="membership">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10M7 12h10M7 17h6"/></svg>
+                Членство (Membership)
+            </a>
             <a class="nav-item" data-section="publish">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
                 Публикация &amp; Git
@@ -1369,7 +1377,185 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                 </div>
             </section>
 
-            <!-- SECTION 6: PUBLISH & GIT SYNC -->
+            <!-- SECTION 6: PARTNERS -->
+            <section class="admin-panel-section" id="sec-partners">
+                <!-- Partners List View -->
+                <div id="partnersListView">
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+                        <p style="font-size:0.85rem; color:var(--text-meta); margin:0;">
+                            Партнеры и институциональные коллаборации на странице <a href="../pages/partners.html" target="_blank" class="admin-page-link">pages/partners.html ↗</a>
+                        </p>
+                        <button type="button" class="btn btn-primary" id="addPartnerBtn">+ Добавить партнёра</button>
+                    </div>
+                    <div class="cards-list" id="partnersList"></div>
+                </div>
+
+                <!-- Partners Editor View (Full Page) -->
+                <div id="partnersEditorView" class="editor-page-view" style="display: none;">
+                    <div class="editor-page-header">
+                        <div class="editor-header-left">
+                            <button type="button" class="btn btn-back" id="backPartnersBtn" title="Вернуться к списку">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Назад к партнёрам
+                            </button>
+                            <div class="editor-header-title">
+                                <h2 id="partnerEditorTitle">Редактировать партнёра</h2>
+                                <p>Информация о партнёре, категория и ссылка на partners.html</p>
+                            </div>
+                        </div>
+                        <div class="editor-header-actions">
+                            <button type="button" class="btn" id="cancelPartnerTopBtn">Отмена</button>
+                            <button type="button" class="btn btn-primary" id="savePartnerTopBtn">Сохранить</button>
+                        </div>
+                    </div>
+
+                    <form id="partnerForm" novalidate>
+                        <input type="hidden" id="partnerIndex">
+                        <input type="hidden" id="partnerId">
+                        <div class="editor-page-body">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Название организации / площадки *</label>
+                                    <input type="text" class="form-control" id="partnerName" placeholder="например, Tiroler Künstler:innenschaft" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Тег / Направление и город</label>
+                                    <input type="text" class="form-control" id="partnerTag" placeholder="например, Art Association · Innsbruck">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Ссылка на сайт партнёра (URL) *</label>
+                                    <input type="text" class="form-control" id="partnerUrl" placeholder="https://..." required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Текст кнопки действия</label>
+                                    <input type="text" class="form-control" id="partnerBtnText" placeholder="Visit Website" value="Visit Website">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Описание партнёрства и институции</label>
+                                <textarea class="form-control" id="partnerDesc" rows="4" placeholder="Краткое описание на английском языке..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="editor-page-footer">
+                            <button type="button" class="btn" id="cancelPartnerFooterBtn">Отмена</button>
+                            <button type="submit" class="btn btn-primary" id="savePartnerBtn">Сохранить партнёра</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SECTION 7: MEMBERSHIP -->
+            <section class="admin-panel-section" id="sec-membership">
+                <form id="membershipForm" novalidate>
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; flex-wrap:wrap; gap:16px;">
+                        <div>
+                            <p style="font-size:0.85rem; color:var(--text-meta); margin:0;">
+                                Управление страницей программы поддержки и членства <a href="../pages/membership.html" target="_blank" class="admin-page-link">pages/membership.html ↗</a>
+                            </p>
+                        </div>
+                        <div style="display:flex; gap:10px;">
+                            <button type="submit" class="btn btn-primary">Сохранить изменения членства</button>
+                        </div>
+                    </div>
+
+                    <!-- HERO & COVER -->
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:24px;">
+                        <h3 style="margin-top:0; margin-bottom:16px; font-size:1.1rem; display:flex; align-items:center; gap:8px;">
+                            <span>1. Главный баннер (Hero)</span>
+                        </h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Верхний тег</label>
+                                <input type="text" class="form-control" id="memHeroTag" placeholder="Association · Community">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Главный заголовок</label>
+                                <input type="text" class="form-control" id="memHeroHeadline" placeholder="Become a Member">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Подзаголовок / Вводный текст</label>
+                            <textarea class="form-control" id="memHeroSubline" rows="2" placeholder="Join &quot;Motion Mode of Dialogue in Tirol&quot;..."></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Подпись автора фото (Photo credit)</label>
+                                <input type="text" class="form-control" id="memHeroPhotoCredit" placeholder="Photo by Dimitri Baret">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Фоновое изображение (опционально)</label>
+                                <div style="display:flex; gap:8px;">
+                                    <input type="text" class="form-control" id="memHeroBgImage" placeholder="../img/pages/membership/membership.jpg">
+                                    <button type="button" class="btn" id="memHeroUploadBtn">Загрузить</button>
+                                    <input type="file" id="memHeroFileInput" accept="image/*" style="display:none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MANIFESTO -->
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:24px;">
+                        <h3 style="margin-top:0; margin-bottom:16px; font-size:1.1rem;">2. Манифест / Приглашение</h3>
+                        <div class="form-row">
+                            <div class="form-group" style="flex:1;">
+                                <label class="form-label">Тег секции</label>
+                                <input type="text" class="form-control" id="memManifestoTag" placeholder="Why Join Us">
+                            </div>
+                            <div class="form-group" style="flex:3;">
+                                <label class="form-label">Текст манифеста / Заголовок</label>
+                                <input type="text" class="form-control" id="memManifestoTitle" placeholder="We invite culture enthusiasts and artists...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 BENEFITS CARDS -->
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:24px;">
+                        <h3 style="margin-top:0; margin-bottom:16px; font-size:1.1rem;">3. Преимущества членства (3 колонки)</h3>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;" id="memBenefitsContainer">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- TIERS & STRIPE OPTIONS -->
+                    <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:24px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+                            <div>
+                                <h3 style="margin:0 0 4px 0; font-size:1.1rem;">4. Варианты членства (Тарифы &amp; Оплата)</h3>
+                                <p style="font-size:0.8rem; color:var(--text-meta); margin:0;">Тарифные опции, цены и прямые ссылки на Stripe Checkout или Google Форму</p>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary" id="addTierBtn">+ Добавить тариф</button>
+                        </div>
+
+                        <div class="form-row" style="margin-bottom:16px;">
+                            <div class="form-group">
+                                <label class="form-label">Тег блока опций</label>
+                                <input type="text" class="form-control" id="memTiersHeaderTag" placeholder="Choose Your Tier">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Заголовок блока опций</label>
+                                <input type="text" class="form-control" id="memTiersHeaderTitle" placeholder="Membership Options">
+                            </div>
+                        </div>
+
+                        <div id="memTiersContainer" style="display:flex; flex-direction:column; gap:20px;">
+                            <!-- Dynamically populated tier cards -->
+                        </div>
+                    </div>
+
+                    <div style="display:flex; justify-content:flex-end; gap:12px; padding-bottom:32px;">
+                        <button type="submit" class="btn btn-primary" style="padding:10px 24px;">Сохранить изменения членства</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- SECTION 8: PUBLISH & GIT SYNC -->
             <section class="admin-panel-section" id="sec-publish">
                 <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:32px;  display:flex; flex-direction:column; gap:24px;">
                     <div>

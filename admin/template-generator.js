@@ -1704,5 +1704,263 @@ ${itemsHtml}
     </footer>
 </body>
 </html>`;
+    },
+
+    generatePartnersPage: function(partnersData) {
+        const partners = Array.isArray(partnersData) ? partnersData : [];
+        const partnerCardsHtml = partners.map(p => {
+            const url = p.url || '#';
+            const tag = p.tag || '';
+            const name = p.name || '';
+            const desc = p.desc || '';
+            const btnText = p.btn_text || 'Visit Website';
+            return `            <a class="partner-card" href="${url}" target="_blank" rel="noopener">
+                <div>
+                    <span class="partner-card__tag">${tag}</span>
+                    <h3>${name}</h3>
+                    <p>${desc}</p>
+                </div>
+                <div class="partner-card__footer">
+                    <span>${btnText}</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>`;
+        }).join('\n\n');
+
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners — MMDT</title>
+    <meta name="description" content="Partners and collaborators of Motion Mode of Dialogue in Tirol.">
+    <link rel="shortcut icon" href="../img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/modern-redesign.css">
+    <script src="../js/modern-redesign.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="../index.html" aria-label="MMDT Home"><img src="../img/common/brand/logo_black.png" alt="MMDT"></a>
+                </div>
+                <nav class="nav">
+                    <a class="nav__link" href="projects.html">Projects</a>
+                    <a class="nav__link" href="festival.html">Festival</a>
+                    <a class="nav__link" href="classes.html">Classes</a>
+                    <a class="nav__link" href="events.html">Events</a>
+                    <a class="nav__link active" href="partners.html">Partners</a>
+                    <a class="nav__link" href="membership.html">Membership</a>
+                    <a class="nav__link" href="contacts.html">Contacts</a>
+                </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <span class="section-tag">Network &amp; Collaborations</span>
+            <div class="intro__projects">Partners</div>
+        </div>
+    </section>
+
+    <section class="container" style="padding-bottom: 80px;">
+        <div class="partners">
+${partnerCardsHtml}
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class="footer_element">
+                <a href="../index.html" style="text-decoration: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;">Motion Mode of Dialogue in Tirol</a><br><br>
+                <img src="../img/common/brand/visa_mc.png" alt="Payment Methods">
+            </div>
+            <div class="footer_element" style="display: flex; flex-direction: column; align-items: flex-end;">
+                <a href="legal/Privacy_policy.html">Privacy Policy</a>
+                <a href="legal/Refund_policy.html">Refund &amp; Return Policy</a>
+                <a href="legal/Terms&Conditions.html">Terms &amp; Conditions</a>
+                <a href="legal/GEP.html">Gender Equality Plan</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>`;
+    },
+
+    generateMembershipPage: function(data) {
+        const mem = data || {};
+        const hero = mem.hero || {};
+        const manifesto = mem.manifesto || {};
+        const benefits = Array.isArray(mem.benefits) ? mem.benefits : [];
+        const tiersHeader = mem.tiers_header || {};
+        const tiers = Array.isArray(mem.tiers) ? mem.tiers : [];
+
+        const heroTag = hero.tag || 'Association &middot; Community';
+        const heroHeadline = hero.headline || 'Become a Member';
+        const heroSubline = hero.subline || '';
+        const heroPhotoCredit = hero.photo_credit ? `<span>${hero.photo_credit}</span>` : '';
+
+        const bgStyleAttr = hero.bg_image ? ` style="background-image: url('${this.formatPageImgUrl(hero.bg_image, 1)}') !important;"` : '';
+
+        const benefitsHtml = benefits.map((b, idx) => {
+            const label = b.label || `0${idx + 1}`;
+            const title = b.title || '';
+            const desc = b.desc || '';
+            return `                    <div class="membership-benefit-card">
+                        <span class="manifesto-label">${label}</span>
+                        <h3>${title}</h3>
+                        <p>${desc}</p>
+                    </div>`;
+        }).join('\n\n');
+
+        const tiersHtml = tiers.map(t => {
+            const optTag = t.option_tag || '';
+            const title = t.title || '';
+            const price = t.price || '';
+            const fee = t.fee || '';
+            const features = Array.isArray(t.features) ? t.features : [];
+            const featuresHtml = features.map(f => `<li>${f}</li>`).join('\n                                ');
+            const btnText = t.button_text || 'Get Membership &rarr;';
+            const btnUrl = t.button_url || '#';
+
+            return `                    <div class="membership-tier-card">
+                        <div>
+                            <div class="tier-header">
+                                <div>
+                                    <span class="section-tag" style="margin-bottom: 6px;">${optTag}</span>
+                                    <h3 style="font-size: 1.5rem !important; margin: 0;">${title}</h3>
+                                </div>
+                                <div class="tier-price-box">
+                                    <span class="tier-price">${price}</span>
+                                    <span class="tier-fee">${fee}</span>
+                                </div>
+                            </div>
+                            <ul class="tier-features">
+                                ${featuresHtml}
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="${btnUrl}" class="buy-button" target="_blank" rel="noopener" style="width: 100% !important; text-align: center !important;">${btnText}</a>
+                        </div>
+                    </div>`;
+        }).join('\n\n');
+
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership</title>
+    <link rel="shortcut icon" href="../img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/modern-redesign.css">
+    <script src="../js/modern-redesign.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="../index.html" aria-label="MMDT Home"><img src="../img/common/brand/logo_black.png" alt="MMDT"></a>
+                </div>
+                <nav class="nav">
+                    <a class="nav__link" href="projects.html">Projects</a>
+                    <a class="nav__link" href="festival.html">Festival</a>
+                    <a class="nav__link" href="classes.html">Classes</a>
+                    <a class="nav__link" href="events.html">Events</a>
+                    <a class="nav__link" href="partners.html">Partners</a>
+                    <a class="nav__link active" href="membership.html">Membership</a>
+                    <a class="nav__link" href="contacts.html">Contacts</a>
+                </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Intro section with membership background -->
+        <section class="intro_membership"${bgStyleAttr}>
+            <div class="container">
+                <span class="section-tag" style="color: #ffffff !important; opacity: 0.85;">${heroTag}</span>
+                <h1 class="intro__headline">${heroHeadline}</h1>
+                <p class="intro__subline">${heroSubline}</p>
+                <div class="intro__bottom-bar">
+                    <div id="intro__notion_membership">
+                        ${heroPhotoCredit}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Membership content -->
+        <section class="membership">
+            <div class="container">
+                <div class="manifesto-header">
+                    <span class="section-tag">${manifesto.tag || 'Why Join Us'}</span>
+                    <h2 class="manifesto-title">${manifesto.title || ''}</h2>
+                </div>
+
+                <!-- 3-Column Benefits Grid -->
+                <div class="membership-benefits-grid">
+${benefitsHtml}
+                </div>
+
+                <!-- Membership Tiers -->
+                <div style="margin-bottom: 24px;">
+                    <span class="section-tag">${tiersHeader.tag || 'Choose Your Tier'}</span>
+                    <h2>${tiersHeader.title || 'Membership Options'}</h2>
+                </div>
+
+                <div class="membership-tiers-grid">
+${tiersHtml}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer_element">
+                <a href="../index.html" style="text-decoration: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;">Motion Mode of Dialogue in Tirol</a><br><br>
+                <img src="../img/common/brand/visa_mc.png" alt="Payment Methods">
+            </div>
+            <div class="footer_element" style="display: flex; flex-direction: column; align-items: flex-end;">
+                <a href="legal/Privacy_policy.html">Privacy Policy</a>
+                <a href="legal/Refund_policy.html">Refund &amp; Return Policy</a>
+                <a href="legal/Terms&Conditions.html">Terms &amp; Conditions</a>
+                <a href="legal/GEP.html">Gender Equality Plan</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>`;
     }
 };

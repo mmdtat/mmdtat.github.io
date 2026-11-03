@@ -732,6 +732,276 @@ def build_index_page():
 
     return write_page_file("index.html", content)
 
+def build_partners_page():
+    data = load_json("partners")
+    if data is None:
+        return False
+
+    cards_html = []
+    for p in data:
+        url = p.get("url", "#")
+        tag = p.get("tag", "")
+        name = p.get("name", "")
+        desc = p.get("desc", "")
+        btn_text = p.get("btn_text", "Visit Website")
+        cards_html.append(f'''            <a class="partner-card" href="{url}" target="_blank" rel="noopener">
+                <div>
+                    <span class="partner-card__tag">{tag}</span>
+                    <h3>{name}</h3>
+                    <p>{desc}</p>
+                </div>
+                <div class="partner-card__footer">
+                    <span>{btn_text}</span>
+                    <span>→</span>
+                </div>
+            </a>''')
+
+    partner_cards_str = "\n\n".join(cards_html)
+
+    html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners — MMDT</title>
+    <meta name="description" content="Partners and collaborators of Motion Mode of Dialogue in Tirol.">
+    <link rel="shortcut icon" href="../img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/modern-redesign.css">
+    <script src="../js/modern-redesign.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="../index.html" aria-label="MMDT Home"><img src="../img/common/brand/logo_black.png" alt="MMDT"></a>
+                </div>
+                <nav class="nav">
+                    <a class="nav__link" href="projects.html">Projects</a>
+                    <a class="nav__link" href="festival.html">Festival</a>
+                    <a class="nav__link" href="classes.html">Classes</a>
+                    <a class="nav__link" href="events.html">Events</a>
+                    <a class="nav__link active" href="partners.html">Partners</a>
+                    <a class="nav__link" href="membership.html">Membership</a>
+                    <a class="nav__link" href="contacts.html">Contacts</a>
+                </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <span class="section-tag">Network &amp; Collaborations</span>
+            <div class="intro__projects">Partners</div>
+        </div>
+    </section>
+
+    <section class="container" style="padding-bottom: 80px;">
+        <div class="partners">
+{partner_cards_str}
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class="footer_element">
+                <a href="../index.html" style="text-decoration: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;">Motion Mode of Dialogue in Tirol</a><br><br>
+                <img src="../img/common/brand/visa_mc.png" alt="Payment Methods">
+            </div>
+            <div class="footer_element" style="display: flex; flex-direction: column; align-items: flex-end;">
+                <a href="legal/Privacy_policy.html">Privacy Policy</a>
+                <a href="legal/Refund_policy.html">Refund &amp; Return Policy</a>
+                <a href="legal/Terms&Conditions.html">Terms &amp; Conditions</a>
+                <a href="legal/GEP.html">Gender Equality Plan</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>'''
+    return write_page_file("pages/partners.html", html)
+
+
+def build_membership_page():
+    data = load_json("membership")
+    if not data:
+        return False
+
+    hero = data.get("hero", {})
+    manifesto = data.get("manifesto", {})
+    benefits = data.get("benefits", [])
+    tiers_header = data.get("tiers_header", {})
+    tiers = data.get("tiers", [])
+
+    hero_tag = hero.get("tag", "Association · Community")
+    hero_headline = hero.get("headline", "Become a Member")
+    hero_subline = hero.get("subline", "")
+    hero_photo_credit = hero.get("photo_credit", "")
+    photo_credit_html = f"<span>{hero_photo_credit}</span>" if hero_photo_credit else ""
+    bg_image = hero.get("bg_image", "")
+    bg_style_attr = f' style="background-image: url(\'{format_page_img_url(bg_image, 1)}\') !important;"' if bg_image else ""
+
+    benefits_cards = []
+    for idx, b in enumerate(benefits, 1):
+        lbl = b.get("label", f"0{idx}")
+        t = b.get("title", "")
+        d = b.get("desc", "")
+        benefits_cards.append(f'''                    <div class="membership-benefit-card">
+                        <span class="manifesto-label">{lbl}</span>
+                        <h3>{t}</h3>
+                        <p>{d}</p>
+                    </div>''')
+    benefits_html = "\n\n".join(benefits_cards)
+
+    tiers_cards = []
+    for t in tiers:
+        opt_tag = t.get("option_tag", "")
+        title = t.get("title", "")
+        price = t.get("price", "")
+        fee = t.get("fee", "")
+        features = t.get("features", [])
+        features_html = "\n".join(f"                                <li>{f}</li>" for f in features)
+        btn_text = t.get("button_text", "Get Membership →")
+        btn_url = t.get("button_url", "#")
+        tiers_cards.append(f'''                    <div class="membership-tier-card">
+                        <div>
+                            <div class="tier-header">
+                                <div>
+                                    <span class="section-tag" style="margin-bottom: 6px;">{opt_tag}</span>
+                                    <h3 style="font-size: 1.5rem !important; margin: 0;">{title}</h3>
+                                </div>
+                                <div class="tier-price-box">
+                                    <span class="tier-price">{price}</span>
+                                    <span class="tier-fee">{fee}</span>
+                                </div>
+                            </div>
+                            <ul class="tier-features">
+{features_html}
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="{btn_url}" class="buy-button" target="_blank" rel="noopener" style="width: 100% !important; text-align: center !important;">{btn_text}</a>
+                        </div>
+                    </div>''')
+    tiers_html = "\n\n".join(tiers_cards)
+
+    html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership</title>
+    <link rel="shortcut icon" href="../img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/modern-redesign.css">
+    <script src="../js/modern-redesign.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="../index.html" aria-label="MMDT Home"><img src="../img/common/brand/logo_black.png" alt="MMDT"></a>
+                </div>
+                <nav class="nav">
+                    <a class="nav__link" href="projects.html">Projects</a>
+                    <a class="nav__link" href="festival.html">Festival</a>
+                    <a class="nav__link" href="classes.html">Classes</a>
+                    <a class="nav__link" href="events.html">Events</a>
+                    <a class="nav__link" href="partners.html">Partners</a>
+                    <a class="nav__link active" href="membership.html">Membership</a>
+                    <a class="nav__link" href="contacts.html">Contacts</a>
+                </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Intro section with membership background -->
+        <section class="intro_membership"{bg_style_attr}>
+            <div class="container">
+                <span class="section-tag" style="color: #ffffff !important; opacity: 0.85;">{hero_tag}</span>
+                <h1 class="intro__headline">{hero_headline}</h1>
+                <p class="intro__subline">{hero_subline}</p>
+                <div class="intro__bottom-bar">
+                    <div id="intro__notion_membership">
+                        {photo_credit_html}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Membership content -->
+        <section class="membership">
+            <div class="container">
+                <div class="manifesto-header">
+                    <span class="section-tag">{manifesto.get("tag", "Why Join Us")}</span>
+                    <h2 class="manifesto-title">{manifesto.get("title", "")}</h2>
+                </div>
+
+                <!-- 3-Column Benefits Grid -->
+                <div class="membership-benefits-grid">
+{benefits_html}
+                </div>
+
+                <!-- Membership Tiers -->
+                <div style="margin-bottom: 24px;">
+                    <span class="section-tag">{tiers_header.get("tag", "Choose Your Tier")}</span>
+                    <h2>{tiers_header.get("title", "Membership Options")}</h2>
+                </div>
+
+                <div class="membership-tiers-grid">
+{tiers_html}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer_element">
+                <a href="../index.html" style="text-decoration: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;">Motion Mode of Dialogue in Tirol</a><br><br>
+                <img src="../img/common/brand/visa_mc.png" alt="Payment Methods">
+            </div>
+            <div class="footer_element" style="display: flex; flex-direction: column; align-items: flex-end;">
+                <a href="legal/Privacy_policy.html">Privacy Policy</a>
+                <a href="legal/Refund_policy.html">Refund &amp; Return Policy</a>
+                <a href="legal/Terms&Conditions.html">Terms &amp; Conditions</a>
+                <a href="legal/GEP.html">Gender Equality Plan</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>'''
+    return write_page_file("pages/membership.html", html)
+
+
 def build_all():
     res = {
         "events": build_events_page(),
@@ -739,6 +1009,8 @@ def build_all():
         "news": build_news_page(),
         "projects": build_projects_page(),
         "festivals": build_festivals_page(),
+        "partners": build_partners_page(),
+        "membership": build_membership_page(),
         "index": build_index_page()
     }
     return res
