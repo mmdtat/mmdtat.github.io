@@ -1557,7 +1557,7 @@ ${galleryTabHtml}
 
             ${archPhotos.length > 0 ? `
             <div style="border-top: 1px solid var(--border); padding-top: 32px;">
-                <span class="section-tag">${arch.photographer || 'Photomaterial'}</span>
+                ${arch.photographer ? `<span class="section-tag">${arch.photographer}</span>` : ''}
                 <h3>Photomaterial</h3>
             </div>
             <div class="fest-gallery-grid" id="festArchiveGallery">

@@ -2437,7 +2437,7 @@ function populateFestivalForm(f) {
     const arch = f.archive || {};
     document.getElementById('festArchiveVideos').value = (arch.videos || []).join('\n');
     document.getElementById('festArchiveAudioLink').value = arch.audio_link || '';
-    document.getElementById('festArchivePhotographer').value = arch.photographer || 'Photo by Serhii Semichev';
+    document.getElementById('festArchivePhotographer').value = arch.photographer || '';
     document.getElementById('festArchivePhotos').value = (arch.photos || []).join('\n');
     currentFestivalArchivePhotos = [...(arch.photos || [])];
     renderArchiveGalleryGrid(false);
@@ -2590,7 +2590,7 @@ function openAddFestival() {
         archive: {
             videos: [],
             audio_link: '',
-            photographer: 'Photo by Serhii Semichev',
+            photographer: '',
             photos: []
         }
     });
@@ -3242,7 +3242,7 @@ if (festivalModalForm) {
         // Archive
         const archVideos = document.getElementById('festArchiveVideos')?.value.split('\n').map(s => s.trim()).filter(Boolean) || [];
         const archAudioLink = document.getElementById('festArchiveAudioLink')?.value.trim() || '';
-        const archPhotographer = document.getElementById('festArchivePhotographer')?.value.trim() || 'Photo by Serhii Semichev';
+        const archPhotographer = document.getElementById('festArchivePhotographer')?.value.trim() || '';
         const archPhotos = (currentFestivalArchivePhotos && currentFestivalArchivePhotos.length > 0)
             ? currentFestivalArchivePhotos
             : (document.getElementById('festArchivePhotos')?.value.split('\n').map(s => s.trim()).filter(Boolean) || []);
