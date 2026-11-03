@@ -1,23 +1,6 @@
 {
   "upcoming": [
     {
-      "title": "Test",
-      "subtitle": "Test teacher",
-      "card_link": "",
-      "image": "../img/pages/events/ade491734ea41e261ae6b5443d2d2771.jpg",
-      "content": [
-        "Test 20.12\nText text text"
-      ],
-      "price_html": "25",
-      "buttons": [
-        {
-          "label": "Button",
-          "url": "https://mmdt.at/pages/events.html"
-        }
-      ],
-      "learn_more_html": "HASIDFHDALKJHFKJSkjhdlfkhsdlkjfh hfjsdhlfkhsdl fshfl ksdflksdh flkhs dfhsdjk fhlskd hfkjshdf sd hflsd hfkljshd flkhjsd lfkhsdlfh shd fs"
-    },
-    {
       "id": "evt-1",
       "title": "Coastal Reverie",
       "subtitle": "",
