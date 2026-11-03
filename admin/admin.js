@@ -3240,11 +3240,12 @@ if (festivalModalForm) {
         });
 
         // Archive
-        const archVideos = document.getElementById('festArchiveVideos').value.split('\n').map(s => s.trim()).filter(Boolean);
-        const archAudioLink = document.getElementById('festArchiveAudioLink').value.trim();
+        const archVideos = document.getElementById('festArchiveVideos')?.value.split('\n').map(s => s.trim()).filter(Boolean) || [];
+        const archAudioLink = document.getElementById('festArchiveAudioLink')?.value.trim() || '';
+        const archPhotographer = document.getElementById('festArchivePhotographer')?.value.trim() || 'Photo by Serhii Semichev';
         const archPhotos = (currentFestivalArchivePhotos && currentFestivalArchivePhotos.length > 0)
             ? currentFestivalArchivePhotos
-            : document.getElementById('festArchivePhotos').value.split('\n').map(s => s.trim()).filter(Boolean);
+            : (document.getElementById('festArchivePhotos')?.value.split('\n').map(s => s.trim()).filter(Boolean) || []);
 
         // Unified Festival Data Object
         const festData = {
