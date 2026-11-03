@@ -1,18 +1,6 @@
 {
   "upcoming": [
     {
-      "title": "Test event",
-      "subtitle": "Test teacher",
-      "card_link": "",
-      "image": "../img/pages/events/ade491734ea41e261ae6b5443d2d2771.jpg",
-      "content": [
-        "Test \n20.12"
-      ],
-      "price_html": "25",
-      "buttons": [],
-      "learn_more_html": "Test"
-    },
-    {
       "id": "evt-1",
       "title": "Coastal Reverie",
       "subtitle": "",
