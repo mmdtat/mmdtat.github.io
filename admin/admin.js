@@ -1106,7 +1106,7 @@ function addProjTeamMemberRow(member = {}) {
         <div class="form-row">
             <div class="form-group" style="flex:1;">
                 <label class="form-label">Имя и фамилия *</label>
-                <input type="text" class="form-control team-name" value="${escapeHtml(member.name || '')}" placeholder="Tamara Maksymenko" required>
+                <input type="text" class="form-control team-name" value="${escapeHtml(member.name || '')}" placeholder="Tamara Maksymenko">
             </div>
             <div class="form-group" style="flex:1;">
                 <label class="form-label">Роль / Должность *</label>
@@ -2011,7 +2011,7 @@ function addFestTeacherRow(teacher = {}) {
         <div class="form-row">
             <div class="form-group">
                 <label class="form-label">Имя преподавателя *</label>
-                <input type="text" class="form-control teacher-name" value="${escapeHtml(teacher.name || '')}" placeholder="Maitane Sarralde" required>
+                <input type="text" class="form-control teacher-name" value="${escapeHtml(teacher.name || '')}" placeholder="Maitane Sarralde">
             </div>
             <div class="form-group">
                 <label class="form-label">Роль / Статус</label>
@@ -2096,7 +2096,7 @@ function addFestPerfRow(perf = {}) {
         <div class="form-row">
             <div class="form-group">
                 <label class="form-label">Название перформанса *</label>
-                <input type="text" class="form-control perf-title" value="${escapeHtml(perf.title || '')}" placeholder="Hacer Sonar El Aire" required>
+                <input type="text" class="form-control perf-title" value="${escapeHtml(perf.title || '')}" placeholder="Hacer Sonar El Aire">
             </div>
             <div class="form-group">
                 <label class="form-label">Дата и время</label>
@@ -2148,7 +2148,7 @@ function addFestMusicianRow(musician = {}) {
         <div class="form-row">
             <div class="form-group">
                 <label class="form-label">Имя музыканта / проекта *</label>
-                <input type="text" class="form-control musician-name" value="${escapeHtml(musician.name || '')}" placeholder="Dima Bondarev" required>
+                <input type="text" class="form-control musician-name" value="${escapeHtml(musician.name || '')}" placeholder="Dima Bondarev">
             </div>
             <div class="form-group">
                 <label class="form-label">Инструмент / Роль</label>
@@ -2214,7 +2214,7 @@ function addFestTeamRow(member = {}) {
         <div class="form-row">
             <div class="form-group">
                 <label class="form-label">Имя *</label>
-                <input type="text" class="form-control team-name" value="${escapeHtml(member.name || '')}" placeholder="Tamara Maksymenko" required>
+                <input type="text" class="form-control team-name" value="${escapeHtml(member.name || '')}" placeholder="Tamara Maksymenko">
             </div>
             <div class="form-group">
                 <label class="form-label">Роль в фестивале</label>
@@ -2300,15 +2300,19 @@ const addFestPartnerBtn = document.getElementById('addFestPartnerBtn');
 if (addFestPartnerBtn) addFestPartnerBtn.addEventListener('click', () => addFestPartnerRow());
 
 // Subtab navigation inside #festivalsEditorView
+function switchFestivalSubtab(subtab) {
+    if (!subtab) return;
+    document.querySelectorAll('#festivalsEditorView .fest-subtabs-nav .fest-tab-nav-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.subtab === subtab);
+    });
+    document.querySelectorAll('#festivalsEditorView .fest-subtab-pane').forEach(p => {
+        p.classList.toggle('active', p.id === `pane-fest-${subtab}`);
+    });
+}
+
 document.querySelectorAll('#festivalsEditorView .fest-subtabs-nav .fest-tab-nav-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-        const subtab = btn.dataset.subtab;
-        if (!subtab) return;
-        document.querySelectorAll('#festivalsEditorView .fest-subtabs-nav .fest-tab-nav-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('#festivalsEditorView .fest-subtab-pane').forEach(p => p.classList.remove('active'));
-        const targetPane = document.getElementById(`pane-fest-${subtab}`);
-        if (targetPane) targetPane.classList.add('active');
+        switchFestivalSubtab(btn.dataset.subtab);
     });
 });
 
@@ -3020,21 +3024,62 @@ if (festArchRawInput) {
 }
 
 // Form Submission: Generate 9-tab HTML & Save JSON
+const topSaveFestBtn = document.getElementById('topSaveFestivalBtn');
+if (topSaveFestBtn) {
+    topSaveFestBtn.addEventListener('click', () => {
+        const form = document.getElementById('festivalModalForm');
+        if (form) {
+            if (typeof form.requestSubmit === 'function') {
+                form.requestSubmit();
+            } else {
+                document.getElementById('saveFestBtn').click();
+            }
+        }
+    });
+}
+
 const festivalModalForm = document.getElementById('festivalModalForm');
 if (festivalModalForm) {
     festivalModalForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const idx = document.getElementById('festIndex').value;
-        const id = document.getElementById('festId').value || `fest-${document.getElementById('festYear').value.trim()}`;
-        const title = document.getElementById('festTitle').value.trim();
-        const year = document.getElementById('festYear').value.trim();
-        const fileName = document.getElementById('festFileName').value.trim();
-        const status = document.getElementById('festStatus').value;
-        const dates = document.getElementById('festDates').value.trim();
-        const subtitle = document.getElementById('festSubtitle').value.trim();
-        const topicAuthor = document.getElementById('festTopicAuthor').value.trim();
-        const catalogImage = document.getElementById('festCatalogImagePath').value.trim() || '../img/festivals/covers/CI_2026.jpg';
-        const heroBg = document.getElementById('festHeroBgPath').value.trim() || 'img/festivals/2026/bg.jpg';
+        try {
+            const idx = document.getElementById('festIndex').value;
+            const title = document.getElementById('festTitle').value.trim();
+            const year = document.getElementById('festYear').value.trim();
+            const fileName = document.getElementById('festFileName').value.trim();
+            const dates = document.getElementById('festDates').value.trim();
+
+            if (!title) {
+                showToast('Пожалуйста, укажите название фестиваля', true);
+                switchFestivalSubtab('main');
+                document.getElementById('festTitle').focus();
+                return;
+            }
+            if (!year) {
+                showToast('Пожалуйста, укажите год фестиваля', true);
+                switchFestivalSubtab('main');
+                document.getElementById('festYear').focus();
+                return;
+            }
+            if (!fileName) {
+                showToast('Пожалуйста, укажите имя файла (например, CITyrolFest2027.html)', true);
+                switchFestivalSubtab('main');
+                document.getElementById('festFileName').focus();
+                return;
+            }
+            if (!dates) {
+                showToast('Пожалуйста, укажите даты проведения фестиваля', true);
+                switchFestivalSubtab('main');
+                document.getElementById('festDates').focus();
+                return;
+            }
+
+            const id = document.getElementById('festId').value || `fest-${year}`;
+            const status = document.getElementById('festStatus').value;
+            const subtitle = document.getElementById('festSubtitle').value.trim();
+            const topicAuthor = document.getElementById('festTopicAuthor').value.trim();
+            const catalogImage = document.getElementById('festCatalogImagePath').value.trim() || '../img/festivals/covers/CI_2026.jpg';
+            const heroBg = document.getElementById('festHeroBgPath').value.trim() || 'img/festivals/2026/bg.jpg';
 
         // Overview
         const factDates = document.getElementById('festFactDates').value.trim();
@@ -3290,6 +3335,7 @@ if (festivalModalForm) {
         });
 
         // 3. Update catalog festivalsData
+        if (!Array.isArray(festivalsData)) festivalsData = [];
         const catalogItem = {
             title,
             year,
@@ -3326,7 +3372,11 @@ if (festivalModalForm) {
         renderFestivalsList();
         hideEntityEditor('festivals');
         showToast(`Фестиваль «${title} ${year}» и страница ${fileName} успешно сохранены!`);
-    });
+    } catch (err) {
+        console.error('Ошибка сохранения фестиваля:', err);
+        showToast('Ошибка сохранения фестиваля: ' + err.message, true);
+    }
+});
 }
 
 window.deleteFestival = async function(idx) {

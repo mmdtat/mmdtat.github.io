@@ -116,10 +116,16 @@ window.MMDTGithub = {
         const commitData = await commitRes.json();
         const baseTreeSha = commitData.tree.sha;
 
-        // 3. Create blobs for binary files (or content items for text files)
+        // 3. Deduplicate files and create blobs for binary files (or content items for text files)
+        const fileMap = new Map();
+        for (const file of files) {
+            fileMap.set(file.path, file);
+        }
+        const uniqueFiles = Array.from(fileMap.values());
+
         const treeItems = [];
 
-        for (const file of files) {
+        for (const file of uniqueFiles) {
             if (file.isBase64) {
                 // Create blob for binary image
                 const blobRes = await fetch(`https://api.github.com/repos/${this.OWNER}/${this.REPO}/git/blobs`, {

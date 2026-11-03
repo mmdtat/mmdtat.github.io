@@ -144,7 +144,7 @@
                         </div>
                     </div>
 
-                    <form id="newsModalForm">
+                    <form id="newsModalForm" novalidate>
                         <div class="editor-page-body">
                             <input type="hidden" id="newsIndex">
                             <div class="form-row">
@@ -233,7 +233,7 @@
                         <button type="button" class="proj-tab-nav-btn" data-subtab="gallery">5. Фотоматериалы</button>
                     </div>
 
-                    <form id="projectModalForm" style="display:flex; flex-direction:column;">
+                    <form id="projectModalForm" style="display:flex; flex-direction:column;" novalidate>
                         <input type="hidden" id="projIndex">
 
                         <div class="editor-page-body">
@@ -666,7 +666,7 @@
                         <div class="editor-header-actions">
                             <button type="button" class="btn btn-sm" id="loadSampleFest2026Btn" title="Заполнить поля данными 2026 года для быстрого старта">📋 Загрузить образец 2026</button>
                             <button type="button" class="btn" id="closeFestivalModal">Отмена</button>
-                            <button type="button" class="btn btn-primary" onclick="document.getElementById('saveFestBtn').click()">Сохранить фестиваль</button>
+                            <button type="button" class="btn btn-primary" id="topSaveFestivalBtn">Сохранить фестиваль</button>
                         </div>
                     </div>
 
@@ -683,7 +683,7 @@
                 <button type="button" class="fest-tab-nav-btn" data-subtab="archive">10. Архив</button>
             </div>
 
-                    <form id="festivalModalForm" style="display:flex; flex-direction:column;">
+                    <form id="festivalModalForm" style="display:flex; flex-direction:column;" novalidate>
                 <input type="hidden" id="festIndex">
                 <input type="hidden" id="festId">
 
@@ -931,7 +931,7 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
                                 Вариант 1. Ссылка на Google Таблицу (Рекомендуется)
                             </label>
-                            <input type="url" class="form-control" id="festProgramGoogleSheets" placeholder="https://docs.google.com/spreadsheets/d/.../edit или ссылка публикации pubhtml">
+                            <input type="text" class="form-control" id="festProgramGoogleSheets" placeholder="https://docs.google.com/spreadsheets/d/.../edit или ссылка публикации pubhtml">
                             <div class="form-hint" style="margin-top:6px;">
                                 Вставьте сюда любую ссылку на расписание в Google Таблицах. Админка автоматически встроит интерактивную таблицу в страницу фестиваля. Любые правки в Google Sheets будут сразу видны на сайте!
                             </div>
@@ -1162,7 +1162,7 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                         </div>
                     </div>
 
-                    <form id="classesForm">
+                    <form id="classesForm" novalidate>
                         <div class="editor-page-body">
                             <input type="hidden" id="classIndex">
                             <div class="form-row">
@@ -1297,7 +1297,7 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                         </div>
                     </div>
 
-                    <form id="eventModalForm">
+                    <form id="eventModalForm" novalidate>
                         <div class="editor-page-body">
                             <input type="hidden" id="evtId">
                             <div class="form-row">
