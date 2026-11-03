@@ -1,32 +1,25 @@
 [
   {
     "id": "bodywork",
-    "title": "Body Work — Weekly Classes in Innsbruck",
     "tag": "September – December 2026 · Innsbruck",
-    "image": "../img/pages/classes/bodywork_course.jpg",
-    "intro": "Body Work is a gentle, guided movement practice rooted in somatic and movement-based traditions. We explore the body with curiosity and care — through slow movement, breath, and natural contact with others. No experience needed. No right or wrong. Just show up.",
-    "schedule": "Most Wednesdays (Sep – Dec 2026)",
-    "time": "Arrive 17:00 · Start 17:15 · End 18:45",
-    "venue": "Meditationszentrum, Brixnerstraße 4, Innsbruck",
+    "title": "Body Work — Weekly Classes in Innsbruck",
+    "image": "../img/pages/classes/Bodywork_Workshop__Jam.jpg",
+    "intro": "Body Work\n\nBody Work is a gentle, guided movement practice rooted in contact improvisation and somatic traditions. It is a calm, unhurried way of exploring the body: through slow movement, breath, weight and natural contact with others.\n\nEach class lasts two hours. We begin by arriving and tuning in, then move through simple guided explorations, alone and in contact with others. There is no choreography and no right or wrong. I guide the structure and explain each exercise, so you always know what we are doing and can stay within your own comfort. You don’t need a partner or any previous experience. Contact and connection emerge naturally within the group.\n\nAfter class, the space stays open. Depending on our mood and energy, the time can turn into a relaxed movement jam, or simply into tea and conversation. You are welcome to stay for as long as you like, or to go home when the class ends.\n\nMany people describe Body Work as softer and less hierarchical than other body practices, yet it leaves a deep sense of ease in both body and mind. It is open to everyone: dancers, non-dancers, couples, families and anyone curious about their own body. Just show up.",
+    "schedule": "Weekend day, Sundays",
+    "time": "Start 10:00 - End 12:00 - Jam 12:00-13:00",
+    "venue": "Under question",
     "group_size": "Minimum 6 participants per class",
     "upcoming_dates": {
-      "September": "8, 9, 22, 23",
-      "October": "7, 14, 21, 28",
-      "November": "4, 11, 18, 25",
-      "December": "2, 9, 16, 23, 30"
+      "November": "14, 22, 29",
+      "December": "6, 20, 27"
     },
-    "price_info": "15–25 € per class (sliding scale)<br><strong>Full season pass (17 classes):</strong> 220 €, 255 €",
+    "price_info": "20 € per class + 3 € transaction and tax fees",
     "policy": "Should a class need to be cancelled for any reason, the session will either be rescheduled at a time that works for everyone, or the amount will be deducted from your total.",
     "contact_note": "Full season registration is open now. Single attendance by contacting Tamara Maksymenko: +43 677 630 275 06",
-    "contact_phone": "+4367763027506",
     "buttons": [
       {
-        "label": "Double discount",
-        "url": "https://buy.stripe.com/6oUfZhg4o0IE3asgM6d3i10"
-      },
-      {
-        "label": "Discount",
-        "url": "https://buy.stripe.com/6oU4gz05q2QMcL21Rcd3i11"
+        "label": "Single ticket",
+        "url": "https://buy.stripe.com/aFafZhbO89fa9yQ67sd3i13"
       }
     ]
   }
