@@ -1,0 +1,138 @@
+{
+  "id": "fest-2027",
+  "title": "SOLO & CI TIROL Fest 2028",
+  "year": "2028",
+  "url": "CITyrolFest2028.html",
+  "image": "../img/festivals/covers/color_palette1.jpg",
+  "dates": "August 20 – 27, 2027 · Innsbruck, Austria",
+  "subtitle": "",
+  "topic_author": "",
+  "hero_bg": "img/festivals/2028/color_palette2.jpg",
+  "status": "upcoming",
+  "overview": {
+    "quick_facts": {
+      "dates": "August 20th to 27th, 2027",
+      "location": "Künstlerhaus Büchsenhausen, Weiherburggasse 13, Innsbruck",
+      "teachers": "",
+      "format": "Classes, Labs, Jams & Rock CI · Performances & Talks"
+    },
+    "manifesto_tag": "Festival 2027 · August 20th to 27th, 2027",
+    "manifesto_title": "What does it mean to be grounded — as artists, as humans, as communities?",
+    "concept_blocks": [
+      {
+        "label": "01 / Physical & Philosophical Practice",
+        "text": "Contact Improvisation as both a physical and philosophical practice — balancing between stability and flight, weight and suspension, presence and risk."
+      },
+      {
+        "label": "02 / Spaces for Dialogue",
+        "text": "Beyond physical practice, the festival opens spaces for dialogue, conversations around identity, body politics, and somatic awareness."
+      }
+    ],
+    "highlights": [
+      "Daily CI classes, labs, and research sessions, jams with live music",
+      "Teachers’ performances and improvisation events",
+      "Dance screenings and lectures",
+      "Open discussions",
+      "Shared meals and informal gatherings in the heart of the Tirol mountains."
+    ],
+    "conclusion": "Motion Mode of Dialogue continues to be a space where art, movement, and social reflection meet — a place for connection, questioning, and discovery."
+  },
+  "registration": {
+    "is_closed": false,
+    "closed_notice": "",
+    "whatsapp_contact": "+43 677 630 27506",
+    "intro_text": "A full week of classes, performances, jams, and lectures offered at an affordable price.",
+    "passes": [
+      {
+        "label": "Full Week Pass · Aug 20–27",
+        "title": "Regular participation:",
+        "desc": "(without accommodation and meals)",
+        "price_old": "399 €",
+        "price_current": "365 €",
+        "url": "https://buy.stripe.com/...",
+        "is_soldout": false
+      },
+      {
+        "label": "Half Pass",
+        "title": "Half of the festival regular participation:",
+        "desc": "(without accommodation and meals)",
+        "price_old": "349 €",
+        "price_current": "315 €",
+        "url": "https://buy.stripe.com/...",
+        "is_soldout": false
+      }
+    ],
+    "helper": {
+      "title": "Special Participation: HELPER",
+      "desc": "Join our community in a unique way! This special participation lets you reduce costs by contributing your hands.",
+      "status_note": "10 helper spots available"
+    },
+    "support": {
+      "title": "Support the Festival 🤍",
+      "text": "Being an independent community festival, every gesture of support and solidarity enables scholarships and reduced ticket passes for dancers in need."
+    }
+  },
+  "teachers": [],
+  "performances": [],
+  "musicians": [],
+  "program": {
+    "intro": "The festival week follows an organic flow balancing rigorous physical morning labs, communal midday nourishment, contemplative afternoon dialogues, and evening jams accompanied by live musicians.",
+    "google_sheets_url": "",
+    "image": "",
+    "schedule": [
+      {
+        "time": "08:30 – 09:30",
+        "title": "Somatic Awakening & Meditation"
+      },
+      {
+        "time": "10:00 – 13:00",
+        "title": "Morning CI Masterclasses with Faculty"
+      },
+      {
+        "time": "13:00 – 15:00",
+        "title": "Warm Vegetarian Lunch & Rest"
+      },
+      {
+        "time": "15:00 – 17:30",
+        "title": "Afternoon Research Labs & Rock CI"
+      },
+      {
+        "time": "18:00 – 19:30",
+        "title": "Screenings, Talks & Discussions"
+      },
+      {
+        "time": "20:00 – 23:00",
+        "title": "Open Jam with Live Music"
+      }
+    ]
+  },
+  "venue_food": {
+    "venue_name": "Künstlerhaus Büchsenhausen",
+    "venue_address": "Weiherburggasse 13, 6020 Innsbruck, Austria",
+    "venue_desc": "Located on the slope of the Nordkette mountains just above the old town of Innsbruck, Künstlerhaus Büchsenhausen offers light-flooded studios, wooden sprung floors, and historic Alpine architecture.",
+    "venue_photos": [
+      "img/festivals/2026/buchsenhausen.jpg"
+    ],
+    "accommodation_info": "Innsbruck offers a wide range of hostels, apartments, and camp sites. We also coordinate a community hosting network.",
+    "food_chef": "Communal Meals by Maya Schwartz",
+    "food_desc": "Maya Schwartz prepares fresh, nourishing, 100% vegetarian and vegan meals using organic produce sourced directly from Tirolean farmers.",
+    "food_photos": []
+  },
+  "team_partners": {
+    "team": [
+      {
+        "name": "Tamara Maksymenko",
+        "role": "Artistic Director & Project Lead",
+        "photo": "img/team/tamara.jpg",
+        "bio": "Founder of Motion Mode of Dialogue in Tirol, choreographer, and somatic educator."
+      }
+    ],
+    "partners": []
+  },
+  "archive": {
+    "videos": [],
+    "audio_link": "",
+    "photographer": "",
+    "photos": []
+  }
+}
