@@ -10,16 +10,20 @@
     "venue": "Under question",
     "group_size": "Minimum 6 participants per class",
     "upcoming_dates": {
-      "November": "14, 22, 29",
+      "November": "22, 29",
       "December": "6, 20, 27"
     },
     "price_info": "20 € per class + 3 € transaction and tax fees",
-    "policy": "Should a class need to be cancelled for any reason, the session will either be rescheduled at a time that works for everyone, or the amount will be deducted from your total.",
+    "policy": "Should a class need to be cancelled for any reason, the session will either be rescheduled at a time that works for everyone, or the amount for the class (20 or 25) cost will return to you.",
     "contact_note": "Full season registration is open now. Single attendance by contacting Tamara Maksymenko: +43 677 630 275 06",
     "buttons": [
       {
-        "label": "Single ticket",
+        "label": "Single ticket with Membership",
         "url": "https://buy.stripe.com/aFafZhbO89fa9yQ67sd3i13"
+      },
+      {
+        "label": "Single ticket without membership",
+        "url": "https://buy.stripe.com/3cIeVdcSccrmfXeanId3i14"
       }
     ]
   }
