@@ -11,29 +11,33 @@
   "status": "upcoming",
   "overview": {
     "quick_facts": {
-      "dates": "August 20th to 27th, 2027",
+      "dates": "August 13th to 19th, 2027",
       "location": "Künstlerhaus Büchsenhausen, Weiherburggasse 13, Innsbruck",
-      "teachers": "",
+      "teachers": "Susanne Martin, Marianna Andrigo, Laura Vlad, Olek Wojcik, serhii Semichev, Tamara Maksymenko and little Teya",
       "format": "Classes, Labs, Jams & Rock CI · Performances & Talks"
     },
-    "manifesto_tag": "Festival 2027 · August 20th to 27th, 2027",
-    "manifesto_title": "What does it mean to be grounded — as artists, as humans, as communities?",
+    "manifesto_tag": "Festival 2027 · August 13th to 19th, 2027",
+    "manifesto_title": "Roots & Routes: dancing between where we come from and where we are going.",
     "concept_blocks": [
       {
-        "label": "01 / Physical & Philosophical Practice",
-        "text": "Contact Improvisation as both a physical and philosophical practice — balancing between stability and flight, weight and suspension, presence and risk."
+        "label": "01 / Roots",
+        "text": "Contact Improvisation as a practice of grounding: weight, touch, listening and trust. We return to the roots of the form, to its first questions and the knowledge passed on from body to body, and ask what these roots mean in our own practice today."
       },
       {
-        "label": "02 / Spaces for Dialogue",
-        "text": "Beyond physical practice, the festival opens spaces for dialogue, conversations around identity, body politics, and somatic awareness."
+        "label": "02 / Routs",
+        "text": "Every dancer arrives by a different route: across countries, languages, histories and borders. The festival opens space for these journeys to meet, from the studio floor to vertical dance off the ground, and for conversations about identity, body politics and what it means to move together in a changing world."
       }
     ],
     "highlights": [
-      "Daily CI classes, labs, and research sessions, jams with live music",
-      "Teachers’ performances and improvisation events",
-      "Dance screenings and lectures",
-      "Open discussions",
-      "Shared meals and informal gatherings in the heart of the Tirol mountains."
+      "Contact Improvisation classes for all levels",
+      "Solo practice and artistic research labs",
+      "Vertical dance — an outdoor research labs",
+      "Lectures and open talks",
+      "Evening jams with live music",
+      "Performances by the invited artists",
+      "Teachers Performance",
+      "A screening of the film “The Path” by Serhii Semichev",
+      "A free programme for artists from countries affected by war"
     ],
     "conclusion": "Motion Mode of Dialogue continues to be a space where art, movement, and social reflection meet — a place for connection, questioning, and discovery."
   },
