@@ -7,14 +7,50 @@
   "image": "../img/projects/covers/Impro_Stage.jpg",
   "hero_bg": "img/projects/impro_stage_/hero_Untitled Design (3).jpg",
   "overview": {
-    "quick_facts": [],
-    "manifesto_tag": "",
+    "quick_facts": [
+      {
+        "label": "FEBRUARY 2027/5-DAY LAB + 3 PUBLIC EVENINGS",
+        "value": "",
+        "sub": "(10:00 - 14:00 / evening performance from 19:00)"
+      },
+      {
+        "label": "INNSBRUCK",
+        "value": "",
+        "sub": "(Theatre)"
+      },
+      {
+        "label": "TAMARA MAKSYMENKO & SERHII SEMICHEV",
+        "value": "",
+        "sub": "(Collective facilitating)"
+      },
+      {
+        "label": "Open-call lab for 10 participants",
+        "value": "",
+        "sub": "(Solo and Contact improvisation  practitioners)"
+      }
+    ],
+    "manifesto_tag": "By Motion Mode of Dialogue in Tyrol 2027",
     "manifesto_quote": "",
     "concept_cards": [
       {
         "label": "01 / Concept & Inquiry",
-        "title": "",
-        "content": ""
+        "title": "Improvisation without a safety net",
+        "content": "ImproStage is a laboratory and performance project for improvisation in physical theatre. A performer steps onto the stage and sets the frame there and then: asking the light designer for a beam, the musician for silence, or the audience for a structure. The project asks what changes when the beginning of an improvisation is part of the performance."
+      },
+      {
+        "label": "02 / The Laboratory",
+        "title": "Five days of research",
+        "content": "Ten participants, selected through an open call, work with the facilitators on structures, scores and their own ideas, through the body, the voice and the space. Professionals work next to people who have never improvised, because in a mixed group everyone can put down what they already know. The laboratory is research, not rehearsal: nothing from it is prepared for showing."
+      },
+      {
+        "label": "03 / Light & Sound as Co-Improvisers",
+        "title": "The technicians play too",
+        "content": "Light and music are full partners, not a service in the background. The performer can give them complete freedom, set the frame in a few words, or hand the choice to the audience. A shadow can turn a performer into a caricature, and suddenly it is funny. One day of the laboratory is devoted to practising these structures with the whole group, led by Serhii Semichev."
+      },
+      {
+        "label": "04 / Artistic Direction",
+        "title": "Who creates the space",
+        "content": "Tamara Maksymenko (Innsbruck) and Serhii Semichev (Freiburg) lead the laboratory and perform. Together with a live musician from the Tyrolean improvisation scene, invited through JIMI at the Tiroler Landeskonservatorium, and an improvisational light designer, they are the four people who shape the space."
       }
     ],
     "general_text": "",
@@ -27,13 +63,13 @@
   "team": {
     "tag": "",
     "title": "",
-    "image": "",
-    "statement": "",
+    "image": "img/projects/impro_stage_/team_Impro Stage (2).jpg",
+    "statement": "Both of us have spent years improvising on stages and in studios: I (Tamara) in Innsbruck, and Serhii in Freiburg, with roots in Ukraine, where we were a part of monthly improvisation evenings in the theatre of Kyiv. ImproStage grows out of that experience and one conviction: improvisation is most alive when it is shared.\n\nThat is why the project brings together professionals and people who have never improvised, dancers and actors, musicians and light designers, and why it asks everyone in the room to take part, not only the performers. Our role is not to direct but to hold the frame: to offer structures, to listen, and to step in when the room needs an idea.\n\nWe invite you to the laboratory, or to the stage, to find out with us what happens next.\n\nTamara Maksymenko & Serhii Semichev",
     "credits": []
   },
   "partners": {
-    "tag": "",
-    "title": "",
+    "tag": "Supported by",
+    "title": "Land Tirol Kultur Abteilung",
     "list": []
   },
   "gallery": {

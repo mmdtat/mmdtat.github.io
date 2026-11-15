@@ -55,6 +55,13 @@
         </div>
     </section>
 
+    <!-- Sticky Sub-Navigation Tabs -->
+    <div class="fest-tabs-wrapper" id="festTabsAnchor">
+        <div class="fest-tabs-bar">
+            <button class="fest-tab-btn active" data-fest-tab="overview" onclick="switchFestivalTab('overview', false)">Overview & Concept</button>
+            <button class="fest-tab-btn" data-fest-tab="team" onclick="switchFestivalTab('team', false)">Artistic Team</button>
+        </div>
+    </div>
     <main class="container">
 
         <!-- ==========================================
@@ -62,14 +69,52 @@
              ========================================== -->
         <div id="fest-tab-overview" class="fest-tab-panel" style="display: block;">
             
+            <div class="fest-facts-grid">
+                
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">FEBRUARY 2027/5-DAY LAB + 3 PUBLIC EVENINGS</span>
+                    
+                    <span class="fest-fact-sub">(10:00 - 14:00 / evening performance from 19:00)</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">INNSBRUCK</span>
+                    
+                    <span class="fest-fact-sub">(Theatre)</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">TAMARA MAKSYMENKO & SERHII SEMICHEV</span>
+                    
+                    <span class="fest-fact-sub">(Collective facilitating)</span>
+                </div>
+                <div class="fest-fact-item">
+                    <span class="fest-fact-label">Open-call lab for 10 participants</span>
+                    
+                    <span class="fest-fact-sub">(Solo and Contact improvisation  practitioners)</span>
+                </div>
+            </div>
             
             
             <div class="manifesto-grid" style="margin-bottom: 48px;">
                 
                 <div class="manifesto-card">
                     <span class="manifesto-label">01 / Concept & Inquiry</span>
-                    
-                    
+                    <h3>Improvisation without a safety net</h3>
+                    <p>ImproStage is a laboratory and performance project for improvisation in physical theatre. A performer steps onto the stage and sets the frame there and then: asking the light designer for a beam, the musician for silence, or the audience for a structure. The project asks what changes when the beginning of an improvisation is part of the performance.</p>
+                </div>
+                <div class="manifesto-card">
+                    <span class="manifesto-label">02 / The Laboratory</span>
+                    <h3>Five days of research</h3>
+                    <p>Ten participants, selected through an open call, work with the facilitators on structures, scores and their own ideas, through the body, the voice and the space. Professionals work next to people who have never improvised, because in a mixed group everyone can put down what they already know. The laboratory is research, not rehearsal: nothing from it is prepared for showing.</p>
+                </div>
+                <div class="manifesto-card">
+                    <span class="manifesto-label">03 / Light & Sound as Co-Improvisers</span>
+                    <h3>The technicians play too</h3>
+                    <p>Light and music are full partners, not a service in the background. The performer can give them complete freedom, set the frame in a few words, or hand the choice to the audience. A shadow can turn a performer into a caricature, and suddenly it is funny. One day of the laboratory is devoted to practising these structures with the whole group, led by Serhii Semichev.</p>
+                </div>
+                <div class="manifesto-card">
+                    <span class="manifesto-label">04 / Artistic Direction</span>
+                    <h3>Who creates the space</h3>
+                    <p>Tamara Maksymenko (Innsbruck) and Serhii Semichev (Freiburg) lead the laboratory and perform. Together with a live musician from the Tyrolean improvisation scene, invited through JIMI at the Tiroler Landeskonservatorium, and an improvisational light designer, they are the four people who shape the space.</p>
                 </div>
             </div>
             
@@ -77,8 +122,48 @@
             
             
             
+            <div style="border-top: 1px solid var(--border); padding-top: 36px; margin-top: 40px;">
+                <span class="section-tag">Explore Project Sections</span>
+                <h3>Project Directory</h3>
+                <div class="home-portal-grid">
+                    
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('team', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">01 / Creators</span>
+                            <h3>Artistic Team</h3>
+                            <p>Artistic direction, choreography, dancers, musicians, and collaborators.</p>
+                        </div>
+                        <span class="home-portal-link">View Team <span>&rarr;</span></span>
+                    </a>
+                </div>
+            </div>
         </div>
 
+        <!-- ==========================================
+             TAB: ARTISTIC TEAM
+             ========================================== -->
+        <div id="fest-tab-team" class="fest-tab-panel" style="display: none;">
+            <span class="section-tag">Collective Creation · By MMDT</span>
+            <h2 style="margin-bottom: 8px;">Artistic Direction & Team</h2>
+
+            <div class="concert-list">
+                <div class="concert-item">
+                    
+                    <div>
+                        <img src="../../img/projects/impro_stage_/team_Impro Stage (2).jpg" alt="Artistic Direction & Team" loading="lazy" onclick="openFestLightbox(this.src)" style="cursor: pointer;">
+                    </div>
+                    <div class="concert-info">
+                        <span class="section-tag" style="margin-bottom: 6px;">Collective Creation · By MMDT</span>
+                        <h2>Artistic Direction & Team</h2>
+                        <p>Both of us have spent years improvising on stages and in studios: I (Tamara) in Innsbruck, and Serhii in Freiburg, with roots in Ukraine, where we were a part of monthly improvisation evenings in the theatre of Kyiv. ImproStage grows out of that experience and one conviction: improvisation is most alive when it is shared.</p>
+                        <p>That is why the project brings together professionals and people who have never improvised, dancers and actors, musicians and light designers, and why it asks everyone in the room to take part, not only the performers. Our role is not to direct but to hold the frame: to offer structures, to listen, and to step in when the room needs an idea.</p>
+                        <p>We invite you to the laboratory, or to the stage, to find out with us what happens next.</p>
+                        <p>Tamara Maksymenko & Serhii Semichev</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </main>
