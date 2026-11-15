@@ -1,5 +1,14 @@
 [
   {
+    "title": "Impro Stage",
+    "year": "2027",
+    "image": "../img/projects/covers/Impro_Stage.jpg",
+    "url": "projects/impro_stage_.html",
+    "page_file": "pages/projects/impro_stage_.html",
+    "tag": "February - March 2027 (exact days are coming soon)",
+    "subtitle": ""
+  },
+  {
     "title": "The Silence of the Mass",
     "year": "2025",
     "image": "../img/projects/covers/TheSilenceoftheMass.jpg",

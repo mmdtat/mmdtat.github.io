@@ -1,0 +1,45 @@
+{
+  "title": "Impro Stage",
+  "year": "2027",
+  "slug": "impro_stage_",
+  "tag": "February - March 2027 (exact days are coming soon)",
+  "subtitle": "",
+  "image": "../img/projects/covers/Impro_Stage.jpg",
+  "hero_bg": "img/projects/impro_stage_/hero_Untitled Design (3).jpg",
+  "overview": {
+    "quick_facts": [],
+    "manifesto_tag": "",
+    "manifesto_quote": "",
+    "concept_cards": [
+      {
+        "label": "01 / Concept & Inquiry",
+        "title": "",
+        "content": ""
+      }
+    ],
+    "general_text": "",
+    "video_tag": "",
+    "video_title": "",
+    "video_url": "",
+    "tickets": {},
+    "crowdfunding": {}
+  },
+  "team": {
+    "tag": "",
+    "title": "",
+    "image": "",
+    "statement": "",
+    "credits": []
+  },
+  "partners": {
+    "tag": "",
+    "title": "",
+    "list": []
+  },
+  "gallery": {
+    "tag": "",
+    "title": "",
+    "credits": "",
+    "photos": []
+  }
+}
