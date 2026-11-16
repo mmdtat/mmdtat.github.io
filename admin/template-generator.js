@@ -815,9 +815,10 @@ ${cardsHtml}
             <div class="fest-partners-logos">
                 ${partnerList.map(p => {
                     const hasLogo = Boolean(p.logo && p.logo.trim());
-                    const inner = hasLogo
-                        ? `<img src="${this.normalizeProjectImgPath(p.logo)}" alt="${p.name || 'Partner'}" loading="lazy">`
-                        : `<span style="font-weight: 600; font-size: 0.95rem; color: var(--text-primary); text-align: center; padding: 8px 12px;">${p.name || 'Partner'}</span>`;
+                    const hasName = Boolean(p.name && p.name.trim());
+                    const logoPart = hasLogo ? `<img src="${this.normalizeProjectImgPath(p.logo)}" alt="${p.name || 'Partner'}" loading="lazy">` : '';
+                    const namePart = hasName ? `<span class="fest-partner-name">${p.name}</span>` : '';
+                    const inner = `${logoPart}${namePart}` || `<span class="fest-partner-name">Partner</span>`;
                     return `
                 <div class="fest-partner-logo-box">
                     ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${inner}</a>` : inner}
@@ -1236,11 +1237,16 @@ ${galleryTabHtml}
         // Partners HTML
         const partnersHtml = partners.map(pt => {
             const hasLogo = Boolean(pt.logo && pt.logo.trim());
-            const inner = hasLogo
+            const hasName = Boolean(pt.name && pt.name.trim());
+            const logoPart = hasLogo
                 ? `<img src="${this.formatPageImgUrl(pt.logo || '', 0)}" alt="${pt.name || 'Partner'}" style="max-height: 52px; max-width: 140px; object-fit: contain; filter: grayscale(100%); opacity: 0.8; transition: all 0.2s ease;">`
-                : `<span style="font-weight: 600; font-size: 0.95rem; color: var(--text-primary); text-align: center;">${pt.name || 'Partner'}</span>`;
+                : '';
+            const namePart = hasName
+                ? `<span class="fest-partner-name">${pt.name}</span>`
+                : '';
+            const inner = `${logoPart}${namePart}` || `<span class="fest-partner-name">Partner</span>`;
             return `
-            <a href="${pt.url || '#'}" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; padding: 16px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none;">
+            <a href="${pt.url || '#'}" target="_blank" rel="noopener" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 16px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; text-align: center;">
                 ${inner}
             </a>`;
         }).join('');

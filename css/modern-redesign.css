@@ -2266,10 +2266,32 @@ hr {
     border: 1px solid var(--border) !important;
     padding: 28px 24px !important;
     display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
+    gap: 12px !important;
+    text-align: center !important;
     background: var(--bg-white) !important;
     min-height: 130px !important;
+}
+
+.fest-partner-logo-box a {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    width: 100% !important;
+}
+
+.fest-partner-name {
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    color: var(--text-primary) !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.35 !important;
 }
 
 .fest-partner-logo-box img {
