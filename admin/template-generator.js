@@ -547,7 +547,8 @@ ${cardsHtml}
         );
 
         const hasPartners = Boolean(
-            proj.partners && proj.partners.list && proj.partners.list.length > 0
+            (proj.partners && proj.partners.list && proj.partners.list.length > 0) ||
+            (proj.partners && ((proj.partners.tag && proj.partners.tag.trim()) || (proj.partners.title && proj.partners.title.trim())))
         );
 
         const hasGallery = Boolean(
@@ -810,19 +811,26 @@ ${cardsHtml}
         if (hasPartners) {
             const pt = proj.partners || {};
             const partnerList = pt.list || [];
+            const logosHtml = partnerList.length > 0 ? `
+            <div class="fest-partners-logos">
+                ${partnerList.map(p => {
+                    const hasLogo = Boolean(p.logo && p.logo.trim());
+                    const inner = hasLogo
+                        ? `<img src="${this.normalizeProjectImgPath(p.logo)}" alt="${p.name || 'Partner'}" loading="lazy">`
+                        : `<span style="font-weight: 600; font-size: 0.95rem; color: var(--text-primary); text-align: center; padding: 8px 12px;">${p.name || 'Partner'}</span>`;
+                    return `
+                <div class="fest-partner-logo-box">
+                    ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${inner}</a>` : inner}
+                </div>`;
+                }).join('\n                ')}
+            </div>` : '';
             partnersTabHtml = `
         <!-- ==========================================
              TAB: PARTNERS & INSTITUTIONS
              ========================================== -->
         <div id="fest-tab-partners" class="fest-tab-panel" style="display: none;">
             <span class="section-tag">${pt.tag || 'Supported By &amp; In Collaboration With'}</span>
-            <h2 style="margin-bottom: 24px;">${pt.title || 'Partners &amp; Institutions'}</h2>
-            <div class="fest-partners-logos">
-                ${partnerList.map(p => `
-                <div class="fest-partner-logo-box">
-                    ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener"><img src="${this.normalizeProjectImgPath(p.logo)}" alt="${p.name || 'Partner'}" loading="lazy"></a>` : `<img src="${this.normalizeProjectImgPath(p.logo)}" alt="${p.name || 'Partner'}" loading="lazy">`}
-                </div>`).join('\n                ')}
-            </div>
+            <h2 style="margin-bottom: 24px;">${pt.title || 'Partners &amp; Institutions'}</h2>${logosHtml}
         </div>`;
         }
 
@@ -1962,5 +1970,27 @@ ${tiersHtml}
     </footer>
 </body>
 </html>`;
+    },
+
+    updateIndexHtml: function(currentIndexHtml, settings) {
+        if (!currentIndexHtml || !settings) return null;
+        const badge = settings.next_event_badge || {};
+        const badgeLabel = badge.label || 'Next: Solo & CI Tirol Fest 2026 &rarr;';
+        const badgeUrl = badge.url || 'CITyrolFest2026.html';
+
+        const newsBadge = settings.news_badge || {};
+        const newsLabel = newsBadge.label || 'News &amp; Updates &rarr;';
+        const newsUrl = newsBadge.url || 'pages/news.html';
+
+        const newBadgeRow = `<div class="intro__badge-row">
+                <a href="${badgeUrl}" class="intro__badge">
+                    <span class="badge__dot"></span> ${badgeLabel}
+                </a>
+                <a href="${newsUrl}" class="intro__badge intro__badge--ghost">
+                    ${newsLabel}
+                </a>
+            </div>`;
+
+        return currentIndexHtml.replace(/<div class="intro__badge-row">[\s\S]*?<\/div>/, newBadgeRow);
     }
 };

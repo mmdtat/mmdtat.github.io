@@ -852,6 +852,29 @@ async function loadNewsAndSettings() {
     renderNews();
 }
 
+async function syncIndexHtml() {
+    if (!window.MMDTTemplates || !window.MMDTTemplates.updateIndexHtml) return null;
+    let rawIndexHtml = null;
+    try {
+        const res = await fetch(`../index.html?_t=${Date.now()}`);
+        if (res.ok) rawIndexHtml = await res.text();
+    } catch {}
+
+    if (!rawIndexHtml && window.MMDTGithub && window.MMDTGithub.hasToken()) {
+        try {
+            const gh = await window.MMDTGithub.readFile('index.html');
+            if (gh && gh.content) rawIndexHtml = gh.content;
+        } catch {}
+    }
+
+    if (!rawIndexHtml) return null;
+    const updatedIndexHtml = window.MMDTTemplates.updateIndexHtml(rawIndexHtml, settingsData);
+    if (updatedIndexHtml) {
+        await saveGeneratedFile('index.html', updatedIndexHtml);
+    }
+    return updatedIndexHtml;
+}
+
 document.getElementById('saveBadgeBtn').addEventListener('click', async () => {
     settingsData.next_event_badge = {
         label: document.getElementById('badgeLabel').value.trim(),
@@ -873,6 +896,7 @@ document.getElementById('saveBadgeBtn').addEventListener('click', async () => {
     if (ce) settingsData.contact_email = ce.value.trim();
 
     await apiSave('settings', settingsData);
+    await syncIndexHtml();
     showToast('Настройки и главная страница index.html обновлены!');
 });
 
@@ -3971,12 +3995,7 @@ if (memHeroUploadBtn && memHeroFileInput) {
         memHeroUploadBtn.textContent = 'Сжатие...';
 
         try {
-            const compressed = await window.MMDTImageCompressor.compressImage(file, {
-                maxWidth: 1920,
-                maxHeight: 1280,
-                quality: 0.84,
-                outputFormat: 'image/jpeg'
-            });
+            const compressed = await window.MMDTCompressor.compressImage(file, 1920, 0.84);
 
             const filename = `membership_${Date.now()}.jpg`;
 
@@ -4144,6 +4163,7 @@ if (gitPushBtn) {
             logBox.textContent += 'Генерация HTML-страниц в браузере...\n';
 
             // Generate all pages on client
+            await syncIndexHtml();
             const eventsHtml = window.MMDTTemplates.generateEventsPage(allEventsData);
             const classesHtml = window.MMDTTemplates.generateClassesPage(classesData);
             const projectsHtml = window.MMDTTemplates.generateProjectsPage(projectsData);
@@ -4151,6 +4171,14 @@ if (gitPushBtn) {
             const newsHtml = window.MMDTTemplates.generateNewsPage(newsData);
             const partnersHtml = window.MMDTTemplates.generatePartnersPage(partnersData);
             const membershipHtml = window.MMDTTemplates.generateMembershipPage(membershipData);
+
+            const explicitPaths = new Set([
+                'data/events.json', 'data/classes.json', 'data/news.json', 'data/settings.json',
+                'data/projects.json', 'data/festivals.json', 'data/partners.json', 'data/membership.json',
+                'pages/events.html', 'pages/classes.html', 'pages/projects.html', 'pages/festival.html',
+                'pages/news.html', 'pages/partners.html', 'pages/membership.html'
+            ]);
+            const extraBlobs = pendingImageBlobs.filter(b => !explicitPaths.has(b.path));
 
             const filesToCommit = [
                 { path: 'data/events.json', content: JSON.stringify(allEventsData, null, 2) },
@@ -4168,7 +4196,7 @@ if (gitPushBtn) {
                 { path: 'pages/news.html', content: newsHtml },
                 { path: 'pages/partners.html', content: partnersHtml },
                 { path: 'pages/membership.html', content: membershipHtml },
-                ...pendingImageBlobs
+                ...extraBlobs
             ];
 
             logBox.textContent += `Отправка ${filesToCommit.length} файлов в репозиторий mmdtat/mmdtat.github.io через GitHub API...\n`;
