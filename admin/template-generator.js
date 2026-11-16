@@ -1234,10 +1234,16 @@ ${galleryTabHtml}
                 </div>`).join('\n\n');
 
         // Partners HTML
-        const partnersHtml = partners.map(pt => `
-            <a href="${pt.url || '#'}" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; padding: 16px;">
-                <img src="${this.formatPageImgUrl(pt.logo || '', 0)}" alt="${pt.name || 'Partner'}" style="max-height: 52px; max-width: 140px; object-fit: contain; filter: grayscale(100%); opacity: 0.8; transition: all 0.2s ease;">
-            </a>`).join('');
+        const partnersHtml = partners.map(pt => {
+            const hasLogo = Boolean(pt.logo && pt.logo.trim());
+            const inner = hasLogo
+                ? `<img src="${this.formatPageImgUrl(pt.logo || '', 0)}" alt="${pt.name || 'Partner'}" style="max-height: 52px; max-width: 140px; object-fit: contain; filter: grayscale(100%); opacity: 0.8; transition: all 0.2s ease;">`
+                : `<span style="font-weight: 600; font-size: 0.95rem; color: var(--text-primary); text-align: center;">${pt.name || 'Partner'}</span>`;
+            return `
+            <a href="${pt.url || '#'}" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; padding: 16px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none;">
+                ${inner}
+            </a>`;
+        }).join('');
 
         // Archive Videos & Photos HTML
         const archVideosHtml = archVideos.map(v => `
