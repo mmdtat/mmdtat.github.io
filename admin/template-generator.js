@@ -817,11 +817,11 @@ ${cardsHtml}
                     const hasLogo = Boolean(p.logo && p.logo.trim());
                     const hasName = Boolean(p.name && p.name.trim());
                     const logoPart = hasLogo ? `<img src="${this.normalizeProjectImgPath(p.logo)}" alt="${p.name || 'Partner'}" loading="lazy">` : '';
-                    const namePart = hasName ? `<span class="fest-partner-name">${p.name}</span>` : '';
+                    const namePart = hasName ? `<span class="fest-partner-name" style="font-size: 0.92rem; font-weight: 500; color: var(--text-primary); line-height: 1.35;">${p.name}</span>` : '';
                     const inner = `${logoPart}${namePart}` || `<span class="fest-partner-name">Partner</span>`;
                     return `
-                <div class="fest-partner-logo-box">
-                    ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener">${inner}</a>` : inner}
+                <div class="fest-partner-logo-box" style="flex-direction: column; gap: 14px; text-align: center;">
+                    ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener" style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-decoration: none; color: inherit;">${inner}</a>` : inner}
                 </div>`;
                 }).join('\n                ')}
             </div>` : '';
