@@ -60,7 +60,7 @@
         <div class="fest-tabs-bar">
             <button class="fest-tab-btn active" data-fest-tab="overview" onclick="switchFestivalTab('overview', false)">Overview & Concept</button>
             <button class="fest-tab-btn" data-fest-tab="team" onclick="switchFestivalTab('team', false)">Artistic Team</button>
-            <button class="fest-tab-btn" data-fest-tab="partners" onclick="switchFestivalTab('partners', false)">Land Tirol Kultur Abteilung</button>
+            <button class="fest-tab-btn" data-fest-tab="partners" onclick="switchFestivalTab('partners', false)">Partners</button>
         </div>
     </div>
     <main class="container">
@@ -136,6 +136,15 @@
                         </div>
                         <span class="home-portal-link">View Team <span>&rarr;</span></span>
                     </a>
+                    
+                    <a href="#festTabsAnchor" onclick="switchFestivalTab('partners', true); return false;" class="home-portal-card">
+                        <div>
+                            <span class="manifesto-label">02 / Collaboration</span>
+                            <h3>Partners</h3>
+                            <p>Institutions, funders, and partner organizations supporting this creation.</p>
+                        </div>
+                        <span class="home-portal-link">View Partners <span>&rarr;</span></span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -166,15 +175,20 @@
             </div>
         </div>
 
-
-
         <!-- ==========================================
              TAB: PARTNERS & INSTITUTIONS
              ========================================== -->
         <div id="fest-tab-partners" class="fest-tab-panel" style="display: none;">
             <span class="section-tag">Supported by</span>
-            <h2 style="margin-bottom: 24px;">Land Tirol Kultur Abteilung</h2>
+            <h2 style="margin-bottom: 24px;">Partners</h2>
+            <div class="fest-partners-logos">
+                
+                <div class="fest-partner-logo-box">
+                    <span style="font-weight: 600; font-size: 0.95rem; color: var(--text-primary); text-align: center; padding: 8px 12px;">Land Tirol Kultur Abteilung</span>
+                </div>
+            </div>
         </div>
+
     </main>
 
     <footer>

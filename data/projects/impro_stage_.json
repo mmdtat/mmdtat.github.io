@@ -69,8 +69,14 @@
   },
   "partners": {
     "tag": "Supported by",
-    "title": "Land Tirol Kultur Abteilung",
-    "list": []
+    "title": "Partners",
+    "list": [
+      {
+        "name": "Land Tirol Kultur Abteilung",
+        "url": "",
+        "logo": ""
+      }
+    ]
   },
   "gallery": {
     "tag": "",
