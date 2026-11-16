@@ -730,6 +730,25 @@ def build_index_page():
             </div>'''
     content = re.sub(pattern, new_badge_row, content, flags=re.DOTALL)
 
+    # Update photo credit if present in settings
+    if "photo_credit" in settings:
+        credit = (settings.get("photo_credit") or "").strip()
+        credit_url = (settings.get("photo_credit_url") or "").strip()
+        if credit:
+            if credit_url:
+                domain_label = re.sub(r'/.*$', '', re.sub(r'^https?://(www\.)?', '', credit_url))
+                notion_inner = f'\n                    <p>Photo by {credit} <a href="{credit_url}" target="_blank" rel="noopener">{domain_label}</a></p>\n                '
+            else:
+                notion_inner = f'\n                    <p>Photo by {credit}</p>\n                '
+        else:
+            notion_inner = ""
+        content = re.sub(r'<div class="intro__notion">.*?</div>', f'<div class="intro__notion">{notion_inner}</div>', content, flags=re.DOTALL)
+
+    # Update contact email in header if present
+    contact_email = (settings.get("contact_email") or "").strip()
+    if contact_email:
+        content = re.sub(r'(<a class="header__cta-mail" href=")mailto:[^"]*(")', rf'\1mailto:{contact_email}\2', content)
+
     return write_page_file("index.html", content)
 
 def build_partners_page():

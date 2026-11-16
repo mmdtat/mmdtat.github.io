@@ -1997,6 +1997,30 @@ ${tiersHtml}
                 </a>
             </div>`;
 
-        return currentIndexHtml.replace(/<div class="intro__badge-row">[\s\S]*?<\/div>/, newBadgeRow);
+        let updated = currentIndexHtml.replace(/<div class="intro__badge-row">[\s\S]*?<\/div>/, newBadgeRow);
+
+        // Update photo credit if provided
+        if (typeof settings.photo_credit === 'string') {
+            const credit = settings.photo_credit.trim();
+            const creditUrl = (settings.photo_credit_url || '').trim();
+            let notionInner = '';
+            if (credit) {
+                if (creditUrl) {
+                    const domainLabel = creditUrl.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, '');
+                    notionInner = `\n                    <p>Photo by ${credit} <a href="${creditUrl}" target="_blank" rel="noopener">${domainLabel}</a></p>\n                `;
+                } else {
+                    notionInner = `\n                    <p>Photo by ${credit}</p>\n                `;
+                }
+            }
+            updated = updated.replace(/<div class="intro__notion">[\s\S]*?<\/div>/, `<div class="intro__notion">${notionInner}</div>`);
+        }
+
+        // Update header contact email if provided
+        if (settings.contact_email && settings.contact_email.trim()) {
+            const email = settings.contact_email.trim();
+            updated = updated.replace(/(<a class="header__cta-mail" href=")mailto:[^"]*(")/, `$1mailto:${email}$2`);
+        }
+
+        return updated;
     }
 };
