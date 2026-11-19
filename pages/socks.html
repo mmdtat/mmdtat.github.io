@@ -119,7 +119,7 @@
                             <strong>Ground shipping to EU-countries — €8.</strong><br>
                             You can choose shipping (with address) or free pickup in Innsbruck (Kaiserjägerstraße 42 - top 3) directly during Stripe Checkout.
                         </p>
-                        <a id="stripeBuyBtn" href="https://buy.stripe.com/test_eVq4gz9Hm5H66cV9eN9EI02" target="_blank" rel="noopener" class="buy-button" style="width: 100%; text-align: center; display: block;">
+                        <a id="stripeBuyBtn" href="https://buy.stripe.com/fZu00j5nieAz9WD8Q128803" target="_blank" rel="noopener" class="buy-button" style="width: 100%; text-align: center; display: block;">
                             Pay via Stripe →
                         </a>
                     </div>
@@ -166,7 +166,10 @@
 
     <script>
         (function () {
-            const STRIPE_PAYMENT_URL = "https://buy.stripe.com/test_eVq4gz9Hm5H66cV9eN9EI02";
+            const STRIPE_PAYMENT_LINKS = {
+                violet: "https://buy.stripe.com/fZu00j5nieAz9WD8Q128803",
+                blue: "https://buy.stripe.com/8x2dR94je4ZZ1q73vH28804"
+            };
 
             let currentVariant = "violet";
             let currentLabel = "Deep Violet (40–43)";
@@ -179,7 +182,7 @@
 
             function updateStripeButton() {
                 stripeSelectedLabel.textContent = currentLabel;
-                stripeBuyBtn.href = STRIPE_PAYMENT_URL;
+                stripeBuyBtn.href = STRIPE_PAYMENT_LINKS[currentVariant];
             }
 
             function selectVariant(variant, label, imgSrc) {
