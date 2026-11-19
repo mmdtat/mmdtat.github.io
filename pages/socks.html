@@ -111,84 +111,17 @@
                         </div>
                     </div>
 
-                    <!-- Delivery & Payment Box -->
+                    <!-- Delivery & Payment Box (Stripe Only) -->
                     <div class="delivery-box">
-                        <span class="variant-label" style="margin-bottom: 12px;">2. Payment &amp; Delivery Method</span>
-                        <div class="delivery-tabs">
-                            <button type="button" class="delivery-tab active" data-mode="stripe">Online Payment + Shipping (Stripe)</button>
-                            <button type="button" class="delivery-tab" data-mode="order">Free Pickup (Innsbruck) / Order Form</button>
-                        </div>
-
-                        <!-- Mode 1: Stripe Checkout -->
-                        <div id="modeStripe">
-                            <p style="font-size: 0.9rem; line-height: 1.55; color: var(--text-body); margin: 0 0 16px 0;">
-                                Selected: <strong id="stripeSelectedLabel">Deep Violet (40–43)</strong> — <strong>€12</strong> + shipping.<br>
-                                Your shipping address and delivery cost are collected securely during Stripe Checkout.
-                            </p>
-                            <a id="stripeBuyBtn" href="#order-form" class="buy-button" style="width: 100%; text-align: center; display: block;">
-                                Pay via Stripe →
-                            </a>
-                            <div id="stripePendingNotice" class="stripe-notice" style="display: none;">
-                                Online Stripe link for this variant is being activated. Please use the <strong>Order Form / WhatsApp</strong> tab right next to it — we will send you the payment link and confirm shipping immediately!
-                            </div>
-                        </div>
-
-                        <!-- Mode 2: Direct Order / Pickup Form -->
-                        <div id="modeOrder" style="display: none;">
-                            <form id="socksOrderForm" class="order-form-grid">
-                                <div class="order-field">
-                                    <label for="orderDelivery">Delivery / Pickup</label>
-                                    <select id="orderDelivery" name="delivery">
-                                        <option value="Free Pickup in Innsbruck (Kaiserjägerstraße 42 - top 3)">Free Pickup in Innsbruck (Kaiserjägerstraße 42 - top 3)</option>
-                                        <option value="Shipping by Post (shipping paid by buyer)">Shipping by Post (shipping paid by buyer)</option>
-                                    </select>
-                                </div>
-
-                                <div class="order-field">
-                                    <label for="orderVariant">Size &amp; Colour</label>
-                                    <select id="orderVariant" name="variant">
-                                        <option value="Deep Violet (40–43)">Deep Violet (40–43) — €12</option>
-                                        <option value="Light Blue (36–39)">Light Blue (36–39) — €12</option>
-                                        <option value="Both Pairs (1× Violet 40–43 + 1× Blue 36–39)">Both Pairs (1× Violet 40–43 + 1× Blue 36–39) — €24</option>
-                                    </select>
-                                </div>
-
-                                <div class="order-field">
-                                    <label for="orderQty">Quantity (pairs)</label>
-                                    <input type="number" id="orderQty" name="qty" min="1" max="20" value="1" required>
-                                </div>
-
-                                <div class="order-field">
-                                    <label for="orderName">Full Name *</label>
-                                    <input type="text" id="orderName" name="name" placeholder="Your name" required>
-                                </div>
-
-                                <div class="order-field">
-                                    <label for="orderContact">Email or WhatsApp / Phone *</label>
-                                    <input type="text" id="orderContact" name="contact" placeholder="email@example.com or +43..." required>
-                                </div>
-
-                                <div class="order-field" id="shippingAddressField" style="display: none;">
-                                    <label for="orderAddress">Shipping Address (Street, ZIP, City, Country) *</label>
-                                    <textarea id="orderAddress" name="address" rows="3" placeholder="Street & house number, postal code, city, country"></textarea>
-                                </div>
-
-                                <div class="order-field">
-                                    <label for="orderNotes">Notes (optional)</label>
-                                    <input type="text" id="orderNotes" name="notes" placeholder="Preferred pickup time or question">
-                                </div>
-
-                                <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; color: var(--text-body); cursor: pointer;">
-                                    <input type="checkbox" id="orderLegalConsent" required style="margin-top: 3px;">
-                                    <span>I agree to the <a href="../Terms&Conditions.html" target="_blank">Terms &amp; Conditions</a>, <a href="../Privacy_policy.html" target="_blank">Privacy Policy</a>, and <a href="../Refund_policy.html" target="_blank">14-day Return Policy</a>.</span>
-                                </label>
-
-                                <div class="order-actions">
-                                    <button type="button" id="sendWhatsAppBtn" class="buy-button" style="flex: 1;">Order via WhatsApp →</button>
-                                    <button type="button" id="sendEmailBtn" class="buy-button buy-button--secondary" style="flex: 1;">Order via Email →</button>
-                                </div>
-                            </form>
-                        </div>
+                        <span class="variant-label" style="margin-bottom: 10px;">2. Online payment + pick up in Innsbruck or delivery method</span>
+                        <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-body); margin: 0 0 14px 0;">
+                            Selected: <strong id="stripeSelectedLabel">Deep Violet (40–43)</strong> — <strong>€12</strong><br>
+                            <strong>Ground shipping to EU-countries — €8.</strong><br>
+                            You can choose shipping (with address) or free pickup in Innsbruck (Kaiserjägerstraße 42 - top 3) directly during Stripe Checkout.
+                        </p>
+                        <a id="stripeBuyBtn" href="https://buy.stripe.com/test_eVq4gz9Hm5H66cV9eN9EI02" target="_blank" rel="noopener" class="buy-button" style="width: 100%; text-align: center; display: block;">
+                            Pay via Stripe →
+                        </a>
                     </div>
                 </div>
             </div>
@@ -233,12 +166,7 @@
 
     <script>
         (function () {
-            // Paste your Stripe Payment Links here once created in Stripe Dashboard
-            // (enable "Collect shipping address" and "Shipping rates" in Stripe Payment Link settings)
-            const STRIPE_PAYMENT_LINKS = {
-                violet: "", // e.g. "https://buy.stripe.com/..."
-                blue: ""    // e.g. "https://buy.stripe.com/..."
-            };
+            const STRIPE_PAYMENT_URL = "https://buy.stripe.com/test_eVq4gz9Hm5H66cV9eN9EI02";
 
             let currentVariant = "violet";
             let currentLabel = "Deep Violet (40–43)";
@@ -248,28 +176,10 @@
             const variantBtns = document.querySelectorAll(".variant-btn");
             const stripeSelectedLabel = document.getElementById("stripeSelectedLabel");
             const stripeBuyBtn = document.getElementById("stripeBuyBtn");
-            const stripePendingNotice = document.getElementById("stripePendingNotice");
-
-            const deliveryTabs = document.querySelectorAll(".delivery-tab");
-            const modeStripe = document.getElementById("modeStripe");
-            const modeOrder = document.getElementById("modeOrder");
-            const orderDelivery = document.getElementById("orderDelivery");
-            const orderVariant = document.getElementById("orderVariant");
-            const shippingAddressField = document.getElementById("shippingAddressField");
-            const orderAddress = document.getElementById("orderAddress");
 
             function updateStripeButton() {
-                const url = STRIPE_PAYMENT_LINKS[currentVariant];
                 stripeSelectedLabel.textContent = currentLabel;
-                if (url) {
-                    stripeBuyBtn.href = url;
-                    stripeBuyBtn.target = "_blank";
-                    stripeBuyBtn.rel = "noopener";
-                    stripePendingNotice.style.display = "none";
-                } else {
-                    stripeBuyBtn.href = "#order-form";
-                    stripeBuyBtn.removeAttribute("target");
-                }
+                stripeBuyBtn.href = STRIPE_PAYMENT_URL;
             }
 
             function selectVariant(variant, label, imgSrc) {
@@ -280,9 +190,6 @@
                 if (imgSrc) {
                     mainImg.src = imgSrc;
                     thumbs.forEach(t => t.classList.toggle("active", t.dataset.img === imgSrc));
-                }
-                if (orderVariant) {
-                    orderVariant.value = label;
                 }
                 updateStripeButton();
             }
@@ -299,7 +206,6 @@
                             currentVariant = v;
                             currentLabel = btn.dataset.label;
                             variantBtns.forEach(b => b.classList.toggle("active", b.dataset.variant === v));
-                            if (orderVariant) orderVariant.value = currentLabel;
                             updateStripeButton();
                         }
                     }
@@ -310,83 +216,6 @@
                 btn.addEventListener("click", () => {
                     selectVariant(btn.dataset.variant, btn.dataset.label, btn.dataset.img);
                 });
-            });
-
-            stripeBuyBtn.addEventListener("click", (e) => {
-                const url = STRIPE_PAYMENT_LINKS[currentVariant];
-                if (!url) {
-                    e.preventDefault();
-                    stripePendingNotice.style.display = "block";
-                }
-            });
-
-            deliveryTabs.forEach(tab => {
-                tab.addEventListener("click", () => {
-                    deliveryTabs.forEach(t => t.classList.remove("active"));
-                    tab.classList.add("active");
-                    const isStripe = tab.dataset.mode === "stripe";
-                    modeStripe.style.display = isStripe ? "block" : "none";
-                    modeOrder.style.display = isStripe ? "none" : "block";
-                });
-            });
-
-            orderDelivery.addEventListener("change", () => {
-                const needsAddress = orderDelivery.value.includes("Shipping");
-                shippingAddressField.style.display = needsAddress ? "block" : "none";
-                orderAddress.required = needsAddress;
-            });
-
-            function buildOrderMessage() {
-                const name = document.getElementById("orderName").value.trim();
-                const contact = document.getElementById("orderContact").value.trim();
-                const qty = document.getElementById("orderQty").value;
-                const variant = orderVariant.value;
-                const delivery = orderDelivery.value;
-                const address = orderAddress.value.trim();
-                const notes = document.getElementById("orderNotes").value.trim();
-                const consent = document.getElementById("orderLegalConsent").checked;
-
-                if (!name || !contact) {
-                    alert("Please fill in your name and email/phone.");
-                    return null;
-                }
-                if (delivery.includes("Shipping") && !address) {
-                    alert("Please enter your shipping address.");
-                    return null;
-                }
-                if (!consent) {
-                    alert("Please accept the Terms & Conditions, Privacy Policy, and Return Policy.");
-                    return null;
-                }
-
-                let lines = [
-                    "Hello Tamara! I would like to order Dance Socks:",
-                    `- Item: ${variant}`,
-                    `- Quantity: ${qty} pair(s)`,
-                    `- Delivery: ${delivery}`,
-                    `- Name: ${name}`,
-                    `- Contact: ${contact}`
-                ];
-                if (delivery.includes("Shipping")) {
-                    lines.push(`- Shipping Address: ${address}`);
-                }
-                if (notes) {
-                    lines.push(`- Notes: ${notes}`);
-                }
-                return lines.join("\n");
-            }
-
-            document.getElementById("sendWhatsAppBtn").addEventListener("click", () => {
-                const msg = buildOrderMessage();
-                if (!msg) return;
-                window.open(`https://wa.me/4367763027506?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
-            });
-
-            document.getElementById("sendEmailBtn").addEventListener("click", () => {
-                const msg = buildOrderMessage();
-                if (!msg) return;
-                const subject = encodeURIComponent(`MMDT Shop Order: Dance Socks (${orderVariant.value})`);
-                window.location.href = `mailto:mm.of.dialogue.in.tyrol@gmail.com?subject=${subject}&body=${encodeURIComponent(msg)}`;
             });
 
             updateStripeButton();
