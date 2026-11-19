@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const isEvents = path.includes('/events.');
         const isPartners = path.includes('/partners.');
         const isMembership = path.includes('/membership.');
+        const isShop = path.includes('/shop.') || path.includes('/socks.');
         const isContacts = path.includes('/contacts.');
 
         const headerInner = `
@@ -56,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a class="nav__link ${isEvents ? 'active' : ''}" href="${relRoot}pages/events.html">Events</a>
                     <a class="nav__link ${isPartners ? 'active' : ''}" href="${relRoot}pages/partners.html">Partners</a>
                     <a class="nav__link ${isMembership ? 'active' : ''}" href="${relRoot}pages/membership.html">Membership</a>
+                    <a class="nav__link ${isShop ? 'active' : ''}" href="${relRoot}pages/shop.html">Shop</a>
                     <a class="nav__link ${isContacts ? 'active' : ''}" href="${relRoot}pages/contacts.html">Contacts</a>
                 </nav>
                 <div class="header__actions">
@@ -91,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li><a class="mobile-nav-link ${isEvents ? 'active' : ''}" href="${relRoot}pages/events.html">Events</a></li>
                     <li><a class="mobile-nav-link ${isPartners ? 'active' : ''}" href="${relRoot}pages/partners.html">Partners</a></li>
                     <li><a class="mobile-nav-link ${isMembership ? 'active' : ''}" href="${relRoot}pages/membership.html">Membership</a></li>
+                    <li><a class="mobile-nav-link ${isShop ? 'active' : ''}" href="${relRoot}pages/shop.html">Shop</a></li>
                     <li><a class="mobile-nav-link ${isContacts ? 'active' : ''}" href="${relRoot}pages/contacts.html">Contacts</a></li>
                 </ul>
                 <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); width: 100%;">
@@ -149,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <a href="${relRoot}pages/events.html">Events</a>
                             <a href="${relRoot}pages/partners.html">Partners</a>
                             <a href="${relRoot}pages/membership.html">Membership</a>
+                            <a href="${relRoot}pages/shop.html">Shop</a>
                             <a href="${relRoot}pages/contacts.html">Contacts</a>
                         </div>
                     </div>
