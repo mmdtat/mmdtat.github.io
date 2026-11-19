@@ -80,8 +80,8 @@
     {
       "name": "Laura Vlad",
       "role": "Artist/Performer/Teacher",
-      "photo": "",
-      "photo2": "",
+      "photo": "img/festivals/teachers/7M303031.jpg",
+      "photo2": "img/festivals/teachers/7M303101.jpg",
       "bio": "Laura is a dedicated professional and artist blending body-mind practices to inspire authenticity, personal growth and connection. As an NLP and Somatic Coach, Mindfulness practitioner and dancer, she integrates movement, embodiment, and mindfulness into innovative programs that nurture presence and authentic relationships.\n\nPassionate about dance, improvisation, and somatic practices, Laura combines artistic expression with developmental tools, helping individuals unlock their potential at their own pace. Her approach emphasizes inner resources and mindful attitudes, fostering transformation through creativity and self-awareness.\n\nTraveling, dancing, playing and finding creative forms of sharing her discoveries - she is aiming to stay loyal to her heart. Laura’s work emphasizes personal growth, offering tools to unlock potential and navigate the world with confidence and authenticity.",
       "video_url": "",
       "classes": [
@@ -90,6 +90,12 @@
           "label": "LAB/WORKSHOP",
           "desc": "A movement laboratory exploring one pathway into Contact Improvisation through a holistic approach to the body. Breath, somatic awareness and mindful movement invite us into contact with ourselves: listening to sensation, emotion and impulse and allowing honest expression to become dance.\n\nFrom this connection, we open towards contact with other bodies, exploring how our inner experience meets touch, shared weight and movement. Improvisation becomes both a vulnerable, authentic way of expressing ourselves and a tool for listening and responding within contact. Rooted in self-awareness, we discover new roads into a shared dance.",
           "video_url": ""
+        },
+        {
+          "title": "Contact Kids or Little Curiosity ~ Connected Play for Children and Adults",
+          "label": "WORKSHOP",
+          "desc": "A movement laboratory for children and adults, exploring one possible road into Contact Improvisation through curiosity, play and childlike discovery. Movement games, storytelling and imagination invite us to follow what catches our attention, listen through touch and discover ways of moving together.\n\nWe explore rolling, leaning, sharing weight and responding to one another, with room for each person’s boundaries and choices. Children and adults become partners in discovery, allowing spontaneous encounters to become a shared dance.",
+          "video_url": ""
         }
       ],
       "topic": "Somatic Harmony ~ Cultivating Balance"
@@ -97,8 +103,8 @@
     {
       "name": "Olek Wojcik",
       "role": "Artist/Performer/Teacher",
-      "photo": "",
-      "photo2": "",
+      "photo": "img/festivals/teachers/7M301652.jpg",
+      "photo2": "img/festivals/teachers/7M301679.jpg",
       "bio": "“The world is our playground, and each interaction is an opportunity to learn something new.”\n\nOlek is a freelance physical artist and explorer, passionate about weaving diverse disciplines into tools for authentic expression and storytelling. Drawing inspiration from Parkour, Contact Improvisation, Acro dance, fire performance, Capoeira, and street theater, he creates dynamic narratives that transcend boundaries of movement and emotion. \n\nAs both a performer and facilitator, Olek thrives on discovering new ways to connect body, mind, and soul through active play and creative exploration. His work invites others to embrace their full potential, cultivating presence and a deeper understanding of themselves through the art of movement and its limitless possibilities. \n\nOlek's philosophy is to bring movement back to the outside environment as play. Growing these essential skills on the streets and making it accessible to everyone, to support our connection and wellbeing in our society with the vision of building a movement culture as an ordinary part of our existence.",
       "video_url": "",
       "classes": [
