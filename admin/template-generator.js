@@ -1128,20 +1128,31 @@ ${galleryTabHtml}
         }).join('\n\n');
 
         // Performances HTML
-        const perfsHtml = perfs.map(pf => `
+        const perfsHtml = perfs.map(pf => {
+            const perfPhoto = pf.photo || pf.image || '';
+            const perfPhotos = Array.isArray(pf.photos)
+                ? pf.photos.filter(Boolean)
+                : (typeof pf.photos === 'string' ? pf.photos.split(/[\n,]/).map(s => s.trim()).filter(Boolean) : []);
+            return `
                 <div class="concert-item">
-                    <div class="concert-info" style="width: 100%;">
+                    ${perfPhoto ? `<div><img src="${this.formatPageImgUrl(perfPhoto, 0)}" alt="${pf.title}" loading="lazy"></div>` : ''}
+                    <div class="concert-info"${!perfPhoto ? ' style="width: 100%;"' : ''}>
                         ${pf.date_time ? `<span class="section-tag" style="margin-bottom: 6px;">${pf.date_time}</span>` : ''}
                         <h2>${pf.title}</h2>
-                        ${pf.venue ? `<p style="font-weight: 500; color: var(--text-meta); margin-bottom: 12px;"><strong>Venue:</strong> ${pf.venue}${pf.artists ? ` &middot; <strong>Artists:</strong> ${pf.artists}` : ''}</p>` : ''}
+                        ${pf.venue || pf.artists ? `<p style="font-weight: 500; color: var(--text-meta); margin-bottom: 12px;">${pf.venue ? `<strong>Venue:</strong> ${pf.venue}` : ''}${pf.venue && pf.artists ? ' &middot; ' : ''}${pf.artists ? `<strong>Artists:</strong> ${pf.artists}` : ''}</p>` : ''}
                         <p>${(pf.desc || '').replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')}</p>
                         ${pf.video_url ? `
                         <div class="video-responsive-frame" style="margin-top: 20px;">
                             <iframe src="${pf.video_url}" title="${pf.title}" loading="lazy" allowfullscreen></iframe>
                         </div>` : ''}
                         ${pf.ticket_info ? `<p style="margin-top: 14px; font-size: 0.9rem; color: var(--text-meta);"><em>${pf.ticket_info}</em></p>` : ''}
+                        ${perfPhotos.length > 0 ? `
+                        <div class="fest-gallery-grid" style="margin-top: 20px;">
+                            ${perfPhotos.map((src, idx) => `<img src="${this.formatPageImgUrl(src, 0)}" alt="${pf.title} ${idx + 1}" loading="lazy" onclick="openFestLightbox(this.src)">`).join('\n                            ')}
+                        </div>` : ''}
                     </div>
-                </div>`).join('\n\n');
+                </div>`;
+        }).join('\n\n');
 
         // Musicians HTML
         const musiciansHtml = musicians.map(m => `

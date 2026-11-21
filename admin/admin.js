@@ -2123,9 +2123,23 @@ function addFestTeacherRow(teacher = {}) {
     container.appendChild(card);
 }
 
+function resolveAdminPreviewUrl(path) {
+    const clean = (path || '').trim();
+    if (!clean) return '';
+    if (clean.startsWith('http://') || clean.startsWith('https://') || clean.startsWith('data:') || clean.startsWith('/')) {
+        return clean;
+    }
+    return '../' + clean.replace(/^\.\.\//, '').replace(/^\.\//, '');
+}
+
 function addFestPerfRow(perf = {}) {
     const container = document.getElementById('festPerformancesContainer');
     if (!container) return;
+    const perfPhoto = perf.photo || perf.image || '';
+    const perfPhotos = Array.isArray(perf.photos)
+        ? perf.photos.filter(Boolean)
+        : (typeof perf.photos === 'string' ? perf.photos.split(/[\n,]/).map(s => s.trim()).filter(Boolean) : []);
+
     const card = document.createElement('div');
     card.className = 'repeater-card';
     card.innerHTML = `
@@ -2154,6 +2168,24 @@ function addFestPerfRow(perf = {}) {
             </div>
         </div>
         <div class="form-group">
+            <label class="form-label">Обложка / главное фото перформанса (URL или Загрузить)</label>
+            <div style="display:flex; gap:8px; align-items:center;">
+                <input type="text" class="form-control perf-photo" value="${escapeHtml(perfPhoto)}" placeholder="img/festivals/performances/cover.jpg">
+                <button type="button" class="btn btn-sm btn-upload-perf-photo">Загрузить</button>
+            </div>
+            <div class="perf-cover-preview-wrap" style="margin-top:8px; ${perfPhoto ? '' : 'display:none;'}">
+                <img class="perf-photo-preview" src="${escapeHtml(resolveAdminPreviewUrl(perfPhoto))}" alt="" style="max-height:110px; max-width:200px; object-fit:cover; border-radius:6px; border:1px solid var(--border, #ddd);">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Дополнительные фото (галерея перформанса)</label>
+            <div style="display:flex; gap:8px; align-items:flex-start;">
+                <textarea class="form-control perf-photos" rows="2" placeholder="По одному пути на строку (необязательно)">${escapeHtml(perfPhotos.join('\n'))}</textarea>
+                <button type="button" class="btn btn-sm btn-upload-perf-gallery" style="white-space:nowrap;">+ Загрузить фото</button>
+            </div>
+            <div class="perf-gallery-preview" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;"></div>
+        </div>
+        <div class="form-group">
             <label class="form-label">Описание показа</label>
             <textarea class="form-control perf-desc" rows="3" placeholder="Описание перформанса...">${escapeHtml(perf.desc || '')}</textarea>
         </div>
@@ -2172,6 +2204,122 @@ function addFestPerfRow(perf = {}) {
     card.querySelector('.perf-title').addEventListener('input', (e) => {
         card.querySelector('.repeater-card-title').textContent = e.target.value.trim() || 'Новый перформанс';
     });
+
+    const photoInput = card.querySelector('.perf-photo');
+    const photoPreview = card.querySelector('.perf-photo-preview');
+    const photoPreviewWrap = card.querySelector('.perf-cover-preview-wrap');
+
+    const syncCoverPreview = (overrideSrc = null) => {
+        const val = photoInput.value.trim();
+        if (overrideSrc || val) {
+            photoPreview.src = overrideSrc || resolveAdminPreviewUrl(val);
+            photoPreviewWrap.style.display = 'block';
+        } else {
+            photoPreviewWrap.style.display = 'none';
+        }
+    };
+    photoInput.addEventListener('input', () => syncCoverPreview());
+    photoPreview.addEventListener('load', () => {
+        if (photoInput.value.trim()) photoPreviewWrap.style.display = 'block';
+    });
+
+    attachImageUpload(
+        card.querySelector('.btn-upload-perf-photo'),
+        photoInput,
+        photoPreview,
+        'festivals/performances'
+    );
+
+    const galleryInput = card.querySelector('.perf-photos');
+    const galleryPreview = card.querySelector('.perf-gallery-preview');
+    const uploadedDataUrls = {};
+
+    const renderGalleryPreview = () => {
+        const items = galleryInput.value.split(/[\n,]/).map(s => s.trim()).filter(Boolean);
+        galleryPreview.innerHTML = '';
+        items.forEach((src, idx) => {
+            const thumb = document.createElement('div');
+            thumb.style.cssText = 'position:relative; width:64px; height:64px; border-radius:6px; overflow:hidden; border:1px solid var(--border, #ddd);';
+            const img = document.createElement('img');
+            img.src = uploadedDataUrls[src] || resolveAdminPreviewUrl(src);
+            img.alt = '';
+            img.style.cssText = 'width:100%; height:100%; object-fit:cover; display:block;';
+            const delBtn = document.createElement('button');
+            delBtn.type = 'button';
+            delBtn.textContent = '×';
+            delBtn.title = 'Удалить фото';
+            delBtn.style.cssText = 'position:absolute; top:2px; right:2px; width:18px; height:18px; border:none; border-radius:50%; background:rgba(0,0,0,0.65); color:#fff; font-size:12px; line-height:1; cursor:pointer; padding:0;';
+            delBtn.addEventListener('click', () => {
+                const updated = items.filter((_, i) => i !== idx);
+                galleryInput.value = updated.join('\n');
+                renderGalleryPreview();
+            });
+            thumb.appendChild(img);
+            thumb.appendChild(delBtn);
+            galleryPreview.appendChild(thumb);
+        });
+    };
+
+    galleryInput.addEventListener('input', renderGalleryPreview);
+    renderGalleryPreview();
+
+    card.querySelector('.btn-upload-perf-gallery').addEventListener('click', () => {
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.multiple = true;
+        fileInput.style.display = 'none';
+        document.body.appendChild(fileInput);
+
+        fileInput.addEventListener('change', async function() {
+            if (!this.files || !this.files.length) {
+                fileInput.remove();
+                return;
+            }
+            const files = Array.from(this.files);
+            let addedCount = 0;
+            try {
+                for (const file of files) {
+                    const compressed = await window.MMDTCompressor.compressImage(file, 1920, 0.84);
+                    const baseName = file.name.replace(/\.[^/.]+$/, "").trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_-]/g, '') || 'image';
+                    const filename = `${baseName}.jpg`;
+                    const cleanPath = `img/festivals/performances/${filename}`;
+
+                    uploadedDataUrls[cleanPath] = compressed.dataUrl;
+                    pendingImageBlobs.push({
+                        path: cleanPath,
+                        content: compressed.base64,
+                        isBase64: true
+                    });
+
+                    if (isLocalServerRunning) {
+                        const formData = new FormData();
+                        formData.append('file', compressed.blob, filename);
+                        formData.append('filename', filename);
+                        formData.append('subpath', 'festivals/performances');
+                        formData.append('is_cover', 'false');
+                        await fetch('/api/upload', { method: 'POST', body: formData });
+                    }
+
+                    const current = galleryInput.value.split(/[\n,]/).map(s => s.trim()).filter(Boolean);
+                    if (!current.includes(cleanPath)) {
+                        current.push(cleanPath);
+                        galleryInput.value = current.join('\n');
+                    }
+                    addedCount++;
+                }
+                renderGalleryPreview();
+                showToast(`Загружено фото в галерею: ${addedCount}`);
+            } catch (e) {
+                showToast('Ошибка загрузки: ' + e.message, true);
+            } finally {
+                fileInput.remove();
+            }
+        });
+
+        fileInput.click();
+    });
+
     container.appendChild(card);
 }
 
@@ -3204,11 +3352,15 @@ if (festivalModalForm) {
         document.querySelectorAll('#festPerformancesContainer .repeater-card').forEach(card => {
             const perfTitle = card.querySelector('.perf-title')?.value.trim() || '';
             if (perfTitle) {
+                const perfPhotosRaw = card.querySelector('.perf-photos')?.value || '';
+                const perfPhotos = perfPhotosRaw.split(/[\n,]/).map(s => s.trim()).filter(Boolean);
                 performances.push({
                     title: perfTitle,
                     date_time: card.querySelector('.perf-date')?.value.trim() || '',
                     venue: card.querySelector('.perf-venue')?.value.trim() || '',
                     artists: card.querySelector('.perf-artists')?.value.trim() || '',
+                    photo: card.querySelector('.perf-photo')?.value.trim() || '',
+                    photos: perfPhotos,
                     desc: card.querySelector('.perf-desc')?.value.trim() || '',
                     video_url: card.querySelector('.perf-video')?.value.trim() || '',
                     ticket_info: card.querySelector('.perf-tickets')?.value.trim() || ''
