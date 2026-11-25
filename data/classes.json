@@ -1,5 +1,30 @@
 [
   {
+    "id": "class_1795622068452",
+    "tag": "December 2026 · Innsbruck",
+    "title": "Contemporary dance workshop",
+    "image": "../img/pages/classes/The_Silence_of_the_Mass_BRUX_251025-58.jpg",
+    "intro": "Take a break from the holiday season and spend two hours moving with Tamara Maksymenko! This workshop is open to all levels, whether you're a beginner or already have dance experience.\n\nWe'll learn new movement material and link it into a short phrase, then explore improvisation to find your own way of moving. A big focus is music and musicality: how to listen with the body, play with rhythm and dynamics, and let the music shape the movement.\n\nExpect two hours of active, joyful dancing to shake off the festive stillness and get energised before the new year.\n\nNo experience needed. Just bring comfortable clothes and the wish to move.",
+    "schedule": "Tuesday, December 29",
+    "time": "18:00 - 20:00",
+    "venue": "USI - big room. Fürstenweg 185, 6020 Innsbruck",
+    "group_size": "Minimum 6 participants per class",
+    "upcoming_dates": {},
+    "price_info": "20 € per class + 3 € transaction and tax fees/ 25 € per class + 3 € transaction and tax fees",
+    "policy": "",
+    "contact_note": "Contact: Tamara Maksymenko: +43 677 630 275 06 - Whatsapp/Signal/Telegram",
+    "buttons": [
+      {
+        "label": "Single ticket with membership",
+        "url": "https://buy.stripe.com/aFafZhbO89fa9yQ67sd3i13"
+      },
+      {
+        "label": "Single ticket without membership",
+        "url": "https://buy.stripe.com/3cIeVdcSccrmfXeanId3i14"
+      }
+    ]
+  },
+  {
     "id": "bodywork",
     "tag": "September – December 2026 · Innsbruck",
     "title": "Body Work — Weekly Classes in Innsbruck",

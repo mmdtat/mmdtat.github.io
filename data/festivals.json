@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "title": "SOLO & CI TIROL Fest",
+    "year": "2027",
+    "image": "../img/festivals/covers/SOLO__CONTACT_IMPROVISATION_DANCE_FESTIVAL_in_TYROL_1.jpg",
+    "url": "CITyrolFest2027.html",
+    "dates": "August 13 – 19, 2027 · Innsbruck, Austria",
+    "subtitle": "\"Roots and Routes\"",
+    "overview": "Roots & Routes: dancing between where we come from and where we are going.",
+    "reg_link": "https://buy.stripe.com/..."
+  },
+  {
+    "title": "Solo & CI Tirol Fest",
+    "year": "2026",
+    "image": "../img/festivals/covers/CI_2026.jpg",
+    "url": "CITyrolFest2026.html"
+  },
+  {
+    "title": "CI Tirol Fest",
+    "year": "2025",
+    "image": "../img/festivals/covers/CI_2025.jpg",
+    "url": "CITyrolFest2025.html"
+  },
+  {
+    "title": "CI Tirol Fest",
+    "year": "2024",
+    "image": "../img/festivals/covers/CI_2024.jpg",
+    "url": "CITyrolFest2024.html"
+  },
+  {
+    "title": "CI Tirol Fest",
+    "year": "2023",
+    "image": "../img/festivals/covers/Tirol_fest_2023.gif",
+    "url": "CITyrolFest2023.html"
+  },
+  {
+    "title": "West Meets East",
+    "year": "2023",
+    "image": "../img/festivals/covers/WEST_MEETS_EAST_2023.gif",
+    "url": "west_meets_east_2023.html"
+  },
+  {
+    "title": "CI Tirol Fest",
+    "year": "2022",
+    "image": "../img/festivals/covers/Tirol_fest_2022.gif",
+    "url": "CITyrolFest2022.html"
+  },
+  {
+    "title": "West Meets East",
+    "year": "2022",
+    "image": "../img/festivals/covers/FethiyeTurkey March 7-13, 2022(1x1).jpg",
+    "url": "west_meets_east.html"
+  },
+  {
+    "title": "CI Tirol Fest",
+    "year": "2021",
+    "image": "../img/festivals/covers/CI Tyrol Fest 2021(1x1).jpg",
+    "url": "CITyrolFest2021.html"
+  },
+  {
+    "title": "CI Tirol Fest",
+    "year": "2020",
+    "image": "../img/festivals/covers/CI Tyrol Fest 2020(1x1).jpg",
+    "url": "CITyrolFest2020.html"
+  },
+  {
+    "title": "CI Tirol Fest",
+    "year": "2019",
+    "image": "../img/festivals/covers/CI Tyrol Fest 2019.jpg",
+    "url": "CITyrolFest2019.html"
+  }
+]
