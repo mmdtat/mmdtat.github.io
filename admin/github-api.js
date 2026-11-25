@@ -8,15 +8,46 @@ window.MMDTGithub = {
     REPO: 'mmdtat.github.io',
     BRANCH: 'master',
 
+    _getCookie: function(name) {
+        try {
+            const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+            return match ? decodeURIComponent(match[1]) : '';
+        } catch { return ''; }
+    },
+
+    _setCookie: function(name, val, days = 365) {
+        try {
+            const host = window.location.hostname || '';
+            const domainAttr = (host === 'mmdt.at' || host.endsWith('.mmdt.at')) ? '; domain=.mmdt.at' : '';
+            const secureAttr = window.location.protocol === 'https:' ? '; Secure' : '';
+            if (val) {
+                document.cookie = `${name}=${encodeURIComponent(val)}; max-age=${days * 86400}; path=/${domainAttr}; SameSite=Lax${secureAttr}`;
+            } else {
+                document.cookie = `${name}=; max-age=0; path=/${domainAttr}; SameSite=Lax${secureAttr}`;
+            }
+        } catch {}
+    },
+
     getToken: function() {
-        return localStorage.getItem('mmdt_github_pat') || '';
+        let ls = '';
+        try { ls = localStorage.getItem('mmdt_github_pat') || ''; } catch {}
+        const ck = this._getCookie('mmdt_github_pat');
+        const token = (ls || ck || '').trim();
+        if (token) {
+            if (!ls) { try { localStorage.setItem('mmdt_github_pat', token); } catch {} }
+            if (!ck) { this._setCookie('mmdt_github_pat', token); }
+        }
+        return token;
     },
 
     setToken: function(token) {
-        if (token) {
-            localStorage.setItem('mmdt_github_pat', token.trim());
+        const clean = (token || '').trim();
+        if (clean) {
+            try { localStorage.setItem('mmdt_github_pat', clean); } catch {}
+            this._setCookie('mmdt_github_pat', clean);
         } else {
-            localStorage.removeItem('mmdt_github_pat');
+            try { localStorage.removeItem('mmdt_github_pat'); } catch {}
+            this._setCookie('mmdt_github_pat', '');
         }
     },
 
@@ -210,6 +241,7 @@ window.MMDTGithub = {
         const urlToken = (urlParams.get('token') || hashParams.get('token') || '').trim();
         if (urlToken && (urlToken.startsWith('ghp_') || urlToken.startsWith('github_pat_') || urlToken.startsWith('gho_'))) {
             window.MMDTGithub.setToken(urlToken);
+            window._mmdtTokenJustActivated = true;
             const cleanUrl = window.location.pathname;
             window.history.replaceState({}, document.title, cleanUrl);
         }

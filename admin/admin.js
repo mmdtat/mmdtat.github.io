@@ -133,6 +133,14 @@ async function updateAuthBadge() {
         dot.style.background = '#10b981';
         label.textContent = 'GitHub API активен';
         if (details) details.textContent = 'Режим Веб-админки: публикация напрямую в репозиторий mmdtat/mmdtat.github.io.';
+        try {
+            const check = await window.MMDTGithub.verifyToken();
+            if (!check.ok) {
+                dot.style.background = '#ef4444';
+                label.textContent = 'Токен недействителен';
+                if (details) details.textContent = `Ошибка токена: ${check.error}. Нажмите «Токен недействителен» слева, чтобы обновить.`;
+            }
+        } catch {}
     } else {
         dot.style.background = '#f59e0b';
         label.textContent = 'Настроить токен GitHub';
@@ -5063,6 +5071,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     await detectEnvironment();
+    if (window._mmdtTokenJustActivated) {
+        showToast('Токен GitHub активирован и сохранён!');
+    }
     initProjectSubtabs();
     initShopSubtabs();
     await loadEvents();
