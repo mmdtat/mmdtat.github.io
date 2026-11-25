@@ -4490,22 +4490,20 @@ function renderShopList() {
         const card = document.createElement('div');
         card.className = 'item-card';
         card.innerHTML = `
-            <div class="item-card-main" style="display:flex; gap:16px; align-items:center;">
-                ${previewSrc ? `<img src="${escapeHtml(previewSrc)}" alt="" style="width:72px; height:72px; object-fit:cover; border-radius:8px; border:1px solid var(--border); flex-shrink:0;">` : `<div style="width:72px; height:72px; border-radius:8px; background:#f3f4f6; display:flex; align-items:center; justify-content:center; color:#9ca3af; font-size:0.75rem; flex-shrink:0;">Нет фото</div>`}
-                <div style="min-width:0; flex:1;">
-                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                        <h3 style="margin:0; font-size:1.05rem;">${escapeHtml(prod.title || 'Без названия')}</h3>
-                        <span class="badge" style="background:#f3f4f6; color:#111827; font-weight:600;">${escapeHtml(prod.price || '—')}</span>
-                        ${prod.badge ? `<span class="badge" style="background:#eef2ff; color:#3730a3;">${escapeHtml(prod.badge)}</span>` : ''}
-                        ${!isPub ? `<span class="badge" style="background:#fef2f2; color:#991b1b;">Скрыт</span>` : ''}
-                    </div>
-                    <p style="margin:6px 0 4px 0; font-size:0.85rem; color:var(--text-meta);">${escapeHtml(prod.short_desc || '')}</p>
-                    <div style="font-size:0.78rem; color:var(--text-meta); display:flex; gap:12px; flex-wrap:wrap;">
-                        <span>Страница: <code>pages/${escapeHtml(slug)}.html</code></span>
-                        <span>Фото: ${photosCount}</span>
-                        <span>Видео: ${videosCount}</span>
-                        <span>Варианты: ${variantsCount}</span>
-                    </div>
+            ${previewSrc ? `<img class="item-card-thumb" src="${escapeHtml(previewSrc)}" alt="" style="object-fit:contain; background:#fafafa;">` : `<div class="item-card-nothumb">Нет фото</div>`}
+            <div class="item-card-body" style="min-width:0;">
+                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px;">
+                    <h3 style="margin:0; font-size:1.05rem;">${escapeHtml(prod.title || 'Без названия')}</h3>
+                    <span class="badge" style="background:#f3f4f6; color:#111827; font-weight:600;">${escapeHtml(prod.price || '—')}</span>
+                    ${prod.badge ? `<span class="badge" style="background:#eef2ff; color:#3730a3;">${escapeHtml(prod.badge)}</span>` : ''}
+                    ${!isPub ? `<span class="badge" style="background:#fef2f2; color:#991b1b;">Скрыт</span>` : ''}
+                </div>
+                <p style="margin:4px 0 8px 0; font-size:0.85rem; color:var(--text-meta); line-height:1.45;">${escapeHtml(prod.short_desc || '')}</p>
+                <div style="font-size:0.78rem; color:var(--text-meta); display:flex; gap:14px; flex-wrap:wrap;">
+                    <span>Страница: <code>pages/${escapeHtml(slug)}.html</code></span>
+                    <span>Фото: ${photosCount}</span>
+                    <span>Видео: ${videosCount}</span>
+                    <span>Варианты: ${variantsCount}</span>
                 </div>
             </div>
             <div class="item-card-actions">
