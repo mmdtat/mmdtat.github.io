@@ -50,6 +50,10 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10M7 12h10M7 17h6"/></svg>
                 Членство (Membership)
             </a>
+            <a class="nav-item" data-section="shop">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                Магазин (Merch)
+            </a>
             <a class="nav-item" data-section="publish">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
                 Публикация &amp; Git
@@ -1567,7 +1571,229 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                 </form>
             </section>
 
-            <!-- SECTION 8: PUBLISH & GIT SYNC -->
+            <!-- SECTION 8: SHOP / MERCH -->
+            <section class="admin-panel-section" id="sec-shop">
+                <!-- Shop List View -->
+                <div id="shopListView">
+                    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+                        <p style="font-size:0.85rem; color:var(--text-meta); margin:0;">Каталог товаров на странице <a href="../pages/merch.html" target="_blank" class="admin-page-link">pages/merch.html ↗</a></p>
+                        <button type="button" class="btn btn-primary" id="shopListAddBtn">+ Добавить товар</button>
+                    </div>
+
+                    <div class="cards-list" id="shopProductsList"></div>
+
+                    <div class="editor-section-card" style="margin-top:28px;">
+                        <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                            <div>
+                                <h4>Блок «About This Collection» на странице каталога</h4>
+                                <p>Отображается под сеткой товаров на странице <code>pages/merch.html</code> (разделяйте абзацы пустой строкой)</p>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary" id="saveShopCollectionBtn">Сохранить текст каталога</button>
+                        </div>
+                        <textarea class="form-control" id="shopAboutCollection" rows="5" placeholder="Every item here comes from our festival..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Shop Product Editor View (Full Page) -->
+                <div id="shopEditorView" class="editor-page-view" style="display: none;">
+                    <div class="editor-page-header">
+                        <div class="editor-header-left">
+                            <button type="button" class="btn btn-back" id="backShopBtn" title="Вернуться к списку товаров">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Назад к товарам
+                            </button>
+                            <div class="editor-header-title">
+                                <h2 id="modalShopTitle">Новый товар</h2>
+                                <p id="modalShopSub">Полная карточка товара: описание, характеристики, фото, видео, варианты и ссылки Stripe</p>
+                            </div>
+                        </div>
+                        <div class="editor-header-actions">
+                            <button type="button" class="btn" id="closeShopModal">Отмена</button>
+                            <button type="button" class="btn btn-primary" onclick="document.getElementById('saveShopProductBtn').click()">Сохранить товар</button>
+                        </div>
+                    </div>
+
+                    <!-- Shop Subtabs Navigation -->
+                    <div class="proj-subtabs-nav" id="shopSubtabsNav">
+                        <button type="button" class="proj-tab-nav-btn active" data-subtab="main">1. Основное &amp; Описание</button>
+                        <button type="button" class="proj-tab-nav-btn" data-subtab="media">2. Фото &amp; Видео</button>
+                        <button type="button" class="proj-tab-nav-btn" data-subtab="variants">3. Варианты &amp; Оплата</button>
+                    </div>
+
+                    <form id="shopProductForm" style="display:flex; flex-direction:column;" novalidate>
+                        <input type="hidden" id="shopIndex">
+
+                        <div class="editor-page-body">
+                            <!-- SUBTAB 1: MAIN & DESCRIPTION -->
+                            <div class="shop-subtab-pane active" id="pane-shop-main">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Название товара *</label>
+                                        <input type="text" class="form-control" id="shopProdTitle" placeholder="например, Dance Socks — Contact & Solo" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">URL-слаг (имя файла) *</label>
+                                        <input type="text" class="form-control" id="shopProdSlug" placeholder="например, socks или festival_tote" required>
+                                        <div class="form-hint">Будет создана страница: <code>pages/&lt;slug&gt;.html</code></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Цена (отображаемая) *</label>
+                                        <input type="text" class="form-control" id="shopProdPrice" placeholder="€12" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Подпись к цене / Налог</label>
+                                        <input type="text" class="form-control" id="shopProdTaxNote" placeholder="per pair · plus shipping · kein USt-Ausweis, Kleinunternehmer">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Тег над заголовком (в карточке)</label>
+                                        <input type="text" class="form-control" id="shopProdTag" placeholder="MMDT Merch · Limited Batch">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Бейдж на карточке в каталоге</label>
+                                        <input type="text" class="form-control" id="shopProdBadge" placeholder="In Stock">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Текст кнопки в каталоге (CTA)</label>
+                                        <input type="text" class="form-control" id="shopProdFooterCta" placeholder="Select Size & Order">
+                                    </div>
+                                    <div class="form-group" style="display:flex; align-items:flex-end; padding-bottom:8px;">
+                                        <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9rem; font-weight:500;">
+                                            <input type="checkbox" id="shopProdPublished" checked>
+                                            Показывать товар в каталоге (pages/merch.html)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Краткое описание (для карточки в каталоге)</label>
+                                    <textarea class="form-control" id="shopProdShortDesc" rows="2" placeholder="Короткое описание в 1–2 предложения..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Полное описание товара (на странице товара)</label>
+                                    <textarea class="form-control" id="shopProdDesc" rows="5" placeholder="Подробное описание, материал, история создания... Можно использовать &lt;strong&gt;, &lt;em&gt; и пустые строки для абзацев."></textarea>
+                                </div>
+
+                                <div class="editor-section-card" style="margin-top:16px;">
+                                    <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center;">
+                                        <div>
+                                            <h4>Характеристики (Specs)</h4>
+                                            <p>Список параметров под описанием (например: Material, Sizes, Pickup)</p>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-primary" id="addShopSpecBtn">+ Добавить характеристику</button>
+                                    </div>
+                                    <div id="shopSpecsContainer" style="display:flex; flex-direction:column; gap:10px;"></div>
+                                </div>
+                            </div>
+
+                            <!-- SUBTAB 2: PHOTOS & VIDEOS -->
+                            <div class="shop-subtab-pane" id="pane-shop-media" style="display:none;">
+                                <div class="editor-section-card" style="margin-bottom:20px;">
+                                    <div class="editor-section-header">
+                                        <h4>Обложка товара в каталоге (pages/merch.html)</h4>
+                                        <p>Если не задана, автоматически используется первое фото из галереи</p>
+                                    </div>
+                                    <div class="upload-zone" style="display:flex; gap:16px; align-items:center;">
+                                        <img id="shopCoverPreview" class="upload-preview-img" src="" style="display:none; max-height:90px;">
+                                        <div class="upload-actions" style="flex:1;">
+                                            <input type="text" class="form-control" id="shopCoverPath" placeholder="../img/pages/shop/cover.jpg" style="margin-bottom:8px;">
+                                            <div style="display:flex; gap:8px; align-items:center;">
+                                                <button type="button" class="btn btn-sm" id="shopCoverUploadBtn">Загрузить обложку</button>
+                                                <input type="file" id="shopCoverFileInput" accept="image/*" style="display:none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="editor-section-card" style="margin-bottom:20px;">
+                                    <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                                        <div>
+                                            <h4>Фотографии товара (галерея)</h4>
+                                            <p>Загрузите одно или сразу несколько фото. Можно указать подпись и привязать к варианту.</p>
+                                        </div>
+                                        <div style="display:flex; gap:8px;">
+                                            <button type="button" class="btn btn-sm btn-primary" id="uploadShopPhotosMultiBtn">+ Загрузить фото</button>
+                                            <button type="button" class="btn btn-sm" id="addShopPhotoRowBtn">+ Пустая строка</button>
+                                            <input type="file" id="shopPhotosMultiInput" accept="image/*" multiple style="display:none;">
+                                        </div>
+                                    </div>
+                                    <div id="shopPhotosContainer" style="display:flex; flex-direction:column; gap:12px;"></div>
+                                </div>
+
+                                <div class="editor-section-card">
+                                    <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                                        <div>
+                                            <h4>Видео товара (MP4/WebM или YouTube/Vimeo)</h4>
+                                            <p>Видео появится в галерее карточки товара с кнопкой воспроизведения ▶</p>
+                                        </div>
+                                        <div style="display:flex; gap:8px;">
+                                            <button type="button" class="btn btn-sm btn-primary" id="uploadShopVideoBtn">+ Загрузить видеофайл</button>
+                                            <button type="button" class="btn btn-sm" id="addShopVideoUrlBtn">+ Ссылка YouTube/Vimeo</button>
+                                            <input type="file" id="shopVideoFileInput" accept="video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov" style="display:none;">
+                                        </div>
+                                    </div>
+                                    <div id="shopVideosContainer" style="display:flex; flex-direction:column; gap:12px;"></div>
+                                </div>
+                            </div>
+
+                            <!-- SUBTAB 3: VARIANTS & PAYMENT -->
+                            <div class="shop-subtab-pane" id="pane-shop-variants" style="display:none;">
+                                <div class="editor-section-card" style="margin-bottom:20px;">
+                                    <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                                        <div>
+                                            <h4>Варианты товара (цвета, размеры и т.п.)</h4>
+                                            <p>Если у товара несколько вариантов со своими ссылками Stripe, добавьте их здесь</p>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-primary" id="addShopVariantBtn">+ Добавить вариант</button>
+                                    </div>
+                                    <div id="shopVariantsContainer" style="display:flex; flex-direction:column; gap:14px;"></div>
+                                </div>
+
+                                <div class="editor-section-card">
+                                    <div class="editor-section-header">
+                                        <h4>Оплата и доставка</h4>
+                                        <p>Общая ссылка Stripe (используется, если нет вариантов) и текст блока доставки</p>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Ссылка оплаты Stripe (по умолчанию)</label>
+                                            <input type="text" class="form-control" id="shopProdStripeUrl" placeholder="https://buy.stripe.com/...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Текст кнопки оплаты</label>
+                                            <input type="text" class="form-control" id="shopProdBtnText" placeholder="Pay via Stripe →">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Строка вариантов в каталоге (опционально)</label>
+                                        <input type="text" class="form-control" id="shopProdVariantsSummary" placeholder="Если пусто — соберётся автоматически из названий вариантов">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Информация о доставке и самовывозе</label>
+                                        <textarea class="form-control" id="shopProdDeliveryInfo" rows="3" placeholder="Ground shipping to EU-countries — €8. Free pickup in Innsbruck..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="editor-page-footer" style="padding:16px 24px; border-top:1px solid var(--border); display:flex; justify-content:flex-end; gap:12px;">
+                            <button type="button" class="btn" onclick="document.getElementById('closeShopModal').click()">Отмена</button>
+                            <button type="submit" class="btn btn-primary" id="saveShopProductBtn">Сохранить товар</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SECTION 9: PUBLISH & GIT SYNC -->
             <section class="admin-panel-section" id="sec-publish">
                 <div style="background:#fff; border:1px solid var(--border); border-radius:12px; padding:32px;  display:flex; flex-direction:column; gap:24px;">
                     <div>

@@ -50,7 +50,7 @@ class AdminHandler(SimpleHTTPRequestHandler):
         # API: list all data files
         if path == "/api/data/all":
             all_data = {}
-            for fn in ["events", "classes", "news", "settings", "projects", "festivals", "partners", "membership"]:
+            for fn in ["events", "classes", "news", "settings", "projects", "festivals", "partners", "membership", "shop"]:
                 all_data[fn] = builder.load_json(fn)
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -164,6 +164,52 @@ class AdminHandler(SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({"success": True, "image": res}).encode("utf-8"))
             except Exception as e:
                 self.send_error(500, f"Error processing image: {e}")
+            return
+
+        # API: upload raw file (e.g., video)
+        if path == "/api/upload-raw":
+            ctype, pdict = cgi.parse_header(self.headers.get('Content-Type', ''))
+            if ctype != 'multipart/form-data':
+                self.send_error(400, "Must be multipart/form-data")
+                return
+
+            pdict['boundary'] = bytes(pdict['boundary'], "utf-8")
+            pdict['CONTENT-LENGTH'] = int(self.headers.get('Content-Length', 0))
+            fields = cgi.parse_multipart(self.rfile, pdict)
+
+            file_bytes_list = fields.get('file', [])
+            if not file_bytes_list:
+                self.send_error(400, "No file provided")
+                return
+            file_bytes = file_bytes_list[0]
+
+            filename = fields.get('filename', ['video.mp4'])[0]
+            if isinstance(filename, bytes):
+                filename = filename.decode('utf-8', errors='ignore')
+            filename = os.path.basename(filename)
+
+            subpath = fields.get('subpath', ['img/pages/shop/videos'])[0]
+            if isinstance(subpath, bytes):
+                subpath = subpath.decode('utf-8', errors='ignore')
+            subpath = subpath.strip().lstrip("/\\")
+            if ".." in subpath:
+                self.send_error(400, "Invalid subpath")
+                return
+
+            dest_dir = os.path.normpath(os.path.join(deploy_root, subpath))
+            if not dest_dir.startswith(deploy_root):
+                self.send_error(400, "Path traversal forbidden")
+                return
+
+            os.makedirs(dest_dir, exist_ok=True)
+            dest_path = os.path.join(dest_dir, filename)
+            with open(dest_path, "wb") as f:
+                f.write(file_bytes)
+
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(json.dumps({"success": True, "path": f"{subpath}/{filename}".replace("\\", "/")}).encode("utf-8"))
             return
 
         # API: save generated HTML or text file

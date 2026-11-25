@@ -2039,5 +2039,530 @@ ${tiersHtml}
         }
 
         return updated;
+    },
+
+    normalizeShopVideoUrl: function(url) {
+        const clean = (url || '').trim();
+        if (!clean) return '';
+        const ytWatch = clean.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]{6,})/);
+        if (ytWatch) return `https://www.youtube.com/embed/${ytWatch[1]}`;
+        const vimeo = clean.match(/vimeo\.com\/(\d+)/);
+        if (vimeo && !clean.includes('player.vimeo.com')) return `https://player.vimeo.com/video/${vimeo[1]}`;
+        return clean;
+    },
+
+    generateMerchCatalogHtml: function(shopData) {
+        const products = (shopData && Array.isArray(shopData.products) ? shopData.products : [])
+            .filter(p => p && p.published !== false);
+
+        const aboutParagraphs = (shopData && Array.isArray(shopData.about_collection) && shopData.about_collection.length > 0)
+            ? shopData.about_collection
+            : [
+                'Every item here comes from our festival or from Tamara Maksymenko, the leading artist of our company: festival merch, art objects, paintings, and costumes we sew ourselves.',
+                'All proceeds support the cultural association Motion Mode of Dialogue in Tyrol and its programs, including our work with artists and people from countries affected by war. We also contribute to other supporting organisations, but at the heart of everything is art.',
+                'With every piece you take home, you help our association exist, create, and keep bringing people together through art. Thank you! 🤍'
+            ];
+
+        const cardsHtml = products.map(p => {
+            const slug = (p.slug || p.id || 'product').replace(/\.html$/i, '');
+            const coverRaw = p.cover_image || (p.photos && p.photos[0] && (p.photos[0].src || p.photos[0])) || '';
+            const cover = this.formatPageImgUrl(coverRaw, 1);
+            const variantsLine = p.variants_summary || (Array.isArray(p.variants) ? p.variants.map(v => v.label).filter(Boolean).join(' · ') : '');
+            return `                <a href="${slug}.html" class="product-card" aria-label="${p.title || 'Product'}">
+                    <div class="product-card__media">
+                        ${p.badge ? `<span class="product-card__badge">${p.badge}</span>` : ''}
+                        ${cover ? `<img src="${cover}" alt="${p.title || ''}" loading="lazy">` : ''}
+                    </div>
+                    <div class="product-card__body">
+                        <div>
+                            <div class="product-card__meta">
+                                <h2 class="product-card__title">${p.title || ''}</h2>
+                                ${p.price ? `<span class="product-card__price">${p.price}</span>` : ''}
+                            </div>
+                            ${p.short_desc ? `<p class="product-card__desc">\n                                ${p.short_desc}\n                            </p>` : ''}
+                            ${variantsLine ? `<div class="product-card__variants">\n                                ${variantsLine}\n                            </div>` : ''}
+                        </div>
+                        <div class="product-card__footer">
+                            <span>${p.footer_cta || 'View & Order'}</span>
+                            <span>&rarr;</span>
+                        </div>
+                    </div>
+                </a>`;
+        }).join('\n');
+
+        const aboutHtml = aboutParagraphs.map((para, idx) => {
+            const isLast = idx === aboutParagraphs.length - 1;
+            const style = isLast
+                ? 'font-size: 1rem; line-height: 1.7; color: var(--text-black); font-weight: 500; margin: 0;'
+                : 'font-size: 1rem; line-height: 1.7; color: var(--text-body); margin: 0 0 12px 0;';
+            return `                <p style="${style}">\n                    ${para}\n                </p>`;
+        }).join('\n');
+
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merch &amp; Art Objects — MMDT</title>
+    <meta name="description" content="MMDT Merch &amp; Art Objects: festival merch, dance socks, art objects, paintings, and handmade costumes.">
+    <link rel="shortcut icon" href="../img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/modern-redesign.css">
+    <script src="../js/modern-redesign.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="../index.html" aria-label="MMDT Home"><img src="../img/common/brand/logo_black.png" alt="MMDT"></a>
+                </div>
+                <nav class="nav">
+                    <a class="nav__link" href="projects.html">Projects</a>
+                    <a class="nav__link" href="festival.html">Festival</a>
+                    <a class="nav__link" href="classes.html">Classes</a>
+                    <a class="nav__link" href="events.html">Events</a>
+                    <a class="nav__link" href="partners.html">Partners</a>
+                    <a class="nav__link" href="membership.html">Membership</a>
+                    <a class="nav__link active" href="merch.html">Merch &amp; Art Objects</a>
+                    <a class="nav__link" href="contacts.html">Contacts</a>
+                </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro" style="padding-bottom: 20px !important;">
+        <div class="container">
+            <span class="section-tag">MMDT · Objects &amp; Editions</span>
+            <div class="intro__projects">Merch &amp; Art Objects</div>
+        </div>
+    </section>
+
+    <main class="shop-section">
+        <div class="container">
+            <div class="shop-grid">
+${cardsHtml}
+            </div>
+
+            <section class="shop-legal-box" style="margin-top: 48px; background: #ffffff;" aria-label="About Merch and Art Objects">
+                <span class="section-tag">About This Collection</span>
+                <div style="margin-top: 12px;">
+${aboutHtml}
+                </div>
+            </section>
+
+            <section class="shop-legal-box" style="margin-top: 28px;" aria-label="Shipping, Taxes and Legal Information">
+                <span class="section-tag">Order &amp; Legal Info</span>
+                <div class="shop-legal-grid">
+                    <div class="shop-legal-item">
+                        <h4>Shipping &amp; Free Pickup</h4>
+                        <p>Worldwide / EU shipping at buyer's cost. In Innsbruck? Pick up your order for free at Kaiserjägerstraße 42 - top 3 (by arrangement via WhatsApp <a href="tel:+4367763027506">+43 677 63027506</a>).</p>
+                    </div>
+                    <div class="shop-legal-item">
+                        <h4>Returns &amp; Withdrawal</h4>
+                        <p>For physical goods, you have a 14-day statutory right of withdrawal / return from the date of receipt, provided items are unworn and in original condition.</p>
+                    </div>
+                    <div class="shop-legal-item">
+                        <h4>Tax Notice (Kleinunternehmer)</h4>
+                        <p>All prices are stated in EUR plus shipping where applicable. Kein USt-Ausweis, Kleinunternehmer (§ 6 Abs. 1 Z 27 UStG).</p>
+                    </div>
+                </div>
+                <div class="shop-legal-links">
+                    <a href="contacts.html">Impressum &amp; Contacts</a>
+                    <a href="../Terms&Conditions.html">Terms &amp; Conditions (AGB)</a>
+                    <a href="../Privacy_policy.html">Privacy Policy (Datenschutzerklärung)</a>
+                    <a href="../Refund_policy.html">Refund &amp; Return Policy</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer></footer>
+</body>
+</html>`;
+    },
+
+    generateProductDetailHtml: function(product) {
+        const p = product || {};
+        const title = p.title || 'MMDT Product';
+        const photos = (Array.isArray(p.photos) ? p.photos : []).map(item => {
+            if (typeof item === 'string') return { src: this.formatPageImgUrl(item, 1), alt: title, variant: '' };
+            return {
+                src: this.formatPageImgUrl(item.src || '', 1),
+                alt: item.alt || title,
+                variant: item.variant || ''
+            };
+        }).filter(item => item.src);
+
+        const coverFallback = p.cover_image ? this.formatPageImgUrl(p.cover_image, 1) : '';
+        if (photos.length === 0 && coverFallback) {
+            photos.push({ src: coverFallback, alt: title, variant: '' });
+        }
+
+        const videos = (Array.isArray(p.videos) ? p.videos : []).map(v => {
+            const rawSrc = typeof v === 'string' ? v : (v.src || '');
+            const isEmbed = rawSrc.includes('youtube.com') || rawSrc.includes('youtu.be') || rawSrc.includes('vimeo.com');
+            return {
+                type: isEmbed ? 'embed' : 'file',
+                src: isEmbed ? this.normalizeShopVideoUrl(rawSrc) : this.formatPageImgUrl(rawSrc, 1),
+                title: (typeof v === 'object' && v.title) ? v.title : 'Product video'
+            };
+        }).filter(v => v.src);
+
+        const variants = Array.isArray(p.variants) ? p.variants.filter(v => v && v.label) : [];
+        const hasVariants = variants.length > 0;
+        const firstVariant = hasVariants ? variants[0] : null;
+        const mainImgSrc = (photos[0] && photos[0].src) || coverFallback || '';
+
+        const photoThumbsHtml = photos.map((ph, idx) => `                        <button type="button" class="product-thumb${idx === 0 ? ' active' : ''}" data-media-type="image" data-img="${ph.src}"${ph.variant ? ` data-variant="${ph.variant}"` : ''} aria-label="${ph.alt || title}">
+                            <img src="${ph.src}" alt="${ph.alt || title}">
+                        </button>`).join('\n');
+
+        const videoThumbsHtml = videos.map((vd, idx) => `                        <button type="button" class="product-thumb product-thumb--video${photos.length === 0 && idx === 0 ? ' active' : ''}" data-media-type="video" data-video-kind="${vd.type}" data-video-src="${vd.src}" aria-label="${vd.title || 'Play video'}">
+                            <span class="product-thumb__play">&#9654;</span>
+                            <span class="product-thumb__vlabel">Video</span>
+                        </button>`).join('\n');
+
+        const allThumbsHtml = [photoThumbsHtml, videoThumbsHtml].filter(Boolean).join('\n');
+
+        const descHtml = (p.description || '')
+            .split(/\n\s*\n/)
+            .map(block => block.trim())
+            .filter(Boolean)
+            .map(block => `                        <p>${block.replace(/\n/g, '<br>')}</p>`)
+            .join('\n');
+
+        const specs = Array.isArray(p.specs) ? p.specs.filter(s => s && (s.label || s.value)) : [];
+        const specsHtml = specs.length > 0 ? `                    <ul class="product-specs">
+${specs.map(s => `                        <li>${s.label ? `<strong>${s.label}:</strong> ` : ''}${s.value || ''}</li>`).join('\n')}
+                    </ul>` : '';
+
+        const variantsHtml = hasVariants ? `                    <div class="variant-group">
+                        <span class="variant-label">1. Choose Option</span>
+                        <div class="variant-options" id="variantOptions">
+${variants.map((v, idx) => {
+    const vImg = v.image ? this.formatPageImgUrl(v.image, 1) : '';
+    const vPrice = v.price || p.price || '';
+    return `                            <button type="button" class="variant-btn${idx === 0 ? ' active' : ''}" data-variant="${v.id || idx}" data-label="${v.label}" data-price="${vPrice}" data-stripe="${v.stripe_url || p.stripe_url || ''}"${vImg ? ` data-img="${vImg}"` : ''}>
+                                ${v.color ? `<span class="color-swatch" style="background: ${v.color};"></span>` : ''}
+                                ${v.label}
+                            </button>`;
+}).join('\n')}
+                        </div>
+                    </div>` : '';
+
+        const deliveryHtml = (p.delivery_info || '').trim()
+            ? `${p.delivery_info.trim().replace(/\n/g, '<br>')}`
+            : 'Ground shipping to EU-countries — €8.<br>You can choose shipping (with address) or free pickup in Innsbruck (Kaiserjägerstraße 42 - top 3) directly during Stripe Checkout.';
+
+        const initialStripeUrl = (firstVariant && firstVariant.stripe_url) || p.stripe_url || '#';
+        const initialPrice = (firstVariant && firstVariant.price) || p.price || '';
+        const stepLabel = hasVariants ? '2. Online payment + pick up in Innsbruck or delivery method' : 'Online payment + pick up in Innsbruck or delivery method';
+
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title} · MMDT Merch &amp; Art Objects</title>
+    <meta name="description" content="${(p.short_desc || title).replace(/"/g, '&quot;')}">
+    <link rel="shortcut icon" href="../img/common/brand/lg.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/modern-redesign.css">
+    <script src="../js/modern-redesign.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="../index.html" aria-label="MMDT Home"><img src="../img/common/brand/logo_black.png" alt="MMDT"></a>
+                </div>
+                <nav class="nav">
+                    <a class="nav__link" href="projects.html">Projects</a>
+                    <a class="nav__link" href="festival.html">Festival</a>
+                    <a class="nav__link" href="classes.html">Classes</a>
+                    <a class="nav__link" href="events.html">Events</a>
+                    <a class="nav__link" href="partners.html">Partners</a>
+                    <a class="nav__link" href="membership.html">Membership</a>
+                    <a class="nav__link active" href="merch.html">Merch &amp; Art Objects</a>
+                    <a class="nav__link" href="contacts.html">Contacts</a>
+                </nav>
+                <div class="header__actions">
+                    <a class="header__cta-mail" href="mailto:mm.of.dialogue.in.tyrol@gmail.com" title="Get in touch via email" aria-label="Contact MMDT via email">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span class="mail-text">Get in touch</span>
+                    </a>
+                    <button class="burger-menu-btn" aria-label="Menu" id="burgerBtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="shop-section shop-section--detail">
+        <div class="container">
+            <nav class="shop-breadcrumb" aria-label="Breadcrumb">
+                <a href="merch.html">Merch &amp; Art Objects</a>
+                <span>/</span>
+                <span>${title}</span>
+            </nav>
+
+            <div class="product-detail">
+                <!-- Gallery -->
+                <div class="product-gallery">
+                    <div class="product-gallery__main" id="mainImageTrigger" role="button" tabindex="0" aria-label="Open full-size image">
+                        ${mainImgSrc ? `<img id="mainProductImage" src="${mainImgSrc}" alt="${title}">` : `<img id="mainProductImage" src="" alt="${title}" style="display:none;">`}
+                        <div class="product-gallery__video-wrap" id="mainVideoContainer" style="display:none;"></div>
+                        <span class="product-gallery__zoom-hint" id="mainZoomHint"${mainImgSrc ? '' : ' style="display:none;"'}>Click to zoom</span>
+                    </div>
+                    ${allThumbsHtml ? `<div class="product-gallery__thumbs">
+${allThumbsHtml}
+                    </div>` : ''}
+                </div>
+
+                <!-- Product Info & Order -->
+                <div class="product-info">
+                    ${p.tag ? `<span class="section-tag">${p.tag}</span>` : ''}
+                    <h1 style="margin: 6px 0 0 0; font-size: clamp(1.8rem, 3vw, 2.4rem);">${title}</h1>
+
+                    <div class="product-info__price-row">
+                        <span class="product-info__price" id="productDisplayPrice">${initialPrice}</span>
+                        ${p.tax_note ? `<span class="product-info__tax">${p.tax_note}</span>` : ''}
+                    </div>
+
+                    ${descHtml ? `<div class="product-info__desc">
+${descHtml}
+                    </div>` : ''}
+
+${specsHtml}
+
+${variantsHtml}
+
+                    <div class="delivery-box">
+                        <span class="variant-label" style="margin-bottom: 10px;">${stepLabel}</span>
+                        <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-body); margin: 0 0 14px 0;">
+                            ${hasVariants ? `Selected: <strong id="stripeSelectedLabel">${firstVariant.label}</strong> — <strong id="stripeSelectedPrice">${initialPrice}</strong><br>` : ''}
+                            ${deliveryHtml}
+                        </p>
+                        <a id="stripeBuyBtn" href="${initialStripeUrl}" target="_blank" rel="noopener" class="buy-button" style="width: 100%; text-align: center; display: block;">
+                            ${p.button_text || 'Pay via Stripe →'}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <section class="shop-legal-box" aria-label="Legal and Return Policy">
+                <span class="section-tag">Buyer Information</span>
+                <div class="shop-legal-grid">
+                    <div class="shop-legal-item">
+                        <h4>14-Day Right of Withdrawal</h4>
+                        <p>You may return unused items within 14 days of receiving your order. Return shipping costs are borne by the buyer unless the item arrived damaged.</p>
+                    </div>
+                    <div class="shop-legal-item">
+                        <h4>Tax Notice</h4>
+                        <p>Kein USt-Ausweis, Kleinunternehmer (§ 6 Abs. 1 Z 27 UStG). Price: ${p.price || ''} + shipping.</p>
+                    </div>
+                    <div class="shop-legal-item">
+                        <h4>Direct Contact</h4>
+                        <p>Questions about sizing or orders? Text Tamara on WhatsApp <a href="tel:+4367763027506">+43 677 63027506</a> or email <a href="mailto:mm.of.dialogue.in.tyrol@gmail.com">mm.of.dialogue.in.tyrol@gmail.com</a>.</p>
+                    </div>
+                </div>
+                <div class="shop-legal-links">
+                    <a href="contacts.html">Impressum &amp; Contacts</a>
+                    <a href="../Terms&Conditions.html">Terms &amp; Conditions (AGB)</a>
+                    <a href="../Privacy_policy.html">Privacy Policy</a>
+                    <a href="../Refund_policy.html">Refund &amp; Return Policy</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <!-- Lightbox Modal -->
+    <div class="shop-lightbox" id="shopLightbox" aria-hidden="true" role="dialog" aria-label="Full-size product photo">
+        <button type="button" class="shop-lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button type="button" class="shop-lightbox__nav shop-lightbox__nav--prev" id="lightboxPrev" aria-label="Previous photo">&#8592;</button>
+        <div class="shop-lightbox__content">
+            <img class="shop-lightbox__img" id="lightboxImg" src="" alt="${title}">
+        </div>
+        <button type="button" class="shop-lightbox__nav shop-lightbox__nav--next" id="lightboxNext" aria-label="Next photo">&#8594;</button>
+    </div>
+
+    <script>
+        (function () {
+            const mainImg = document.getElementById("mainProductImage");
+            const mainVideoContainer = document.getElementById("mainVideoContainer");
+            const mainZoomHint = document.getElementById("mainZoomHint");
+            const thumbs = document.querySelectorAll(".product-thumb");
+            const variantBtns = document.querySelectorAll(".variant-btn");
+            const stripeSelectedLabel = document.getElementById("stripeSelectedLabel");
+            const stripeSelectedPrice = document.getElementById("stripeSelectedPrice");
+            const displayPrice = document.getElementById("productDisplayPrice");
+            const stripeBuyBtn = document.getElementById("stripeBuyBtn");
+
+            let currentVariant = "${firstVariant ? (firstVariant.id || '0') : ''}";
+
+            function showMainImage(src) {
+                if (mainVideoContainer) {
+                    mainVideoContainer.style.display = "none";
+                    mainVideoContainer.innerHTML = "";
+                }
+                if (mainImg && src) {
+                    mainImg.src = src;
+                    mainImg.style.display = "block";
+                }
+                if (mainZoomHint) mainZoomHint.style.display = src ? "" : "none";
+            }
+
+            function showMainVideo(kind, src) {
+                if (mainImg) mainImg.style.display = "none";
+                if (mainZoomHint) mainZoomHint.style.display = "none";
+                if (!mainVideoContainer) return;
+                mainVideoContainer.style.display = "flex";
+                if (kind === "embed") {
+                    mainVideoContainer.innerHTML = '<iframe src="' + src + '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+                } else {
+                    mainVideoContainer.innerHTML = '<video src="' + src + '" controls playsinline autoplay style="width:100%; height:100%; object-fit:contain; background:#000;"></video>';
+                }
+            }
+
+            function selectVariantBtn(btn) {
+                if (!btn) return;
+                currentVariant = btn.dataset.variant;
+                variantBtns.forEach(b => b.classList.toggle("active", b === btn));
+                if (stripeSelectedLabel) stripeSelectedLabel.textContent = btn.dataset.label || "";
+                if (btn.dataset.price) {
+                    if (stripeSelectedPrice) stripeSelectedPrice.textContent = btn.dataset.price;
+                    if (displayPrice) displayPrice.textContent = btn.dataset.price;
+                }
+                if (stripeBuyBtn && btn.dataset.stripe) stripeBuyBtn.href = btn.dataset.stripe;
+                if (btn.dataset.img) {
+                    showMainImage(btn.dataset.img);
+                    thumbs.forEach(t => t.classList.toggle("active", t.dataset.img === btn.dataset.img));
+                }
+            }
+
+            thumbs.forEach(thumb => {
+                thumb.addEventListener("click", () => {
+                    thumbs.forEach(t => t.classList.remove("active"));
+                    thumb.classList.add("active");
+                    if (thumb.dataset.mediaType === "video") {
+                        showMainVideo(thumb.dataset.videoKind, thumb.dataset.videoSrc);
+                        return;
+                    }
+                    showMainImage(thumb.dataset.img);
+                    const v = thumb.dataset.variant;
+                    if (v && v !== currentVariant) {
+                        const btn = document.querySelector('.variant-btn[data-variant="' + v + '"]');
+                        if (btn) {
+                            currentVariant = v;
+                            variantBtns.forEach(b => b.classList.toggle("active", b === btn));
+                            if (stripeSelectedLabel) stripeSelectedLabel.textContent = btn.dataset.label || "";
+                            if (btn.dataset.price) {
+                                if (stripeSelectedPrice) stripeSelectedPrice.textContent = btn.dataset.price;
+                                if (displayPrice) displayPrice.textContent = btn.dataset.price;
+                            }
+                            if (stripeBuyBtn && btn.dataset.stripe) stripeBuyBtn.href = btn.dataset.stripe;
+                        }
+                    }
+                });
+            });
+
+            variantBtns.forEach(btn => {
+                btn.addEventListener("click", () => selectVariantBtn(btn));
+            });
+
+            // Auto-activate first video if there are no photos
+            if (!mainImg.getAttribute("src")) {
+                const firstVideoThumb = document.querySelector('.product-thumb[data-media-type="video"]');
+                if (firstVideoThumb) firstVideoThumb.click();
+            }
+
+            // Lightbox for full-size photo view
+            const lightbox = document.getElementById("shopLightbox");
+            const lightboxImg = document.getElementById("lightboxImg");
+            const mainTrigger = document.getElementById("mainImageTrigger");
+            const galleryImages = Array.from(document.querySelectorAll('.product-thumb[data-media-type="image"]')).map(t => ({
+                src: t.dataset.img,
+                alt: t.querySelector("img") ? t.querySelector("img").alt : "${title}"
+            }));
+            let lightboxIndex = 0;
+
+            function openLightbox(src) {
+                if (!galleryImages.length) return;
+                const idx = galleryImages.findIndex(item => item.src === src);
+                lightboxIndex = idx >= 0 ? idx : 0;
+                lightboxImg.src = galleryImages[lightboxIndex].src;
+                lightboxImg.alt = galleryImages[lightboxIndex].alt;
+                lightbox.classList.add("active");
+                lightbox.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove("active");
+                lightbox.setAttribute("aria-hidden", "true");
+                document.body.style.overflow = "";
+            }
+
+            function stepLightbox(delta) {
+                if (!galleryImages.length) return;
+                lightboxIndex = (lightboxIndex + delta + galleryImages.length) % galleryImages.length;
+                lightboxImg.src = galleryImages[lightboxIndex].src;
+                lightboxImg.alt = galleryImages[lightboxIndex].alt;
+            }
+
+            if (mainTrigger) {
+                mainTrigger.addEventListener("click", () => {
+                    if (mainVideoContainer && mainVideoContainer.style.display !== "none") return;
+                    openLightbox(mainImg.getAttribute("src"));
+                });
+                mainTrigger.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        if (mainVideoContainer && mainVideoContainer.style.display !== "none") return;
+                        e.preventDefault();
+                        openLightbox(mainImg.getAttribute("src"));
+                    }
+                });
+            }
+
+            document.getElementById("lightboxClose")?.addEventListener("click", closeLightbox);
+            document.getElementById("lightboxPrev")?.addEventListener("click", () => stepLightbox(-1));
+            document.getElementById("lightboxNext")?.addEventListener("click", () => stepLightbox(1));
+
+            lightbox?.addEventListener("click", (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox || !lightbox.classList.contains("active")) return;
+                if (e.key === "Escape") closeLightbox();
+                if (e.key === "ArrowLeft") stepLightbox(-1);
+                if (e.key === "ArrowRight") stepLightbox(1);
+            });
+        })();
+    </script>
+</body>
+</html>`;
     }
 };

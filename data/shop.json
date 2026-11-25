@@ -1,0 +1,82 @@
+{
+  "about_collection": [
+    "Every item here comes from our festival or from Tamara Maksymenko, the leading artist of our company: festival merch, art objects, paintings, and costumes we sew ourselves.",
+    "All proceeds support the cultural association Motion Mode of Dialogue in Tyrol and its programs, including our work with artists and people from countries affected by war. We also contribute to other supporting organisations, but at the heart of everything is art.",
+    "With every piece you take home, you help our association exist, create, and keep bringing people together through art. Thank you! 🤍"
+  ],
+  "products": [
+    {
+      "id": "socks",
+      "slug": "socks",
+      "title": "Dance Socks — Contact & Solo",
+      "tag": "MMDT Merch · Limited Batch",
+      "badge": "In Stock",
+      "price": "€12",
+      "tax_note": "per pair · plus shipping · kein USt-Ausweis, Kleinunternehmer",
+      "short_desc": "Dance socks designed for contemporary and Contact Improvisation dancers. Good grip on the floor, 96% cotton, 4% elastane.",
+      "variants_summary": "Deep Violet (40–43) · Light Blue (36–39)",
+      "footer_cta": "Select Size & Order",
+      "cover_image": "../img/pages/shop/socks-violet-front.png",
+      "description": "Dance socks designed for contemporary and Contact Improvisation dancers. Good grip on the floor, comfortable through long jams, and made of natural material: <strong>96% cotton, 4% elastane</strong>.\n\nOne sock says <em>“sock for contact”</em>, the other <em>“sock for solo”</em>. Or take two pairs: wear <em>“sock for solo”</em> in your contemporary classes and <em>“sock for contact”</em> on both feet for Contact Improvisation.",
+      "specs": [
+        {
+          "label": "Material",
+          "value": "96% cotton, 4% elastane"
+        },
+        {
+          "label": "Colours & sizes",
+          "value": "Deep Violet (40–43) · Light Blue (36–39)"
+        },
+        {
+          "label": "Pickup in Innsbruck",
+          "value": "Free at Kaiserjägerstraße 42 - top 3"
+        }
+      ],
+      "photos": [
+        {
+          "src": "../img/pages/shop/socks-violet-front.png",
+          "alt": "Deep Violet front",
+          "variant": "violet"
+        },
+        {
+          "src": "../img/pages/shop/socks-violet-back.png",
+          "alt": "Deep Violet back",
+          "variant": "violet"
+        },
+        {
+          "src": "../img/pages/shop/socks-blue-front.png",
+          "alt": "Light Blue front",
+          "variant": "blue"
+        },
+        {
+          "src": "../img/pages/shop/socks-blue-back.png",
+          "alt": "Light Blue back",
+          "variant": "blue"
+        }
+      ],
+      "videos": [],
+      "variants": [
+        {
+          "id": "violet",
+          "label": "Deep Violet (40–43)",
+          "color": "#3b28cc",
+          "image": "../img/pages/shop/socks-violet-front.png",
+          "stripe_url": "https://buy.stripe.com/fZu00j5nieAz9WD8Q128803",
+          "price": ""
+        },
+        {
+          "id": "blue",
+          "label": "Light Blue (36–39)",
+          "color": "#0077b6",
+          "image": "../img/pages/shop/socks-blue-front.png",
+          "stripe_url": "https://buy.stripe.com/8x2dR94je4ZZ1q73vH28804",
+          "price": ""
+        }
+      ],
+      "delivery_info": "<strong>Ground shipping to EU-countries — €8.</strong>\nYou can choose shipping (with address) or free pickup in Innsbruck (Kaiserjägerstraße 42 - top 3) directly during Stripe Checkout.",
+      "stripe_url": "https://buy.stripe.com/fZu00j5nieAz9WD8Q128803",
+      "button_text": "Pay via Stripe →",
+      "published": true
+    }
+  ]
+}

@@ -240,7 +240,7 @@ function hideEntityEditor(entity) {
 
 function getSavedSection() {
     const hash = (window.location.hash || '').replace(/^#/, '').trim();
-    const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'partners', 'membership', 'publish'];
+    const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'partners', 'membership', 'shop', 'publish'];
     if (validSections.includes(hash)) return hash;
     const saved = localStorage.getItem('mmdt_admin_active_section');
     if (validSections.includes(saved)) return saved;
@@ -253,7 +253,7 @@ document.querySelectorAll('.admin-sidebar .nav-item').forEach(btn => {
 });
 
 function switchSection(sec, updateUrl = true) {
-    const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'partners', 'membership', 'publish'];
+    const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'partners', 'membership', 'shop', 'publish'];
     if (!validSections.includes(sec)) sec = 'news';
 
     currentSection = sec;
@@ -265,7 +265,7 @@ function switchSection(sec, updateUrl = true) {
         history.replaceState(null, '', '#' + sec);
     }
 
-    ['events', 'news', 'projects', 'festivals', 'classes', 'partners'].forEach(hideEntityEditor);
+    ['events', 'news', 'projects', 'festivals', 'classes', 'partners', 'shop'].forEach(hideEntityEditor);
 
     document.querySelectorAll('.admin-sidebar .nav-item').forEach(b => {
         b.classList.toggle('active', b.dataset.section === sec);
@@ -303,6 +303,10 @@ function switchSection(sec, updateUrl = true) {
             title: 'Программа членства (Membership)',
             sub: 'Условия, тарифы со Stripe и привилегии на странице <a href="../pages/membership.html" target="_blank" class="admin-page-link">pages/membership.html ↗</a>'
         },
+        shop: {
+            title: 'Магазин (Merch & Art Objects)',
+            sub: 'Управление товарами, фото, видео и Stripe-оплатой на <a href="../pages/merch.html" target="_blank" class="admin-page-link">pages/merch.html ↗</a>'
+        },
         publish: {
             title: 'Публикация & Git',
             sub: 'Синхронизация и отправка изменений в репозиторий mmdtat/mmdtat.github.io'
@@ -335,6 +339,9 @@ function switchSection(sec, updateUrl = true) {
     } else if (sec === 'membership') {
         topActions.innerHTML = `<button class="btn btn-primary" id="topSaveMembershipBtn">Сохранить членство</button>`;
         document.getElementById('topSaveMembershipBtn').addEventListener('click', () => saveMembership());
+    } else if (sec === 'shop') {
+        topActions.innerHTML = `<button class="btn btn-primary" id="topAddShopBtn">+ Добавить товар</button>`;
+        document.getElementById('topAddShopBtn').addEventListener('click', () => openAddShopProduct());
     } else {
         topActions.innerHTML = '';
     }
@@ -4407,10 +4414,638 @@ function updateTopActions() {
     } else if (currentSection === 'membership') {
         topActions.innerHTML = `<button class="btn btn-primary" id="topSaveMembershipBtn">Сохранить членство</button>`;
         document.getElementById('topSaveMembershipBtn').addEventListener('click', saveMembership);
+    } else if (currentSection === 'shop') {
+        topActions.innerHTML = `<button class="btn btn-primary" id="topAddShopBtn">+ Добавить товар</button>`;
+        document.getElementById('topAddShopBtn').addEventListener('click', openAddShopProduct);
     } else {
         topActions.innerHTML = '';
     }
 }
+
+// ==========================================
+// 8. SHOP / MERCH MANAGEMENT
+// ==========================================
+let shopData = { about_collection: [], products: [] };
+let shopSlugManuallyEdited = false;
+
+function initShopSubtabs() {
+    const nav = document.getElementById('shopSubtabsNav');
+    if (!nav) return;
+    nav.querySelectorAll('.proj-tab-nav-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            nav.querySelectorAll('.proj-tab-nav-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const target = btn.dataset.subtab;
+            document.querySelectorAll('#shopProductForm .shop-subtab-pane').forEach(p => {
+                p.style.display = p.id === `pane-shop-${target}` ? 'block' : 'none';
+                p.classList.toggle('active', p.id === `pane-shop-${target}`);
+            });
+        });
+    });
+}
+
+async function loadShop() {
+    const data = await apiGet('shop');
+    if (data && typeof data === 'object') {
+        shopData = {
+            about_collection: Array.isArray(data.about_collection) ? data.about_collection : [],
+            products: Array.isArray(data.products) ? data.products : []
+        };
+    }
+    const aboutEl = document.getElementById('shopAboutCollection');
+    if (aboutEl) {
+        aboutEl.value = (shopData.about_collection || []).join('\n\n');
+    }
+    renderShopList();
+}
+
+function renderShopList() {
+    const container = document.getElementById('shopProductsList');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const products = shopData.products || [];
+    if (products.length === 0) {
+        container.innerHTML = `<div style="padding:32px; text-align:center; color:var(--text-meta); background:#fff; border:1px dashed var(--border); border-radius:10px;">Товаров пока нет. Нажмите «+ Добавить товар», чтобы создать первую карточку.</div>`;
+        return;
+    }
+
+    products.forEach((prod, idx) => {
+        const cover = prod.cover_image || (prod.photos && prod.photos[0] && (prod.photos[0].src || prod.photos[0])) || '';
+        const previewSrc = resolveAdminPreviewUrl(cover);
+        const photosCount = (prod.photos || []).length;
+        const videosCount = (prod.videos || []).length;
+        const variantsCount = (prod.variants || []).length;
+        const slug = prod.slug || prod.id || 'product';
+        const isPub = prod.published !== false;
+
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        card.innerHTML = `
+            <div class="item-card-main" style="display:flex; gap:16px; align-items:center;">
+                ${previewSrc ? `<img src="${escapeHtml(previewSrc)}" alt="" style="width:72px; height:72px; object-fit:cover; border-radius:8px; border:1px solid var(--border); flex-shrink:0;">` : `<div style="width:72px; height:72px; border-radius:8px; background:#f3f4f6; display:flex; align-items:center; justify-content:center; color:#9ca3af; font-size:0.75rem; flex-shrink:0;">Нет фото</div>`}
+                <div style="min-width:0; flex:1;">
+                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                        <h3 style="margin:0; font-size:1.05rem;">${escapeHtml(prod.title || 'Без названия')}</h3>
+                        <span class="badge" style="background:#f3f4f6; color:#111827; font-weight:600;">${escapeHtml(prod.price || '—')}</span>
+                        ${prod.badge ? `<span class="badge" style="background:#eef2ff; color:#3730a3;">${escapeHtml(prod.badge)}</span>` : ''}
+                        ${!isPub ? `<span class="badge" style="background:#fef2f2; color:#991b1b;">Скрыт</span>` : ''}
+                    </div>
+                    <p style="margin:6px 0 4px 0; font-size:0.85rem; color:var(--text-meta);">${escapeHtml(prod.short_desc || '')}</p>
+                    <div style="font-size:0.78rem; color:var(--text-meta); display:flex; gap:12px; flex-wrap:wrap;">
+                        <span>Страница: <code>pages/${escapeHtml(slug)}.html</code></span>
+                        <span>Фото: ${photosCount}</span>
+                        <span>Видео: ${videosCount}</span>
+                        <span>Варианты: ${variantsCount}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card-actions">
+                <a href="../pages/${escapeHtml(slug)}.html" target="_blank" class="btn btn-sm">Открыть ↗</a>
+                <button type="button" class="btn btn-sm btn-primary btn-edit-shop">Редактировать</button>
+                <button type="button" class="btn btn-sm btn-danger btn-del-shop">Удалить</button>
+            </div>
+        `;
+        card.querySelector('.btn-edit-shop').addEventListener('click', () => openEditShopProduct(idx));
+        card.querySelector('.btn-del-shop').addEventListener('click', async () => {
+            if (!confirm(`Удалить товар «${prod.title}» из каталога?`)) return;
+            shopData.products.splice(idx, 1);
+            await syncShopFiles(null);
+            renderShopList();
+            showToast('Товар удалён');
+        });
+        container.appendChild(card);
+    });
+}
+
+function addShopSpecRow(spec = {}) {
+    const container = document.getElementById('shopSpecsContainer');
+    if (!container) return;
+    const row = document.createElement('div');
+    row.className = 'repeater-card';
+    row.style.padding = '10px 12px';
+    row.innerHTML = `
+        <div style="display:grid; grid-template-columns: 1fr 2fr auto; gap:10px; align-items:center;">
+            <input type="text" class="form-control shop-spec-label" value="${escapeHtml(spec.label || '')}" placeholder="Material">
+            <input type="text" class="form-control shop-spec-value" value="${escapeHtml(spec.value || '')}" placeholder="96% cotton, 4% elastane">
+            <button type="button" class="btn btn-sm btn-danger btn-remove-row">&times;</button>
+        </div>
+    `;
+    row.querySelector('.btn-remove-row').addEventListener('click', () => row.remove());
+    container.appendChild(row);
+}
+
+function addShopPhotoRow(photo = {}, overridePreviewUrl = null) {
+    const container = document.getElementById('shopPhotosContainer');
+    if (!container) return;
+    const src = typeof photo === 'string' ? photo : (photo.src || '');
+    const alt = typeof photo === 'string' ? '' : (photo.alt || '');
+    const variant = typeof photo === 'string' ? '' : (photo.variant || '');
+
+    const card = document.createElement('div');
+    card.className = 'repeater-card';
+    card.style.padding = '12px 14px';
+    card.innerHTML = `
+        <div style="display:flex; gap:12px; align-items:flex-start; flex-wrap:wrap;">
+            <img class="shop-photo-thumb" src="${escapeHtml(overridePreviewUrl || resolveAdminPreviewUrl(src))}" alt="" style="width:68px; height:68px; object-fit:cover; border-radius:6px; border:1px solid var(--border); background:#f9fafb; ${src || overridePreviewUrl ? '' : 'display:none;'}">
+            <div style="flex:1; min-width:220px; display:flex; flex-direction:column; gap:8px;">
+                <div style="display:flex; gap:8px;">
+                    <input type="text" class="form-control shop-photo-src" value="${escapeHtml(src)}" placeholder="../img/pages/shop/photo.jpg">
+                    <button type="button" class="btn btn-sm btn-upload-shop-photo">Загрузить</button>
+                </div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+                    <input type="text" class="form-control shop-photo-alt" value="${escapeHtml(alt)}" placeholder="Подпись (alt), например Deep Violet front">
+                    <input type="text" class="form-control shop-photo-variant" value="${escapeHtml(variant)}" placeholder="ID варианта (опц., например violet)">
+                </div>
+            </div>
+            <button type="button" class="btn btn-sm btn-danger btn-remove-row" title="Удалить фото">&times;</button>
+        </div>
+    `;
+    const srcInput = card.querySelector('.shop-photo-src');
+    const thumb = card.querySelector('.shop-photo-thumb');
+    srcInput.addEventListener('input', () => {
+        const val = srcInput.value.trim();
+        if (val) {
+            thumb.src = resolveAdminPreviewUrl(val);
+            thumb.style.display = 'block';
+        } else {
+            thumb.style.display = 'none';
+        }
+    });
+    card.querySelector('.btn-remove-row').addEventListener('click', () => card.remove());
+    attachImageUpload(
+        card.querySelector('.btn-upload-shop-photo'),
+        srcInput,
+        thumb,
+        'pages/shop'
+    );
+    // Ensure ../ prefix compatibility isn't broken and thumb shows on upload
+    thumb.addEventListener('load', () => {
+        if (thumb.src) thumb.style.display = 'block';
+    });
+    container.appendChild(card);
+}
+
+function addShopVideoRow(video = {}, overridePreviewUrl = null) {
+    const container = document.getElementById('shopVideosContainer');
+    if (!container) return;
+    const src = typeof video === 'string' ? video : (video.src || '');
+    const title = typeof video === 'string' ? '' : (video.title || '');
+    const type = typeof video === 'string'
+        ? (src.includes('youtube.com') || src.includes('youtu.be') || src.includes('vimeo.com') ? 'embed' : 'file')
+        : (video.type || (src.includes('youtube.com') || src.includes('youtu.be') || src.includes('vimeo.com') ? 'embed' : 'file'));
+
+    const isFileVideo = type === 'file' && src && !src.includes('youtube.com') && !src.includes('youtu.be') && !src.includes('vimeo.com');
+    const previewSrc = overridePreviewUrl || resolveAdminPreviewUrl(src);
+
+    const card = document.createElement('div');
+    card.className = 'repeater-card';
+    card.style.padding = '12px 14px';
+    card.innerHTML = `
+        <div style="display:flex; gap:12px; align-items:flex-start; flex-wrap:wrap;">
+            <div style="width:120px; flex-shrink:0;">
+                ${isFileVideo && previewSrc ? `<video src="${escapeHtml(previewSrc)}" controls muted style="width:120px; height:72px; object-fit:cover; border-radius:6px; background:#000;"></video>` : `<div style="width:120px; height:72px; border-radius:6px; background:#111827; color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.78rem; text-align:center; padding:6px;">▶ ${type === 'embed' ? 'YouTube / Vimeo' : 'Видео'}</div>`}
+            </div>
+            <div style="flex:1; min-width:220px; display:flex; flex-direction:column; gap:8px;">
+                <input type="text" class="form-control shop-video-src" value="${escapeHtml(src)}" placeholder="Ссылка YouTube/Vimeo или путь к MP4 (../img/pages/shop/videos/...)">
+                <input type="text" class="form-control shop-video-title" value="${escapeHtml(title)}" placeholder="Название/подпись видео (необязательно)">
+            </div>
+            <button type="button" class="btn btn-sm btn-danger btn-remove-row" title="Удалить видео">&times;</button>
+        </div>
+    `;
+    card.querySelector('.btn-remove-row').addEventListener('click', () => card.remove());
+    container.appendChild(card);
+}
+
+function addShopVariantRow(v = {}) {
+    const container = document.getElementById('shopVariantsContainer');
+    if (!container) return;
+    const card = document.createElement('div');
+    card.className = 'repeater-card';
+    card.innerHTML = `
+        <div class="repeater-card-header">
+            <span class="repeater-card-title">${escapeHtml(v.label || 'Новый вариант')}</span>
+            <button type="button" class="btn btn-sm btn-danger btn-remove-row">Удалить</button>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">Название варианта (цвет / размер) *</label>
+                <input type="text" class="form-control shop-var-label" value="${escapeHtml(v.label || '')}" placeholder="Deep Violet (40–43)">
+            </div>
+            <div class="form-group">
+                <label class="form-label">ID варианта (латиницей)</label>
+                <input type="text" class="form-control shop-var-id" value="${escapeHtml(v.id || '')}" placeholder="violet">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">Цвет кружка (опционально)</label>
+                <div style="display:flex; gap:8px; align-items:center;">
+                    <input type="color" class="shop-var-color-picker" value="${escapeHtml(v.color || '#3b28cc')}" style="width:40px; height:36px; padding:2px; border:1px solid var(--border); border-radius:6px; cursor:pointer;">
+                    <input type="text" class="form-control shop-var-color" value="${escapeHtml(v.color || '')}" placeholder="#3b28cc (оставьте пустым, если кружок не нужен)">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Цена варианта (если отличается)</label>
+                <input type="text" class="form-control shop-var-price" value="${escapeHtml(v.price || '')}" placeholder="Оставьте пустым для базовой цены">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">Фото варианта (при клике переключит главное фото)</label>
+                <div style="display:flex; gap:8px;">
+                    <input type="text" class="form-control shop-var-img" value="${escapeHtml(v.image || '')}" placeholder="../img/pages/shop/socks-violet-front.png">
+                    <button type="button" class="btn btn-sm btn-upload-shop-var-img">Загрузить</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Ссылка оплаты Stripe для этого варианта *</label>
+                <input type="text" class="form-control shop-var-stripe" value="${escapeHtml(v.stripe_url || '')}" placeholder="https://buy.stripe.com/...">
+            </div>
+        </div>
+    `;
+    card.querySelector('.btn-remove-row').addEventListener('click', () => card.remove());
+    card.querySelector('.shop-var-label').addEventListener('input', (e) => {
+        card.querySelector('.repeater-card-title').textContent = e.target.value.trim() || 'Новый вариант';
+    });
+    const picker = card.querySelector('.shop-var-color-picker');
+    const colorText = card.querySelector('.shop-var-color');
+    picker.addEventListener('input', () => { colorText.value = picker.value; });
+    colorText.addEventListener('input', () => {
+        if (/^#[0-9a-fA-F]{6}$/.test(colorText.value.trim())) picker.value = colorText.value.trim();
+    });
+    attachImageUpload(
+        card.querySelector('.btn-upload-shop-var-img'),
+        card.querySelector('.shop-var-img'),
+        null,
+        'pages/shop'
+    );
+    container.appendChild(card);
+}
+
+function resetShopEditor(titleText) {
+    document.getElementById('modalShopTitle').textContent = titleText;
+    const nav = document.getElementById('shopSubtabsNav');
+    if (nav) {
+        const firstBtn = nav.querySelector('.proj-tab-nav-btn[data-subtab="main"]');
+        if (firstBtn) firstBtn.click();
+    }
+}
+
+function openAddShopProduct() {
+    shopSlugManuallyEdited = false;
+    resetShopEditor('Добавить новый товар');
+    document.getElementById('shopIndex').value = '';
+    document.getElementById('shopProdTitle').value = '';
+    document.getElementById('shopProdSlug').value = '';
+    document.getElementById('shopProdPrice').value = '€';
+    document.getElementById('shopProdTaxNote').value = 'plus shipping · kein USt-Ausweis, Kleinunternehmer';
+    document.getElementById('shopProdTag').value = 'MMDT Merch & Art Objects';
+    document.getElementById('shopProdBadge').value = 'In Stock';
+    document.getElementById('shopProdFooterCta').value = 'View & Order';
+    document.getElementById('shopProdPublished').checked = true;
+    document.getElementById('shopProdShortDesc').value = '';
+    document.getElementById('shopProdDesc').value = '';
+    document.getElementById('shopCoverPath').value = '';
+    const coverPrev = document.getElementById('shopCoverPreview');
+    coverPrev.src = '';
+    coverPrev.style.display = 'none';
+    document.getElementById('shopProdStripeUrl').value = '';
+    document.getElementById('shopProdBtnText').value = 'Pay via Stripe →';
+    document.getElementById('shopProdVariantsSummary').value = '';
+    document.getElementById('shopProdDeliveryInfo').value = 'Ground shipping to EU-countries — €8.\nYou can choose shipping (with address) or free pickup in Innsbruck (Kaiserjägerstraße 42 - top 3) directly during Stripe Checkout.';
+
+    document.getElementById('shopSpecsContainer').innerHTML = '';
+    document.getElementById('shopPhotosContainer').innerHTML = '';
+    document.getElementById('shopVideosContainer').innerHTML = '';
+    document.getElementById('shopVariantsContainer').innerHTML = '';
+
+    showEntityEditor('shop');
+}
+
+function openEditShopProduct(idx) {
+    const prod = shopData.products[idx];
+    if (!prod) return;
+    shopSlugManuallyEdited = true;
+    resetShopEditor(`Редактирование: ${prod.title || 'Товар'}`);
+    document.getElementById('shopIndex').value = String(idx);
+    document.getElementById('shopProdTitle').value = prod.title || '';
+    document.getElementById('shopProdSlug').value = prod.slug || prod.id || '';
+    document.getElementById('shopProdPrice').value = prod.price || '';
+    document.getElementById('shopProdTaxNote').value = prod.tax_note || '';
+    document.getElementById('shopProdTag').value = prod.tag || '';
+    document.getElementById('shopProdBadge').value = prod.badge || '';
+    document.getElementById('shopProdFooterCta').value = prod.footer_cta || '';
+    document.getElementById('shopProdPublished').checked = prod.published !== false;
+    document.getElementById('shopProdShortDesc').value = prod.short_desc || '';
+    document.getElementById('shopProdDesc').value = prod.description || '';
+
+    const cover = prod.cover_image || '';
+    document.getElementById('shopCoverPath').value = cover;
+    const coverPrev = document.getElementById('shopCoverPreview');
+    if (cover) {
+        coverPrev.src = resolveAdminPreviewUrl(cover);
+        coverPrev.style.display = 'block';
+    } else {
+        coverPrev.src = '';
+        coverPrev.style.display = 'none';
+    }
+
+    document.getElementById('shopProdStripeUrl').value = prod.stripe_url || '';
+    document.getElementById('shopProdBtnText').value = prod.button_text || 'Pay via Stripe →';
+    document.getElementById('shopProdVariantsSummary').value = prod.variants_summary || '';
+    document.getElementById('shopProdDeliveryInfo').value = prod.delivery_info || '';
+
+    const specsCont = document.getElementById('shopSpecsContainer');
+    specsCont.innerHTML = '';
+    (prod.specs || []).forEach(s => addShopSpecRow(s));
+
+    const photosCont = document.getElementById('shopPhotosContainer');
+    photosCont.innerHTML = '';
+    (prod.photos || []).forEach(p => addShopPhotoRow(p));
+
+    const videosCont = document.getElementById('shopVideosContainer');
+    videosCont.innerHTML = '';
+    (prod.videos || []).forEach(v => addShopVideoRow(v));
+
+    const varsCont = document.getElementById('shopVariantsContainer');
+    varsCont.innerHTML = '';
+    (prod.variants || []).forEach(v => addShopVariantRow(v));
+
+    showEntityEditor('shop');
+}
+
+async function syncShopFiles(updatedProduct = null) {
+    await apiSave('shop', shopData);
+    if (window.MMDTGenerator) {
+        const merchHtml = window.MMDTGenerator.generateMerchCatalogHtml(shopData);
+        await saveGeneratedFile('pages/merch.html', merchHtml);
+
+        if (updatedProduct) {
+            const slug = (updatedProduct.slug || updatedProduct.id || 'product').replace(/\.html$/i, '');
+            const detailHtml = window.MMDTGenerator.generateProductDetailHtml(updatedProduct);
+            await saveGeneratedFile(`pages/${slug}.html`, detailHtml);
+        } else {
+            for (const p of (shopData.products || [])) {
+                const slug = (p.slug || p.id || 'product').replace(/\.html$/i, '');
+                const detailHtml = window.MMDTGenerator.generateProductDetailHtml(p);
+                await saveGeneratedFile(`pages/${slug}.html`, detailHtml);
+            }
+        }
+    }
+}
+
+// Wire Shop UI buttons
+document.getElementById('shopListAddBtn')?.addEventListener('click', openAddShopProduct);
+document.getElementById('backShopBtn')?.addEventListener('click', () => hideEntityEditor('shop'));
+document.getElementById('closeShopModal')?.addEventListener('click', () => hideEntityEditor('shop'));
+document.getElementById('addShopSpecBtn')?.addEventListener('click', () => addShopSpecRow());
+document.getElementById('addShopPhotoRowBtn')?.addEventListener('click', () => addShopPhotoRow());
+document.getElementById('addShopVideoUrlBtn')?.addEventListener('click', () => addShopVideoRow({ type: 'embed' }));
+document.getElementById('addShopVariantBtn')?.addEventListener('click', () => addShopVariantRow());
+
+document.getElementById('shopProdTitle')?.addEventListener('input', (e) => {
+    if (!shopSlugManuallyEdited) {
+        const slug = e.target.value.toLowerCase().trim()
+            .replace(/[^a-z0-9\s_-]/g, '')
+            .replace(/[\s-]+/g, '_')
+            .replace(/^_+|_+$/g, '');
+        document.getElementById('shopProdSlug').value = slug;
+    }
+});
+document.getElementById('shopProdSlug')?.addEventListener('input', () => {
+    shopSlugManuallyEdited = true;
+});
+
+document.getElementById('shopCoverPath')?.addEventListener('input', (e) => {
+    const val = e.target.value.trim();
+    const prev = document.getElementById('shopCoverPreview');
+    if (val) {
+        prev.src = resolveAdminPreviewUrl(val);
+        prev.style.display = 'block';
+    } else {
+        prev.style.display = 'none';
+    }
+});
+
+document.getElementById('shopCoverUploadBtn')?.addEventListener('click', () => {
+    document.getElementById('shopCoverFileInput').click();
+});
+document.getElementById('shopCoverFileInput')?.addEventListener('change', async function() {
+    if (!this.files || !this.files[0]) return;
+    const file = this.files[0];
+    try {
+        const compressed = await window.MMDTCompressor.compressImage(file, 1920, 0.84);
+        const baseName = file.name.replace(/\.[^/.]+$/, '').trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_-]/g, '') || 'cover';
+        const filename = `${baseName}.jpg`;
+        const cleanPath = `img/pages/shop/${filename}`;
+        document.getElementById('shopCoverPath').value = `../${cleanPath}`;
+        const prev = document.getElementById('shopCoverPreview');
+        prev.src = compressed.dataUrl;
+        prev.style.display = 'block';
+
+        pendingImageBlobs.push({ path: cleanPath, content: compressed.base64, isBase64: true });
+        if (isLocalServerRunning) {
+            const fd = new FormData();
+            fd.append('file', compressed.blob, filename);
+            fd.append('filename', filename);
+            fd.append('subpath', 'pages/shop');
+            fd.append('is_cover', 'true');
+            await fetch('/api/upload', { method: 'POST', body: fd });
+        }
+        showToast('Обложка загружена!');
+    } catch (err) {
+        showToast('Ошибка загрузки обложки: ' + err.message, true);
+    } finally {
+        this.value = '';
+    }
+});
+
+document.getElementById('uploadShopPhotosMultiBtn')?.addEventListener('click', () => {
+    document.getElementById('shopPhotosMultiInput').click();
+});
+document.getElementById('shopPhotosMultiInput')?.addEventListener('change', async function() {
+    if (!this.files || !this.files.length) return;
+    const files = Array.from(this.files);
+    try {
+        for (const file of files) {
+            const compressed = await window.MMDTCompressor.compressImage(file, 1920, 0.84);
+            const baseName = file.name.replace(/\.[^/.]+$/, '').trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_-]/g, '') || 'photo';
+            const filename = `${baseName}.jpg`;
+            const cleanPath = `img/pages/shop/${filename}`;
+
+            pendingImageBlobs.push({ path: cleanPath, content: compressed.base64, isBase64: true });
+            if (isLocalServerRunning) {
+                const fd = new FormData();
+                fd.append('file', compressed.blob, filename);
+                fd.append('filename', filename);
+                fd.append('subpath', 'pages/shop');
+                fd.append('is_cover', 'false');
+                await fetch('/api/upload', { method: 'POST', body: fd });
+            }
+            addShopPhotoRow({ src: `../${cleanPath}`, alt: '', variant: '' }, compressed.dataUrl);
+        }
+        showToast(`Загружено фото: ${files.length}`);
+    } catch (err) {
+        showToast('Ошибка загрузки фото: ' + err.message, true);
+    } finally {
+        this.value = '';
+    }
+});
+
+document.getElementById('uploadShopVideoBtn')?.addEventListener('click', () => {
+    document.getElementById('shopVideoFileInput').click();
+});
+document.getElementById('shopVideoFileInput')?.addEventListener('change', async function() {
+    if (!this.files || !this.files[0]) return;
+    const file = this.files[0];
+    if (file.size > 25 * 1024 * 1024) {
+        if (!confirm(`Файл весит ${(file.size / 1024 / 1024).toFixed(1)} МБ. Для быстрой загрузки на GitHub Pages лучше сжать видео до 10–20 МБ (или использовать YouTube). Всё равно загрузить?`)) {
+            this.value = '';
+            return;
+        }
+    }
+    try {
+        const dataUrl = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+        const base64 = String(dataUrl).split(',')[1];
+        const ext = (file.name.split('.').pop() || 'mp4').toLowerCase().replace(/[^a-z0-9]/g, '') || 'mp4';
+        const baseName = file.name.replace(/\.[^/.]+$/, '').trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_-]/g, '') || 'video';
+        const filename = `${baseName}.${ext}`;
+        const cleanPath = `img/pages/shop/videos/${filename}`;
+
+        pendingImageBlobs.push({ path: cleanPath, content: base64, isBase64: true });
+        if (isLocalServerRunning) {
+            const fd = new FormData();
+            fd.append('file', file, filename);
+            fd.append('filename', filename);
+            fd.append('subpath', 'img/pages/shop/videos');
+            await fetch('/api/upload-raw', { method: 'POST', body: fd });
+        }
+
+        addShopVideoRow({ type: 'file', src: `../${cleanPath}`, title: '' }, dataUrl);
+        showToast(`Видео ${filename} добавлено!`);
+    } catch (err) {
+        showToast('Ошибка загрузки видео: ' + err.message, true);
+    } finally {
+        this.value = '';
+    }
+});
+
+document.getElementById('saveShopCollectionBtn')?.addEventListener('click', async () => {
+    const raw = document.getElementById('shopAboutCollection')?.value || '';
+    shopData.about_collection = raw.split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+    await syncShopFiles(null);
+    showToast('Текст коллекции сохранён!');
+});
+
+document.getElementById('shopProductForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const title = document.getElementById('shopProdTitle').value.trim();
+    let slug = document.getElementById('shopProdSlug').value.trim()
+        .replace(/\.html$/i, '')
+        .replace(/[^a-zA-Z0-9_-]/g, '_');
+
+    if (!title) {
+        showToast('Укажите название товара!', true);
+        return;
+    }
+    if (!slug) {
+        slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || `item_${Date.now()}`;
+    }
+
+    const specs = [];
+    document.querySelectorAll('#shopSpecsContainer .repeater-card').forEach(row => {
+        const label = row.querySelector('.shop-spec-label')?.value.trim() || '';
+        const value = row.querySelector('.shop-spec-value')?.value.trim() || '';
+        if (label || value) specs.push({ label, value });
+    });
+
+    const photos = [];
+    document.querySelectorAll('#shopPhotosContainer .repeater-card').forEach(card => {
+        const src = card.querySelector('.shop-photo-src')?.value.trim() || '';
+        if (src) {
+            photos.push({
+                src,
+                alt: card.querySelector('.shop-photo-alt')?.value.trim() || title,
+                variant: card.querySelector('.shop-photo-variant')?.value.trim() || ''
+            });
+        }
+    });
+
+    const videos = [];
+    document.querySelectorAll('#shopVideosContainer .repeater-card').forEach(card => {
+        const src = card.querySelector('.shop-video-src')?.value.trim() || '';
+        if (src) {
+            const isEmbed = src.includes('youtube.com') || src.includes('youtu.be') || src.includes('vimeo.com');
+            videos.push({
+                type: isEmbed ? 'embed' : 'file',
+                src,
+                title: card.querySelector('.shop-video-title')?.value.trim() || ''
+            });
+        }
+    });
+
+    const variants = [];
+    document.querySelectorAll('#shopVariantsContainer .repeater-card').forEach((card, i) => {
+        const label = card.querySelector('.shop-var-label')?.value.trim() || '';
+        if (label) {
+            const id = (card.querySelector('.shop-var-id')?.value.trim() || label.toLowerCase().replace(/[^a-z0-9]+/g, '_')) || `var_${i + 1}`;
+            variants.push({
+                id,
+                label,
+                color: card.querySelector('.shop-var-color')?.value.trim() || '',
+                image: card.querySelector('.shop-var-img')?.value.trim() || '',
+                stripe_url: card.querySelector('.shop-var-stripe')?.value.trim() || '',
+                price: card.querySelector('.shop-var-price')?.value.trim() || ''
+            });
+        }
+    });
+
+    const coverInput = document.getElementById('shopCoverPath').value.trim();
+    const coverImage = coverInput || (photos[0] ? photos[0].src : '');
+    const variantsSummaryInput = document.getElementById('shopProdVariantsSummary').value.trim();
+    const variantsSummary = variantsSummaryInput || variants.map(v => v.label).join(' · ');
+
+    const productObj = {
+        id: slug,
+        slug,
+        title,
+        tag: document.getElementById('shopProdTag').value.trim(),
+        badge: document.getElementById('shopProdBadge').value.trim(),
+        price: document.getElementById('shopProdPrice').value.trim(),
+        tax_note: document.getElementById('shopProdTaxNote').value.trim(),
+        short_desc: document.getElementById('shopProdShortDesc').value.trim(),
+        variants_summary: variantsSummary,
+        footer_cta: document.getElementById('shopProdFooterCta').value.trim() || 'View & Order',
+        cover_image: coverImage,
+        description: document.getElementById('shopProdDesc').value.trim(),
+        specs,
+        photos,
+        videos,
+        variants,
+        delivery_info: document.getElementById('shopProdDeliveryInfo').value.trim(),
+        stripe_url: document.getElementById('shopProdStripeUrl').value.trim() || (variants[0] ? variants[0].stripe_url : ''),
+        button_text: document.getElementById('shopProdBtnText').value.trim() || 'Pay via Stripe →',
+        published: document.getElementById('shopProdPublished').checked
+    };
+
+    const idxVal = document.getElementById('shopIndex').value;
+    if (idxVal !== '' && shopData.products[Number(idxVal)]) {
+        shopData.products[Number(idxVal)] = productObj;
+    } else {
+        shopData.products.push(productObj);
+    }
+
+    await syncShopFiles(productObj);
+    renderShopList();
+    hideEntityEditor('shop');
+    showToast(`Товар «${title}» сохранён! Не забудьте нажать «Опубликовать» в разделе Публикация.`);
+});
 
 // Initialization on load
 document.addEventListener('DOMContentLoaded', async () => {
@@ -4421,7 +5056,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 2. Listen to browser Back / Forward navigation
     window.addEventListener('hashchange', () => {
         const hash = (window.location.hash || '').replace(/^#/, '').trim();
-        const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'partners', 'membership', 'publish'];
+        const validSections = ['news', 'projects', 'festivals', 'classes', 'events', 'partners', 'membership', 'shop', 'publish'];
         if (validSections.includes(hash) && hash !== currentSection) {
             switchSection(hash, false);
         }
@@ -4429,10 +5064,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await detectEnvironment();
     initProjectSubtabs();
+    initShopSubtabs();
     await loadEvents();
     await loadClasses();
     await loadNewsAndSettings();
     await loadProjectsAndFestivals();
     await loadPartners();
     await loadMembership();
+    await loadShop();
 });
