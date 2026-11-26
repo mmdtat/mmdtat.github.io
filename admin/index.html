@@ -1700,14 +1700,15 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                                 <div class="editor-section-card" style="margin-bottom:20px;">
                                     <div class="editor-section-header">
                                         <h4>Обложка товара в каталоге (pages/merch.html)</h4>
-                                        <p>Если не задана, автоматически используется первое фото из галереи</p>
+                                        <p>Нажмите «Сделать обложкой» на любом фото в галерее ниже или загрузите отдельное изображение. Если не задана, используется первое фото.</p>
                                     </div>
                                     <div class="upload-zone" style="display:flex; gap:16px; align-items:center;">
                                         <img id="shopCoverPreview" class="upload-preview-img" src="" style="display:none; max-height:90px;">
                                         <div class="upload-actions" style="flex:1;">
                                             <input type="text" class="form-control" id="shopCoverPath" placeholder="../img/pages/shop/cover.jpg" style="margin-bottom:8px;">
-                                            <div style="display:flex; gap:8px; align-items:center;">
+                                            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
                                                 <button type="button" class="btn btn-sm" id="shopCoverUploadBtn">Загрузить обложку</button>
+                                                <button type="button" class="btn btn-sm" id="shopCoverClearBtn" title="Сбросить выбор обложки">Сбросить</button>
                                                 <input type="file" id="shopCoverFileInput" accept="image/*" style="display:none;">
                                             </div>
                                         </div>

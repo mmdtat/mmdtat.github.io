@@ -4541,6 +4541,44 @@ function addShopSpecRow(spec = {}) {
     container.appendChild(row);
 }
 
+function normalizeShopImgCompare(src) {
+    return (src || '').trim().replace(/^\.\.\//, '').replace(/^\//, '');
+}
+
+function updateShopCoverHighlight() {
+    const coverVal = normalizeShopImgCompare(document.getElementById('shopCoverPath')?.value || '');
+    document.querySelectorAll('#shopPhotosContainer .repeater-card').forEach(card => {
+        const srcVal = normalizeShopImgCompare(card.querySelector('.shop-photo-src')?.value || '');
+        const btn = card.querySelector('.btn-set-shop-cover');
+        const isCover = Boolean(coverVal && srcVal && coverVal === srcVal);
+        card.style.borderColor = isCover ? '#10b981' : '';
+        card.style.background = isCover ? '#f0fdf4' : '';
+        if (btn) {
+            btn.textContent = isCover ? '★ Обложка' : 'Сделать обложкой';
+            btn.style.background = isCover ? '#ecfdf5' : '';
+            btn.style.color = isCover ? '#065f46' : '';
+            btn.style.borderColor = isCover ? '#10b981' : '';
+            btn.style.fontWeight = isCover ? '600' : '';
+        }
+    });
+}
+
+function setShopCover(src, overridePreviewUrl = null) {
+    const input = document.getElementById('shopCoverPath');
+    const prev = document.getElementById('shopCoverPreview');
+    if (input) input.value = src || '';
+    if (prev) {
+        if (src) {
+            prev.src = overridePreviewUrl || resolveAdminPreviewUrl(src);
+            prev.style.display = 'block';
+        } else {
+            prev.src = '';
+            prev.style.display = 'none';
+        }
+    }
+    updateShopCoverHighlight();
+}
+
 function addShopPhotoRow(photo = {}, overridePreviewUrl = null) {
     const container = document.getElementById('shopPhotosContainer');
     if (!container) return;
@@ -4564,7 +4602,10 @@ function addShopPhotoRow(photo = {}, overridePreviewUrl = null) {
                     <input type="text" class="form-control shop-photo-variant" value="${escapeHtml(variant)}" placeholder="ID варианта (опц., например violet)">
                 </div>
             </div>
-            <button type="button" class="btn btn-sm btn-danger btn-remove-row" title="Удалить фото">&times;</button>
+            <div style="display:flex; gap:6px; align-items:center;">
+                <button type="button" class="btn btn-sm btn-set-shop-cover" title="Сделать это фото обложкой товара">Сделать обложкой</button>
+                <button type="button" class="btn btn-sm btn-danger btn-remove-row" title="Удалить фото">&times;</button>
+            </div>
         </div>
     `;
     const srcInput = card.querySelector('.shop-photo-src');
@@ -4577,8 +4618,22 @@ function addShopPhotoRow(photo = {}, overridePreviewUrl = null) {
         } else {
             thumb.style.display = 'none';
         }
+        updateShopCoverHighlight();
     });
-    card.querySelector('.btn-remove-row').addEventListener('click', () => card.remove());
+    card.querySelector('.btn-set-shop-cover').addEventListener('click', () => {
+        const val = srcInput.value.trim();
+        if (!val) {
+            showToast('Сначала загрузите или укажите путь к фото', true);
+            return;
+        }
+        const previewOverride = thumb.src && thumb.src.startsWith('data:') ? thumb.src : null;
+        setShopCover(val, previewOverride);
+        showToast('Обложка товара выбрана!');
+    });
+    card.querySelector('.btn-remove-row').addEventListener('click', () => {
+        card.remove();
+        updateShopCoverHighlight();
+    });
     attachImageUpload(
         card.querySelector('.btn-upload-shop-photo'),
         srcInput,
@@ -4588,8 +4643,10 @@ function addShopPhotoRow(photo = {}, overridePreviewUrl = null) {
     // Ensure ../ prefix compatibility isn't broken and thumb shows on upload
     thumb.addEventListener('load', () => {
         if (thumb.src) thumb.style.display = 'block';
+        updateShopCoverHighlight();
     });
     container.appendChild(card);
+    updateShopCoverHighlight();
 }
 
 function addShopVideoRow(video = {}, overridePreviewUrl = null) {
@@ -4769,6 +4826,7 @@ function openEditShopProduct(idx) {
     const photosCont = document.getElementById('shopPhotosContainer');
     photosCont.innerHTML = '';
     (prod.photos || []).forEach(p => addShopPhotoRow(p));
+    updateShopCoverHighlight();
 
     const videosCont = document.getElementById('shopVideosContainer');
     videosCont.innerHTML = '';
@@ -4832,6 +4890,12 @@ document.getElementById('shopCoverPath')?.addEventListener('input', (e) => {
     } else {
         prev.style.display = 'none';
     }
+    updateShopCoverHighlight();
+});
+
+document.getElementById('shopCoverClearBtn')?.addEventListener('click', () => {
+    setShopCover('');
+    showToast('Обложка сброшена (будет использовано первое фото)');
 });
 
 document.getElementById('shopCoverUploadBtn')?.addEventListener('click', () => {
@@ -4845,10 +4909,7 @@ document.getElementById('shopCoverFileInput')?.addEventListener('change', async 
         const baseName = file.name.replace(/\.[^/.]+$/, '').trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_-]/g, '') || 'cover';
         const filename = `${baseName}.jpg`;
         const cleanPath = `img/pages/shop/${filename}`;
-        document.getElementById('shopCoverPath').value = `../${cleanPath}`;
-        const prev = document.getElementById('shopCoverPreview');
-        prev.src = compressed.dataUrl;
-        prev.style.display = 'block';
+        setShopCover(`../${cleanPath}`, compressed.dataUrl);
 
         pendingImageBlobs.push({ path: cleanPath, content: compressed.base64, isBase64: true });
         if (isLocalServerRunning) {
