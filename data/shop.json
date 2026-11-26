@@ -52,6 +52,11 @@
           "src": "../img/pages/shop/socks-blue-back.png",
           "alt": "Light Blue back",
           "variant": "blue"
+        },
+        {
+          "src": "../img/pages/shop/2026-11-26_091744.jpg",
+          "alt": "Light Blue on feet",
+          "variant": "blue"
         }
       ],
       "videos": [],
