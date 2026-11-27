@@ -126,8 +126,8 @@
     {
       "name": "Susanne Martin",
       "role": "Headliner/Artist/Teacher",
-      "photo": "img/festivals/teachers/Gillingham_Sutton_MG_0168.jpg",
-      "photo2": "img/festivals/teachers/Hagedorn_331.jpg",
+      "photo": "",
+      "photo2": "",
       "bio": "Susanne is an improvisation-based choreographer, performer, teacher, and researcher living\nin Berlin. She presents her work internationally in collaborative stage works, solo\nperformances, lecture performances, and workshops.\nIn her practical teaching she focuses on what she calls sense-ability, response-ability, and\nplay. She most often teaches contact improvisation (CI), dance improvisation and\napproaches to performance making. In her performance practice she focuses on the exciting\ntensions between improvisation, meaning making, total involvement, and ironic distancing.\nSince her PhD research “Dancing Age(ing)” she focuses on critical narrations and practices of\nthe life-long ageing body, on artistic research methods, and on improvisation as pathway for\nlearning and knowledge production. More about her research and writings can be found on\nher website. Festivals that presented her performances include: International Dance and\nTheatre Festival (Gothenburg), Aerowaves (London), Nottdance (Nottingham), Opera Estate\nVeneto (Bassano del Grappa), Tanec Praha (Prague). Her practice of and love for contact\nimprovisation informs all these doings.",
       "video_url": "www.susannemartin.de",
       "classes": [
@@ -145,6 +145,23 @@
         }
       ],
       "topic": "Jam Sweet/Sour"
+    },
+    {
+      "name": "Serhii Semichev",
+      "role": "Filmaker",
+      "photo": "img/festivals/teachers/DSCF8304.jpg",
+      "photo2": "img/festivals/teachers/DSCF8194.jpg",
+      "bio": "Serhii Semichev is a dancer, improviser, performer, Contact Improvisation teacher, photographer and filmmaker. Born in Snezhnoe, in Ukraine's Donetsk region, he trained from childhood in acrobatics, gymnastics and circus school, and later qualified as a massage therapist.\n\nHe began teaching Contact Improvisation in Donetsk in 2013 and went on to help build the CI community in Kyiv, where he taught, organised events and ran a Contact Improvisation research laboratory until 2022. Since then he has taught and performed at festivals and conferences in Ukraine, Moldova, Portugal, Sweden, Germany, Austria and China, and co-organised the Dance Pavilion festival of Contact Improvisation and dance film.\n\nCamera and dance have grown side by side in his work. He creates dance films, documents festivals as a photographer and videographer, and worked as videographer and editor on the Austrian project Code of Dance, including the making of the dance film Drift. On stage he has appeared in The Silence of the Mass (Motion Mode Dance Theatre, Innsbruck), which he also choreographed, and in the Freiburg project Labormanifest. In 2026 he organised and performed in the open stage Shape It at Cargo Theater Freiburg.\n\nBased in Freiburg, Germany, he is currently completing the documentary The Path, a film of conversations with Contact Improvisation teachers from different countries.",
+      "video_url": "",
+      "classes": [
+        {
+          "title": "​\"The Path\"",
+          "label": "Film Showcase",
+          "desc": "​Film duration: approx. 60 minutes.\n​We have inherited a small amount of documentary video footage about the origins and early development of Contact Improvisation.\n​Generations of dancers and teachers have already changed since the practice began, yet many continue walking the chosen path. Some have been on this path from the very beginning. Where are we going? In what direction is the practice evolving?\n​This film brings together footage showcasing contemporary Contact Improvisation, alongside interview fragments with various Contact Improvisation teachers from different countries, filmed in 2026.\n​All teachers were asked the same questions:\n​Do you remember your first encounter with Contact Improvisation? What did you find interesting in this practice at the beginning of your journey? What touched you?\n​Has your attitude toward Contact Improvisation changed after many years of practicing, dancing, and teaching? If so, how? What does Contact Improvisation mean to you today?\n​This film does not provide a definitive definition of what Contact Improvisation is today, but it offers many stories and opinions from people who have dedicated a part of their lives to this practice.",
+          "video_url": ""
+        }
+      ],
+      "topic": "​\"The Path\""
     }
   ],
   "performances": [
