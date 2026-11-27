@@ -191,32 +191,28 @@
   "musicians": [],
   "program": {
     "intro": "The festival week follows an organic flow balancing rigorous physical morning labs, communal midday nourishment, contemplative afternoon dialogues, and evening jams accompanied by live musicians.",
-    "google_sheets_url": "",
+    "google_sheets_url": "https://docs.google.com/spreadsheets/d/1QJhabt-l8I4AHXG5AyxBUXtEmwqu2ywjLb2lh7luzNE/edit?gid=0#gid=0",
     "image": "",
     "schedule": [
       {
-        "time": "08:30 – 09:30",
-        "title": "Somatic Awakening & Meditation"
-      },
-      {
-        "time": "10:00 – 13:00",
+        "time": "09:00 – 12:00",
         "title": "Morning CI Masterclasses with Faculty"
       },
       {
-        "time": "13:00 – 15:00",
-        "title": "Warm Vegetarian Lunch & Rest"
+        "time": "12:00 – 13:00/14:00",
+        "title": "Lunch time"
       },
       {
-        "time": "15:00 – 17:30",
-        "title": "Afternoon Research Labs & Rock CI"
+        "time": "13:00/14:00 – 17:00",
+        "title": "Afternoon Research Labs & Rock CI/Screenings, Talks & Discussions"
       },
       {
-        "time": "18:00 – 19:30",
-        "title": "Screenings, Talks & Discussions"
+        "time": "17:00 – 18:30",
+        "title": "Dinner"
       },
       {
-        "time": "20:00 – 23:00",
-        "title": "Open Jam with Live Music"
+        "time": "18:30 – 23:00",
+        "title": "Open Jam with Live Music/Performances"
       }
     ]
   },
