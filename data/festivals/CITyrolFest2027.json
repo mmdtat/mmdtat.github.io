@@ -48,37 +48,28 @@
     "intro_text": "A full week of classes, performances, jams, and lectures offered at an affordable price.",
     "passes": [
       {
-        "label": "Full Week Pass · Aug 13 – 19",
-        "title": "PRE - early bird registration:",
+        "label": "Full Week Pass · Aug 20–27",
+        "title": "Regular participation:",
         "desc": "(without accommodation and meals)",
-        "price_old": "",
-        "price_current": "255 €",
-        "url": "https://buy.stripe.com/00w14n2dyfDy9yQgM6d3i17",
+        "price_old": "399 €",
+        "price_current": "365 €",
+        "url": "https://buy.stripe.com/...",
         "is_soldout": false
       },
       {
-        "label": "Half Pass - Outdoor (vertical dance)",
-        "title": "Half of the festival \"PRE\":",
+        "label": "Half Pass",
+        "title": "Half of the festival regular participation:",
         "desc": "(without accommodation and meals)",
-        "price_old": "",
-        "price_current": "155 €",
-        "url": "https://buy.stripe.com/6oU14ndWg8b69yQbrMd3i15",
-        "is_soldout": false
-      },
-      {
-        "label": "Half Pass - Indoor (4 days Buchsenhausen)",
-        "title": "Half of the festival \"PRE\":",
-        "desc": "(without accommodation and meals)",
-        "price_old": "",
-        "price_current": "185 €",
-        "url": "https://buy.stripe.com/14A00jf0k3UQh1ifI2d3i16",
+        "price_old": "349 €",
+        "price_current": "315 €",
+        "url": "https://buy.stripe.com/...",
         "is_soldout": false
       }
     ],
     "helper": {
       "title": "Special Participation: HELPER",
-      "desc": "Registration for helpers will open in April 2027.\n\nThe participation fee will range from €150 to €300, depending on how long we will need your help during the festival.\n\nIn exchange for the reduced fee, we expect helpers to support us with the following tasks:\n\nTaking care of the dance floor: cleaning it once a day.\n\nTaking care of the toilets and outdoor areas.\n\nWaste management and dishwashing.\n\nMore details about the tasks and responsibilities will be announced soon!",
-      "status_note": "15 helper spots will be available"
+      "desc": "Join our community in a unique way! This special participation lets you reduce costs by contributing your hands.",
+      "status_note": "10 helper spots available"
     },
     "support": {
       "title": "Support the Festival 🤍",
@@ -265,12 +256,30 @@
     "venue_address": "Weiherburggasse 13, 6020 Innsbruck, Austria",
     "venue_desc": "Located on the slope of the Nordkette mountains just above the old town of Innsbruck, Künstlerhaus Büchsenhausen offers light-flooded studios, wooden sprung floors, and historic Alpine architecture.",
     "venue_photos": [
-      "img/common/venues/buxenhausen_1.jpg"
+      "img/common/venues/buxenhausen_1.jpg",
+      "img/common/venues/Venue.jpg",
+      "img/common/venues/Venue1.jpg",
+      "img/common/venues/Venue2.jpg",
+      "img/common/venues/Venue3.jpg",
+      "img/common/venues/Venue4.jpg",
+      "img/common/venues/Venue5.jpg",
+      "img/common/venues/Venue6.jpg",
+      "img/common/venues/Venue7.jpg"
     ],
     "accommodation_info": "Innsbruck offers a wide range of hostels, apartments, and camp sites. We also coordinate a community hosting network.",
     "food_chef": "Communal Meals by Maya Schwartz",
     "food_desc": "Maya Schwartz prepares fresh, nourishing, 100% vegetarian and vegan meals using organic produce sourced directly from Tirolean farmers.",
-    "food_photos": []
+    "food_photos": [
+      "img/festivals/2026/Maya1.jpg",
+      "img/festivals/2026/Maya2.jpg",
+      "img/festivals/2026/Maya3.jpg",
+      "img/festivals/2026/Maya4.jpg",
+      "img/festivals/2026/Maya5.jpg",
+      "img/festivals/2026/Maya6.jpg",
+      "img/festivals/2026/Maya7.jpg",
+      "img/festivals/2026/Maya8.jpg",
+      "img/festivals/2026/Maya9.jpg"
+    ]
   },
   "team_partners": {
     "team": [
