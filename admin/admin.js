@@ -3266,6 +3266,68 @@ setupFestMultiPhotoField({
     subpath: 'festivals/food'
 });
 
+const FEST_2026_VENUE_PHOTOS = [
+    'img/common/venues/Venue.jpg',
+    'img/common/venues/Venue1.jpg',
+    'img/common/venues/Venue2.jpg',
+    'img/common/venues/Venue3.jpg',
+    'img/common/venues/Venue4.jpg',
+    'img/common/venues/Venue5.jpg',
+    'img/common/venues/Venue6.jpg',
+    'img/common/venues/Venue7.jpg'
+];
+
+const FEST_2026_FOOD_PHOTOS = [
+    'img/festivals/2026/Maya1.jpg',
+    'img/festivals/2026/Maya2.jpg',
+    'img/festivals/2026/Maya3.jpg',
+    'img/festivals/2026/Maya4.jpg',
+    'img/festivals/2026/Maya5.jpg',
+    'img/festivals/2026/Maya6.jpg',
+    'img/festivals/2026/Maya7.jpg',
+    'img/festivals/2026/Maya8.jpg',
+    'img/festivals/2026/Maya9.jpg'
+];
+
+function appendFestPhotoPaths(textareaId, gridId, newPaths) {
+    const textarea = document.getElementById(textareaId);
+    if (!textarea) return;
+    const existing = textarea.value.split(/[\n,]/).map(s => s.trim()).filter(Boolean);
+    newPaths.forEach(p => {
+        if (!existing.includes(p)) existing.push(p);
+    });
+    textarea.value = existing.join('\n');
+    renderFestMultiPhotoGrid(textareaId, gridId);
+}
+
+document.getElementById('festVenueCopy2026Btn')?.addEventListener('click', () => {
+    appendFestPhotoPaths('festVenuePhotos', 'festVenuePhotosGrid', FEST_2026_VENUE_PHOTOS);
+    showToast('Добавлены фото площадки 2026 года (8 фото)');
+});
+
+document.getElementById('festFoodCopy2026Btn')?.addEventListener('click', () => {
+    appendFestPhotoPaths('festFoodPhotos', 'festFoodPhotosGrid', FEST_2026_FOOD_PHOTOS);
+    showToast('Добавлены фото еды 2026 года (9 фото)');
+});
+
+document.getElementById('festVenueFoodCopyAll2026Btn')?.addEventListener('click', async () => {
+    try {
+        const sample = await apiGet('festivals/CITyrolFest2026');
+        const vf = (sample && sample.venue_food) || {};
+        if (vf.venue_name) document.getElementById('festVenueName').value = vf.venue_name;
+        if (vf.venue_address) document.getElementById('festVenueAddress').value = vf.venue_address;
+        if (vf.venue_desc) document.getElementById('festVenueDesc').value = vf.venue_desc;
+        if (vf.accommodation_info) document.getElementById('festAccommodationInfo').value = vf.accommodation_info;
+        if (vf.food_chef) document.getElementById('festFoodChef').value = vf.food_chef;
+        if (vf.food_desc) document.getElementById('festFoodDesc').value = vf.food_desc;
+        appendFestPhotoPaths('festVenuePhotos', 'festVenuePhotosGrid', FEST_2026_VENUE_PHOTOS);
+        appendFestPhotoPaths('festFoodPhotos', 'festFoodPhotosGrid', FEST_2026_FOOD_PHOTOS);
+        showToast('Локация, питание и все фото 2026 года скопированы!');
+    } catch (err) {
+        showToast('Не удалось загрузить данные 2026: ' + err.message, true);
+    }
+});
+
 if (festArchDropzone && festArchFileInput) {
     festArchDropzone.addEventListener('click', () => festArchFileInput.click());
 

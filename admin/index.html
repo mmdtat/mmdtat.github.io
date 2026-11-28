@@ -990,8 +990,9 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
 
                     <!-- TAB 8: VENUE & FOOD -->
                     <div class="fest-subtab-pane" id="pane-fest-venue">
-                        <div class="editor-section-header">
+                        <div class="editor-section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
                             <h4>Локация и залы</h4>
+                            <button type="button" class="btn btn-sm" id="festVenueFoodCopyAll2026Btn">📋 Скопировать локацию и фото с 2026 года</button>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -1010,7 +1011,8 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                         <div class="form-group">
                             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
                                 <label class="form-label" style="margin:0;">Фотографии площадки</label>
-                                <div>
+                                <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                                    <button type="button" class="btn btn-sm" id="festVenueCopy2026Btn">Взять фото площадки 2026</button>
                                     <button type="button" class="btn btn-sm btn-primary" id="festVenueUploadBtn">+ Загрузить фото площадки</button>
                                     <input type="file" id="festVenueFileInput" accept="image/*" multiple style="display:none;">
                                 </div>
@@ -1037,7 +1039,8 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                         <div class="form-group">
                             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
                                 <label class="form-label" style="margin:0;">Фотографии питания / еды</label>
-                                <div>
+                                <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                                    <button type="button" class="btn btn-sm" id="festFoodCopy2026Btn">Взять фото еды 2026</button>
                                     <button type="button" class="btn btn-sm btn-primary" id="festFoodUploadBtn">+ Загрузить фото еды</button>
                                     <input type="file" id="festFoodFileInput" accept="image/*" multiple style="display:none;">
                                 </div>
