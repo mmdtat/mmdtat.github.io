@@ -157,18 +157,20 @@ async function apiGet(name) {
         } catch {}
     }
 
-    // Fallback to static data file or GitHub API
-    try {
-        const staticRes = await fetch(`../data/${name}.json?_t=${Date.now()}`);
-        if (staticRes.ok) return await staticRes.json();
-    } catch {}
-
+    // Prefer live GitHub API when authenticated so we never read stale CDN-cached JSON
     if (window.MMDTGithub && window.MMDTGithub.hasToken()) {
         const gh = await window.MMDTGithub.readFile(`data/${name}.json`);
         if (gh && gh.text) {
             try { return JSON.parse(gh.text); } catch {}
         }
     }
+
+    // Fallback to static data file
+    try {
+        const staticRes = await fetch(`../data/${name}.json?_t=${Date.now()}`, { cache: 'no-store' });
+        if (staticRes.ok) return await staticRes.json();
+    } catch {}
+
     return null;
 }
 
