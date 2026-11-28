@@ -48,28 +48,37 @@
     "intro_text": "A full week of classes, performances, jams, and lectures offered at an affordable price.",
     "passes": [
       {
-        "label": "Full Week Pass · Aug 20–27",
-        "title": "Regular participation:",
+        "label": "Full Week Pass · Aug 13 – 19",
+        "title": "PRE - early bird registration:",
         "desc": "(without accommodation and meals)",
-        "price_old": "399 €",
-        "price_current": "365 €",
-        "url": "https://buy.stripe.com/...",
+        "price_old": "",
+        "price_current": "255 €",
+        "url": "https://buy.stripe.com/00w14n2dyfDy9yQgM6d3i17",
         "is_soldout": false
       },
       {
-        "label": "Half Pass",
-        "title": "Half of the festival regular participation:",
+        "label": "Half Pass - Outdoor (vertical dance)",
+        "title": "Half of the festival \"PRE\":",
         "desc": "(without accommodation and meals)",
-        "price_old": "349 €",
-        "price_current": "315 €",
-        "url": "https://buy.stripe.com/...",
+        "price_old": "",
+        "price_current": "155 €",
+        "url": "https://buy.stripe.com/6oU14ndWg8b69yQbrMd3i15",
+        "is_soldout": false
+      },
+      {
+        "label": "Half Pass - Indoor (4 days Buchsenhausen)",
+        "title": "Half of the festival \"PRE\":",
+        "desc": "(without accommodation and meals)",
+        "price_old": "",
+        "price_current": "185 €",
+        "url": "https://buy.stripe.com/14A00jf0k3UQh1ifI2d3i16",
         "is_soldout": false
       }
     ],
     "helper": {
       "title": "Special Participation: HELPER",
-      "desc": "Join our community in a unique way! This special participation lets you reduce costs by contributing your hands.",
-      "status_note": "10 helper spots available"
+      "desc": "Registration for helpers will open in April 2027.\n\nThe participation fee will range from €150 to €300, depending on how long we will need your help during the festival.\n\nIn exchange for the reduced fee, we expect helpers to support us with the following tasks:\n\nTaking care of the dance floor: cleaning it once a day.\n\nTaking care of the toilets and outdoor areas.\n\nWaste management and dishwashing.\n\nMore details about the tasks and responsibilities will be announced soon!",
+      "status_note": "15 helper spots will be available"
     },
     "support": {
       "title": "Support the Festival 🤍",
