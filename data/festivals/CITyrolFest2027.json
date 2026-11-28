@@ -48,37 +48,28 @@
     "intro_text": "A full week of classes, performances, jams, and lectures offered at an affordable price.",
     "passes": [
       {
-        "label": "Full Week Pass · Aug 13 – 19",
-        "title": "PRE - early bird registration:",
+        "label": "Full Week Pass · Aug 20–27",
+        "title": "Regular participation:",
         "desc": "(without accommodation and meals)",
-        "price_old": "",
-        "price_current": "255 €",
-        "url": "https://buy.stripe.com/00w14n2dyfDy9yQgM6d3i17",
+        "price_old": "399 €",
+        "price_current": "365 €",
+        "url": "https://buy.stripe.com/...",
         "is_soldout": false
       },
       {
-        "label": "Half Pass - Outdoor (vertical dance)",
-        "title": "Half of the festival \"PRE\":",
+        "label": "Half Pass",
+        "title": "Half of the festival regular participation:",
         "desc": "(without accommodation and meals)",
-        "price_old": "",
-        "price_current": "155 €",
-        "url": "https://buy.stripe.com/6oU14ndWg8b69yQbrMd3i15",
-        "is_soldout": false
-      },
-      {
-        "label": "Half Pass - Indoor (4 days Buchsenhausen)",
-        "title": "Half of the festival \"PRE\":",
-        "desc": "(without accommodation and meals)",
-        "price_old": "",
-        "price_current": "185 €",
-        "url": "https://buy.stripe.com/14A00jf0k3UQh1ifI2d3i16",
+        "price_old": "349 €",
+        "price_current": "315 €",
+        "url": "https://buy.stripe.com/...",
         "is_soldout": false
       }
     ],
     "helper": {
       "title": "Special Participation: HELPER",
-      "desc": "Registration for helpers will open in April 2027.\n\nThe participation fee will range from €150 to €300, depending on how long we will need your help during the festival.\n\nIn exchange for the reduced fee, we expect helpers to support us with the following tasks:\n\nTaking care of the dance floor: cleaning it once a day.\n\nTaking care of the toilets and outdoor areas.\n\nWaste management and dishwashing.\n\nMore details about the tasks and responsibilities will be announced soon!",
-      "status_note": "15 helper spots will be available"
+      "desc": "Join our community in a unique way! This special participation lets you reduce costs by contributing your hands.",
+      "status_note": "10 helper spots available"
     },
     "support": {
       "title": "Support the Festival 🤍",
@@ -171,6 +162,23 @@
         }
       ],
       "topic": "​\"The Path\""
+    },
+    {
+      "name": "Marianna Andrigo",
+      "role": "Core Teacher",
+      "photo": "img/festivals/teachers/Marianna_2.jpg",
+      "photo2": "img/festivals/teachers/marianna.jpg",
+      "bio": "Marianna Andrigo is a dancer and performer living in Venice. Her studies on body movement started from ballet bringing her to deepen floor work, release technique, Lìmon technique, theatre, partnering. Her interest is to investigate body in its full potential, both as a skeleton, muscle, blood, weight, and as instrument of imagination and transformation. Durability, real-time composition, relation with sound – space – concept, are investigated for the creation of performative action.\nSince 2010 she realizes performances together with Aldo Aliprandi, performer and sound artist: their oeuvre and artistic research intertwine various performative languages, deepening the relationship between body movement and sound-motion. In their reference landscape, they move between philosophy, theatre, sound and movement experimentation by investigating an aesthetic that falls in love with detail and silence, as well with an entropic dynamic energy moved by emotions as enlightenment in the creative process.\nThey have an important collaboration with Vest&Page (DE-IT).\n\nVertical dance: since 2003, she performs in vertical surfaces and architectures. Between 2003-2009 with venetian company Il Posto. In 2010 she founded Vertical Waves Project, company that produces indoor-outdoor-site-specific performances. For this project Marianna is performer, choreographer, teacher.\n\nShe is co-founder and co-organizer of Live Arts Cultures, cultural association dedicated to performing arts, managing a space, C32 performing art work space since 2012, in Venice Mestre. liveartscultures.org\n\nRelevant vocational training experiences: Academy of Contemporary Dance directed by Ariella Vidach and Rosita Mariani, Milan: 2001-2002; Projects by Operaestate Festival Veneto studying with Ronit Ziv, Sara Wiktorowicz , Iris Erez, Freddie Opoku Addaie: between 2005-2009; European School for dancers and actors directed by Cesare Ronconi-Teatro Valdoca, Cesena: 2006; Workshop with Gabriela Garrizo, Venice Biennale: 2012;  Workshop with Jan Fabre Troublyen Teaching Group: 2018.\n\nRelevant professional experiences: Il posto, vertical dance company: 2003-2009; Teatro Valdoca by Cesare Ronconi/Mariangela Gualtieri: 2003-2008; The migrant body project created by Operaestate Festival Veneto working in Romania, England, Estonia, Netherlands: 2006-2007. She performed for Sonia Brunelli, Teet Kask, Valentina Picco, Aleph company, Ullateatro, Electronicgirls, Eventi Verticali, Collettivo Jennifer Rosa, Teatro Potlach.",
+      "video_url": "https://verticalwavesproject.com/chi-siamo/",
+      "classes": [
+        {
+          "title": "Vertical Dance in the Tyrolean Nature",
+          "label": "Outdoor vertical dance laboratory",
+          "desc": "A somatic exploration of the body in the vertical. Suspended on the rope, we work with weight, orientation and the sensation of moving between earth and air. The class combines improvisation, vertical dance technique and partnering on the wall, always listening to how the body organizes itself when the floor becomes a wall.\n\nLike in 2026, we are planning to hold it outdoors on the rocks of Tyrol or at other outdoor locations, weather permitting. Details are still being finalized.",
+          "video_url": "https://www.youtube.com/watch?v=GRJLxgUjeSo&feature=youtu.be"
+        }
+      ],
+      "topic": "Vertical Dance in the Tyrolean Nature"
     }
   ],
   "performances": [
