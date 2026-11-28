@@ -1008,8 +1008,15 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                             <textarea class="form-control" id="festVenueDesc" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Фотографии площадки (пути к изображениям через запятую или перевод строки)</label>
-                            <textarea class="form-control" id="festVenuePhotos" rows="2" placeholder="img/festivals/2026/venue/buchsenhausen.jpg"></textarea>
+                            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+                                <label class="form-label" style="margin:0;">Фотографии площадки</label>
+                                <div>
+                                    <button type="button" class="btn btn-sm btn-primary" id="festVenueUploadBtn">+ Загрузить фото площадки</button>
+                                    <input type="file" id="festVenueFileInput" accept="image/*" multiple style="display:none;">
+                                </div>
+                            </div>
+                            <div id="festVenuePhotosGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(96px, 1fr)); gap:8px; margin-bottom:8px;"></div>
+                            <textarea class="form-control" id="festVenuePhotos" rows="2" placeholder="img/common/venues/buxenhausen_1.jpg"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Советы по проживанию (Accommodation Guidance)</label>
@@ -1026,6 +1033,17 @@ Shared meals and informal gatherings in the heart of the Tirol mountains."></tex
                         <div class="form-group">
                             <label class="form-label">Описание питания (вегетарианское меню, местные продукты)</label>
                             <textarea class="form-control" id="festFoodDesc" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+                                <label class="form-label" style="margin:0;">Фотографии питания / еды</label>
+                                <div>
+                                    <button type="button" class="btn btn-sm btn-primary" id="festFoodUploadBtn">+ Загрузить фото еды</button>
+                                    <input type="file" id="festFoodFileInput" accept="image/*" multiple style="display:none;">
+                                </div>
+                            </div>
+                            <div id="festFoodPhotosGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(96px, 1fr)); gap:8px; margin-bottom:8px;"></div>
+                            <textarea class="form-control" id="festFoodPhotos" rows="2" placeholder="img/festivals/food/dish1.jpg"></textarea>
                         </div>
                     </div>
 

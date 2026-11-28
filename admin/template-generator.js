@@ -1220,9 +1220,12 @@ ${galleryTabHtml}
             </div>`;
         }
 
-        // Venue Photos Grid
+        // Venue & Food Photos Grid
         const venuePhotosHtml = (vf.venue_photos || []).map(p => `
             <img src="${this.formatPageImgUrl(p, 0)}" alt="Venue photo" loading="lazy" onclick="openFestLightbox(this.src)">
+        `).join('');
+        const foodPhotosHtml = (vf.food_photos || []).map(p => `
+            <img src="${this.formatPageImgUrl(p, 0)}" alt="Food photo" loading="lazy" onclick="openFestLightbox(this.src)">
         `).join('');
 
         // Team HTML
@@ -1522,11 +1525,15 @@ ${galleryTabHtml}
                 <p>${vf.accommodation_info.replace(/\n\n/g, '<br><br>')}</p>
             </div>` : ''}
 
-            ${vf.food_chef || vf.food_desc ? `
+            ${vf.food_chef || vf.food_desc || foodPhotosHtml ? `
             <div style="border-top: 1px solid var(--border); padding-top: 36px;">
                 <span class="section-tag">Nourishment</span>
                 <h3 style="margin-bottom: 12px;">${vf.food_chef || 'Communal Meals'}</h3>
                 ${vf.food_desc ? `<p style="max-width: 820px; font-size: 1.05rem; line-height: 1.7;">${vf.food_desc.replace(/\n\n/g, '<br><br>')}</p>` : ''}
+                ${foodPhotosHtml ? `
+                <div class="fest-gallery-grid" style="margin-top: 24px;">
+                    ${foodPhotosHtml}
+                </div>` : ''}
             </div>` : ''}
         </div>` : ''}
 

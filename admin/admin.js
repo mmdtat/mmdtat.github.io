@@ -2624,9 +2624,12 @@ function populateFestivalForm(f) {
     document.getElementById('festVenueAddress').value = vf.venue_address || '';
     document.getElementById('festVenueDesc').value = vf.venue_desc || '';
     document.getElementById('festVenuePhotos').value = (vf.venue_photos || []).join('\n');
+    renderFestMultiPhotoGrid('festVenuePhotos', 'festVenuePhotosGrid');
     document.getElementById('festAccommodationInfo').value = vf.accommodation_info || '';
     document.getElementById('festFoodChef').value = vf.food_chef || '';
     document.getElementById('festFoodDesc').value = vf.food_desc || '';
+    document.getElementById('festFoodPhotos').value = (vf.food_photos || []).join('\n');
+    renderFestMultiPhotoGrid('festFoodPhotos', 'festFoodPhotosGrid');
 
     // Team & Partners
     const tp = f.team_partners || {};
@@ -3174,6 +3177,89 @@ if (festArchUploadBtn && festArchFileInput) {
     });
 }
 
+const festPhotoPreviewCache = {};
+
+function renderFestMultiPhotoGrid(textareaId, gridId) {
+    const textarea = document.getElementById(textareaId);
+    const grid = document.getElementById(gridId);
+    if (!textarea || !grid) return;
+
+    const paths = textarea.value.split(/[\n,]/).map(s => s.trim()).filter(Boolean);
+    grid.innerHTML = '';
+    paths.forEach((p, idx) => {
+        const previewSrc = festPhotoPreviewCache[p] || resolveAdminPreviewUrl(p);
+        const item = document.createElement('div');
+        item.style.cssText = 'position:relative; width:96px; height:72px; border-radius:6px; overflow:hidden; border:1px solid var(--border); background:#f9fafb;';
+        item.innerHTML = `
+            <img src="${escapeHtml(previewSrc)}" alt="" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <button type="button" title="Удалить фото" style="position:absolute; top:3px; right:3px; width:20px; height:20px; border-radius:50%; border:none; background:rgba(0,0,0,0.65); color:#fff; font-size:13px; line-height:1; cursor:pointer;">&times;</button>
+        `;
+        item.querySelector('button').addEventListener('click', () => {
+            const next = paths.filter((_, i) => i !== idx);
+            textarea.value = next.join('\n');
+            renderFestMultiPhotoGrid(textareaId, gridId);
+        });
+        grid.appendChild(item);
+    });
+}
+
+function setupFestMultiPhotoField({ textareaId, gridId, uploadBtnId, fileInputId, subpath }) {
+    const textarea = document.getElementById(textareaId);
+    const uploadBtn = document.getElementById(uploadBtnId);
+    const fileInput = document.getElementById(fileInputId);
+    if (!textarea || !uploadBtn || !fileInput) return;
+
+    textarea.addEventListener('input', () => renderFestMultiPhotoGrid(textareaId, gridId));
+    uploadBtn.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', async function() {
+        if (!this.files || !this.files.length) return;
+        const files = Array.from(this.files);
+        try {
+            const existing = textarea.value.split(/[\n,]/).map(s => s.trim()).filter(Boolean);
+            for (const file of files) {
+                const compressed = await window.MMDTCompressor.compressImage(file, 1920, 0.84);
+                const baseName = file.name.replace(/\.[^/.]+$/, '').trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_-]/g, '') || 'photo';
+                const filename = `${baseName}.jpg`;
+                const cleanPath = `img/${subpath}/${filename}`;
+
+                festPhotoPreviewCache[cleanPath] = compressed.dataUrl;
+                pendingImageBlobs.push({ path: cleanPath, content: compressed.base64, isBase64: true });
+                if (isLocalServerRunning) {
+                    const fd = new FormData();
+                    fd.append('file', compressed.blob, filename);
+                    fd.append('filename', filename);
+                    fd.append('subpath', subpath);
+                    fd.append('is_cover', 'false');
+                    await fetch('/api/upload', { method: 'POST', body: fd });
+                }
+                if (!existing.includes(cleanPath)) existing.push(cleanPath);
+            }
+            textarea.value = existing.join('\n');
+            renderFestMultiPhotoGrid(textareaId, gridId);
+            showToast(`Загружено фото: ${files.length}`);
+        } catch (err) {
+            showToast('Ошибка загрузки фото: ' + err.message, true);
+        } finally {
+            this.value = '';
+        }
+    });
+}
+
+setupFestMultiPhotoField({
+    textareaId: 'festVenuePhotos',
+    gridId: 'festVenuePhotosGrid',
+    uploadBtnId: 'festVenueUploadBtn',
+    fileInputId: 'festVenueFileInput',
+    subpath: 'festivals/venues'
+});
+setupFestMultiPhotoField({
+    textareaId: 'festFoodPhotos',
+    gridId: 'festFoodPhotosGrid',
+    uploadBtnId: 'festFoodUploadBtn',
+    fileInputId: 'festFoodFileInput',
+    subpath: 'festivals/food'
+});
+
 if (festArchDropzone && festArchFileInput) {
     festArchDropzone.addEventListener('click', () => festArchFileInput.click());
 
@@ -3421,6 +3507,7 @@ if (festivalModalForm) {
 
         const foodChef = document.getElementById('festFoodChef').value.trim();
         const foodDesc = document.getElementById('festFoodDesc').value.trim();
+        const foodPhotos = document.getElementById('festFoodPhotos')?.value.split(/[\n,]/).map(s => s.trim()).filter(Boolean) || [];
 
         // Team & Partners
         const team = [];
@@ -3514,7 +3601,7 @@ if (festivalModalForm) {
                 accommodation_info: accommodationInfo,
                 food_chef: foodChef,
                 food_desc: foodDesc,
-                food_photos: []
+                food_photos: foodPhotos
             },
             team_partners: {
                 team,
