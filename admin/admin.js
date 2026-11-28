@@ -2353,21 +2353,21 @@ function addFestMusicianRow(musician = {}) {
     card.className = 'repeater-card';
     card.innerHTML = `
         <div class="repeater-card-header">
-            <span class="repeater-card-title">${escapeHtml(musician.name || 'Новый музыкант')}</span>
+            <span class="repeater-card-title">${escapeHtml(musician.name || 'Новый участник')}</span>
             <button type="button" class="btn btn-sm btn-danger btn-remove-row">Удалить</button>
         </div>
         <div class="form-row">
             <div class="form-group">
-                <label class="form-label">Имя музыканта / проекта *</label>
+                <label class="form-label">Имя участника / музыканта *</label>
                 <input type="text" class="form-control musician-name" value="${escapeHtml(musician.name || '')}" placeholder="Dima Bondarev">
             </div>
             <div class="form-group">
-                <label class="form-label">Инструмент / Роль</label>
-                <input type="text" class="form-control musician-role" value="${escapeHtml(musician.role || '')}" placeholder="Trumpet & Live Electronics">
+                <label class="form-label">Категория / Роль / Инструмент</label>
+                <input type="text" class="form-control musician-role" value="${escapeHtml(musician.role || '')}" placeholder="Main musician / Support to artists living in War">
             </div>
         </div>
         <div class="form-group">
-            <label class="form-label">Фото музыканта (URL или Загрузить)</label>
+            <label class="form-label">Фото (URL или Загрузить)</label>
             <div style="display:flex; gap:8px;">
                 <input type="text" class="form-control musician-photo" value="${escapeHtml(musician.photo || '')}" placeholder="img/festivals/2026/Bondarev.jpg">
                 <button type="button" class="btn btn-sm btn-upload-musician-photo">Загрузить</button>
@@ -2375,7 +2375,7 @@ function addFestMusicianRow(musician = {}) {
         </div>
         <div class="form-group">
             <label class="form-label">Краткая биография</label>
-            <textarea class="form-control musician-bio" rows="2" placeholder="О музыканте...">${escapeHtml(musician.bio || '')}</textarea>
+            <textarea class="form-control musician-bio" rows="2" placeholder="Об участнике...">${escapeHtml(musician.bio || '')}</textarea>
         </div>
     `;
     card.querySelector('.btn-remove-row').addEventListener('click', () => card.remove());
