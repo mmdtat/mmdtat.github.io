@@ -1586,12 +1586,6 @@ ${galleryTabHtml}
 
     </main>
 
-    <!-- Lightbox Modal -->
-    <div class="fest-lightbox-modal" id="festLightbox" onclick="closeFestLightbox(event)">
-        <span class="fest-lightbox-close" onclick="closeFestLightbox(event)">&times;</span>
-        <img class="fest-lightbox-img" id="festLightboxImg" src="" alt="Enlarged view">
-    </div>
-
     <footer>
         <div class="footer">
             <div class="footer_element">
