@@ -150,6 +150,12 @@ async function updateAuthBadge() {
 
 // Unified API GET
 async function apiGet(name) {
+    const cleanJsonPath = name.endsWith('.json') ? `data/${name}` : `data/${name}.json`;
+    const pending = Array.isArray(pendingImageBlobs) ? pendingImageBlobs.find(b => b.path === cleanJsonPath && !b.isBase64) : null;
+    if (pending && pending.content) {
+        try { return JSON.parse(pending.content); } catch {}
+    }
+
     if (isLocalServerRunning) {
         try {
             const res = await fetch(`/api/data?file=${name}`);
