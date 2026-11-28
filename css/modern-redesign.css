@@ -3138,3 +3138,6 @@ hr {
     letter-spacing: 0.04em;
     opacity: 0.85;
 }
+
+/* Safeguard: hide legacy hardcoded lightbox container */
+.fest-lightbox-modal { display: none !important; }
