@@ -1102,10 +1102,7 @@ ${galleryTabHtml}
                             ${c.label ? `<span class="manifesto-label">${c.label}</span>` : ''}
                             ${c.title ? `<h3 style="margin: 6px 0 12px; font-size: 1.15rem; color: var(--text-main); font-weight: 600;">${c.title}</h3>` : ''}
                             ${c.desc ? `<p style="font-size: 0.98rem; line-height: 1.65; color: var(--text-main);">${(c.desc || '').replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')}</p>` : ''}
-                            ${c.video_url ? `
-                            <div class="video-responsive-frame" style="margin-top: 16px;">
-                                <iframe src="${c.video_url}" title="${c.title || t.name}" loading="lazy" allowfullscreen></iframe>
-                            </div>` : ''}
+                            ${c.video_url ? this.renderFestivalMediaEmbed(c.video_url, c.title || t.name, '16px') : ''}
                         </div>`).join('');
 
             return `
@@ -1118,10 +1115,7 @@ ${galleryTabHtml}
                         ${t.role ? `<span class="section-tag" style="margin-bottom: 6px;">${t.role}</span>` : ''}
                         <h2>${t.name}</h2>
                         ${t.bio ? `<div style="margin-top: 10px; font-size: 0.98rem; line-height: 1.65; color: var(--text-main);">${(t.bio || '').replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')}</div>` : ''}
-                        ${t.video_url && (!classesList.length || !classesList.some(c => c.video_url === t.video_url)) ? `
-                        <div class="video-responsive-frame" style="margin-top: 20px;">
-                            <iframe src="${t.video_url}" title="${t.name}" loading="lazy" allowfullscreen></iframe>
-                        </div>` : ''}
+                        ${t.video_url && (!classesList.length || !classesList.some(c => c.video_url === t.video_url)) ? this.renderFestivalMediaEmbed(t.video_url, t.name, '20px') : ''}
                         ${classesRendered}
                     </div>
                 </div>`;
@@ -1141,10 +1135,7 @@ ${galleryTabHtml}
                         <h2>${pf.title}</h2>
                         ${pf.venue || pf.artists ? `<p style="font-weight: 500; color: var(--text-meta); margin-bottom: 12px;">${pf.venue ? `<strong>Venue:</strong> ${pf.venue}` : ''}${pf.venue && pf.artists ? ' &middot; ' : ''}${pf.artists ? `<strong>Artists:</strong> ${pf.artists}` : ''}</p>` : ''}
                         <p>${(pf.desc || '').replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')}</p>
-                        ${pf.video_url ? `
-                        <div class="video-responsive-frame" style="margin-top: 20px;">
-                            <iframe src="${pf.video_url}" title="${pf.title}" loading="lazy" allowfullscreen></iframe>
-                        </div>` : ''}
+                        ${pf.video_url ? this.renderFestivalMediaEmbed(pf.video_url, pf.title, '20px') : ''}
                         ${pf.ticket_info ? `<p style="margin-top: 14px; font-size: 0.9rem; color: var(--text-meta);"><em>${pf.ticket_info}</em></p>` : ''}
                         ${perfPhotos.length > 0 ? `
                         <div class="fest-gallery-grid" style="margin-top: 20px;">
@@ -1263,10 +1254,7 @@ ${galleryTabHtml}
         }).join('');
 
         // Archive Videos & Photos HTML
-        const archVideosHtml = archVideos.map(v => `
-                <div class="video-responsive-frame">
-                    <iframe src="${v}" title="Festival Archive Video" loading="lazy" allowfullscreen></iframe>
-                </div>`).join('');
+        const archVideosHtml = archVideos.map(v => this.renderFestivalMediaEmbed(v, 'Festival Archive Video', '')).join('');
 
         const archPhotosHtml = archPhotos.map(p => `
                 <img src="${this.formatPageImgUrl(p, 0)}" alt="Festival Archive" loading="lazy" onclick="openFestLightbox(this.src)">`).join('');
@@ -2039,6 +2027,34 @@ ${tiersHtml}
         }
 
         return updated;
+    },
+
+    renderFestivalMediaEmbed: function(rawUrl, title = 'Video', marginTop = '16px') {
+        const clean = (rawUrl || '').trim();
+        if (!clean) return '';
+        const normalized = this.normalizeShopVideoUrl(clean);
+        const lower = normalized.toLowerCase();
+        const isVideoFile = /\.(mp4|webm|mov)(\?.*)?$/i.test(lower);
+        const isEmbedVideo = lower.includes('youtube.com/embed/') || lower.includes('player.vimeo.com/video/') || lower.includes('dailymotion.com/embed') || lower.includes('drive.google.com/');
+        const safeTitle = String(title || 'Video').replace(/"/g, '&quot;');
+
+        if (isVideoFile) {
+            return `
+                            <div class="video-responsive-frame"${marginTop ? ` style="margin-top: ${marginTop};"` : ''}>
+                                <video src="${this.formatPageImgUrl(normalized, 0)}" controls playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;"></video>
+                            </div>`;
+        }
+        if (isEmbedVideo) {
+            return `
+                            <div class="video-responsive-frame"${marginTop ? ` style="margin-top: ${marginTop};"` : ''}>
+                                <iframe src="${normalized}" title="${safeTitle}" loading="lazy" allowfullscreen></iframe>
+                            </div>`;
+        }
+        const href = /^https?:\/\//i.test(clean) ? clean : `https://${clean}`;
+        return `
+                            <p style="margin-top: ${marginTop || '12px'};">
+                                <a href="${href}" target="_blank" rel="noopener noreferrer" class="btn-outline" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border:1px solid var(--border); border-radius:4px; text-decoration:none; font-size:0.9rem;">${clean} &rarr;</a>
+                            </p>`;
     },
 
     normalizeShopVideoUrl: function(url) {

@@ -2774,7 +2774,7 @@ function openAddFestival() {
             venue_name: 'Künstlerhaus Büchsenhausen',
             venue_address: 'Weiherburggasse 13, 6020 Innsbruck, Austria',
             venue_desc: 'Located on the slope of the Nordkette mountains just above the old town of Innsbruck, Künstlerhaus Büchsenhausen offers light-flooded studios, wooden sprung floors, and historic Alpine architecture.',
-            venue_photos: ['img/festivals/2026/buchsenhausen.jpg'],
+            venue_photos: ['img/common/venues/buxenhausen_1.jpg'],
             accommodation_info: 'Innsbruck offers a wide range of hostels, apartments, and camp sites. We also coordinate a community hosting network.',
             food_chef: 'Communal Meals by Maya Schwartz',
             food_desc: 'Maya Schwartz prepares fresh, nourishing, 100% vegetarian and vegan meals using organic produce sourced directly from Tirolean farmers.'
@@ -2784,7 +2784,7 @@ function openAddFestival() {
                 {
                     name: 'Tamara Maksymenko',
                     role: 'Artistic Director & Project Lead',
-                    photo: 'img/team/tamara.jpg',
+                    photo: 'img/common/people/Tamara_1.jpg',
                     bio: 'Founder of Motion Mode of Dialogue in Tirol, choreographer, and somatic educator.'
                 }
             ],
