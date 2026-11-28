@@ -216,7 +216,14 @@
       "ticket_info": "Free entrance for participants of the festival. Contribution fee for others from 10 euros."
     }
   ],
-  "musicians": [],
+  "musicians": [
+    {
+      "name": "Aldo Aliprandi",
+      "role": "works with sound",
+      "photo": "img/festivals/Aliprandi_3.jpg",
+      "bio": "Aldo Aliprandi is an artist and exhibition designer based near Venice. Trained in philosophy at Ca' Foscari University, he has worked in theatre and dance since the 1990s, with a special attention to space as a site-specific, living element of the work. He is the founder of C32, a performing arts space at Forte Marghera in Venice-Mestre, and since 2014 co-curates the music and performance programme of the association Live Arts Cultures.\n\nIn 2010 he co-founded the vertical dance company Vertical Waves Project with choreographer and dancer Marianna Andrigo, where he is co-creator, technician and responsible for safety. He is also a performer in sound and choreographic experimentation, moving freely between music, installation, video, lighting and set design.\n\nКороткая версия для сайта:\n\nAldo Aliprandi is an artist, performer and technician from Venice. Co-founder of the vertical dance company Vertical Waves Project and of the performing arts space C32 at Forte Marghera, he works with sound, space and live performance, and is responsible for safety in vertical dance productions."
+    }
+  ],
   "program": {
     "intro": "The festival week follows an organic flow balancing rigorous physical morning labs, communal midday nourishment, contemplative afternoon dialogues, and evening jams accompanied by live musicians.",
     "google_sheets_url": "https://docs.google.com/spreadsheets/d/1QJhabt-l8I4AHXG5AyxBUXtEmwqu2ywjLb2lh7luzNE/edit?gid=0#gid=0",
